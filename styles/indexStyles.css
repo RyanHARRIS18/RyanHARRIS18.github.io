@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Rock+Salt');
-@import url('https://fonts.googleapis.com/css?family=Overlock');
-@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');
 body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  font-family: 'Big Shoulders Display', cursive;
 }
 
 #content {
@@ -12,6 +10,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 100px 100px 100px;
+  margin-top: 5em;
 }
 
 h1 {

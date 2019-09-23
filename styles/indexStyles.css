@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
 body {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   font-family: 'Big Shoulders Display', cursive;
@@ -21,6 +22,7 @@ h1 {
   grid-row: 1/2;
   padding: 10px;
   border-radius: 15px;
+  font-family: 'Bangers', cursive;
 }
 
 h2 {

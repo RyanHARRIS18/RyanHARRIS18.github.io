@@ -55,7 +55,7 @@
 
   #virgin-airlines-div {
     margin: 3em;
-    margin-top: -5em;
+    margin-top: 2em;
     grid-column: 1/5;
     grid-row: 1/2;
     box-shadow: 5px 20px #888888;
@@ -75,7 +75,7 @@
 
   #boosted {
     margin: 3em;
-    margin-top: 6em;
+    margin-top: 9em;
     grid-column: 9/14;
     grid-row: 1/2;
     box-shadow: 5px 20px #888888;

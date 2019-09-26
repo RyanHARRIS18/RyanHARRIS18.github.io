@@ -1,4 +1,4 @@
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 70em) {
   body {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     font-family: 'Big Shoulders Display', cursive;
@@ -55,7 +55,7 @@
   }
 
   #virgin-airlines-div {
-    margin-top: 2em;
+    margin-top: 8em;
     grid-column: 1/7;
     grid-row: 1/2;
     box-shadow: 5px 20px #888888;
@@ -65,6 +65,7 @@
   }
 
   #rolling-stones-div {
+    margin-top: 3em;
     grid-column: 7/13;
     grid-row: 1/2;
     box-shadow: 5px 2s0px #888888;

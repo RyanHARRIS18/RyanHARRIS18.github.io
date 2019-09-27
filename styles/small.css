@@ -95,7 +95,7 @@ nav a:hover {
 }
 
 
-footer {
+#footer {
   align-items: center;
   display: grid;
   background-color: maroon;

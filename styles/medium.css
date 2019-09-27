@@ -1,4 +1,4 @@
-@media only screen and (min-width: 32.5em) {
+@media only screen and (min-width: 40em) {
     body {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       font-family: 'Big Shoulders Display', cursive;
@@ -15,7 +15,7 @@
     
     h1 {
       color: white;
-      font-size: 180%;
+      font-size: 160%;
       grid-column: 2/5;
       background-color: maroon;
       grid-row: 1/2;
@@ -26,7 +26,7 @@
     
     h2 {
       color: black;
-      font-size: 150%;
+      font-size: 140%;
       grid-column: 2/4;
       text-align: center;
       grid-row: 2/3;
@@ -86,12 +86,12 @@
     
     li {
       /*   Display: inline-block; */
-      font-size: 135%;
+      font-size: 110%;
     }
     
     
     footer {
-      align-items: center;
+      align-items: left;
       display: grid;
       background-color: maroon;
       grid-column: 2/5;

@@ -18,7 +18,7 @@
   }
 
   h1 {
-    font-size: 900%;
+    font-size: 600%;
     text-decoration: overline;
     margin-left: 0.5em;
   }
@@ -38,9 +38,9 @@
 
 
   .mobile-photos {
-    width: 85%;
+    width: 90%;
     text-align: match-parent;
-    margin-left: 1.75em;
+    margin-left: 2em;
   }
 
   .desktop-photos {
@@ -65,22 +65,28 @@
   }
 
   #rolling-stones-div {
-    margin-top: 3em;
     grid-column: 7/13;
     grid-row: 1/2;
-    box-shadow: 5px 2s0px #888888;
+    box-shadow: 5px 20px #888888;
     border: 5px solid black;
     background-color: white;
-    padding: 2em;
   }
 
   #boosted {
-    margin-top: 3em;
     grid-column: 3/10;
     grid-row: 2/3;
     box-shadow: 5px 20px #888888;
     border: 5px solid black;
     background-color: white;
+  }
+
+  #boosted-desktop{
+    margin: 1em;
+    width: 90%;
+  }
+
+  #bd{
+    margin: 1em;
   }
 
   footer {

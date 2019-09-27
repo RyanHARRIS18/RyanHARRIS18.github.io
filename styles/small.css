@@ -14,7 +14,7 @@ body {
 }
 
 h1 {
-  color: white;
+  color: black;
   font-size: 180%;
   grid-column: 3/7;
   background-color:  rgb(135, 202, 202);
@@ -23,6 +23,7 @@ h1 {
   border-radius: 15px;
   font-family: 'Bangers', cursive;
   text-align: center;
+  text-shadow: black;
 }
 
 #personal-img {
@@ -31,6 +32,7 @@ h1 {
   width: 100%;
   z-index: -1;
   margin-top: -10px;
+  /* padding: 2em; */
 }
 
 
@@ -54,7 +56,7 @@ li {
 
 p {
   margin: 1px;
-  color: white;
+  color: black;
   border: 1px;
   padding: 10px;
   width: 80%;
@@ -74,7 +76,7 @@ nav ul {
 
 nav {
   margin-top: 1em;
-  color: maroon;
+  color: rgb(135, 202, 202);
   grid-column: 3/7;
   grid-row: 4/5;
   margin-top: -2em;
@@ -95,10 +97,11 @@ nav a:hover {
 }
 
 
-#footer {
+footer {
   align-items: center;
   display: grid;
-  background-color:  rgb(135, 202, 202);
+  background-color:rgb(135, 202, 202);
   grid-column: 3/7;
   grid-row: 5/6;
 }
+

@@ -1,4 +1,4 @@
-    body s{
+    body {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       font-family: 'Big Shoulders Display', cursive;
       background-color: white;
@@ -84,11 +84,6 @@
       box-shadow: 5px 20px #888888;
       border: 5px solid black;
       background-color: white;
-    }
-
-    #boosted-desktop{
-      padding: 1em;
-      width: 90%;
     }
 
     #bd{

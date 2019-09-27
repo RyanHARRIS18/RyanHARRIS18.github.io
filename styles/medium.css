@@ -15,9 +15,9 @@
     
     h1 {
       color: white;
-      font-size: 160%;
+      font-size: 200%;
       grid-column: 2/5;
-      background-color: maroon;
+      background-color:  rgb(135, 202, 202);
       grid-row: 1/2;
       padding: 10px;
       border-radius: 15px;
@@ -66,7 +66,7 @@
     }
     
     nav {
-      color: maroon;
+      color:  rgb(135, 202, 202);
       grid-column: 2/4;
       grid-row: 3/4;
       margin-top: -4em;
@@ -78,7 +78,7 @@
     
     nav a:hover {
       color: black;
-      background: maroon;
+      background:  rgb(135, 202, 202);
       border-radius: 10px;
       padding: 5px;
     
@@ -93,7 +93,7 @@
     footer {
       align-items: left;
       display: grid;
-      background-color: maroon;
+      background-color:  rgb(135, 202, 202);
       grid-column: 2/5;
       grid-row: 4/5;
     }

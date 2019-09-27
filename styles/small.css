@@ -17,7 +17,7 @@ h1 {
   color: white;
   font-size: 180%;
   grid-column: 3/7;
-  background-color: maroon;
+  background-color:  rgb(135, 202, 202);
   grid-row: 1/2;
   padding: 10px;
   border-radius: 15px;
@@ -88,7 +88,7 @@ nav a {
 
 nav a:hover {
   color:black;
-  background: maroon;
+  background:  rgb(135, 202, 202);
   border-radius: 5px;
   padding: 5px;
 
@@ -98,7 +98,7 @@ nav a:hover {
 #footer {
   align-items: center;
   display: grid;
-  background-color: maroon;
+  background-color:  rgb(135, 202, 202);
   grid-column: 3/7;
   grid-row: 5/6;
 }

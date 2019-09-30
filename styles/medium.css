@@ -15,7 +15,7 @@
     
     h1 {
       color: black;
-      font-size: 200%;
+      font-size: 300%;
       grid-column: 2/5;
       background-color:  rgb(135, 202, 202);
       grid-row: 1/2;

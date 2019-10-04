@@ -217,11 +217,13 @@
       background-color:  rgb(55, 125, 190);
       margin-left: 2em;
       margin-right: 2em;
+      text-align: center;
     }
 
     #nav-sample-text{
       text-align: center;
       list-style: none;
+      text-align: center;
     }
 
     .typography-chart-h1 {

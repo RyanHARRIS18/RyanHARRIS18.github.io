@@ -1,0 +1,311 @@
+
+@media only screen and (min-width: 10em) {
+
+   body{
+     min-width: 525px;
+   }
+
+  .navigation-header {
+   align-items: center;
+   margin-top: 1em;
+ } 
+
+ 
+ 
+
+ #Weather-banner{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
+ }
+
+ 
+
+  h1 {
+   color: rgb(55, 125, 190);
+   font-size: 30px;
+   border-radius: 5px;
+   border: 5px solid  rgb(55, 125, 190);
+   margin-bottom: 1em;
+   font-family: 'Diplomata SC', cursive;
+   z-index: 2;
+   text-align: center;
+   margin-top: 1em;
+   background: rgb(255, 206, 99);
+   padding: 1em;
+   margin-right: 2em;
+   margin-left: 2em;
+ }
+
+ h2{
+   color: rgb(255, 206, 99);;
+   font-size: 18px;
+   border-radius: 5px;
+   border: 5px solid  rgb(255, 206, 99);
+   font-family: 'Diplomata SC', cursive;
+   text-align: center;
+   margin-top: 0em;
+   background: rgb(55, 125, 190);
+ }
+
+ h3{
+   color: rgb(55, 125, 190);
+   font-size: 25px;
+   border-radius: 5px;
+   /* border-bottom: 5px solid  rgb(55, 125, 190); */
+   margin-bottom: 1em;
+   font-family: 'Merriweather Sans', cursive;
+   margin-top: -0.5em;
+   text-shadow: 2px 2px black;
+   text-align: center;
+ }
+
+ h4{
+   color: rgb(255, 206, 99);;
+   font-size: 25px;
+   border-radius: 5px;
+   /* border-bottom: 5px solid  rgb(255, 206, 99); */
+   font-family: 'Merriweather Sans', cursive;
+   z-index: 2;
+   text-align: center;
+   margin-left:2em;
+   margin-right: 2em;
+   text-shadow: 2px 2px black;
+ }
+    
+ 
+ .footer-text {
+   margin: 1px;
+   color: rgb(255, 206, 99);;
+   border: 1px;
+   padding: 10px;
+   width: 100%;
+   font-size: 22px;
+   text-align: center;
+ }
+
+ nav {
+   color:  rgb(135, 202, 202);
+   margin-top: -4em;
+       
+ }
+
+ nav a {
+   color: black;
+   font-size: 100%;
+   
+ }
+
+ nav a:hover {
+   color: black;
+   background: rgb(255, 206, 99);
+   border-radius: 10px;
+   padding: 5px;
+ }
+
+ nav {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+   grid-template-rows: 1fr;
+ }
+ 
+ .Weather-Logo{
+   display: grid;
+   grid-column: 2/3;
+   grid-row: 1/2;
+   z-index: 1;
+   width: 100%;
+   margin-top: 2.5em;
+   margin-left: 4em;
+ }
+  
+ .navigation-links{
+   display: grid;
+   grid-column: 2/5;
+    grid-row: 1/2;
+ }
+
+
+  ul {
+    /* border: 3px solid black; */
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   
+   
+ }
+
+ .navigation-list-1, .navigation-list-2, .navigation-list-3, .navigation-list-4{
+   margin-left: 2em;
+   margin-top: 4em;
+ }
+
+
+ li {
+   font-family: 'Merriweather Sans', sans-serif;
+   font-size: 15px;
+   text-align: center;
+ }
+ 
+ 
+ footer {
+   align-items: left;
+   background-color:  rgb(55, 125, 190);
+   margin-left: 7em;
+   margin-right: 7em;
+ }
+
+ p{
+   color:black;
+   text-align: center;
+   font-family: 'Merriweather Sans', sans-serif;
+   font-size: 15px;
+   margin: 2em;
+ }
+
+ main{
+  margin-left: 1em;
+  margin-right: 1em;
+ }
+
+ .domain-name{
+   text-decoration: none;
+   font-size: 175%;
+   text-align: center;
+ }
+
+ .container-1, .container-2, .container-3, .container-4, .container-5, .container-6, .container-7, .container-8{
+   display: flex;
+   align-items: left;
+   padding-top: 1em;
+   padding-right: 1em;
+ }
+
+ .box-1, .box-2, .box-3, .box-4{
+   flex:1;
+ }
+
+ .box-5{
+   flex:2;
+ }
+
+ .typography-chart{
+   color: rgb(55, 125, 190);
+   font-size: 10px;
+   border-radius: 5px;
+   margin-bottom: 1em;
+   font-family: 'Merriweather Sans', cursive;
+   z-index: 2;
+   text-align: center;
+   margin-left:2em;
+   margin-right: 2em;
+   margin-top: -1em;
+   text-shadow: none;
+   border-bottom: none;
+ }
+
+ .typography-chart-footer-nav{
+   margin: 1px;
+   color: rgb(255, 206, 99);
+   border: 1px;
+   width: 20px;
+   font-size: 20px;
+   text-align: center;
+   text-decoration: none;
+   text-shadow: none;
+   background-color:  rgb(55, 125, 190);
+   padding-left: 1em;
+   padding-right: 3em;
+   margin-left: 2em;
+ }
+
+
+ .typography-chart-h1 {
+   color: rgb(55, 125, 190);
+   font-size: 15px;
+   border-radius: 5px;
+   border: 5px solid  rgb(55, 125, 190);
+   margin-bottom: 1em;
+   font-family: 'Diplomata SC', cursive;
+   z-index: 2;
+   text-align: center;
+   margin-top: 0em;
+   background: rgb(255, 206, 99);
+   margin: 2em;
+   /* margin-left:2em;
+   margin-right: 2em; */
+ }
+
+ .typography-chart-h2{
+   color: rgb(255, 206, 99);;
+   font-size: 120%;
+   border-radius: 5px;
+   border: 5px solid  rgb(255, 206, 99);
+   font-family: 'Diplomata SC', cursive;
+   z-index: 2;
+   text-align: center;
+   margin-top: 0em;
+   background: rgb(55, 125, 190);
+   margin-left:2em;
+   margin-right: 2em;
+ }
+
+ .typography-chart-h3{
+   color: rgb(55, 125, 190);
+   font-size: 25px;
+   border-radius: 5px;
+   border-bottom: 5px solid  rgb(55, 125, 190);
+   margin-bottom: 1em;
+   font-family: 'Merriweather Sans', cursive;
+   z-index: 2;
+   text-align: center;
+   margin-left:2em;
+   margin-right: 2em;
+   margin-top: -0.5em;
+   text-shadow: 2px 2px black;
+ }
+
+ .typography-chart-h4{
+   color: rgb(255, 206, 99);;
+   font-size: 25px;
+   border-radius: 5px;
+   border-bottom: 5px solid  rgb(255, 206, 99);
+   font-family: 'Merriweather Sans', cursive;
+   z-index: 2;
+   text-align: center;
+   margin-left:2em;
+   margin-right: 2em;
+   text-shadow: 2px 2px black;
+ }
+
+ .typography-chart-p{
+   color:black;
+   text-align: center;
+   font-family: 'Merriweather Sans', sans-serif;
+   font-size: 120%;
+   margin: 2em;
+   text-shadow: none;
+   text-decoration: none;
+ }
+
+
+ .typography-chart-nav {
+   color: black;
+   text-shadow: none;
+   text-decoration: underline none;
+   margin-top: .5em;
+   font-size: 200%;
+ }
+
+ .nav-sample{
+  text-align: center;
+  font-family: 'Merriweather Sans', sans-serif;
+  margin: 2em;
+   margin-top: 3em;
+   font-size: 20px;
+   text-decoration-style: none;
+  }
+ 
+
+}

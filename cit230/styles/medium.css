@@ -61,7 +61,7 @@
     
     
     nav ul {
-      font-size: 16px;
+      font-size: 20px;
       list-style-type: none;
     }
     
@@ -85,7 +85,7 @@
     }
     
     li {
-      /*   Display1: inline-block; */
+      /*   Display: inline-block; */
       font-size: 110%;
     }
     

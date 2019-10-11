@@ -2,7 +2,6 @@
     padding: 0;
     /* margin-right: 1em;
     margin-left: 1em; */
-
   } 
 
  header {
@@ -24,6 +23,8 @@
   margin-top: 0em;
   /* margin-left: 4em; */
 }
+
+
 
 .moto{
   letter-spacing: 1.5pt;
@@ -55,15 +56,15 @@ h1 {
 
 h2{
   color: Black;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 5px;
   border-bottom: 5px solid  black;
   font-family: 'Diplomata SC', cursive;
   text-align: center;
   margin-top: 2em;
   background:rgb(172, 201, 228);
-  margin-left: 3em;
-  margin-right: 3em;
+  padding-left: 3em;
+  padding-right: 3em;
   padding: 1em;
   text-shadow: 2px 2px rgb(193, 193, 193);
   box-shadow: 2px 2px rgb(193, 193, 193);
@@ -103,7 +104,7 @@ h4{
 
 .footer-text {
   margin: 1px;
-  color: rgb(255, 206, 99);;
+  color: rgb(255, 206, 99);
   border: 1px;
   padding: 10px;
   width: 100%;
@@ -116,57 +117,45 @@ footer {
   background-color:  rgb(55, 125, 190);
 }
 
-
-/* Style the navigation menu */
-.topnav {
-  overflow: hidden;
-  background-color: rgb(172, 201, 228);
-  position: relative;
-  margin-right: 0em;
-  margin-left: 0em;
+nav {
+	margin: 0 auto;
+	max-width: 1560px;
+	background-color: red;
+}
+.navigation {
+	list-style: none;
+	text-align: center;
+  padding: 0;
+  background-color:  rgb(55, 125, 190);
+  
+}
+.navigation li:first-child {
+	display: block;
+}
+.navigation li {
+	display: none;
+}
+.navigation a {
+	display: block;
+	color: #fff;
+	padding: 0.75rem;
+	text-align: center;
+	text-decoration: none;
+}
+.navigation a:hover {
+	color: black;
+	background-color: rgb(172, 201, 228);
+	font-weight: 700;
 }
 
-/* Hide the links inside the navigation menu (except for logo/home) */
-.topnav #myLinks {
-  display: none;
+/* the onclick JS toggles the .repsonsive class from display none (.navigation li) to display block because the repsonsive class is added to the end of the class list like this in HTML Line #6.
+  <ul class="navigation responsive">
+  */
+.responsive li {
+	display: block;
 }
 
-/* Style navigation menu links */
-.topnav a {
-  color: black;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  display: block;
-}
-
-/* Style the hamburger menu */
-.topnav a.icon {
-  background:  rgb(255, 206, 99);
-  display: block;
-  position: relative;
-  text-align: center;
-  box-shadow: 2px 2px rgb(193, 193, 193);
-
-}
-
-/* Add a grey background color on mouse-over */
-.topnav a:hover {
-  background-color: rgb(255, 225, 159);
-  color: black;
-}
-
-/* Style the active link (or home/logo) */
-.active {
-  z-index: -1;
-  margin-top: -3em;
-  background-color: rgb(172, 201, 228);
-  /* color: white; */
-  margin-right: 2em;
-  margin-left: 2em;
-}
-
-.section-1{
+/* .section-1{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-bottom: 5em;
@@ -203,6 +192,6 @@ footer {
 
 p.Forecast{
   margin-left: 2em;
-}
+} */
 
 

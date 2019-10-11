@@ -35,14 +35,9 @@ var month = months[monthNumber];
 var year = currentDate.getFullYear();
 var date = currentDate.getDate();
 
-currentDateString = weekDay + ', ' + date + ' ' + month + '' + year;
+currentDateString = weekDay + ', ' + date + ' ' + month + ' ' + year;
 document.getElementById('currentDate').innerHTML = currentDateString;
 
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  }
+function toggleMenu() {
+	document.getElementsByClassName("navigation")[0].classList.toggle("responsive");
+}

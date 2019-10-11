@@ -1,13 +1,5 @@
 
 @media only screen and (min-width: 32em) {
-
-	h1 {
-		font-size: 2.0rem;
-		margin-bottom: 1em;
-		font-family: 'Diplomata SC', cursive;
-	  }
-
-
 	nav {
 		margin: 0 auto;
 		background-color: #fff;

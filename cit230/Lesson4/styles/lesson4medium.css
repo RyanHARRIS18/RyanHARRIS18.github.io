@@ -56,4 +56,11 @@
 	text-shadow: 2px 2px rgb(193, 193, 193);
   }
   
+  footer {
+	align-items: left;
+	background-color:  rgb(55, 125, 190);
+	margin-left: 5em;
+    margin-right: 5em;
+  }
+
 }

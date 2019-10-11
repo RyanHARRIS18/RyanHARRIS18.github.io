@@ -4,4 +4,11 @@
     margin-left: 15em;
     margin-right: 15em;
   }
+
+  footer {
+    align-items: left;
+    background-color:  rgb(55, 125, 190);
+    margin-left: 15em;
+      margin-right: 15em;
+    }
 }

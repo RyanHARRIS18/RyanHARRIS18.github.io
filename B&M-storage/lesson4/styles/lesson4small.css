@@ -1,181 +1,459 @@
-  body{
+  body {
     padding: 0;
     /* margin-right: 1em;
     margin-left: 1em; */
-  } 
+  }
 
- header {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: row;
-} 
+  header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    background-color: white;
+  }
 
-.headings{
-  display: flex;
-  flex-direction: column;
-}
+  .headings {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+  }
 
-.Weather-Logo{
-  z-index: 1;
-  width: 100px;
-  height: 100px;
-  margin-top: 0em;
-  /* margin-left: 4em; */
-}
+  .Weather-Logo {
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    margin-top: 0em;
+    /* margin-left: 4em; */
+    background-color: white;
+  }
 
 
 
-.moto{
-  letter-spacing: 1.5pt;
-  font-size: larger;
-  margin-left: 2em;
-  margin-bottom: 1em;
-  color: rgb(55, 125, 190);
-  font-style: italic;
-  font-size: 1.2rem;
-  text-shadow: 2px 2px rgb(193, 193, 193);
-}
+  .moto {
+    letter-spacing: 1.5pt;
+    font-size: larger;
+    margin-left: 2em;
+    margin-bottom: 1em;
+    color: rgb(55, 125, 190);
+    font-style: italic;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+    background-color: white;
+  }
 
-h1 {
-  color: rgb(55, 125, 190);
-  font-size: 1.2rem;
-  border-radius: 5px;
-  border-bottom: 5px solid  rgb(55, 125, 190);
-  margin-bottom: 1em;
-  font-family: 'Diplomata SC', cursive;
-  z-index: 2;
-  text-align: center;
-  margin-top: 1em;
-  /* background: rgb(255, 206, 99); */
-  padding: .25em;
-  margin-right: 2em;
-  margin-left: 0.5em;
-  text-shadow: 2px 2px rgb(193, 193, 193);
-}
+  h1 {
+    color: rgb(55, 125, 190);
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border-bottom: 5px solid rgb(55, 125, 190);
+    margin-bottom: 1em;
+    font-family: 'Diplomata SC', cursive;
+    z-index: 2;
+    text-align: center;
+    margin-top: 1em;
+    /* background: rgb(255, 206, 99); */
+    padding: .25em;
+    margin-right: 2em;
+    margin-left: 0.5em;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+    background-color: white;
+  }
 
-h2{
-  color: Black;
-  font-size: 16px;
-  border-radius: 5px;
-  border-bottom: 5px solid  black;
-  font-family: 'Diplomata SC', cursive;
-  text-align: center;
-  margin-top: 2em;
-  background:rgb(172, 201, 228);
-  padding-left: 3em;
-  padding-right: 3em;
-  padding: 1em;
-  text-shadow: 2px 2px rgb(193, 193, 193);
-  box-shadow: 2px 2px rgb(193, 193, 193);
-  border-radius: 15px;
-}
+  h2 {
+    color: Black;
+    font-size: 16px;
+    border-radius: 5px;
+    border-bottom: 5px solid black;
+    font-family: 'Diplomata SC', cursive;
+    text-align: center;
+    margin-top: 2em;
+    background: rgb(172, 201, 228);
+    padding-left: 3em;
+    padding-right: 3em;
+    padding: 1em;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+    box-shadow: 2px 2px rgb(193, 193, 193);
+    border-radius: 15px;
+  }
 
-h3{
-  color: rgb(55, 125, 190);
-  font-size: 25px;
-  border-radius: 5px;
-  /* border-bottom: 5px solid  rgb(55, 125, 190); */
-  font-family: 'Merriweather Sans', cursive;
-  margin-top: -0.5em;
-  text-shadow: 2px 2px rgb(193, 193, 193);
-  text-align: center;
-  margin-top: 1em;
-  background:  rgb(253, 226, 167);
-  display: block;
-  text-align: center;
-  box-shadow: 2px 2px rgb(193, 193, 193);
-  padding: 0.5em;
-}
+  h3 {
+    color: rgb(55, 125, 190);
+    font-size: 25px;
+    border-radius: 5px;
+    /* border-bottom: 5px solid  rgb(55, 125, 190); */
+    font-family: 'Merriweather Sans', cursive;
+    margin-top: -0.5em;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+    text-align: center;
+    margin-top: 1em;
+    background: rgb(253, 226, 167);
+    display: block;
+    text-align: center;
+    box-shadow: 2px 2px rgb(193, 193, 193);
+    padding: 0.5em;
+  }
 
-h4{
-  color: rgb(255, 206, 99);;
-  font-size: 25px;
-  border-radius: 5px;
-  /* border-bottom: 5px solid  rgb(255, 206, 99); */
-  font-family: 'Merriweather Sans', cursive;
-  z-index: 2;
-  text-align: center;
-  margin-left:2em;
-  margin-right: 2em;
-  text-shadow: 2px 2px rgb(193, 193, 193);
-}
-   
+  h4 {
+    color: rgb(255, 206, 99);
+    ;
+    font-size: 25px;
+    border-radius: 5px;
+    /* border-bottom: 5px solid  rgb(255, 206, 99); */
+    font-family: 'Merriweather Sans', cursive;
+    z-index: 2;
+    text-align: center;
+    margin-left: 2em;
+    margin-right: 2em;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+  }
 
-.footer-text {
-  margin: 1px;
-  color: white;
-  border: 1px;
-  padding: 10px;
-  width: 100%;
-  font-size: 22px;
-  text-align: center;
-}
 
-footer {
-  align-items: left;
-  background-color:  rgb(55, 125, 190);
-}
+  .footer-text {
+    margin: 1px;
+    color: white;
+    border: 1px;
+    padding: 10px;
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+  }
 
-nav {
-	margin: 0 auto;
-	max-width: 1560px;
-	background-color: red;
-}
-.navigation {
-	list-style: none;
-	text-align: center;
-  padding: 0;
-  background-color:  rgb(55, 125, 190);
+  footer {
+    margin-top: 15em;
+    align-items: left;
+    background-color: rgb(55, 125, 190);
+  }
+
+  nav {
+    margin: 0 auto;
+    max-width: 1560px;
+    background-color: white;
+    padding: 2.1em;
+  }
+
+  .navigation {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    background-color: rgb(55, 125, 190);
+
+  }
+
+  .navigation li:first-child {
+    display: block;
+  }
+
+  .navigation li {
+    display: none;
+  }
+
+  .navigation a {
+    display: block;
+    color: #fff;
+    padding: 0.75rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .navigation a:hover {
+    color: black;
+    background-color: rgb(172, 201, 228);
+    font-weight: 700;
+  }
   
-}
-.navigation li:first-child {
-	display: block;
-}
-.navigation li {
-	display: none;
-}
-.navigation a {
-	display: block;
-	color: #fff;
-	padding: 0.75rem;
-	text-align: center;
-	text-decoration: none;
-}
-.navigation a:hover {
-	color: black;
-	background-color: rgb(172, 201, 228);
-	font-weight: 700;
-}
-
-/* the onclick JS toggles the .repsonsive class from display none (.navigation li) to display block because the repsonsive class is added to the end of the class list like this in HTML Line #6.
+  /* the onclick JS toggles the .repsonsive class from display none (.navigation li) to display block because the repsonsive class is added to the end of the class list like this in HTML Line #6.
   <ul class="navigation responsive">
   */
-.responsive li {
-	display: block;
+  .responsive li {
+    display: block;
+  }
+
+  .storage-unit {
+    display: grid;
+    grid-template-columns: 300px;
+    grid-template-rows: repeat(50, 12px);
+    font-size: 5px;
+
+  }
+
+  .storage-unit1 {
+    margin-top: 0em;
+    width: 100%;
+    grid-column: 1/2;
+    grid-row: 1/10;
+    margin-bottom: 5em;
+    z-index: -1;
+    text-align: center;
+  }
+
+  .storage-unit-1 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 9/10;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-3 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 10/11;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-4 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 11/12;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-5 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 12/13;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-6 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 13/14;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-7 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 14/15;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-8 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 15/16;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-9 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 16/17;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-10 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 17/18;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-11 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 18/19;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+
+  .storage-unit-12 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 19/20;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+
+  .storage-unit-13 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 20/21;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-14 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 21/22;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-15 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 22/23;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+  .storage-unit-16 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 23/24;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+    position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+  .storage-unit-17 {
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 24/25;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: -3;
+  position: relative;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 30s;
+  }
+
+/* Standard syntax */
+@keyframes example {
+  0%   {left:0px; top:0;}
+  10%  {left:0px; top:-200px;}
+  20%  {left:0px; top:0px;}
+  30%  {left:0px; top:-200px;}
+  40% {left:0px; top:0px;}
+   50%  {left:0px; top:-200px;}
+  60% {left:0px; top:0px;}
+  70%  {left:0px; top:-200px;}
+  80% {left:0px; top:0px;}
+  90%  {left:0px; top:-200px;}
+  100% {left:0px; top:0px;}
 }
 
-.storage-unit {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(20, 5px);
-}
-
-.storage-unit1{
-  width: 25%;
-  grid-column: 1/2;
-  grid-row: 1/20;
-  margin-bottom: 5em;
-}
-
-.Storage-Unit-Animation{
-
-}
-
-.
+  .storage-unit-latch{
+    background-color: rgb(34, 18, 18);
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 23/24;
+    width: 10px;
+    z-index: 1;
+  }
 
 
-/* .section-1{
+
+  /* .section-1{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-bottom: 5em;
@@ -213,5 +491,3 @@ nav {
 p.Forecast{
   margin-left: 2em;
 } */
-
-

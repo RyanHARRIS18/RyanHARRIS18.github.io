@@ -218,6 +218,7 @@
 
   }
   .door:hover {
+    z-index: 2;
     background: blue;
     animation-play-state: running;
   }

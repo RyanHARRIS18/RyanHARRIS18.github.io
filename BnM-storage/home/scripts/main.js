@@ -42,14 +42,17 @@ function toggleMenu() {
 	document.getElementsByClassName("navigation")[0].classList.toggle("responsive");
 }
 
+
+
+
+
+//Get the 5 day forecast
 var daysInputted = 0;
-// to forecast tuesday2 wednesday3 and thurdsay4 and friday5
-   
 for( i=1; i<6; i++){
         document.getElementById("day"+ String(i)).innerHTML = weekDay++;
         daysInputted++;
     }
-    var remaniderDays = 5 - daysInputted;  //3
+    var remaniderDays = 5 - daysInputted;  
    weekDay = 0;
     while (!(remainderDays=0)) {
         document.getElementById("day"+ String(daysInputted++)).innerHTML = weekDay; 

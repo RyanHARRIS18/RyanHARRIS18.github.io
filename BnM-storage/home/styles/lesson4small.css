@@ -229,7 +229,9 @@
   100%  {left:0px; top:-200px;}
 }
 
- 
+ #map{
+   margin-top: 10em;
+ }
 
   /* .section-1{
   display: grid;

@@ -39,23 +39,24 @@ currentDateString = weekDay + ', ' + date + ' ' + month + ' ' + year;
 document.getElementById('currentDate').innerHTML = currentDateString;
 
 function toggleMenu() {
-	document.getElementsByClassName("navigation")[0].classList.toggle("responsive");
+    document.getElementsByClassName("navigation")[0].classList.toggle("responsive");
+    
 }
 
 
-
-
-
-//Get the 5 day forecast
+currentDay = currentDate.getDay();
 var daysInputted = 0;
-for( i=1; i<6; i++){
-        document.getElementById("day"+ String(i)).innerHTML = weekDay++;
+for( i=1; currentDay <= 6; i++){
+        document.getElementById("day"+ toString(i)).innerHTML = weekDay = daysOfWeek[currentDay];
         daysInputted++;
+        currentDate++;
     }
-    var remaniderDays = 5 - daysInputted;  
-   weekDay = 0;
-    while (!(remainderDays=0)) {
-        document.getElementById("day"+ String(daysInputted++)).innerHTML = weekDay; 
-        weekDay++;
+    var remaniderDays = 5 - daysInputted;  //3
+   currentDay = 0;
+    while (remainderDays !=0) {
+        document.getElementById("day"+ toString(daysInputted++)).innerHTML = weekDay = daysOfWeek[currentDay++]; 
+        currentDay++;
         remaniderDays--;
     } 
+
+  

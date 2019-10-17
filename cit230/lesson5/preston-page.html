@@ -18,7 +18,6 @@
 
 <body>
 
-
     <header>
         <img class="Weather-Logo" src="./images/Weather-Logo-color-noback.png"
             alt="logo of a sun, moon, and stars">
@@ -32,7 +31,7 @@
                 <ul class="navigation">
                     <li><a href="#" onclick="toggleMenu()">&#9776; Menu</a></li>
                     <li><a href="#">Home</a></li>
-                    <li id="wayfinder"><a href="#">Preston</a></li>
+                    <li id="wayfinder"><a href="preston-page.html">Preston</a></li>
                     <li><a href="#">Soda Springs</a></li>
                     <li><a href="#">Fish Haven</a></li>
                     <li><a href="#">Storm Center</a></li>
@@ -41,22 +40,29 @@
             </nav>
         </div>
     <main>
+<div class="parallax">
      
-        <h2>Preston:</h2>
+        <div class="hero">
+          <h2 id="prestonH2">Preston:</h2>
+
+          <section class="section-1"> 
+                <div class="weather-summary">
+                     <h3>Weather Summary:</h3>
+                     <p class="Forecast"> Monday</p>
+                     <p class="Forecast"> Tuesday</p>
+                     <p class="Forecast"> Wednesday</p>
+                     <p class="Forecast"> Thursday</p>
+                     <p class="Forecast"> Friday</p>
+                     <p class="Forecast"> Saturday</p>
+                     <p class="Forecast"> Sunday</p>
+                 </div>
+            </section>
+
+            </div>
      
         <!-- <img class="Preston-pictures" id="section-1-hero-img" src="./images/preston-town.jpg" alt="Image of Downtown Preston"> -->
-       <div class="section-1-hero-image"> 
-          <div class="weather-summary">
-                    <h3>Weather Summary:</h3>
-                    <p class="Forecast"> Monday</p>
-                    <p class="Forecast"> Tuesday</p>
-                    <p class="Forecast"> Wednesday</p>
-                    <p class="Forecast"> Thursday</p>
-                    <p class="Forecast"> Friday</p>
-                    <p class="Forecast"> Saturday</p>
-                    <p class="Forecast"> Sunday</p>
-                </div>
-            </div>
+       
+         
        
         <section class="Five-Day-Forecast">
        <h3> 5-Day Weather Forecast</h3>
@@ -64,11 +70,11 @@
             <table>
                     <tr>
                         <th>Day</th>
-                        <th id="day1">Day 1</th>
-                        <th id="day2">Day 2</th>
-                        <th id="day3">Day 3</th>
-                        <th id="day4">Day 4</th>
-                        <th id="day5">Day 5</th>
+                        <th id="day1"></th>
+                        <th id="day2"></th>
+                        <th id="day3"></th>
+                        <th id="day4"></th>
+                        <th id="day5"></th>
                     </tr>
                 <tr>
                     <td id="Forecast">Forecast</td>
@@ -81,9 +87,7 @@
                 
             </table>
         </section>
-        <section class="section-2">
-        <h3>5 Day Forecast:</h3>
-        </section>
+       
         <section class="section-3">    
             <div class="article-box">
                     <h3>Article Title</h3>
@@ -98,7 +102,7 @@
        </section>
 
     </main>
-
+</div>
     <footer>
         <div class="footer">
             <p class='footer-text'> CIT230 &copy; <span id="currentDate"> &star; Ryan P. Harris | Colorado | BYUI

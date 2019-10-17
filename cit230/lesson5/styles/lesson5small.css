@@ -201,14 +201,6 @@ p.Forecast{
 
 
 
-.section-1{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  margin-bottom: 5em;
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
 .section-2{
   background-color: rgb(208, 208, 208);
   margin-bottom: 5em;
@@ -239,3 +231,42 @@ p.Forecast{
 p.Forecast{
   margin-left: 2em;
 }
+
+.hero{
+  background-image: url(/cit230/lesson5/images/preston-town-2.jpg);
+    padding: 25px;
+    min-height: 200px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+#prestonH2{
+  margin-top: -2em;
+}
+
+.Five-Day-Forecast{
+  visibility: hidden;
+  display: none;
+}
+
+#wayfinder{
+  list-style-type: circle;
+}
+
+
+.parallax{
+  /* The image used */
+      background-image: url("/cit230/lesson5/images/preston-town-3.jpg");
+    
+  
+    /* Set a specific height */
+    height: 100%; 
+
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }

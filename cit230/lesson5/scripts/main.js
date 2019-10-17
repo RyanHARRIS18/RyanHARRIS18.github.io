@@ -42,3 +42,22 @@ function toggleMenu() {
 	document.getElementsByClassName("navigation")[0].classList.toggle("responsive");
 }
 
+
+currentDay = (currentDate.getDay())+1;
+var daysInputted = 0;
+for( i=1; currentDay <= 6; i++){
+        var nameOfDay= daysOfWeek[currentDay++];
+        var c = String(i);
+        document.getElementById("day"+ c).innerHTML = nameOfDay;
+        daysInputted++;
+    }
+    var remaniderDays = 5 - daysInputted;  //3
+   currentDay = 0;
+    while (remaniderDays > 0) {
+        weekDay = daysOfWeek[currentDay]
+        var c = String(++daysInputted);
+        document.getElementById("day"+ c).innerHTML = weekDay; 
+        currentDay++;
+        remaniderDays--;
+    } 
+

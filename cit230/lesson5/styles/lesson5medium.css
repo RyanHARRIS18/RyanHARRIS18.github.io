@@ -1,6 +1,24 @@
+@media only screen and (min-width: 55em)and (max-width: 65em){
+	.navigation {
+        display: flex;
+    }
 
-@media only screen and (min-width: 32em) {
-	nav {
+    .navigation li:first-child {
+        display: none;
+    }
+
+    .navigation li {
+        display: block;
+        flex: 1 1 100%;
+	}
+	
+	.navigation{
+        margin: .65em 0;
+    }
+    
+
+
+	/* nav {
 		margin: 0 auto;
 		background-color: #fff;
 	}
@@ -17,7 +35,7 @@
 	}
 	.navigation li a {
     color: white;
-	}
+	} */
 
 
   main{
@@ -61,13 +79,20 @@
 	background-color:  rgb(55, 125, 190);
   }
 
+  h2{
+	  font-size: 55px;
+  }
 
-  .section-1{
+  .Five-Day-Forecast{
+	  visibility: visible;
+	display: block;
+  }
+  /* .section-1{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 	margin-bottom: 5em;
 	margin-left: 1em;
 	margin-right: 1em;
-  }
+  } */
 
 }

@@ -87,12 +87,8 @@
 	  visibility: visible;
 	display: block;
   }
-  /* .section-1{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-	margin-bottom: 5em;
-	margin-left: 1em;
-	margin-right: 1em;
-  } */
-
+ 
+  iframe{
+	  display: inline;
+  }
 }

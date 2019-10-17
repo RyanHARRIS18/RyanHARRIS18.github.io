@@ -89,7 +89,7 @@ h3{
 }
 
 h4{
-  color: rgb(255, 206, 99);;
+  color: rgb(255, 206, 99);
   font-size: 25px;
   border-radius: 5px;
   /* border-bottom: 5px solid  rgb(255, 206, 99); */
@@ -163,10 +163,7 @@ nav {
   margin-right: 1em;
 }
 
-td, th{
-  padding: 0.5em;
-  border: 1px solid black;
-}
+
 
 .section-2{
   background-color: rgb(208, 208, 208);
@@ -216,12 +213,28 @@ p.Forecast{
   margin-bottom: -3em;
   margin-left: 2em;
 }
-.Preston-pictures{
-  width: 450px;
+
+.article-box{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  background: rgb(208, 208, 208);
+  padding-bottom: 2em;
+  padding-top: 2em;
   border-radius: 15px;
-  align-self: right;
+
+
 }
 
+.Preston-pictures{
+  grid-column: 1/2;
+  width: 90%;
+  text-align:center;
+
+}
+.article{
+  grid-column: 2/3;
+}
 #section-1-img{
   grid-column: 2/5;
   grid-row: 1/2;
@@ -233,9 +246,9 @@ p.Forecast{
 }
 
 .hero{
-  background-image: url(/cit230/lesson5/images/preston-town-2.jpg);
-    padding: 25px;
-    min-height: 200px;
+  background-image: url(/cit230/lesson5/images/preston-town-6.jpg);
+    padding: 55px;
+    min-height: 100px;
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -246,27 +259,40 @@ p.Forecast{
 }
 
 .Five-Day-Forecast{
-  visibility: hidden;
-  display: none;
+background: rgb(208, 208, 208);
+text-align:center;
+align-items: center;
+}
+
+td, th{
+  text-align:center;
+  padding: 0.5em;
+  border: 1px solid black;
+  background: rgb(255, 206, 99);
 }
 
 #wayfinder{
   list-style-type: circle;
 }
 
-
 .parallax{
   /* The image used */
-      background-image: url("/cit230/lesson5/images/preston-town-3.jpg");
-    
-  
+      background-image: url("/cit230/lesson5/images/preston-town-2.jpg");
     /* Set a specific height */
     height: 100%; 
-
-  
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   }
+
+ iframe{
+   display:none;
+   grid-column: 2/3;
+ }
+
+ .article2{
+  grid-column: 1/2;
+}
+

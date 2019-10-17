@@ -246,7 +246,7 @@ p.Forecast{
 }
 
 .hero{
-  background-image: url(/cit230/lesson5/images/preston-town-6.jpg);
+  background-image: url(/cit230/prestonLesson5/images/preston-town-6.jpg);
     padding: 55px;
     min-height: 100px;
     background-position: bottom;
@@ -277,7 +277,7 @@ td, th{
 
 .parallax{
   /* The image used */
-      background-image: url("/cit230/lesson5/images/preston-town-2.jpg");
+      background-image: url("/cit230/prestonLesson5/images/preston-town-2.jpg");
     /* Set a specific height */
     height: 100%; 
     /* Create the parallax scrolling effect */
@@ -288,11 +288,13 @@ td, th{
   }
 
  iframe{
-   display:none;
+   /* display:none; */
    grid-column: 2/3;
+   grid-row: 1/2;
  }
 
  .article2{
   grid-column: 1/2;
+  grid-row: 1/2;
 }
 

@@ -51,7 +51,7 @@ for( i=1; currentDay <= 6; i++){
         document.getElementById("day"+ c).innerHTML = nameOfDay;
         daysInputted++;
     }
-    var remaniderDays = 5 - daysInputted;  //3
+    var remaniderDays = 5 - daysInputted;  
    currentDay = 0;
     while (remaniderDays > 0) {
         weekDay = daysOfWeek[currentDay]

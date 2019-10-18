@@ -305,3 +305,7 @@ td, th{
   grid-row: 1/2;
 }
 
+/* class selectors */
+.hidden{
+  display: hidden;
+}

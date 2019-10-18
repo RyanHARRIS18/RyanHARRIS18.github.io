@@ -61,3 +61,9 @@ for( i=1; currentDay <= 6; i++){
         remaniderDays--;
     } 
 
+
+
+    // pancake code:: show/hide pancake
+    if (weekDayNumber == 5){
+        document.getElementById("pancake").removeAttribute("class","hidden");
+    }

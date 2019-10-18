@@ -259,9 +259,16 @@ p.Forecast{
 }
 
 .Five-Day-Forecast{
-background: rgb(208, 208, 208);
+  display: none;
+
+}
+@media only screen and (min-width: 700px) {
+  .Five-Day-Forecast{
+ display: block;
+    background: rgb(208, 208, 208);
 text-align:center;
 align-items: center;
+  }
 }
 
 td, th{
@@ -288,7 +295,7 @@ td, th{
   }
 
  iframe{
-   /* display:none; */
+   display:none;
    grid-column: 2/3;
    grid-row: 1/2;
  }

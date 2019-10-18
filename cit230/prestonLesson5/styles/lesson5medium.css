@@ -1,4 +1,4 @@
-@media only screen and (min-width: 55em)and (max-width: 65em){
+@media only screen and (min-width: 32em) and (max-width: 65em){
 	.navigation {
         display: flex;
     }
@@ -83,10 +83,7 @@
 	  font-size: 55px;
   }
 
-  .Five-Day-Forecast{
-	  visibility: visible;
-	display: block;
-  }
+
  
   iframe{
 	  display: inline;

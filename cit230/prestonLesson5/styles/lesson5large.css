@@ -31,6 +31,11 @@
       text-align: center;
       margin-top: 3em;
     }
-
+    .article{
+      grid-column: 1/2;
+      grid-row: 1/2;
+      padding: 1em;
+      text-align: center;
+      }
    
 }

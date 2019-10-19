@@ -198,10 +198,6 @@
     margin-left: 2em;
   }
 
-  .section-2 {
-    background-color: rgb(208, 208, 208);
-    margin-bottom: 5em;
-  }
 
   .weather-summary {
     grid-column: 1/7;
@@ -225,15 +221,14 @@
   }
 
   .Preston-pictures {
-    grid-column: 1/2;
-    width: 90%;
+    margin: 0.5em;
+    width: 100%;
     text-align: center;
-
   }
 
   .article {
-    grid-column: 2/3;
     font-size: 1.4rem;
+    padding: 1em;
   }
 
   #section-1-img {

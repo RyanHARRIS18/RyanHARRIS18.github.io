@@ -1,91 +1,90 @@
-@media only screen and (min-width: 32em) and (max-width: 65em){
-	.navigation {
-        display: flex;
-    }
-
-    .navigation li:first-child {
-        display: none;
-    }
-
-    .navigation li {
-        display: block;
-        flex: 1 1 100%;
-	}
-	
-	.navigation{
-        margin: .65em 0;
-    }
-    
-
-
-	/* nav {
-		margin: 0 auto;
-		background-color: #fff;
+@media only screen and (min-width: 800px) {
+	main {
+		margin-left: 5em;
+		margin-right: 5em;
 	}
 
 	.navigation {
 		display: flex;
 	}
+
 	.navigation li:first-child {
-		display: none;
+		display: hidden;
 	}
+
+	nav a:visited {
+		text-decoration: none;
+		color: white;
+	}
+
 	.navigation li {
 		display: block;
 		flex: 1 1 100%;
 	}
-	.navigation li a {
-    color: white;
-	} */
 
+	.navigation {
+		margin: .65em 0;
+	}
 
-  main{
-    margin-left: 5em;
-    margin-right: 5em;
-  }
+	.Five-Day-Forecast {
+		margin-top: 2em;
+		display: visible;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+			background: rgb(208, 208, 208);
+			text-align: center;
+			align-items: center;
+	}
 
-  header {
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	flex-direction: row;
+	#five-day-header {
+		grid-column: 2/3;
+	}
+
+	#five-day-tabel {
+		grid-column: 2/3;
+	}
+	
+	.Preston-pictures {
+    width: 450px;
+    border-radius: 15px;
+   float: right;
+   padding: 2em;
+   text-align: center;
+   grid-row: 1/2;
   } 
-  
-  .headings{
-	display: flex;
-	flex-direction: column;
-  }
-  
-  .Weather-Logo{
-	z-index: 1;
-	width: 500px;
-	height: 500px;
-	margin-top: 0em;
-	/* margin-left: 4em; */
+
+  .article-box {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+	background: rgb(208, 208, 208);
+	padding-bottom: 2em;
+	padding-top: 2em;
+	border-radius: 15px;
+	opacity: .9;
+	padding: 1em;
+}
+.article{
+	grid-column: 1/2;
+	grid-row: 2/3;
+	padding: 1em;
+	text-align: center;
   }
 
-  .moto{
-	letter-spacing: 1.5pt;
-	font-size: larger;
+iframe {
+	display: block;
 	margin-left: 2em;
-	margin-bottom: 1em;
-	color: rgb(55, 125, 190);
-	font-style: italic;
-	font-size: 1.2rem;
-	text-shadow: 2px 2px rgb(193, 193, 193);
+	display: visible;
+	grid: 1/2;
+	text-align: center;
+	margin-top: 3em;
   }
+
+  .article2{
+	grid-column: 2/3;
+	grid-row: 1/2;
+	padding: 1em;
+  }
+
   
-  footer {
-	align-items: left;
-	background-color:  rgb(55, 125, 190);
-  }
-
-  h2{
-	  font-size: 55px;
-  }
-
-
- 
-  iframe{
-	  display: inline;
-  }
 }

@@ -7,13 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./styles/normalize.css">
     <!-- <link rel="stylesheet" href="./styles/lesson4medium.css"> -->
-    <link rel="stylesheet" href="./styles/lesson5large.css">
-    <link rel="stylesheet" href="./styles/lesson5medium.css">    
     <link rel="stylesheet" href="./styles/lesson5small.css">
+    <link rel="stylesheet" href="./styles/lesson5medium.css">    
+    <link rel="stylesheet" href="./styles/lesson5large.css">
+
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Diplomata+SC&display=swap" rel="stylesheet">
     <title> Lesson 5 | index </title>
-
+    <link rel="shortcut icon" href="favicon.ico">
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                 <ul class="navigation">
                     <li><a href="#" onclick="toggleMenu()">&#9776; Menu</a></li>
                     <li><a href="#">Home</a></li>
-                    <li id="wayfinder"><a href="index.html">Preston</a></li>
+                    <li><a class="active" href="index.html" style="color: rgb(255, 206, 99);" >Preston</a></li>
                     <li><a href="#">Soda Springs</a></li>
                     <li><a href="#">Fish Haven</a></li>
                     <li><a href="#">Storm Center</a></li>
@@ -70,9 +71,9 @@
          
        
         <section class="Five-Day-Forecast">
-       <h3> 5-Day Weather Forecast</h3>
+       <h3 id="five-day-header"> 5-Day Weather Forecast</h3>
         
-            <table>
+            <table id="five-day-tabel">
                     <tr>
                         <th>Day</th>
                         <th id="day1"></th>
@@ -94,19 +95,19 @@
         </section>
        
         <section class="section-3"> 
-                <h3>Article Title</h3>   
+                <h2>Preston Idaho History</h2>   
             <div class="article-box">
            
-            <img class="Preston-pictures"  id="section-2-img"  src="./images/preston-town-2.jpg"
-            alt="Image of Downtown Preston">
-            <div class="article">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam urna neque, dapibus ut 
-                lectus quis, tincidunt sollicitudin felis. Aenean commodo molestie lorem vel aliquam. 
-                Cras vitae purus interdum, viverra erat et, hendrerit tellus. Cras eget sapien vitae 
-                nunc mollis faucibus id ut odio. Integer non arcu mi. Nunc quis sodales sem. Curabitur 
-                in semper lectus, vitae elementum urna. Pellentesque volutpat dui felis, sit amet pretium
-                olor ullamcorper nec. Integer in enim consectetur, efficitur metus ut, ultrices purus. 
-                Mauris condimentum augue a dolor dictum ultrices. Proin malesuada mauris orci, id auctor 
-                est accumsan sed.
+            <img class="Preston-pictures"  id="section-2-img"  src="./images/preston-town-9.jpg" alt="Image of Downtown Preston">
+            <div class="article">
+                Preston is a city in Franklin County, Idaho, United States. The population was 5,204 at the 2010 census.
+                The city is the county seat of Franklin County. It is part of the Logan, Utah-Idaho Metropolitan Statistical Area. 
+                In 1866, Latter-day Saint (LDS, or Mormon) pioneers arrived in the northern end of the Cache Valley, stretching across 
+                southeastern Idaho and northeastern Utah. They founded a community in that location and named it Worm Creek, but in 1881 
+                changed it to Preston because leaders of the LDS Church in Salt Lake City objected to the name "Worm Creek" being part of any 
+                church congregation's name. 
+                <a id="wiki-link" href="https://en.wikipedia.org/wiki/Preston,_Idaho"> -Wikipedia</a> 
+
             </div>
        </section>
        
@@ -115,14 +116,12 @@
            <div class="article-box">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.6980275686024!2d-111.67383426000858!3d40.05983937940822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874da4b42a2bae79%3A0x6b6c439374501d1a!2sB%26M%20Storage!5e0!3m2!1sen!2sus!4v1571072032478!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
             
-        <div class="article2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam urna neque, dapibus ut 
-                lectus quis, tincidunt sollicitudin felis. Aenean commodo molestie lorem vel aliquam. 
-                Cras vitae purus interdum, viverra erat et, hendrerit tellus. Cras eget sapien vitae 
-                nunc mollis faucibus id ut odio. Integer non arcu mi. Nunc quis sodales sem. Curabitur 
-                in semper lectus, vitae elementum urna. Pellentesque volutpat dui felis, sit amet pretium
-                olor ullamcorper nec. Integer in enim consectetur, efficitur metus ut, ultrices purus. 
-                Mauris condimentum augue a dolor dictum ultrices. Proin malesuada mauris orci, id auctor 
-                est accumsan sed.
+        <div class="article2">
+                <p> Idaho Daily Weather:</p>
+                <p> 16645 Nowheres Live USA</p>
+                <p> Preston Idaho</p>
+
+                <span style='font-size:20px; margin: 2em;'>&#9742; 999-999-9999</span>
             </div>  
             
     </section>
@@ -131,6 +130,8 @@
 </div>
     <footer>
         <div class="footer">
+            
+
             <p class='footer-text'> CIT230 &copy; <span id="currentDate"> &star; Ryan P. Harris | Colorado | BYUI
                 </span></p>
         </div>

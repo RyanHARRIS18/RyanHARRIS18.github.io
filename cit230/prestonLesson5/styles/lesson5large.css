@@ -1,38 +1,36 @@
 
-@media only screen and (min-width: 65em){
-  main{
-    margin-left: 5em;
-    margin-right: 5em;
-  }
-
+@media only screen and (min-width: 1000px){
   footer {
     align-items: left;
     background-color:  rgb(55, 125, 190);
     }
-    .navigation {
-      display: flex;
-  }
-
-  .navigation li:first-child {
-      display: none;
-  }
-
-  .navigation li {
-      display: block;
-      flex: 1 1 100%;
-}
-
-.navigation{
-      margin: .65em 0;
-  }
-  .Five-Day-Forecast{
-	  visibility: visible;
-	display: block;
-  }
+  
+  
 
   h2{
     size: 150px;
   }
 
-  
+  .weather-summary {
+    grid-column: 1/5;
+    grid-row: 1/2;
+    background-color:  rgb(208, 208, 208);
+    opacity: 0.85;
+    border-radius: 15px;
+    margin-top: 3em;
+    margin-bottom: -3em;
+	margin-left: 2em;
+	font-size: 1rem;
+  }
+
+
+    #section-2-img{
+      grid-column: 2/3;
+      grid-row: 1/2;
+      padding: 1em;
+      text-align: center;
+      margin-top: 3em;
+    }
+
+   
 }

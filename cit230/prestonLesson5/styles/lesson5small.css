@@ -317,7 +317,7 @@
 
   /* class selectors */
   .hidden {
-    display: hidden;
+    display: none;
   }
 
  

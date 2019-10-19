@@ -65,6 +65,6 @@ for( i=1; currentDay <= 6; i++){
 
 
     // pancake code:: show/hide pancake
-    if (weekDayNumber == 5){
+    if (weekDayNumber === 5){
         document.getElementById("pancake").removeAttribute("class","hidden");
     }

@@ -7,14 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./styles/normalize.css">
     <!-- <link rel="stylesheet" href="./styles/lesson4medium.css"> -->
-    <link rel="stylesheet" href="./styles/lesson5small.css">
-    <link rel="stylesheet" href="./styles/lesson5medium.css">
-    <link rel="stylesheet" href="./styles/lesson5large.css">
+    <link rel="stylesheet" href="./styles/lesson6small.css">
+    <link rel="stylesheet" href="./styles/lesson6medium.css">
+    <link rel="stylesheet" href="./styles/lesson6large.css">
 
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Diplomata+SC&display=swap" rel="stylesheet">
-    <title> Lesson 5 | index </title>
-    <link rel="shortcut icon" href="favicon.ico">
+    <title> Lesson 6 | index </title>
+    
+    
+
 </head>
 
 <body>
@@ -29,7 +31,7 @@
     <div class="navigation-grid-hamburger">
         <nav>
             <ul class="navigation">
-                <li><a href="#" onclick="toggleMenu()">&#9776; Menu</a></li>    
+                <li><a href="#" onclick="toggleMenu()">&#9776; Menu</a></li>
                 <li><a href="#">Home</a></li>
                 <li><a class="active" href="index.html" style="color: rgb(255, 206, 99);">Preston</a></li>
                 <li><a href="#">Soda Springs</a></li>
@@ -47,19 +49,24 @@
                     Saturday = Preston Pancakes in the PARK! 9:00 AM
                 </p>
             </section>
+           
+            
 
             <div class="hero">
                 <h2 id="prestonH2">Preston:</h2>
+                <picture>
+                        <source media="(min-width: 1200px)" srcset="images/cit230_image_franklinWebLarge.jpg" >
+                        <source media="(min-width: 800px)" srcset="images/cit230_image_franklinWebMedium.jpg">
+                        <img src="images/cit230_image_franklinWebSmall.jpg" alt="Field and Sun" style="width:auto;">
+                      </picture>
                 <section class="section-1">
                     <div class="weather-summary">
                         <h3>Weather Summary:</h3>
-                        <p class="Forecast"> Monday</p>
-                        <p class="Forecast"> Tuesday</p>
-                        <p class="Forecast"> Wednesday</p>
-                        <p class="Forecast"> Thursday</p>
-                        <p class="Forecast"> Friday</p>
-                        <p class="Forecast"> Saturday</p>
-                        <p class="Forecast"> Sunday</p>
+                        <div id="Forecast1"> </div>
+                        <div id="Forecast2"> </div>
+                        <div id="Forecast3"> </div>
+                        <div id="Forecast4"> </div>
+                        <div id="Forecast5"> </div>
                     </div>
                 </section>
 
@@ -146,6 +153,15 @@
         </div>
     </footer>
     <script src="scripts/main.js"> </script>
+    <script src="scripts/windchill.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfront/1.6.26/webfront.js"></script>
+    <script>
+            WebFont.load({
+              google: {
+                families: ['Diplomata SC', 'Merriweather Sans']
+              }
+            });
+          </script>
 </body>
 
 </html>

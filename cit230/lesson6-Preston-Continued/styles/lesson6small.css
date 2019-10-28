@@ -191,7 +191,7 @@
 
 /* hello */
   .weather-summary {
-    grid-column: 2/6;
+    grid-column: 1/7;
     grid-row: 1/2;
     background-color: rgba(236, 236, 236, 0.541);
     opacity: 0.8;
@@ -275,6 +275,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 5px;
   }
 
   iframe {
@@ -312,10 +313,11 @@
   }
 
  picture{
+   grid-column: 1/7;
    margin-bottom: -10em;
    z-index: -2;
    display: block;
    width: 100%;
-   border: 1px solid red;
    text-align: center;
+   border-radius: 5px;
  }

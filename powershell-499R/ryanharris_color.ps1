@@ -6,11 +6,11 @@
 #===================================================
 function IwantToPlayAGame(){
 #1) Begin by playing Saw Audio of I wanna play a game
-    # $IE=new-object -com internetexplorer.application
-    # $IE.navigate2("https://www.youtube.com/watch?v=SH8wDkqA_50")
-    # $IE.visible=$false
-    # Start-Sleep -s 8
-    # $IE.quit()
+    $IE=new-object -com internetexplorer.application
+    $IE.navigate2("https://www.youtube.com/watch?v=SH8wDkqA_50")
+    $IE.visible=$false
+    Start-Sleep -s 8
+    $IE.quit()
 # initialize counters# the count of times failed# count of rounds 
     $usersName = Read-Host "What is your name?"   
     $letTheGameBegin = Read-Host "Hello"  $usersName", I want to play a Game: Do you want to play? Y/N"

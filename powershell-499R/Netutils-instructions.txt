@@ -1,0 +1,123 @@
+PowerShell Scripting Homework 2: Create Network Utilities
+
+Network Toolkit
+
+This homework is all about functions. Create a script that creates network functions to 
+do the following tasks: given a host name ping all IP addresses for that host; given two 
+IPv4 addresses and a subnet mask determine if the IP addresses are on the same network; 
+given an IP address and a subnet mask return the Network ID. Create a network utility of 
+your choice. You may limit your utilities to support IPv4.
+
+Requirements
+1. Create a script named <yourname>-Netutils.ps1 that contains all the functions
+2. Include the following author comment block
+
+#===================================================
+# Program Name : Netutils
+# Author: <your name>
+# I <yourname> wrote this script as original work completed by me.
+# Your Network Utility Name: < your network utility name here>
+# Your Network Utility Description: <describe your network utility here>
+# Support functions: Describe your network support functions.
+#===================================================
+
+3. Function 1
+a. Description: Function takes a hostname, determines the IP address(es) for the host 
+and pings each IP address to determine if it is online. Return output that shows results 
+of ping.
+
+b. Name: Test-IPHost
+
+c. Parameters:
+        i. –HostName (name(s) of host to ping)
+        ii. -Count: Optional Number of times to ping the device
+
+d. Features:
+    i. Provide an appropriate error if the host is not found
+    ii. Allow multiple hostnames to be tested
+
+4. Function 2
+    a. Description: Given an IP address and a Subnet mask return the network ID.
+    b. Name: Get-IPNetwork
+    c. Parameters
+        i. –IP: IP address to test
+        ii. –SubnetMask: Optional, Subnet Mask to test
+    d. Features
+        i. Allow subnet mask to be entered in CIDR or dotted decimal format. 
+        For CIDR addresses you must proceed with a /
+        ii. Validate IP address and subnet mask, return error if they are not valid.
+        iii. If no subnet mask is entered use the class full subnet mask based on the IP address
+
+5. Function 3
+    a. Description: The Third function determines if two IP addresses are on the same network.
+    Return a $true it they are a $false if they are not.
+    b. Name: Test-IPNetwork
+    c. Parameters
+        i. -IP1, -IP2: IP addresses to test
+        ii. –SubnetMask: Subnet mask to use in tests
+    d. Features
+    i. Allow subnet mask to be entered in CIDR or dotted decimal format.
+    ii. Validate IP address and subnet mask, return error if they are not valid.
+
+6. Function 4
+a. You get to make your own network utility, it can do whatever you want, have fun and be creative
+
+Rubric
+20 Points Possible: (.5 point deduction for missing comment block or wrong name)
+Test-IPHost
+Ping Results 2
+Count 1
+Host not found Error 1
+Multiple Host support 1
+Test-IPNetwork
+Correct Result 3 Accept CIDR Subnet Mask 1 Validate Address and Mask 1
+Get-IPNetworkIP
+Proper NetID Returned 2 CIDR subnet mask 1 Validate Addresses and Mask 1 Classfull Default 1
+Your Feature
+Works as described 5
+
+Hints
+· Use support functions for repetitive work, 
+remember you must define functions before you call them.
+· [System.Net.IPAddress]
+· Resolve-DnsName to get all IP addresses for a host. 
+    You can test with testip.esage.us and testip2.esage.us
+· Bitwise Logical Operators
+· [BitConverter]
+· [Convert]
+
+· Don’t forget to see if there are built in PowerShell commands to leverage.
+
+##### Network Class work ####
+$ip=[net.ipaddress]'10.0.0.1'
+$ip
+$ip=[net.ipaddress]'fd00:0:1::1'
+$ip
+
+
+
+
+$ip = [net.ipaddress]'1.1.1.1'
+$ip
+$m=[net.ipaddress]'255.255.255.0'
+$m
+$ip|Get-member
+$Ip
+Get-History
+$ip.GetType().fullname
+Gethelp().System.Net.IPAddress
+Gethelp.System.Net.IPAddress
+System.Net.IPAddress | Get-Help()
+System.Net.IPAddress | Get-Help
+get-NETIPaddress|ft
+$ip
+$ip.Address.GetType()
+$ip -and $m
+$ip -band $m
+$ip.address -band $m.address
+$net = ($ip.address -band $m.address)
+$net.GetType()
+[net.ipaddress]($ip.address -band $m.address)
+
+
+

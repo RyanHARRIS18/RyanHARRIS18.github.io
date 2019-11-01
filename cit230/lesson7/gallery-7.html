@@ -13,7 +13,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Diplomata+SC&display=swap" rel="stylesheet">
-    <title> Lesson 7 | index </title>
+    <title> Lesson 7 | Gallery </title>
 
     <!-- lesson 6 -->
 
@@ -42,31 +42,43 @@
         </nav>
     </div>
     <main>
-        <h1>Lazy Load : Activity</h1>
+        <h1>Gallery Images</h1>
         <section id="weatherImages">
                 <figure>
-                    <img src="images/loadimg.png" data-src="images/weather1.jfif" alt="a picture of art design">
-                    <figcaption>art 1</figcaption>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather1.jfif" alt="a picture of art design">
+                    <figcaption>Lots of Powdery Snow</figcaption>
                 </figure>
                 <figure>
-                    <img src="images/loadimg.png" data-src="images/weather2.jfif" alt="a picture of art design">
-                    <figcaption>art 2</figcaption>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather2.jfif" alt="a picture of art design">
+                    <figcaption>The Storm is Brewing</figcaption>
                 </figure>
                 <figure>
-                    <img src="images/loadimg.png" data-src="images/weather3.jfif" alt="a picture of art design">
-                    <figcaption>art 3</figcaption>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather3.jfif" alt="a picture of art design">
+                    <figcaption>This was a Shocking Night</figcaption>
                 </figure>
                 <figure>
-                    <img src="images/loadimg.png" data-src="images/weather4.jfif" alt="a picture of art design">
-                    <figcaption>art 4</figcaption>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather4.jfif" alt="a picture of art design">
+                    <figcaption>Nothing better then a Nature Walk</figcaption>
                 </figure>
                 <figure>
-                    <img src="images/loadimg.png" data-src="images/weather5.jfif" alt="a picture of art design">
-                    <figcaption>art 5</figcaption>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather5.jfif" alt="a picture of art design">
+                    <figcaption>Snow Canyon</figcaption>
                 </figure>
                 <figure>
-                    <img src="images/loadimg.png" data-src="images/weather6.jfif" alt="a picture of art design">
-                    <figcaption>art 6</figcaption>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather6.jfif" alt="a picture of art design">
+                    <figcaption>Overcast but Beautiful</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather7.jfif" alt="a picture of art design">
+                    <figcaption>Overcast but Beautiful</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather8.jfif" alt="a picture of art design">
+                    <figcaption>Rainy</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather9.jfif" alt="a picture of art design">
+                    <figcaption>Overcast but Beautiful</figcaption>
                 </figure>
             </section>
 
@@ -80,40 +92,11 @@
                 </span></p>
         </div>
     </footer>
-    <script> 
-            let imagesToLoad = document.querySelectorAll('img[data-src]');
-            const loadImages = (image) => {
-            image.setAttribute('src', image.getAttribute('data-src'));
-            image.onload = () => {
-                image.removeAttribute('data-src');
-            };
-            };
+    <script src="scripts/lazyload.js"></script>  
+    <script src="scripts/main.js"> </script>
 
-            imagesToLoad.forEach((img) => {
-                loadImages(img);
-            });
-
-            if('IntersectionObserver' in window) {
-                const observer = new IntersectionObserver((items, observer) => {
-                items.forEach((item) => {
-                    if(item.isIntersecting) {
-                    loadImages(item.target);
-                    observer.unobserve(item.target);
-                    }
-                });
-                });
-                imagesToLoad.forEach((img) => {
-                observer.observe(img);
-                });
-            } else {
-                imagesToLoad.forEach((img) => {
-                loadImages(img);
-                });
-            }
-    
-    </script>
-    
  
 </body>
+
 
 </html>

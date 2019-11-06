@@ -1,0 +1,211 @@
+﻿-------------------------LESSON 1 POWERSHELL ---------------------------------------------
+Get-Command: used to list avaialable commandds 
+* any # of characters
+? for single char 
+
+get-help retrieves command
+
+.gettype() get objects data type
+
+Get-Member : lists objects' properties and methods
+
+cd - change dir
+copy or cp - copy
+move - move mv
+delete del, rm
+
+Object Utuilites :
+GROUP           gps| group company 
+Mesure		gps| mesure-object Handels -sum -av -min -max
+Select	gps notepad| select name.id -expand modules
+WHERE           gps| where {$_.handles -ge 500}
+Sort            gps| sort handlecount
+	
+
+Get-Childitem | sort-Object length
+dir |sort LastAccessTime - Descending
+
+Get-Command|Mesure-object
+dir|mesure length -Average
+
+dir|Select-Object name
+dir|select fullname
+
+dir |ForEach-Object{$total+=$_.length}
+$total
+
+Get-Process | where{$_.handles -ge 500}
+
+
+Command name 			Parameter W/ Arg
+command       -parameter1      -parameter2 arg1        arg2
+	    SWITCH Parameter                      Positional Arugment
+
+cmdlets: implemented by .net class that derives from the cmdlet 
+class in the powershell software devleopers kit SDK
+
+function: named piece of a powershell script code
+
+Scritps: Powershell code that resides in a text file
+
+Native command: executable programs installed on the system
+
+Verb-name naming standard
+
+Get-Alias: lists aliases
+
+New-Alias: creats new alais, non persistent
+
+Set-Alias: create/modifies an alais, non persistent
+
+Export-Alias: saves aliases to text file
+import-alias: imprts saved aliases
+
+double quoted are expanded "my $a" $a is still a var
+single quote are not expanded 
+
+lists, tables, wide and custom-views 
+gps | format-table name,id,handlecount
+gps | format-list name,id,handlecount
+gps | format-table name,
+@{expression={$_.mainmodule.filename};Lable="File"}
+gps| Out-Gridview
+
+comments # sile
+<# multi line comment
+
+----------------------LESSON 2 POWERSHELL -----------------------------------------------
+type is description of an object
+contains properties that describe an object
+methods that act upon the object
+
+all objects have .gettype() method that return data type
+
+Static - types declared as construction comilation error for mismatched type
+Dynamic - Variable may contain any type, runtime error but not compile check
+Promiscuous -  types ignored, member names are matched: this is powershell
+
+Native: members defined by obj data type
+
+synthetic: provides a method to add members on the fly
+
+fallback: members added by runtime needed for workflows
+
+list all type: [syste.Appdomain]::CurrentDomain.GetAssemblies().GetTypes()
+list count: [syste.Appdomain]::CurrentDomain.GetAssemblies().GetTypes().count
+list all that contain 'datetime'
+:[system.Appdomain]::CurrentDomain.GetAssemblies().GetTypes() | Select-String DateTime
+
+get-member used to interrogate type for methods, properties and events
+-static lists staic members
+
+4 kinds of strings- single quoted, double quoted, single quoted hear-string, double quoted hear-string
+single hear strings perserves white space and formatting
+`0 - Null
+`a -  Alert bell/beep
+`b -Backspace
+`f- Form Feed (use with printer output)
+`n -New line (Unix line ending)
+`r -carriage return
+`r`n carraige return + new line
+`t horizontal tab
+`v vertical tab
+`` literal backtick
+`" double quote literal string
+
+Numeric literals are created by best fit, so there are no loss of precision
+
+KB - 2^10
+mb - 2 ^20
+gb - 2^30
+tb -2 ^ 40
+pb -10^150
+
+Hex literals : prefix with 0x - these are not case senstive oxff - [int] 255
+Hashtable: collection of key/value pairs. Key must be a string. Value can be any type, even object
+$hobbit =
+@{
+ firstline = 'whatever'
+ secondline = 'baggins'
+}
+
+access by writing like properites of a class $hobbit.firstline
+or like an element of an array $hobbit['secondline']
+
+list all keys in a hash table
+$hobbit.keys
+
+list all value using the keys
+$hobbit[hobbit.keys]
+or even simpiler $hobbit.value
+
+$hobbit.firstname = 'frodo' to change the key's value
+
+To order hashtables instead of the sytem ordering it in the most efficent way
+$hobbit=[orders]@(firstname= 'first'; last= 'last'; age = 2}
+
+add a new key $hobit.home = 'shire' #whatever the new key is and give the value#
+remove key $hobbit.home
+
+Hashtables are refrence objects. $show = $hobbit, both cars point to same hash. Changin table 
+will relect in both cars. 
+if you want a copy and not a clone $favorite =$hobbit.clone()
+
+, create array
+
+indexing arrays uses $array[index] syntax - base 0
+
+arrays are refrence types
+
+empty array $a=@()
+
+modifying types: objs can be extended on the fly
+'holiday property to DateTime'
+$d=[DateTime]"12/25/****"
+$d =add-member -inputObject $d
+-MemberType NoteProperty -Name Holiday Christmas -Pasthru
+
+force/cast obj into specific type, [int]$a
+
+auto type conversion [int] 0xff
+[int][char] 'A'
+[int[]][char[]] 'Hello World'
+[string][char][int] (0x{0:x}" -f [int][char]'A') - round trip
+ 2 conversions
+built in
+.net based custom converters
+
+
+Arithmetic
++-*/%
+
+Assignment
+= += -= *= /= %=
+
+Comparison
+-eq -ne -gt -ge -lt -le
+equal to, not equal to , greater then, greater than or equal to, less than, less than or equal to
+
+
+containment
+-contains -notcontains -in -notin
+
+pattern/ text manipulation
+-like -notlike -match -notmatch -replace -split -join
+
+logical 
+-and -or -not -xor -shl -band -nor -bnot -bxor -shr
+
++addition
+number, PS convert right to num if possilbe
+string, PS will convert right to string then concatonate
+array /scalar, add right to a colleciton
+array, PS will append right to collection
+
+*multiplication
+'abc'*3 = 'abcabcabc'
+[int]1.25 - 1
+[int]1.5 - 2
+[int]1.75 - 2
+[int]2.5 - 2 
+[int]2.75 - 3

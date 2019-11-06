@@ -1,60 +1,41 @@
-body{
-font-family: 'Ubuntu', sans-serif;
+body {
+    font-family: 'Ubuntu', sans-serif;
+    
 }
-
-
-table, tr, td{
-    border: 1px solid rgb(167, 167, 167);
+table,tr,th,td {
+    border: 1px solid grey;
     border-collapse: collapse;
     padding: 5px;
+  
+}
+table {
+    box-shadow: 5px 5px 0 0 lightgray;
+}
+td {
     text-align: center;
-    color:black;
 }
-
-th{
-    background-color: #628ca6;
-    color: white;
-    padding: 0.75em;
-    font-size: 110%;
+th[colspan="3"] {
+    background-color: #7fb9c2;
+    color: black;
 }
-
-th[colspan="3"]{
-background-color: #7fb9c2;
-color: black;
-font-style: bold;
+th {
+    background-color: #628ca6; 
+    color: white; 
 }
-
-td{
-    padding: 5px;
-    font-size: 55%;
-
+tr:nth-child(even) {
+    background-color: #e7ffed;
 }
-
-tr:nth-child(even){
-background-color: #e7ffed;
-}
-
-tr:nth-child(odd){
+tr {
     background-color: #e7f0ed;
 }
-
-
-#blueCell{
-    background-color: #628ca6;
+td[colspan="3"] {
+    background-color:  #7fb9c2;
+    font-size: 10px;
+}
+#specificCell {
+    background-color:  #628ca6;
     color: white;
 }
-
- 
-tr:last-child{
-    background: #7fb9c2;
-    font-size: 55%;
-}
-
-td[colspan="2"]{
-    color: black;
-    font-style: normal;
-}
-
-section{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 16px 20px 0 rgba(0, 0, 0, 0.19);
+td[colspan="1"]{
+    font-style: italic;
 }

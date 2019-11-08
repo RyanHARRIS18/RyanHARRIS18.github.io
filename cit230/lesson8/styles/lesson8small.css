@@ -409,7 +409,91 @@ img[data-src] {
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
   
+ .stormCenterMain{
+  min-width: 500px;
+ }
+
   form {
     max-width: 500px;
     margin: 0 auto;
+    margin-left: 2em;
+    background-color: rgb(255, 206, 99);
+    padding: 2em;
+    border: 5px dashed rgb(55, 125, 190);
+    color: rgb(18, 61, 101);
+    font-size: 20px;
+    margin-bottom: 3em;
   }
+  
+  #stormDate{
+  display: inline-block;
+  min-width: 200px;
+  }
+
+  label{
+    display: inline-block;
+    min-width: 200px;
+
+  }
+
+  form div{
+    margin-top: 10px;
+  }
+
+
+  .align-top{
+    vertical-align: top;
+  }
+
+.flex{
+ display: block;
+ margin-bottom: 3em;
+  }
+
+  #yes, #no, #maybe{
+    display: inline-block;
+  }
+
+  .flexly {
+    display: flex;
+    align-items: center;
+  }
+  
+  #ratingvalue {
+    margin: 0 15px;
+  }
+
+  #stormSeverity{
+    margin-left: 5em;
+   /* border: 5px solid orange; */
+   width: 180px;
+  }
+
+  #commentBox{
+    margin-left: -1.8em;
+  }
+
+  #submitReset{
+    margin-bottom: 3em;
+    margin-top: 2em;
+    text-align: center;
+  }
+
+  #stormRegion{
+    width: 165px;
+  }
+
+  .noMargin {
+    margin-left: 12em;
+ }
+
+
+
+ /* ------------------------------------------
+ THESE ARE THE Thanks Page RULES
+-------------------------------------- */
+
+.stormCenterParagraphs{
+  font-size: 25px;
+  text-align: center;
+}

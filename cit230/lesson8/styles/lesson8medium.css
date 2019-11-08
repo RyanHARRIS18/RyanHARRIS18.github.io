@@ -106,4 +106,37 @@ iframe {
 	box-shadow: 6px 9px 15px 0 rgba(0,0,0,0.49);
   }
   
+}
+
+   /* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    THESE ARE THE STORM CENTER RULES
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+ @media only screen and (min-width: 505px){
+	form {
+		max-width: 500px;
+		margin: 0 auto;
+	  }
+
+ #stormSeverity{
+	display: inline;
+	/* border: 5px solid blue; */
+	margin-left: 5em;
   }
+
+  .noMargin {
+    margin-left: 5em;
+ }
+
+  .flex{
+  display: flex;
+  margin-top: 2em;
+  min-width: 100px;
+  }
+
+  #yes ,#no, #maybe{
+    display: inline;
+  }
+
+}

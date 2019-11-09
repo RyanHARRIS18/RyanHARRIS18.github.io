@@ -1,0 +1,321 @@
+  body {
+    padding: 0;
+    /* margin-right: 1em;
+    margin-left: 1em; */
+  }
+
+  header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    background-color: white;
+  }
+
+  .headings {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+  }
+
+  .Weather-Logo {
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    margin-top: 0em;
+    /* margin-left: 4em; */
+    background-color: white;
+  }
+
+
+
+  .moto {
+    letter-spacing: 1.5pt;
+    font-size: larger;
+    margin-left: 2em;
+    margin-bottom: 1em;
+    color: rgb(55, 125, 190);
+    font-style: italic;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+    background-color: white;
+  }
+
+  h1 {
+    color: rgb(55, 125, 190);
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border-bottom: 5px solid rgb(55, 125, 190);
+    margin-bottom: 1em;
+    font-family: 'Diplomata SC', cursive;
+    z-index: 2;
+    text-align: center;
+    margin-top: 1em;
+    /* background: rgb(255, 206, 99); */
+    padding: .25em;
+    margin-right: 2em;
+    margin-left: 0.5em;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+    background-color: white;
+  }
+
+  h2 {
+    color: Black;
+    font-size: 16px;
+    border-radius: 5px;
+    border-bottom: 5px solid black;
+    font-family: 'Diplomata SC', cursive;
+    text-align: center;
+    margin-top: 2em;
+    background: rgb(172, 201, 228);
+    padding-left: 3em;
+    padding-right: 3em;
+    padding: 1em;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+    box-shadow: 2px 2px rgb(193, 193, 193);
+    border-radius: 15px;
+  }
+
+  h3 {
+    color: rgb(55, 125, 190);
+    font-size: 25px;
+    border-radius: 5px;
+    /* border-bottom: 5px solid  rgb(55, 125, 190); */
+    font-family: 'Merriweather Sans', cursive;
+    margin-top: -0.5em;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+    text-align: center;
+    margin-top: 1em;
+    background: rgb(253, 226, 167);
+    display: block;
+    text-align: center;
+    box-shadow: 2px 2px rgb(193, 193, 193);
+    padding: 0.5em;
+  }
+
+  h4 {
+    color: black;
+    ;
+    font-size: 25px;
+    border-radius: 5px;
+    /* border-bottom: 5px solid  rgb(255, 206, 99); */
+    font-family: 'Merriweather Sans', cursive;
+    z-index: 2;
+    text-align: center;
+    margin-left: 2em;
+    margin-right: 2em;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+  }
+
+
+  .footer-text {
+    margin: 1px;
+    color: white;
+    border: 1px;
+    padding: 10px;
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  footer {
+    margin-top: 15em;
+    align-items: left;
+    background-color: rgb(55, 125, 190);
+  }
+
+  nav {
+    margin: 0 auto;
+    max-width: 1560px;
+    background-color: white;
+    padding: 2.1em;
+  }
+
+  .navigation {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    background-color: rgb(55, 125, 190);
+
+  }
+
+  .navigation li:first-child {
+    display: block;
+  }
+
+  .navigation li {
+    display: none;
+  }
+
+  .navigation a {
+    display: block;
+    color: #fff;
+    padding: 0.75rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .navigation a:hover {
+    color: black;
+    background-color: rgb(172, 201, 228);
+    font-weight: 700;
+  }
+  
+  /* the onclick JS toggles the .repsonsive class from display none (.navigation li) to display block because the repsonsive class is added to the end of the class list like this in HTML Line #6.
+  <ul class="navigation responsive">
+  */
+  .responsive li {
+    display: block;
+  }
+
+  .units{
+    margin-top: -1em;
+    display: block;
+    margin-right: 1em;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .storage-unit {
+    display: grid;
+    grid-template-columns: 300px;
+    font-size: 5px;
+  }
+
+  .storage-unit1 {
+   color: black;
+    margin-top: 0em;
+    width: 100%;
+    grid-column: 1/2;
+    grid-row: 1/10;
+    margin-bottom: 5em;
+    text-align: center;
+    font-size: 15px;
+    z-index: 4;
+    
+  }
+
+  .storage-unit-1 {
+   color: black;
+   font-size: 15px;
+    background-color: lightgray;
+    border: 1px solid black;
+    grid-column: 1/2;
+    grid-row: 9/10;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    z-index: 4;
+}
+  
+  .door{
+    z-index: 3;
+  }
+
+
+
+
+  .storage-unit-1 {
+    position: relative;
+    -webkit-animation-name: example;  /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 5s;  /* Safari 4.0 - 8.0 */  
+    -webkit-animation-fill-mode: both; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 5s;  
+    animation-fill-mode: both;
+  }
+  
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  0%   {left:0px; top:0px;}
+  50%  { left:0; top:-200px;}
+  75% {left:0px; top:0px;}
+  0%  { left:0; top:-200px;}
+
+}
+
+/* Standard syntax */
+@keyframes example {
+  0%   {left:0px; top:0px;}
+  50%  { left:0; top:-200px;}
+  75% { left:0px; top:0px;}
+  100%  { left:0; top:-200px;}
+}
+
+#details{
+  margin-top: 15em;
+display: block;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+
+#myDIV {
+  margin-top: 10em;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: none;
+  color: white;
+  bottom: 0px;
+  -webkit-animation: bottomProperty 5s infinite; /* Safari 4.0 - 8.0 */
+  animation: bottomProperty 5s infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes bottomPropery {
+  50% {bottom: 200px;}
+}
+
+@keyframes bottomProperty {
+  50% {bottom: 200px;}
+}
+
+
+#Hover-div{
+  width: 100px;
+  height: 100px;
+  background: red;
+  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
+}
+
+#Hover-div:hover {
+  width: 300px;
+}         
+
+
+#min-Height {
+  width: 500px;
+  background-color: lightblue;
+  overflow: auto;
+  border: 1px solid black;
+  -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+  animation: mymove 5s infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+ 25% { min-height: 50px;}
+  50% {min-height: 200px;}
+ 75% { min-height: 50px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+ 25% { min-height: 50px;}
+ 50% {min-height: 200px;}
+ 75% { min-height: 50px;}
+
+}
+

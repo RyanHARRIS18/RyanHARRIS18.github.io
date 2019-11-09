@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <!-- <link rel="stylesheet" href="./styles/lesson4medium.css"> -->
+    <link rel="stylesheet" href="./home/styles/b&mlarge.css">
+    <link rel="stylesheet" href="./home/styles/b&mMedium.css">
+    <link rel="stylesheet" href="./home/styles/b&msmall.css">
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Diplomata+SC&display=swap" rel="stylesheet">
+    <title> Animation Examples</title>
+</head>
+
+<body>
+
+
+    <!-- <header>
+        <img class="Weather-Logo" src="../assets/Asset 16@3x.png" alt="logo of a sun, moon, and stars">
+        <section class="headings">
+            <h1>B&M Storage</h1>
+            <div class='moto'>lalala</div>
+        </section>
+    </header>
+    <div class="navigation-grid-hamburger">
+        <nav>
+            <ul class="navigation">
+                <li><a href="#" onclick="toggleMenu()">&#9776; Menu</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Unit Sizes</a></li>
+                <li><a href="#">Seccurity</a></li>
+                <li><a href="#">Contracts</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div> -->
+    <main>
+        <div class="units">
+
+            <div class="storage-unit">
+                <!-- <img class="behind-door-1" src="../assets/20181027_171203.png"> -->
+                <img class="storage-unit1" src="./assets/Asset 19@3x.png">
+
+                <div class="door">
+                    <div class="storage-unit-1">
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        ___________________&#9919;
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- <div clas="storage-unit-bottom"></div> -->
+
+            <div class="storage-unit">
+                <!-- <img class="behind-door-1" src="../assets/20181027_171203.png"> -->
+                <img class="storage-unit1" src="./assets/Asset 19@3x.png">
+
+
+                <div class="door">
+                    <div class="storage-unit-1">
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        ___________________&#9919;
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="storage-unit">
+                <!-- <img class="behind-door-1" src="../assets/20181027_171203.png"> -->
+                <img class="storage-unit1" src="./assets/Asset 19@3x.png">
+
+
+                <div class="door">
+                    <div class="storage-unit-1">
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        ___________________&#9919;
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                        _________________________
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="details">
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/XhQtDsw7Dxs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <h2>
+                Ways this could be achieved
+            </h2>
+            <h3>
+                Using a div and specifying to move to certian positions relative to location.
+            </h3>
+            <h4> This is What I used for the Storage Units above</h4>
+            <textarea>
+                    .storage-unit-1 {
+                        position: relative;
+                        -webkit-animation-name: example;  /* Safari 4.0 - 8.0 */
+                        -webkit-animation-duration: 5s;  /* Safari 4.0 - 8.0 */  
+                        -webkit-animation-fill-mode: both; /* Safari 4.0 - 8.0 */
+                        animation-name: example;
+                        animation-duration: 5s;  
+                        animation-fill-mode: both;
+                      }
+                      
+                    /* Safari 4.0 - 8.0 */
+                    @-webkit-keyframes example {
+                      0%   {left:0px; top:0px;}
+                      50%  { left:0; top:-200px;}
+                      75% {left:0px; top:0px;}
+                      0%  { left:0; top:-200px;}
+                    
+                    }
+                    
+                    /* Standard syntax */
+                    @keyframes example {
+                      0%   {left:0px; top:0px;}
+                      50%  { left:0; top:-200px;}
+                      75% { left:0px; top:0px;}
+                      100%  { left:0; top:-200px;}
+                    }
+            </textarea>
+
+            <h3>
+                Using a bottom Property
+            </h3>
+
+            <div id="myDIV">
+                <h2>Bottom Property</h2>
+            </div>
+
+
+            <textarea>
+                    #myDIV {
+                        margin-top: 10em;
+                        position: relative;
+                        width: 100px;
+                        height: 100px;
+                        background-color: none;
+                        color: white;
+                        bottom: 0px;
+                        -webkit-animation: bottomProperty 5s infinite; /* Safari 4.0 - 8.0 */
+                        animation: bottomProperty 5s infinite;
+                      }
+                      
+                      /* Safari 4.0 - 8.0 */
+                      @-webkit-keyframes bottomPropery {
+                        50% {bottom: 200px;}
+                      }
+                      
+                      @keyframes bottomProperty {
+                        50% {bottom: 200px;}
+                      }
+                      
+        </textarea>
+        </div>
+
+        <h2 id="On-Hover">
+            On Hover
+        </h2>
+        <div id="Hover-div"> </div>
+
+        <textarea>
+                    #Hover-div{
+                        width: 100px;
+                        height: 100px;
+                        background: red;
+                        -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+                        transition: width 2s;
+                    }
+                    
+                    #Hover-div:hover {
+                        width: 300px;
+                    }         
+        </textarea>
+
+
+
+        <div>
+
+            <h2>Animating Min-Height</h2>
+            <div>
+                <div id="min-Height">
+                    <p>This DIV element does not have a pre-defined height.</p>
+                    <p>An animation will change the min-height, from "none" to "400px".</p>
+                </div>
+
+            </div>
+
+            <textarea>
+                #min-Height {
+                    width: 500px;
+                    background-color: lightblue;
+                    overflow: auto;
+                    border: 1px solid black;
+                    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+                    animation: mymove 5s infinite;
+                  }
+                  
+                  /* Chrome, Safari, Opera */
+                  @-webkit-keyframes mymove {
+                   25% { min-height: 50px;}
+                    50% {min-height: 200px;}
+                   75% { min-height: 50px;}
+                  }
+                  
+                  /* Standard syntax */
+                  @keyframes mymove {
+                   25% { min-height: 50px;}
+                   50% {min-height: 200px;}
+                   75% { min-height: 50px;}
+                  
+                  }
+    
+        </textarea>
+        </div>
+
+
+
+        <!-- <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.6980275686024!2d-111.67383426000858!3d40.05983937940822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874da4b42a2bae79%3A0x6b6c439374501d1a!2sB%26M%20Storage!5e0!3m2!1sen!2sus!4v1571072032478!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
+
+        <!-- <section class="section-1"> -->
+        <!-- <div class="weather-summary">
+                    <h3>Weather Summary:</h3>
+                    <p class="Forecast"> Monday</p>
+                    <p class="Forecast"> Tuesday</p>
+                    <p class="Forecast"> Wednesday</p>
+                    <p class="Forecast"> Thursday</p>
+                    <p class="Forecast"> Friday</p>
+                    <p class="Forecast"> Saturday</p>
+                    <p class="Forecast"> Sunday</p>
+                </div>
+
+                <img class="Preston-pictures" id="section-1-img" src="./images/preston-town.jpg"
+                alt="Image of Downtown Preston"> -->
+
+        <!-- </section> -->
+
+        <!-- <section class="section-2"> 
+            <div class="article-box">
+                    <h3>Article Title</h3>
+                    <p class="forecast"> by Author</p>
+            <img class="Preston-pictures"  id="section-2-img"  src="./images/preston-town-2.jpg"
+            alt="Image of Downtown Preston">
+       </section> -->
+
+        <!-- <section>
+           <h2>Contact Infomration</h2>
+            <img class="Preston-pictures"  id="section-3-img"  src="./images/preston-town-3.jpg"
+            alt="Image of Satalite view of Preston">
+       </section> -->
+    </main>
+
+    <footer>
+        <div class="footer">
+            <p class='footer-text'> CIT230 &copy; <span id="currentDate"> &star; Ryan P. Harris | Colorado | BYUI
+                </span></p>
+        </div>
+    </footer>
+    <script src="scripts/main.js"> </script>
+</body>
+
+</html>

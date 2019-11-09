@@ -94,7 +94,7 @@
   }
 
   h4 {
-    color: rgb(255, 206, 99);
+    color: black;
     ;
     font-size: 25px;
     border-radius: 5px;
@@ -169,6 +169,7 @@
   }
 
   .units{
+    display: block;
     margin-right: 1em;
     text-align: center;
     display: grid;
@@ -191,7 +192,7 @@
     margin-bottom: 5em;
     text-align: center;
     font-size: 15px;
-    z-index: 0;
+    z-index: 4;
     
   }
 
@@ -204,71 +205,116 @@
     grid-row: 9/10;
     margin-left: 3.5em;
     margin-right: 3.5em;
-    z-index: 0;
+    z-index: 4;
 }
   
   .door{
-    z-index: -1;
+    z-index: 3;
+  }
+
+
+
+
+  .storage-unit-1 {
     position: relative;
-    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 15s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: example;  /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 5s;  /* Safari 4.0 - 8.0 */  
+    -webkit-animation-fill-mode: both; /* Safari 4.0 - 8.0 */
     animation-name: example;
-    animation-duration: 5s;
-    animation-play-state: paused; 
-
+    animation-duration: 5s;  
+    animation-fill-mode: both;
   }
-  .door:hover {
-    z-index: 2;
-    background: blue;
-    animation-play-state: running;
-  }
+  
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+  0%   {left:0px; top:0px;}
+  50%  { left:0; top:-200px;}
+  75% {left:0px; top:0px;}
+  0%  { left:0; top:-200px;}
 
+}
 
 /* Standard syntax */
 @keyframes example {
-  0%   {left:0px; top:0;}
-  100%  {left:0px; top:-200px;}
+  0%   {left:0px; top:0px;}
+  50%  { left:0; top:-200px;}
+  75% { left:0px; top:0px;}
+  100%  { left:0; top:-200px;}
 }
 
- #map{
-   margin-top: 10em;
- }
-
-  /* .section-1{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  margin-bottom: 5em;
-  margin-left: 1em;
-  margin-right: 1em;
+#details{
+  margin-top: 15em;
+display: block;
 }
 
-.section-2{
-  background-color: rgb(208, 208, 208);
-  margin-bottom: 5em;
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
 }
 
-.weather-summary{
-  grid-column: 1/5;
-  grid-row: 1/2;
-  background-color: rgb(172, 201, 228);
-  opacity: 0.85;
-  border-radius: 15px;
-  margin-top: 3em;
-  margin-bottom: -3em;
-  margin-left: 2em;
-}
-.Preston-pictures{
-  width: 450px;
-  border-radius: 15px;
-  align-self: right;
+#myDIV {
+  margin-top: 10em;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: none;
+  color: white;
+  bottom: 0px;
+  -webkit-animation: bottomProperty 5s infinite; /* Safari 4.0 - 8.0 */
+  animation: bottomProperty 5s infinite;
 }
 
-#section-1-img{
-  grid-column: 2/5;
-  grid-row: 1/2;
-  z-index: -1;
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes bottomPropery {
+  50% {bottom: 200px;}
 }
 
-p.Forecast{
-  margin-left: 2em;
-} */
+@keyframes bottomProperty {
+  50% {bottom: 200px;}
+}
+
+
+#Hover-div{
+  width: 100px;
+  height: 100px;
+  background: red;
+  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+  transition: width 2s;
+}
+
+#Hover-div:hover {
+  width: 300px;
+}         
+
+
+#min-Height {
+  width: 500px;
+  background-color: lightblue;
+  overflow: auto;
+  border: 1px solid black;
+  -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+  animation: mymove 5s infinite;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+ 25% { min-height: 50px;}
+  50% {min-height: 200px;}
+ 75% { min-height: 50px;}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+ 25% { min-height: 50px;}
+ 50% {min-height: 200px;}
+ 75% { min-height: 50px;}
+
+}
+

@@ -18,7 +18,7 @@
 <body>
 
 
-    <header>
+    <!-- <header>
         <img class="Weather-Logo" src="../assets/Asset 16@3x.png" alt="logo of a sun, moon, and stars">
         <section class="headings">
             <h1>B&M Storage</h1>
@@ -36,7 +36,7 @@
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
-    </div>
+    </div> -->
     <main>
         <div class="units">
 
@@ -120,11 +120,145 @@
                 </div>
             </div>
 
-        
-            <!-- <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.6980275686024!2d-111.67383426000858!3d40.05983937940822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874da4b42a2bae79%3A0x6b6c439374501d1a!2sB%26M%20Storage!5e0!3m2!1sen!2sus!4v1571072032478!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
+        </div>
 
-            <!-- <section class="section-1"> -->
-            <!-- <div class="weather-summary">
+        <div id="details">
+            <h2>
+                Ways this could be achieved
+            </h2>
+            <h3>
+                Using a div and specifying to move to certian positions relative to location.
+            </h3>
+            <h4> This is What I used for the Storage Units above</h4>
+            <textarea>
+                    .storage-unit-1 {
+                        position: relative;
+                        -webkit-animation-name: example;  /* Safari 4.0 - 8.0 */
+                        -webkit-animation-duration: 5s;  /* Safari 4.0 - 8.0 */  
+                        -webkit-animation-fill-mode: both; /* Safari 4.0 - 8.0 */
+                        animation-name: example;
+                        animation-duration: 5s;  
+                        animation-fill-mode: both;
+                      }
+                      
+                    /* Safari 4.0 - 8.0 */
+                    @-webkit-keyframes example {
+                      0%   {left:0px; top:0px;}
+                      50%  { left:0; top:-200px;}
+                      75% {left:0px; top:0px;}
+                      0%  { left:0; top:-200px;}
+                    
+                    }
+                    
+                    /* Standard syntax */
+                    @keyframes example {
+                      0%   {left:0px; top:0px;}
+                      50%  { left:0; top:-200px;}
+                      75% { left:0px; top:0px;}
+                      100%  { left:0; top:-200px;}
+                    }
+            </textarea>
+
+            <h3>
+                Using a bottom Property
+            </h3>
+
+            <div id="myDIV">
+                <h2>Bottom Property</h2>
+            </div>
+
+
+            <textarea>
+                    #myDIV {
+                        margin-top: 10em;
+                        position: relative;
+                        width: 100px;
+                        height: 100px;
+                        background-color: none;
+                        color: white;
+                        bottom: 0px;
+                        -webkit-animation: bottomProperty 5s infinite; /* Safari 4.0 - 8.0 */
+                        animation: bottomProperty 5s infinite;
+                      }
+                      
+                      /* Safari 4.0 - 8.0 */
+                      @-webkit-keyframes bottomPropery {
+                        50% {bottom: 200px;}
+                      }
+                      
+                      @keyframes bottomProperty {
+                        50% {bottom: 200px;}
+                      }
+                      
+        </textarea>
+        </div>
+
+        <h2 id="On-Hover">
+            On Hover
+        </h2>
+        <div id="Hover-div"> </div>
+
+        <textarea>
+                    #Hover-div{
+                        width: 100px;
+                        height: 100px;
+                        background: red;
+                        -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+                        transition: width 2s;
+                    }
+                    
+                    #Hover-div:hover {
+                        width: 300px;
+                    }         
+        </textarea>
+
+
+
+        <div>
+
+            <h2>Animating Min-Height</h2>
+            <div>
+                <div id="min-Height">
+                    <p>This DIV element does not have a pre-defined height.</p>
+                    <p>An animation will change the min-height, from "none" to "400px".</p>
+                </div>
+
+            </div>
+
+            <textarea>
+                #min-Height {
+                    width: 500px;
+                    background-color: lightblue;
+                    overflow: auto;
+                    border: 1px solid black;
+                    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
+                    animation: mymove 5s infinite;
+                  }
+                  
+                  /* Chrome, Safari, Opera */
+                  @-webkit-keyframes mymove {
+                   25% { min-height: 50px;}
+                    50% {min-height: 200px;}
+                   75% { min-height: 50px;}
+                  }
+                  
+                  /* Standard syntax */
+                  @keyframes mymove {
+                   25% { min-height: 50px;}
+                   50% {min-height: 200px;}
+                   75% { min-height: 50px;}
+                  
+                  }
+    
+        </textarea>
+        </div>
+
+
+
+        <!-- <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.6980275686024!2d-111.67383426000858!3d40.05983937940822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874da4b42a2bae79%3A0x6b6c439374501d1a!2sB%26M%20Storage!5e0!3m2!1sen!2sus!4v1571072032478!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
+
+        <!-- <section class="section-1"> -->
+        <!-- <div class="weather-summary">
                     <h3>Weather Summary:</h3>
                     <p class="Forecast"> Monday</p>
                     <p class="Forecast"> Tuesday</p>
@@ -138,9 +272,9 @@
                 <img class="Preston-pictures" id="section-1-img" src="./images/preston-town.jpg"
                 alt="Image of Downtown Preston"> -->
 
-            <!-- </section> -->
+        <!-- </section> -->
 
-            <!-- <section class="section-2"> 
+        <!-- <section class="section-2"> 
             <div class="article-box">
                     <h3>Article Title</h3>
                     <p class="forecast"> by Author</p>
@@ -148,7 +282,7 @@
             alt="Image of Downtown Preston">
        </section> -->
 
-            <!-- <section>
+        <!-- <section>
            <h2>Contact Infomration</h2>
             <img class="Preston-pictures"  id="section-3-img"  src="./images/preston-town-3.jpg"
             alt="Image of Satalite view of Preston">

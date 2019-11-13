@@ -2,7 +2,7 @@
   "towns" : [
   {
     "name": "Franklin",
-    "photo": "../images/preston-town-2.png",
+    "photo": "http://placekitten.com/200/300",
     "motto": "Where you will grow!",
     "yearFounded": 1788,
     "currentPopulation": 30458,
@@ -15,7 +15,7 @@
   },
   {
     "name": "Fish Haven",
-    "photo": "fishhaven.jpg",
+    "photo": "http://placekitten.com/200/300",
     "motto": "This is Fish Heaven.",
     "yearFounded": 1864,
     "currentPopulation": 501,
@@ -29,7 +29,7 @@
   },
   {
     "name": "Greenville",
-    "photo": "greenville.jpg",
+    "photo": "http://placekitten.com/200/300",
     "motto": "Green is our way of life.",
     "yearFounded": 1805,
     "currentPopulation": 33458,
@@ -43,7 +43,7 @@
   },
   {
     "name": "Placerton",
-    "photo": "placerton.jpg",
+    "photo": "http://placekitten.com/200/300",
     "motto": "Positive Placement in Placerton.",
     "yearFounded": 1946,
     "currentPopulation": 512,
@@ -55,7 +55,7 @@
   },
   {
     "name": "Preston",
-    "photo": "preston.jpg",
+    "photo": "http://placekitten.com/200/300",
     "motto": "Home of Napoleon Dynamite.",
     "yearFounded": 1866,
     "currentPopulation": 5204,
@@ -68,7 +68,7 @@
   },
   {
     "name": "Soda Springs",
-    "photo": "sodasprings.jpg",
+    "photo": "http://placekitten.com/200/300",
     "motto": "Historic Oregon Trail Oasis. The Soda is on Us.",
     "yearFounded": 1858,
     "currentPopulation": 2985,
@@ -81,7 +81,7 @@
   },
   {
     "name": "Springfield",
-    "photo": "springfield.jpg",
+    "photo": "http://placekitten.com/200/300",
     "motto": "Where everyone is lifted.",
     "yearFounded": 1826,
     "currentPopulation": 17852,

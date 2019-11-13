@@ -1,4 +1,4 @@
-const request = "./towndata.json";
+const request = "https://ryanharris18.github.io/cit230/lesson9/Week09/scripts/towndata.json";
 fetch(request)
   .then(function (response) {
     return response.json();

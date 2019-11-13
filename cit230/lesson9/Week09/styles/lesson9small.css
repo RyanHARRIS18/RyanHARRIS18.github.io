@@ -497,3 +497,67 @@ img[data-src] {
   font-size: 15px;
   text-align: center;
 }
+
+ /* ------------------------------------------
+ THESE ARE THE Home Page RULES
+-------------------------------------- */
+
+body{
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  color: white;
+}
+
+body{
+  margin: 5em;
+}
+
+header{
+  width: 100%;
+}
+
+section{
+  background-color: rgba(255, 206, 99, 0.493);
+  padding: 1.5em;
+  margin: .5em;
+  box-shadow: 10px 10px 5px grey;
+}
+
+/* h1{
+  color: black;
+  font-size: 1em;
+} */
+
+h2{
+  margin: 5px 0;
+}
+p{
+  margin: 5px 0;
+  color: black;
+}
+
+.homepage-images{
+  width: 200px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.homepage-img:hover {
+  box-shadow: 0 0 20px 10px rgb(255, 255, 255);
+}
+
+
+@media only screen and (min-width: 700px) {
+  .cards{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Large */
+@media only screen and (min-width: 1200px) {
+  .cards{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

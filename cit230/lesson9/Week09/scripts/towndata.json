@@ -1,19 +1,6 @@
 {
   "towns" : [
   {
-    "name": "Franklin",
-    "photo": "http://placekitten.com/200/300",
-    "motto": "Where you will grow!",
-    "yearFounded": 1788,
-    "currentPopulation": 30458,
-    "averageRainfall": 21,
-    "events" : [
-      "March 4: March to the Drum of Donuts",
-      "September 5 - 11: Founder Days",
-      "December 1 - 26: Christmas in the Heart"
-    ]
-  },
-  {
     "name": "Fish Haven",
     "photo": "http://placekitten.com/200/300",
     "motto": "This is Fish Heaven.",
@@ -25,32 +12,6 @@
       "May 15-30: Rush the Creek Days",
       "July 24: Bear Lake Blunder Run",
       "December 12: Light the Tree"
-    ]
-  },
-  {
-    "name": "Greenville",
-    "photo": "http://placekitten.com/200/300",
-    "motto": "Green is our way of life.",
-    "yearFounded": 1805,
-    "currentPopulation": 33458,
-    "averageRainfall": 25,
-    "events" : [
-      "February 10-12: Greenbration",
-      "May 8 - 18: Greenville Founder Days",
-      "June 20: Verde and Valiant Day",
-      "November 15-16: Greensome Gathering"
-    ]
-  },
-  {
-    "name": "Placerton",
-    "photo": "http://placekitten.com/200/300",
-    "motto": "Positive Placement in Placerton.",
-    "yearFounded": 1946,
-    "currentPopulation": 512,
-    "averageRainfall": 39,
-    "events" : [
-      "July 4: A Blaze of Glory",
-      "October 20: Fall through Fall"
     ]
   },
   {
@@ -91,6 +52,45 @@
       "April 10-20: Celebration of Life",
       "July 31-Aug 15: Dog Days of Summer Festival"
     ]
+  },
+  {
+    "name": "Franklin",
+    "photo": "http://placekitten.com/200/300",
+    "motto": "Where you will grow!",
+    "yearFounded": 1788,
+    "currentPopulation": 30458,
+    "averageRainfall": 21,
+    "events" : [
+      "March 4: March to the Drum of Donuts",
+      "September 5 - 11: Founder Days",
+      "December 1 - 26: Christmas in the Heart"
+    ]
+  },
+  {
+    "name": "Greenville",
+    "photo": "http://placekitten.com/200/300",
+    "motto": "Green is our way of life.",
+    "yearFounded": 1805,
+    "currentPopulation": 33458,
+    "averageRainfall": 25,
+    "events" : [
+      "February 10-12: Greenbration",
+      "May 8 - 18: Greenville Founder Days",
+      "June 20: Verde and Valiant Day",
+      "November 15-16: Greensome Gathering"
+    ]
+  },
+  {
+    "name": "Placerton",
+    "photo": "http://placekitten.com/200/300",
+    "motto": "Positive Placement in Placerton.",
+    "yearFounded": 1946,
+    "currentPopulation": 512,
+    "averageRainfall": 39,
+    "events" : [
+      "July 4: A Blaze of Glory",
+      "October 20: Fall through Fall"
+    ]
   }
- ]
+]
 }

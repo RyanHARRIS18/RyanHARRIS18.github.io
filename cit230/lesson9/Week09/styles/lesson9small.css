@@ -108,7 +108,7 @@
  nav {
    margin: 0 auto;
    max-width: 1560px;
-   background-color: red;
+   /* background-color: red; */
  }
 
  .navigation {
@@ -177,7 +177,68 @@
    background-color: rgb(55, 125, 190);
  }
 
+ /* ------------------------------------------
+ THESE ARE THE Home Page RULES
+-------------------------------------- */
 
+body{
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+body{
+  margin: 5em;
+}
+
+header{
+  width: 100%;
+}
+
+.cards section{
+  background-color: rgba(255, 206, 99, 0.493);
+  padding: 1.5em;
+  margin: .5em;
+  box-shadow: 10px 10px 5px grey;
+}
+
+/* h1{
+  color: black;
+  font-size: 1em;
+} */
+
+.card h2{
+  margin: 5px 0;
+}
+.cards p{
+  margin: 5px 0;
+  color: black;
+}
+
+.homepage-images{
+  width: 200px;
+  height: auto;
+  margin-top: 10px;
+}
+
+.homepage-img:hover {
+  box-shadow: 0 0 20px 10px rgb(255, 255, 255);
+}
+
+
+@media only screen and (min-width: 700px) {
+  .cards{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Large */
+@media only screen and (min-width: 1200px) {
+  .cards{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
  /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------
                     THESE ARE THE RULES FOR PRESTON PAGE
@@ -190,6 +251,7 @@
    margin-bottom: 5em;
    margin-left: 1em;
    margin-right: 1em;
+   background-color: none;
  }
 
  .section-2 {
@@ -352,6 +414,7 @@
                     THESE ARE THE GALLERY RULES
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
+ 
  h1 {
   text-align: center;
 }
@@ -366,11 +429,17 @@ figure {
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
-  margin-left: 5em;
+  background-color: rgba(255, 206, 99, 0.493);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 figure:hover {
   box-shadow: 10px 10px 15px black;
+  background-color: rgba(255, 206, 99, 0.397);
+  padding-top: 0.5em;
+
 }
 
 img[data-src] {
@@ -498,66 +567,3 @@ img[data-src] {
   text-align: center;
 }
 
- /* ------------------------------------------
- THESE ARE THE Home Page RULES
--------------------------------------- */
-
-body{
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  color: white;
-}
-
-body{
-  margin: 5em;
-}
-
-header{
-  width: 100%;
-}
-
-section{
-  background-color: rgba(255, 206, 99, 0.493);
-  padding: 1.5em;
-  margin: .5em;
-  box-shadow: 10px 10px 5px grey;
-}
-
-/* h1{
-  color: black;
-  font-size: 1em;
-} */
-
-h2{
-  margin: 5px 0;
-}
-p{
-  margin: 5px 0;
-  color: black;
-}
-
-.homepage-images{
-  width: 200px;
-  height: auto;
-  margin-top: 10px;
-}
-
-.homepage-img:hover {
-  box-shadow: 0 0 20px 10px rgb(255, 255, 255);
-}
-
-
-@media only screen and (min-width: 700px) {
-  .cards{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Large */
-@media only screen and (min-width: 1200px) {
-  .cards{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}

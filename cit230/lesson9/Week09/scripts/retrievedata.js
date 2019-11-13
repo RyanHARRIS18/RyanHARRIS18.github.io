@@ -11,9 +11,9 @@ fetch(request)
     for (let i = 0; i < 3; i++ ) {
       let card = document.createElement('section');
 
-     let h3 = document.createElement('h3');
-      h3.textContent = towns[i].name;
-      card.appendChild(h3);
+     let h2 = document.createElement('h2');
+      h2.textContent = towns[i].name;
+      card.appendChild(h2);
 
       let motto  = document.createElement('p');
       motto.textContent = towns[i].motto;
@@ -37,9 +37,8 @@ fetch(request)
       image.setAttribute('id', towns[i].name + "Img");
       image.setAttribute('class', "homepage-images");
 
-
       card.appendChild(image);
-
+      
       document.querySelector('div.cards').appendChild(card);
 
 

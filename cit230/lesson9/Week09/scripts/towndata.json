@@ -2,7 +2,7 @@
   "towns" : [
   {
     "name": "Fish Haven",
-    "photo": "http://placekitten.com/200/300",
+    "photo": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/lesson9/Week09/images/.jpg",
     "motto": "This is Fish Heaven.",
     "yearFounded": 1864,
     "currentPopulation": 501,
@@ -29,7 +29,7 @@
   },
   {
     "name": "Soda Springs",
-    "photo": "http://placekitten.com/200/300",
+    "photo": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/lesson9/Week09/images/soda-springs.jpg",
     "motto": "Historic Oregon Trail Oasis. The Soda is on Us.",
     "yearFounded": 1858,
     "currentPopulation": 2985,

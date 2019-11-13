@@ -2,69 +2,65 @@
  Program Name : Netutils
  Author: Ryan Harris
  I Ryan Harris wrote this script as original work completed by me.
- Your Network Utility Name: < your network utility name here>
- Your Network Utility Description: <describe your network utility here>
+ Your Network Utility Name: traceroute
+ Your Network Utility Description: This Functions determines and prints the
+  number of hop counts on a traceroute command and displays the number for the user to know
+
 
 
  Support functions: Describe your network support functions.
 ===================================================
 
-# Functions that I may call in several others #>
-<# FUNCTION Valdiate IP#>
-Function IsValidIP {
-    param([string] $IPAddress="")
-    try{
-        $IP=[net.ipaddress]$IPAddress
-    }
-    catch{
+    #  This Validates the IP address #>
+    <# FUNCTION Valdiate IP#>
+    Function IsValidIP {
+        param([string] $IPAddress="")
+        try{
+            $IP=[net.ipaddress]$IPAddress
+        }
+        catch{
+            return $false
+        }
+            return $true
+        }
+
+
+        <# FUNCTION Valdiates Subnet#>
+    Function IsValidSubnet {
+        param( [string]$SubnetMask="")
+        try {
+        $SubM =  [net.ipaddress] $SubnetMask
+        } catch {
         return $false
-    }
+        }
         return $true
-    }
+        }
 
 
-    <# FUNCTION Valdiate Subnet#>
-Function IsValidSubnet {
-    param( [string]$SubnetMask="")
-    try {
-     $SubM =  [net.ipaddress] $SubnetMask
-    } catch {
-    return $false
-    }
-    return $true
-    }
-
-
-    # public string Substring (int startIndex, int length);
-
-#CONVERT TO DOTTED DECIMAL
-Function convertToDD($SubnetMask) {
-     #take away the / if there was one
-      $SubnetMask = $SubnetMask -replace '/', ''
-    #  $SubnetMask = $SubnetMask -replace '\', ''
+    #CONVERT TO DOTTED DECIMAL
+    Function convertToDD($SubnetMask) {
+        #take away the / if there was one
+        $SubnetMask = $SubnetMask -replace '/', ''
+        #  $SubnetMask = $SubnetMask -replace '\', ''
         if(([int]$SubnetMask) -le 32) {
-            [Int[]]$totalBits = (,1) * 32
+            [Int[]]$totalBits = (1..32)
             # Creat binary number
-            for($i=0;$i -lt $totalBits.length;$i++){
-                if($totalBits[$i] -gt $SubnetMask){$totalBits[$i]="0"}else{$totalBits[$i]="1"}
+                for($i=0;$i -lt $totalBits.length;$i++){
+                    if($totalBits[$i] -gt $SubnetMask){$totalBits[$i]="0"}else{$totalBits[$i]="1"}
                 }
-                $SubnetMask = $totalBits -join ""
-
-                # creat 4 octets
-                $octetArray = @($SubnetMask.Substring(0,8), $SubnetMask.Substring(8,8), $SubnetMask.Substring(16,8), $SubnetMask.Substring(24,8))
-
-              
-                $octetArray | foreach { 
-                       $counter++
-                       [string]$newSub += [convert]::ToInt32($_,2)
-                       #! Counts octets so it can add a "." after each octet except the last.
-                       #? (might want to change this to a join)
-                       if($counter -lt 4) {[string]$newSub += "."}
-               
-                   }
-                   return $newSub  
-                }
+            $SubnetMask = $totalBits -join ""
+            # creat 4 octets
+            $octetArray = @($SubnetMask.Substring(0,8), $SubnetMask.Substring(8,8), $SubnetMask.Substring(16,8), $SubnetMask.Substring(24,8))
+                
+            #! Counts octets so it can add a "." after each octet except the last.
+            $octetArray | foreach { 
+                $counter++
+                [string]$newSub += [convert]::ToInt32($_,2)
+                if($counter -lt 4) {[string]$newSub += "."}
             }
+            return $newSub  
+        }
+    }
 <#
   Function 1
  Description: Function takes a hostname, determines the IP address(es) for the host 
@@ -104,33 +100,36 @@ function Test-IPHost ($HostName,$PingCount = 1) {
               If no subnet mask is entered use the class full subnet mask based on the IP address #>
 function Get-IPNetwork ($ipAddress, $SubnetMask){
     $yesAnswers = 'yes','yeah', 'ok', 'sure', 'why not','y', 'yup','true', 'yep', 'ye' # array for yes matches
-
+    $subValid
     #Throw ip through Validator
     $valid = IsValidIP($ipAddress)
     
     #Throw subnet through Validator if already in dotted decimal |||| IF in CIDR notation ~always less then 4 send to covert to dotted Decimal
-    [string]$SubnetMask
+    $SubnetMask = [string]$SubnetMask
         if($SubnetMask.substring(0,1) -eq '/' ){ 
-            Write-Host "in the if statement"
             $SubnetMask = convertToDD $SubnetMask
-            $SubnetMask = IsValidSubnet $SubnetMask
+            $subValid = IsValidSubnet $SubnetMask
         }
         else{
-            IsValidSubnet($SubnetMask) 
+            $subValid = IsValidSubnet($SubnetMask) 
         }
         
     #if both are valid
     if (($valid -eq $true) -and ($subValid -eq $true)){
+    Write-Host "Both Subnet and IP address are Valid" -ForegroundColor "Green"
     $ip=[net.ipaddress]$ipAddress
     $sm=[net.ipaddress]$SubnetMask
     $netAdd = [net.ipaddress]($ip.address -band $sm.address)
     Write-Host "Your Network Address is:" $netAdd.IPAddressToString  -ForegroundColor Yellow
+    Write-Host "From Subnet Mask:" $SubnetMask  -ForegroundColor CYAN
+    Write-Host "From ip address:" $ipAddress  -ForegroundColor CYAN
+    return $netAdd.IPAddressToString  
     }
 
     #if only ip is valid figure out the default subnet
     elseif ($valid -eq $true) {
-        Write-host "You either did not enter a valid SubnetMask or did not enter one:"
-       $answer = read-host "Do want to ge the default subnet based on the ip address? Y/N"
+    Write-host "You either did not enter a valid SubnetMask or did not enter one:"
+    $answer = read-host "Do want to get the default subnet based on the ip address? Y/N"
 
         if($yesAnswers -contains $answer){
             $ip=[net.ipaddress]$ipAddress
@@ -139,25 +138,21 @@ function Get-IPNetwork ($ipAddress, $SubnetMask){
                 if([int]($ipAddress.Substring(0,3)) -lt  127){
                     $SubnetMask = '255.0.0.0'
                 }
-           
                 #default for Class D
                 elseif([int]($ipAddress.Substring(0,3)) -lt  192){
                     $SubnetMask = '255.255.0.0'
                 }
-           
                 #default for Class C
                 else{
                     $SubnetMask = '255.255.255.0'
                 }
             
             $sm=[net.ipaddress]$SubnetMask
-
             $netAdd = [net.ipaddress]($ip.address -band $sm.address)
             Write-Host "Your Network Address is:" $netAdd.IPAddressToString  -ForegroundColor Yellow
+            return $netAdd.IPAddressToString    
         }
-        else{
-            exit
-        }
+        else{break}
 
     }
     
@@ -178,32 +173,27 @@ Features: Allow subnet mask to be entered in CIDR or dotted decimal format.
           Validate IP address and subnet mask, return error if they are not valid. #>
  
     function Test-IPNetwork ($IP1, $IP2, $SubnetMask) {
-        [string]$SubnetMask
-        if($SubnetMask.length -gt 4 ){ 
-            IsValidSubnet($SubnetMask) 
-        }
-        else{
-                convertToDD($SubnetMask)
-                IsValidSubnet($SubnetMask)
-        }
-        $IP1 = Get-IPNetwork($IP1)
-        $IP2 = Get-IPNetwork($IP2)
+        $IP1
+        $IP2
+        $SubnetMask
+        $IPNet1 = Get-IPNetwork -ipAddress $IP1 -SubnetMask $SubnetMask 
+        $IPNet1 =[string]$IPNet1
+        $IPNet2 = Get-IPNetwork -ipAddress $IP2 -SubnetMask $SubnetMask 
+        $IPNet2 = [string]$IPNet2
+          if ($IPNet1 -eq $IPNet2) {
+            Write-Host "The addresses you entered ARE on the same network."
+            Write-Host " $IPNet1 is the Net ID."
 
-
-          if (($IP1.address -band $SubnetMask.address) -eq ($IP2.address -band $SubnetMask.address)) {
-            Write-Host "The addresses you entered are on the same network."
-        }
+          }
 
         else {
-            Write-Host "The addresses you entered are not on the same network."
+            Write-Host "The addresses you entered are NOT on the same network."
         }
     }
 
 
  <# Function 4: Worked with Andrew
-Check the current bandwidth capability:
-total bandwidth
-check which browser offers the best features? EDGE, CHROME, FIREFOX
+This Functions determines and prints the number of hop counts on a traceroute command and displays the number for the user to know
 #>
 function traceroute($hostname){
 

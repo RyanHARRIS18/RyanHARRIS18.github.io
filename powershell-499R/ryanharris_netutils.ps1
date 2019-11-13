@@ -6,8 +6,6 @@
  Your Network Utility Description: This Functions determines and prints the
   number of hop counts on a traceroute command and displays the number for the user to know
 
-
-
  Support functions: Describe your network support functions.
 ===================================================
 
@@ -173,6 +171,8 @@ Features: Allow subnet mask to be entered in CIDR or dotted decimal format.
           Validate IP address and subnet mask, return error if they are not valid. #>
  
     function Test-IPNetwork ($IP1, $IP2, $SubnetMask) {
+        $yesAnswers = 'yes','yeah', 'ok', 'sure', 'why not','y', 'yup','true', 'yep', 'ye' # array for yes matches
+
         $IP1
         $IP2
         $SubnetMask
@@ -212,10 +212,9 @@ $IE.quit()
 $newstring = [string]$lastline
 $lastline = $newstring.subString(0,3)
  Write-Host " --- it took $lastline hops to navigate to $hostname"
+
 }
     
-
-
 
 
 

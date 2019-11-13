@@ -1,5 +1,3 @@
-/* MOBILE VIEW */
-
 *{
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
@@ -22,7 +20,7 @@ section{
 
 h1{
     color: black;
-    font-size: 3em;
+    font-size: 6em;
 }
 
 h2{
@@ -52,7 +50,7 @@ footer{
     margin-top: 20px;
 }
 
-/* TABLET VIEW */
+/* Medium*/
 @media only screen and (min-width: 700px) {
     .cards{
         display: grid;
@@ -60,7 +58,7 @@ footer{
     }
 }
 
-/* DESKTOP VIEW */
+/* Large */
 @media only screen and (min-width: 1200px) {
     .cards{
         display: grid;

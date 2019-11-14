@@ -96,7 +96,7 @@ function Test-IPHost ($HostName,$PingCount = 1) {
               For CIDR addresses you must proceed with a /
               Validate IP address and subnet mask, return error if they are not valid.
               If no subnet mask is entered use the class full subnet mask based on the IP address #>
-function Get-IPNetwork ($ipAddress, $SubnetMask){
+function Get-IPNetwork ($ipAddress, $SubnetMask = $false){
     $yesAnswers = 'yes','yeah', 'ok', 'sure', 'why not','y', 'yup','true', 'yep', 'ye' # array for yes matches
     $subValid
     #Throw ip through Validator
@@ -171,8 +171,6 @@ Features: Allow subnet mask to be entered in CIDR or dotted decimal format.
           Validate IP address and subnet mask, return error if they are not valid. #>
  
     function Test-IPNetwork ($IP1, $IP2, $SubnetMask) {
-        $yesAnswers = 'yes','yeah', 'ok', 'sure', 'why not','y', 'yup','true', 'yep', 'ye' # array for yes matches
-
         $IP1
         $IP2
         $SubnetMask

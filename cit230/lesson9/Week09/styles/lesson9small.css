@@ -231,21 +231,33 @@ header{
   margin: .5em;
   box-shadow: 10px 10px 5px grey;
 }
-
-
-
-/* h1{
-  color: black;
-  font-size: 1em;
-} */
-
+.motto{
+font-style: italic;
+font-size: 2em;
+}
+/* 
 .card h2{
   margin: 5px 0;
 }
 .cards p{
   margin: 5px 0;
   color: black;
+} */
+#homepage-h2{
+  font-size: 2em;
+  background-color: rgba(216, 209, 196, 0.76);
 }
+
+.yearFounded, .currentPopulation, .averageRainfall{
+color: black;
+font-size: 1.5em;
+}
+
+
+/* h1{
+  color: black;
+  font-size: 1em;
+} */
 
 .homepage-images{
   width: 200px;
@@ -494,7 +506,23 @@ img[data-src] {
                     THESE ARE THE STORM CENTER RULES
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
-  
+ .parallax-storm-center{
+  /* The image used */
+  background-image: url("/cit230/lesson9/Week09/images/weather-report-paralax.jpg");
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+ .stormCenterParagraphs{
+   color: white;
+   text-shadow: black;
+   background-color: rgba(55, 125, 190, 0.623);
+ }
  .stormCenterMain{
   min-width: 500px;
  }
@@ -503,7 +531,7 @@ img[data-src] {
     max-width: 500px;
     margin: 0 auto;
     margin-left: 2em;
-    background-color: rgb(255, 206, 99);
+    background-color: rgba(255, 206, 99, 0.692);
     padding: 2em;
     border: 5px dashed rgb(55, 125, 190);
     color: rgb(18, 61, 101);
@@ -537,7 +565,8 @@ img[data-src] {
   }
 
   #yes, #no, #maybe{
-    display: inline-block;
+    display: block;
+    margin-right: 5em;
   }
 
   .flexly {

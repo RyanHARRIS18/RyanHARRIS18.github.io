@@ -8,7 +8,7 @@ fetch(request)
     const towns = jsonObject['towns'];
 
 
-    for (let i = 0; i < towns.length; i++ ) {
+    for (let i = 0; i < 3; i++ ) {
       let section = document.createElement('section');
       section.setAttribute('id', towns[i].name + "section");
       section.setAttribute('class', "homepage-sections");
@@ -20,18 +20,22 @@ fetch(request)
 
       let motto  = document.createElement('p');
       motto.textContent = towns[i].motto;
+      motto.setAttribute('class', "motto");
       section.appendChild(motto);
 
       let yearFounded  = document.createElement('p');
       yearFounded.textContent = 'Year Founded: ' + towns[i].yearFounded;
+      yearFounded.setAttribute('class', "yearFounded");
       section.appendChild(yearFounded);
 
       let currentPopulation  = document.createElement('p');
       currentPopulation.textContent = 'Current Population: ' + towns[i].currentPopulation;
+      currentPopulation.setAttribute('class', "currentPopulation");
       section.appendChild(currentPopulation);
 
       let averageRainfall  = document.createElement('p');
       averageRainfall.textContent = 'Average Rainfall: ' + towns[i].averageRainfall;
+      averageRainfall.setAttribute('class', "averageRainfall");
       section.appendChild(averageRainfall);
 
       let image = document.createElement('img');

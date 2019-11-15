@@ -8,28 +8,31 @@ fetch(request)
     const towns = jsonObject['towns'];
 
 
-    for (let i = 0; i < 3; i++ ) {
-      let card = document.createElement('section');
+    for (let i = 0; i < towns.length; i++ ) {
+      let section = document.createElement('section');
+      section.setAttribute('id', towns[i].name + "section");
+      section.setAttribute('class', "homepage-sections");
+     
 
      let h2 = document.createElement('h2');
       h2.textContent = towns[i].name;
-      card.appendChild(h2);
+      section.appendChild(h2);
 
       let motto  = document.createElement('p');
       motto.textContent = towns[i].motto;
-      card.appendChild(motto);
+      section.appendChild(motto);
 
       let yearFounded  = document.createElement('p');
       yearFounded.textContent = 'Year Founded: ' + towns[i].yearFounded;
-      card.appendChild(yearFounded);
+      section.appendChild(yearFounded);
 
       let currentPopulation  = document.createElement('p');
       currentPopulation.textContent = 'Current Population: ' + towns[i].currentPopulation;
-      card.appendChild(currentPopulation);
+      section.appendChild(currentPopulation);
 
       let averageRainfall  = document.createElement('p');
       averageRainfall.textContent = 'Average Rainfall: ' + towns[i].averageRainfall;
-      card.appendChild(averageRainfall);
+      section.appendChild(averageRainfall);
 
       let image = document.createElement('img');
       image.setAttribute('src', towns[i].photo);
@@ -37,9 +40,9 @@ fetch(request)
       image.setAttribute('id', towns[i].name + "Img");
       image.setAttribute('class', "homepage-images");
 
-      card.appendChild(image);
+      section.appendChild(image);
       
-      document.querySelector('div.cards').appendChild(card);
+      document.querySelector('div.cards').appendChild(section);
 
 
     }

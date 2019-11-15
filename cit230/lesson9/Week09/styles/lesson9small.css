@@ -186,16 +186,35 @@
 body{
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
-}
-
-body{
   margin-left: 3em;
   margin-right: 3em;
   text-align: center;
 }
 
+.parallax-home{
+  /* The image used */
+  background-image: url("https://media.defense.gov/2016/Dec/14/2001679268/-1/-1/0/160717-F-MC546-049.JPG")  ;
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+
 header{
   width: 100%;
+}
+
+.homepage-sections{
+  /* width: 20em; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
 }
 
 .cards{
@@ -212,6 +231,8 @@ header{
   margin: .5em;
   box-shadow: 10px 10px 5px grey;
 }
+
+
 
 /* h1{
   color: black;

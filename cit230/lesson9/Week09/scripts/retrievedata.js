@@ -14,9 +14,9 @@ fetch(request)
       section.setAttribute('class', "homepage-sections");
      
 
-     let h2 = document.createElement('h2');
-      h2.textContent = towns[i].name;
-      section.appendChild(h2);
+     let h3 = document.createElement('h3');
+      h3.textContent = towns[i].name;
+      section.appendChild(h3);
 
       let motto  = document.createElement('p');
       motto.textContent = towns[i].motto;

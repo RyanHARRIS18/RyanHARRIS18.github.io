@@ -1,0 +1,157 @@
+@media only screen and (min-width: 750px) {
+	main {
+		margin-left: 2em;
+		margin-right: 2em;
+	}
+/* check */
+	.navigation {
+		display: flex;
+	}
+
+	.navigation li:first-child {
+		display: hidden;
+	}
+
+	nav a:visited {
+		text-decoration: none;
+		color: white;
+	}
+
+	.navigation li {
+		display: block;
+		flex: 1 1 100%;
+	}
+
+	.navigation {
+		margin: .65em 0;
+	}
+
+	.Five-Day-Forecast {
+		margin-top: 2em;
+		display: visible;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+			background: rgb(208, 208, 208);
+			text-align: center;
+			align-items: center;
+	}
+
+	#five-day-header {
+		grid-column: 2/3;
+	}
+
+	#five-day-tabel {
+		grid-column: 2/3;
+	}
+	
+	.Preston-pictures {
+    width: 450px;
+    border-radius: 15px;
+   padding: 2em;
+   /* grid-row: 1/2; */
+   /* grid-column: 1/3; */
+   align-self: center;
+   margin-right: 2em;
+   display: block;
+		margin-left: auto;
+		margin-right: auto;
+
+  } 
+
+  .article-box {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	background: rgb(208, 208, 208);
+	padding-bottom: 2em;
+	padding-top: 2em;
+	border-radius: 15px;
+	opacity: .9;
+	padding: 1em;
+}
+
+iframe {
+	display: block;
+	margin-left: 2em;
+	display: visible;
+	grid-column: 1/2;
+	text-align: center;
+	margin-top: 3em;
+  }
+
+  .article2{
+	grid-column: 2/3;
+	grid-row: 1/2;
+	padding: 1em;
+  }
+.article{
+	grid-column: 1/3;
+}
+
+.weather-summary {
+    grid-column: 2/6;
+    grid-row: 1/2;
+    background-color: rgba(236, 236, 236, 0.541);
+    opacity: 0.95;
+    border-radius: 15px;
+    margin-top: -7em;
+    margin-bottom: 2em;
+  }
+  
+  #weatherImages {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+  }
+  figure:hover {
+	box-shadow: 6px 9px 15px 0 rgba(0,0,0,0.49);
+  }
+  
+}
+
+ /* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    THESE ARE THE HOME PAGE RULES
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+
+@media only screen and (min-width: 700px) {
+	.cards{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+  }
+
+   /* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    THESE ARE THE STORM CENTER RULES
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+ @media only screen and (min-width: 505px){
+	form {
+		max-width: 500px;
+		margin: 0 auto;
+		margin-bottom: 3em;
+	  }
+
+ #stormSeverity{
+	display: inline;
+	/* border: 5px solid blue; */
+	margin-left: 5em;
+  }
+
+  .noMargin {
+    margin-left: 5em;
+ }
+
+  .flex{
+  display: flex;
+  margin-top: 2em;
+  min-width: 100px;
+  }
+
+  #yes ,#no, #maybe{
+    display: inline;
+  }
+
+
+}

@@ -9,8 +9,15 @@
  Support functions: Describe your network support functions.
 ===================================================
 
-    #  This Validates the IP address #>
-    <# FUNCTION Valdiate IP#>
+    <# 
+    .SYNOPSIS 
+      Validate Ip address
+    .Description
+      This Validates the IP address using the built in net.ipaddress commandlet
+    .Example
+    Validate '192.168.125.2' as a ip by returning true
+    validates that '256.256.256.256' is not a valid ip and returns false
+    #>
     Function IsValidIP {
         param([string] $IPAddress="")
         try{
@@ -23,7 +30,15 @@
         }
 
 
-        <# FUNCTION Valdiates Subnet#>
+     <# 
+    .SYNOPSIS 
+      Validate Subnetmask address
+    .Description
+      This Validates the Subnet address using the built in net.ipaddress commandlet
+    .Example
+    Validate '255.255.0.0' as a subnet by returning true
+    validates that '256.256.256.256' is not a valid ip and returns false
+    #>
     Function IsValidSubnet {
         param( [string]$SubnetMask="")
         try {
@@ -35,7 +50,17 @@
         }
 
 
-    #CONVERT TO DOTTED DECIMAL
+     <# 
+    .SYNOPSIS 
+      Converts to Dotted Decimal Notation
+    .Description
+     This changes the input from the user that is a cidr to dotted decimal. It first removes the '/' if it has one then creates a 
+     local array acts as a comparision 
+
+    .Example
+    Validate '192.168.125.2' as a ip by returning true
+    validates that '256.256.256.256' is not a valid ip and returns false
+    #>
     Function convertToDD($SubnetMask) {
         #take away the / if there was one
         $SubnetMask = $SubnetMask -replace '/', ''
@@ -59,16 +84,17 @@
             return $newSub  
         }
     }
-<#
-  Function 1
- Description: Function takes a hostname, determines the IP address(es) for the host 
-              and pings each IP address to determine if it is online. Return output 
-              that shows results of ping.
-Name: Test-IPHost
-Parameters:[–HostName (name(s) of host to ping)] 
-           [-PingCount: *Optional* Number of times to ping the device]
-Features: Provide an appropriate error IF the host is NOT FOUND
-          allow multiple hostnames to be tested #>
+     <# 
+    .SYNOPSIS 
+      Provide an appropriate error IF the host is NOT FOUND
+    allow multiple hostnames to be tested
+    .Description
+     Function takes a hostname, determines the IP address(es) for the host 
+    and pings each IP address to determine if it is online. Return output 
+    that shows results of ping.
+    .Example
+     call 'youtube' and number of pint to be sent to that client and says if ping was sucesful or not
+   #>
 function Test-IPHost ($HostName,$PingCount = 1) {
     $HostName = ,$HostName
     $HostName += $args
@@ -87,17 +113,19 @@ function Test-IPHost ($HostName,$PingCount = 1) {
     }
 }
 
-  <# Function 2
-    #Description: Given an IP address and a Subnet mask return the network ID. AND THEM
-    Name: Get-IPNetwork
-    Parameters: –IP: IP address to test
-                –SubnetMask: Optional, Subnet Mask to test
-    Features: Allow subnet mask to be entered in CIDR or dotted decimal format. 
+<# 
+    .SYNOPSIS 
+     Given an IP address and a Subnet mask return the network ID.
+    .Description
+     Allow subnet mask to be entered in CIDR or dotted decimal format. 
               For CIDR addresses you must proceed with a /
               Validate IP address and subnet mask, return error if they are not valid.
-              If no subnet mask is entered use the class full subnet mask based on the IP address #>
+              If no subnet mask is entered use the class full subnet mask based on the IP address 
+    .Example
+     input 'ip' (172.168.0.5) and 'subnet' (255.255.0.0) which will detrmine the 'netaddress' (172.168.0.0)
+   #>
+ 
 function Get-IPNetwork ($ipAddress, $SubnetMask = $false){
-    $yesAnswers = 'yes','yeah', 'ok', 'sure', 'why not','y', 'yup','true', 'yep', 'ye' # array for yes matches
     $subValid
     #Throw ip through Validator
     $valid = IsValidIP($ipAddress)
@@ -118,18 +146,12 @@ function Get-IPNetwork ($ipAddress, $SubnetMask = $false){
     $ip=[net.ipaddress]$ipAddress
     $sm=[net.ipaddress]$SubnetMask
     $netAdd = [net.ipaddress]($ip.address -band $sm.address)
-    Write-Host "Your Network Address is:" $netAdd.IPAddressToString  -ForegroundColor Yellow
-    Write-Host "From Subnet Mask:" $SubnetMask  -ForegroundColor CYAN
-    Write-Host "From ip address:" $ipAddress  -ForegroundColor CYAN
+    # Write-Host "Your Network Address is:" $netAdd.IPAddressToString  -ForegroundColor Yellow
     return $netAdd.IPAddressToString  
     }
 
     #if only ip is valid figure out the default subnet
     elseif ($valid -eq $true) {
-    Write-host "You either did not enter a valid SubnetMask or did not enter one:"
-    $answer = read-host "Do want to get the default subnet based on the ip address? Y/N"
-
-        if($yesAnswers -contains $answer){
             $ip=[net.ipaddress]$ipAddress
            
                 #default for Class A
@@ -147,11 +169,8 @@ function Get-IPNetwork ($ipAddress, $SubnetMask = $false){
             
             $sm=[net.ipaddress]$SubnetMask
             $netAdd = [net.ipaddress]($ip.address -band $sm.address)
-            Write-Host "Your Network Address is:" $netAdd.IPAddressToString  -ForegroundColor Yellow
+            # Write-Host "Your Network Address is:" $netAdd.IPAddressToString  -ForegroundColor Yellow
             return $netAdd.IPAddressToString    
-        }
-        else{break}
-
     }
     
     else{
@@ -160,39 +179,42 @@ function Get-IPNetwork ($ipAddress, $SubnetMask = $false){
   
 }
 
-  
- <# Function 3
-Description: The Third function determines if two IP addresses are on the same network.
-             Return a $true it they are a $false if they are not.
-Name: Test-IPNetwork
-Parameters: -IP1, -IP2: IP addresses to test
-            –SubnetMask: Subnet mask to use in tests
-Features: Allow subnet mask to be entered in CIDR or dotted decimal format.
-          Validate IP address and subnet mask, return error if they are not valid. #>
- 
-    function Test-IPNetwork ($IP1, $IP2, $SubnetMask) {
-        $IP1
-        $IP2
-        $SubnetMask
+<# 
+    .SYNOPSIS 
+      determines if two IP addresses are on the same network.
+    .Description
+     Return a $true it they are a $false if they are not.
+     Use IP1, IP2: IP addresses to test and SubnetMask: Subnet mask to use in tests
+     Allow subnet mask to be entered in CIDR or dotted decimal format.
+     Validate IP address and subnet mask, return error if they are not valid.
+    .Example
+     input 'ip' (172.168.0.5) and 'subnet' (255.255.0.0) which will detrmine the 'netaddress' (172.168.0.0)
+   #>
+
+    function Test-IPNetwork ($IP1, $IP2, $SubnetMask=$false) {
         $IPNet1 = Get-IPNetwork -ipAddress $IP1 -SubnetMask $SubnetMask 
         $IPNet1 =[string]$IPNet1
         $IPNet2 = Get-IPNetwork -ipAddress $IP2 -SubnetMask $SubnetMask 
         $IPNet2 = [string]$IPNet2
           if ($IPNet1 -eq $IPNet2) {
-            Write-Host "The addresses you entered ARE on the same network."
-            Write-Host " $IPNet1 is the Net ID."
-
+            $TRUE
           }
 
         else {
-            Write-Host "The addresses you entered are NOT on the same network."
+            $False
         }
     }
 
 
- <# Function 4: Worked with Andrew
-This Functions determines and prints the number of hop counts on a traceroute command and displays the number for the user to know
-#>
+<# 
+    .SYNOPSIS 
+      determines number of hopcounts to reach a client
+    .Description
+     We provide elevator music and then begin the funtion. The tracert built in command is used and
+     we then take the output and parse the information to find the total hopcount to reach the destination
+    .Example
+     input client youtube.com you will wait and it will tell you how many hops it took ie 5
+   #>
 function traceroute($hostname){
 
 $IE=new-object -com internetexplorer.application

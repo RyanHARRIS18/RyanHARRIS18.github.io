@@ -8,20 +8,17 @@ fetch(apiUrl)
     (currentWeather)=>{
       console.log(currentWeather.main.temp);
 
-     let currentTemp = (currentWeather.main.temp);
+     let currentTemp = currentWeather.main.temp;
      let currentImageIcon = currentWeather.weather[0].icon;
-     let currentWeatherName = currentWeather.weather[0].name;
 
      let currentImage = 'https://openweathermap.org/img/w/' + currentImageIcon + '.png';
       
       document.querySelector('#current-temp').textContent=currentTemp;
-      document.querySelector('#imgsrc').textContent=currentImage;
-      document.querySelector('WetherIcon').setAttribute('src',currentImage);
-      document.querySelector('WetherIcon').setAttribute('alt',currentWeatherName)[0].main;
+      document.querySelector('#imagesrc').textContent=currentImage;
+      document.querySelector('#weather-icon').setAttribute('src',currentImage);
+      document.querySelector('#weather-icon').setAttribute('alt',currentWeather).weather[0].main;
 
-
-      
     }
   );
-
+https://api.openweathermap.org/data/2.5/forecast?id=undefined&appid=62fa2f44eb8059b7d0e3a0af3aa66bf7&units=imperial
 

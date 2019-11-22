@@ -60,47 +60,5 @@ for( i=1; currentDay <= 6; i++){
         document.getElementById("day"+ c).innerHTML = weekDay; 
         currentDay++;
         remaniderDays--;
-    } 
-
-const apiForecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?id=5604473&appid=62fa2f44eb8059b7d0e3a0af3aa66bf7&units=imperial';
-fetch(apiForecastUrl)
-  .then(
-    (response) => 
-      response.json()
-  )
-  .then(
-    (forecasts) => {
-
-        console.log(forecasts);
-
-        tomorrowDate = new Date();
-        tomorrowDate.setDate(tomorrowDate.getDate() + 1);
-        
-        //loop through results
-       
-                // get full year
-                let currentForecastDate = 
-                tomorrowDate.getFullYear()+ '-' + 
-
-                // get month 
-                (tomorrowDate.getMonth() + 1) + '-'+
-                
-                //get day
-                tomorrowDate.getDate();
-
-                //print to console
-                console.log(currentForecastDate);
-        let hourString = '10:00:00'
-        
-
-        forecast.list.foreach(
-            (forecast) => {    
-                if((forecast.dt_text.includes(currectForecastDate) && 
-                   (forecast.dt_text.includes(hourString)) {
-                    console.log(forecast.main.temp);
-
-                }
-           
-        );
-
-   
+    }
+ 

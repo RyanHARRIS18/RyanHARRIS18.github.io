@@ -20,5 +20,3 @@ fetch(apiUrl)
 
     }
   );
-https://api.openweathermap.org/data/2.5/forecast?id=undefined&appid=62fa2f44eb8059b7d0e3a0af3aa66bf7&units=imperial
-

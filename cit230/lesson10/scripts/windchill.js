@@ -30,7 +30,21 @@
 //     townId = "5585000";
 //     break;
 // }
-const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?id=5604473&appid=62fa2f44eb8059b7d0e3a0af3aa66bf7&units=imperial";
+// var id;
+// if(document.getElementById("pagetitle") = 'preston'){
+//   id=5604473;
+// }
+
+// elseif(document.getElementById("pagetitle") = 'Soda-Springs'){
+//   id=5604474;  //this is not the real number yet
+
+// }
+// else(){
+//   id=5604475; //this is not the real number yet
+
+// }
+
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?id=5604473&appid=62fa2f44eb8059b7d0e3a0af3aa66bf7&units=imperial";
 fetch(apiUrl)
   .then(
     (response) => 
@@ -39,27 +53,27 @@ fetch(apiUrl)
   .then(
     (currentWeather)=>{
       console.log(currentWeather.main.temp);
-      //local forecast
-      document.querySelector("Forecast1").textContent = currentWeather.main.temp;
-      document.querySelector("Forecast2").textContent = currentWeather.main.temp_max;
-      document.querySelector("Forecast4").textContent = currentWeather.main.humidity;
-      document.querySelector("Forecast5").textContent = currentWeather.wind.speed;
+     
       //windchill function
       let currentTemp = parseInt(document.getElementById("Forecast1").innerHTML);
       let windSpeed = parseInt(document.getElementById("Forecast5").innerHTML);
 
+       //local forecast
+       document.getElementById("Forecast1").textContent = "Current Temperature: " + currentWeather.main.temp + " &deg;";
+       document.getElementById("Forecast2").textContent = "High: " + currentWeather.main.temp_max + " &deg;";
+       document.getElementById("Forecast4").textContent = "Wind Chill: " + currentWeather.main.humidity + " &deg;";
+       document.getElementById("Forecast5").textContent = "Humidity: " + currentWeather.wind.speed + ' mph';
+    
       if (currentTemp < 50 && windSpeed > 3) {
-        let windChill = Math.round(35.74 + (0.6215 * currentTemp) - (35.75 * Math.pow(windSpeed, 0.16)) + (0.4275 * currentTemp * Math.pow(windSpeed, 0.16)));
-        document.getElementById("Forecast3").innerHTML = windChill;
+        let windchill = Math.round(35.74 + (0.6215 * currentTemp) - (35.75 * Math.pow(windSpeed, 0.16)) + (0.4275 * currentTemp * Math.pow(windSpeed, 0.16)));
+        document.getElementById("Forecast3").innerHTML = "Wind Speed: " +  windchill + "&deg;";
       } else {
-        windchill = 0 + '&deg;'
-        document.getElementById("Forecast3").innerHTML = windChill;
+        let windchill = 0 +'&deg;'
+        document.getElementById("Forecast3").innerHTML = "Wind Speed: "  + windchill;
       }
 
-      document.querySelector("Forecast1").textContent += '&deg;';
-      document.querySelector("Forecast2").textContent += '&deg;';
-      document.querySelector("Forecast4").textContent += '&deg;';
-      document.querySelector("Forecast5").textContent += 'mph';
-
     }
-  );
+  )
+  
+
+  

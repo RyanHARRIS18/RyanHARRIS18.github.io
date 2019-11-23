@@ -377,7 +377,7 @@ font-size: 1.5em;
 
  .parallax {
    /* The image used */
-   background-image: url("/cit230/prestonLesson5/images/preston-town-2.jpg");
+   background-image: url("../images/preston-town-2.jpg");
    /* Set a specific height */
    height: 100%;
    /* Create the parallax scrolling effect */

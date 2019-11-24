@@ -370,6 +370,14 @@ font-size: 1.5em;
    background: rgb(255, 206, 99);
  }
 
+ .forecast-img{
+   height: 2em;
+ }
+
+ .bottom-column{
+   height: 5em;
+ }
+
  #wayfinder {
    list-style-type: circle;
    font: black;

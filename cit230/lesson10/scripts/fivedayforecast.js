@@ -4,22 +4,23 @@ fetch(apiforecastURL)
     .then((forecasts) => {
         let nextDate = new Date();
         nextDate.setDate(nextDate.getDate() + 1);
-        let dateString = getDateString(nextDate);
         let hourString = '18:00:00';
         let counter = 1;
         //Loop through results
         forecasts.list.forEach(
             (forecast) => {
-                if (forecast.dt_txt.includes(dateString) && forecast.dt_txt.includes(hourString)) {
-                    const currentImage = 'https://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png';
-                    document.querySelector(`#icon${counter}`).setAttribute("src", currentImage);
-                    document.querySelector(`#icon${counter}`).setAttribute("alt", forecast.weather[0].description);
+                if (forecast.dt_txt.includes(hourString)) {
                     const element = document.getElementById(`temp${counter}`);
                     element.innerHTML = (forecast.main.temp) + '&deg;F';
-                    counter += 1;
                     nextDate.setDate(nextDate.getDate() + 1);
                     dateString = getDateString(nextDate);
+                    const imageElement = document.getElementById(`img${counter}`);
+                        imageElement.setAttribute('src','https://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png');
+                        imageElement.setAttribute('alt','https://openweathermap.org/img/w/' + forecast.weather[0].description + '.png');
+                        counter += 1;
+
                 }
+                
             }
         );
     });

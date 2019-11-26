@@ -44,7 +44,7 @@ function toggleMenu() {
 }
 
 
-currentDay = (currentDate.getDay())+1;
+currentDay = (currentDate.getDay());
 var daysInputted = 0;
 for( i=1; currentDay <= 6; i++){
         var nameOfDay= daysOfWeek[currentDay++];

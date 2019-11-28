@@ -444,7 +444,7 @@ font-size: 1.5em;
  ------------------------------------------------------------------------------------------------------------------------------ */
  #parallax-soda-springs {
   /* The image used */
-  background-image: url("/cit230/prestonLesson5/images/preston-town-2.jpg");
+  background-image: url("/cit230/lesson11-TheWeatherSite/images/soda-springs-parrallax.png";
   /* Set a specific height */
   height: 100%;
   /* Create the parallax scrolling effect */
@@ -464,7 +464,7 @@ font-size: 1.5em;
  ------------------------------------------------------------------------------------------------------------------------------ */
  #parallax-fish-haven {
   /* The image used */
-  background-image: url("/cit230/prestonLesson5/images/preston-town-2.jpg");
+  background-image: url("/cit230/lesson11-TheWeatherSite/images/parallax-fish-haven.jpg");
   /* Set a specific height */
   height: 100%;
   /* Create the parallax scrolling effect */

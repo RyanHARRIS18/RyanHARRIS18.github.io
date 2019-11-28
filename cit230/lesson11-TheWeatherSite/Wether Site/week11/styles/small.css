@@ -377,7 +377,7 @@ font-size: 1.5em;
 
  #parallax-preston {
    /* The image used */
-   background-image: url("/cit230/lesson11-The\ Weather\ Site/Weather");
+   background-image: url("/cit230");
    /* Set a specific height */
    height: 100%;
    /* Create the parallax scrolling effect */

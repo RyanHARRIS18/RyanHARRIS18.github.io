@@ -193,7 +193,7 @@ body{
 
 .parallax-home{
   /* The image used */
-  background-image: url("/cit230/lesson9/Week09/images/paralax-home.jpg");
+  background-image: url("/cit230/lesson11/WeatherSite/images/paralax-home.jpg");
   /* Set a specific height */
   height: 100%;
   /* Create the parallax scrolling effect */
@@ -444,7 +444,7 @@ font-size: 1.5em;
  ------------------------------------------------------------------------------------------------------------------------------ */
  #parallax-soda-springs {
   /* The image used */
-  background-image: url("/cit230/lesson11-TheWeatherSite/images/soda-springs-parrallax.png";
+  background-image: url("/cit230/lesson11-TheWeatherSite/images/soda-springs-parrallax.png");
   /* Set a specific height */
   height: 100%;
   /* Create the parallax scrolling effect */

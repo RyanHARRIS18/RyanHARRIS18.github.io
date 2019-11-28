@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/small.css">
+    <link rel="stylesheet" href="./styles/medium.css">
+    <link rel="stylesheet" href="./styles/large.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Diplomata+SC&display=swap" rel="stylesheet">
+    <title> Lesson 9 | Gallery </title>
+
+    <!-- lesson 6 -->
+
+</head>
+
+<body>
+
+    <header>
+        <img class="Weather-Logo" src="./images/Weather-Logo-color-noback.png" alt="logo of a sun, moon, and stars">
+        <section class="headings">
+            <h1>Idaho Daily Weather </h1>
+            <div class='moto'>Be In the Know of Idaho</div>
+        </section>
+    </header>
+    <div class="navigation-grid-hamburger">
+        <nav>
+            <ul class="navigation">
+                <li><a href="" onclick="toggleMenu()">&#9776; Menu</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./preston.html">Preston</a></li>
+                <li><a href="./sodaSprings.html">Soda Springs</a></li>
+                <li><a href="./fishHaven.html">Fish Haven</a></li>
+                <li><a href="./stormCenter.html">Storm Center</a></li>
+                <li><a id="active" href="./gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main>
+        <h2>Gallery Images</h2>
+        <section id="weatherImages">
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather1.jfif" alt="a picture of art design">
+                    <figcaption>Lots of Powdery Snow</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather2.jfif" alt="a picture of art design">
+                    <figcaption>The Storm is Brewing</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather3.jfif" alt="a picture of art design">
+                    <figcaption>This was a Shocking Night</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather4.jfif" alt="a picture of art design">
+                    <figcaption>Nothing better then a Nature Walk</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather5.jfif" alt="a picture of art design">
+                    <figcaption>Snow Canyon</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather6.jfif" alt="a picture of art design">
+                    <figcaption>Overcast but Beautiful</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather7.jfif" alt="a picture of art design">
+                    <figcaption>A Good Day for a Picnic</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather8.jfif" alt="a picture of art design">
+                    <figcaption>Rainy</figcaption>
+                </figure>
+                <figure>
+                    <img class="Gallery-Photos" src="images/loadimg.png" data-src="images/weather9.jfif" alt="a picture of art design">
+                    <figcaption>Stuning Sunset</figcaption>
+                </figure>
+            </section>
+
+
+    </main>
+    <footer>
+        <div class="footer">
+
+
+            <p class='footer-text'> CIT230 &copy; <span id="currentDate"> &star; Ryan P. Harris | Colorado | BYUI
+                </span></p>
+        </div>
+    </footer>
+    <script src="scripts/lazyload.js"></script>  
+    <script src="scripts/main.js"> </script>
+
+ 
+</body>
+
+
+</html>

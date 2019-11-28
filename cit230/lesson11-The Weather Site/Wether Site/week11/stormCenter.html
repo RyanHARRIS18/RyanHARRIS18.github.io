@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/small.css">
+    <link rel="stylesheet" href="./styles/medium.css">
+    <link rel="stylesheet" href="./styles/large.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Diplomata+SC&display=swap" rel="stylesheet">
+    <title> Lesson 9 | Storm Center </title>
+
+    <!-- lesson 8 -->
+
+</head>
+
+<body>
+
+    <header>
+        <img class="Weather-Logo" src="./images/Weather-Logo-color-noback.png" alt="logo of a sun, moon, and stars">
+        <section class="headings">
+            <h1>Idaho Daily Weather </h1>
+            <div class='moto'>Be In the Know of Idaho</div>
+        </section>
+    </header>
+    <div class="navigation-grid-hamburger">
+        <nav>
+            <ul class="navigation">
+                <li><a href="" onclick="toggleMenu()">&#9776; Menu</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./preston.html">Preston</a></li>
+                <li><a href="./sodaSprings.html">Soda Springs</a></li>
+                <li><a href="./fishHaven.html">Fish Haven</a></li>
+                <li><a id="active" href="./stormCenter.html">Storm Center</a></li>
+                <li><a href="./gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </div>
+    <main id="stormCenterMain">
+        <div class="parallax-storm-center">
+
+        <h2>
+            Report Your Local Weather!
+        </h2>
+
+        <p class="stormCenterParagraphs">
+            Nothing helps the community more then active reports of the craziest storms, let us know how the weather was. This will help us better predict future weather 
+            patterns and then allow us to better inform Idaho of what to expect.
+        </p>
+        <!-- Generall this would be POST but we use get because GITHUB support only GET -->
+        <form action="./thanks-9.html" method="GET">
+
+            <h3> Fill Out a Weather Report:</h3>
+            <!-- A. full name using input of type text and is required and only accepts alpha characters with a minimum of five characters using a regular expression pattern -->
+            <div>
+                <label for="fullName">Full Name: </label>
+                <input type="text" id="fullName" name="fullName" pattern=".{5,}" required>
+            </div>
+
+
+            <!-- B. email using input of type email and use a placeholder to provide a demo email -->
+            <div>
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" placeholder="example1@gmail.com">
+            </div>
+
+
+            <!-- C. phone number using input of type tel and is required -->
+            <div>
+                <label for="phone">Phone Number: </label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+
+            <!-- D. zip code using input of type number and is required -->
+            <div>
+                <label for="zipCode">Zip Code: </label>
+                <input type="number" id="zipCode" name="zipCode" required>
+            </div>
+
+
+            <!-- E. storm date using input of type date -->
+            <div>
+                <label for="stormDate">Storm Date: </label>
+                <input type="date" id="stormDate" name="stormDate">
+            </div>
+
+
+            <!-- F. storm type using input with a list attribute referencing a datalist of suggestions that include "Flash Flood," "Hail," "Hurricane," "Thunderstorm," and "Tornado." -->
+            <div>
+                <label for="stormType">Storm Type: </label>
+                <input list="stormTypes" id="stormType" name="stormType" placeholder="Storm Type...">
+                <datalist id="stormTypes">
+                    <option value="Flash Flood"></option>
+                    <option value="Hail"></option>
+                    <option value="Hurricane"></option>
+                    <option value="ThunderStorm"></option>
+                    <option value="Tornado"></option>
+                </datalist>
+            </div>
+
+
+            <!-- G.  storm severity using type range (1 to 10) with a corresponding label that indicates the current range value from 1 to 10. -->
+            <div>
+                <label for="stormSeverity">Storm Severity: &nbsp;&nbsp;&nbsp;
+                    <input type="range" id="stormSeverity" value="5" min="1" max="10" step="1" list="tickmarks"
+                        oninput="adjustRating(this.value)" onchange="adjustRating(this.value)">
+                    <span id="ratingvalue">5</span>
+                </label>
+            </div>
+
+
+            <!-- H. storm region using select with drop-down options of "Preston", "Sugar City", and "Fish Haven". 
+                    Add a first option with the text "Select Region ..." that is shown by default but not selectable (disabled).
+                    The rest of the options should have relevant value attributes. -->
+            <div>
+                <label for="stormRegion">Storm Region: </label>
+                <select name="cityList" id="stormRegion">
+                    <option value="" selected disabled>Select Region</option>
+                    <option value="Preston">Preston</option>
+                    <option value="Sugar City">Sugar City</option>
+                    <option value="Fish Haven">Fish Haven</option>
+                </select>
+            </div>
+
+
+            <!-- I. user in-danger level using input of type radio with options and values of "yes," "maybe," and "no." -->
+            <div class="flex">
+                <span>Are you in Danger?</span>
+                <div class="noMargin">
+                    <input id="yes" name="danger" type="radio" value="yes">
+                    <label for="yes">Yes</label>
+
+                    <div>
+                        <input id="no" name="danger" type="radio" value="No">
+                        <label for="no">No</label>
+                    </div>
+                    <div>
+                        <input id="maybe" name="danger" type="radio" value="Maybe">
+                        <label for="Maybe">Maybe</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- J. additional information or comments using a textarea  -->
+            <div>
+                <label for="comments" class="align-top">Comments: </label>
+                <textarea name="comment" id="commentBox" cols="28" rows="10"></textarea>
+            </div>
+
+
+            <!-- K. form submission button using input of type submit -->
+            <div id="submitReset">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+
+        </form>
+    </div>
+    </main>
+    <footer>
+        <div class="footer" id="footer-storm">
+
+
+            <p class='footer-text'> CIT230 &copy; <span id="currentDate"> &star; Ryan P. Harris | Colorado | BYUI
+                </span></p>
+        </div>
+    </footer>
+    <script src="scripts/main.js"> </script>
+    <!-- <script src="scripts/windchill.js"></script>
+    <script src="scripts/pancake.js"></script>
+    <script src="scripts/weatherSummary.js"></script> -->
+    <script src="scripts/adjustRating.js"></script>
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/webfront/1.6.26/webfront.js"></script>
+    <script>
+            WebFont.load({
+              google: {
+                families: ['Diplomata SC', 'Merriweather Sans']
+              }
+            });
+          </script> -->
+</body>
+
+</html>

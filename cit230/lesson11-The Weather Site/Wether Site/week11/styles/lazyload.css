@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+}
+figure{
+    text-align: center;
+}
+
+#kittens {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    margin-left:15em;
+    margin-right:15em;
+
+}
+
+ img {
+    max-width: 400px;
+}
+
+figure:hover{
+    box-shadow: 10px 10px 15px black;
+}
+ img[data-src] {
+    filter: blur(0.2em);
+  }
+  
+img {
+    filter: blur(0em);
+    transition: filter 0.5s;
+  }
+

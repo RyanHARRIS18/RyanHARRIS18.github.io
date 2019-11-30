@@ -16,7 +16,7 @@ fetch(apiforecastURL)
                     dateString = getDateString(nextDate);
                     const imageElement = document.getElementById(`img${counter}`);
                         imageElement.setAttribute('src','https://openweathermap.org/img/w/' + forecast.weather[0].icon + '.png');
-                        imageElement.setAttribute('alt','https://openweathermap.org/img/w/' + forecast.weather[0].description + '.png');
+                        imageElement.setAttribute('alt', forecast.weather[0].description);
                         counter += 1;
 
                 }

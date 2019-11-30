@@ -38,14 +38,9 @@ var date = currentDate.getDate();
 currentDateString = weekDay + ', ' + date + ' ' + month + ' ' + year;
 document.getElementById('currentDate').innerHTML = currentDateString;
 
+
 function toggleMenu() {
-    document.getElementsByClassName("navigation")[0].classList.toggle("responsive");
-  
+	document.getElementsByClassName("navigation")[0].classList.toggle("responsive");
 }
 
 
-
-
-
-
-    

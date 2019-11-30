@@ -512,7 +512,7 @@ figure {
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
-  background-color: rgba(255, 206, 99, 0.164);
+  background-color: rgba(255, 206, 99, 0.658);
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -520,7 +520,8 @@ figure {
 
 figure:hover {
   box-shadow: 10px 10px 15px black;
-  background-color: rgba(255, 206, 99, 0.397);
+  background: rgba(55, 125, 190, 0.363);
+
   padding-top: 0.5em;
 
 }
@@ -553,7 +554,18 @@ img[data-src] {
  figure:hover {
    box-shadow: 6px 9px 15px 0 rgba(0,0,0,0.49);
  }
-
+ .parallax-gallery{
+  /* The image used */
+  background-image: url("../images/gallery-parallax.jpg");
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
 
  /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------

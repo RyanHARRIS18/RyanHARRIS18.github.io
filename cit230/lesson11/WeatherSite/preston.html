@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Diplomata+SC&display=swap" rel="stylesheet">
     <title> Preston </title>
     
-    <!-- Preston Idaho weather Page -->
+    <!-- lesson 11 -->
 
 </head>
 
@@ -41,18 +41,18 @@
         </nav>
     </div>
     <main>
-        <div class="parallax">
+        <input type="hidden" id="cityID" value="5604473">
+
+        <div id="parallax-preston">
             <!-- pancake -->
             <section id="pancake" class="hidden">
                 <p>
                     Saturday = Preston Pancakes in the PARK! 9:00 AM
                 </p>
             </section>
-           
-            
 
             <div class="hero">
-                <h2 id="prestonH2">Preston:</h2>
+                <h2 id="pagetitle">Preston:</h2>
 
                   <picture>
                         <source media="(min-width:1200px)" srcset="images/large.png" >
@@ -73,9 +73,15 @@
 
             </div>
 
+            <h3>Events</h3>
+
+            <section class="events">  
+                <div id="Preston-Events"> 
+                </div>
+            </section>
+          
+
             <!-- <img class="Preston-pictures" id="section-1-hero-img" src="./images/preston-town.jpg" alt="Image of Downtown Preston"> -->
-
-
 
             <section class="Five-Day-Forecast">
                 <h3 id="five-day-header"> 5-Day Weather Forecast</h3>
@@ -89,15 +95,23 @@
                         <th id="day4"></th>
                         <th id="day5"></th>
                     </tr>
-                    <tr>
+                    <tr class="bottom-column">
                         <td id="Forecast">Forecast</td>
-                        <td id="temp1">65&deg;</td>
-                        <td id="temp2">65&deg;</td>
-                        <td id="temp3">68&deg;</td>
-                        <td id="temp4">50&deg;</td>
-                        <td id="temp5">47&deg;</td>
+                        <td class="forecast-img" id="temp1"></td>
+                        <td class="forecast-img" id="temp2"></td>
+                        <td class="forecast-img" id="temp3"></td>
+                        <td class="forecast-img" id="temp4"></td>
+                        <td class="forecast-img" id="temp5"></td>
                     </tr>
-
+                    <tr>
+                            <td><img id="default-area"src="./images/Weather-Logo-color-noback.png" alt="weather logo"></td>
+                            <td><img id="img1" src="" alt=""></td>
+                            <td><img id="img2" src="" alt=""></td>
+                            <td><img id="img3" src="" alt=""></td>
+                            <td><img id="img4" src="" alt=""></td>
+                            <td><img id="img5" src="" alt=""></td>
+                         </tr>
+                    
                 </table>
             </section>
 
@@ -123,6 +137,10 @@
 
                     </div>
                 </div>
+            </section>
+
+            <section>
+                
             </section>
 
             <section class="section-3">
@@ -157,6 +175,9 @@
     <script src="scripts/windchill.js"></script>
     <script src="scripts/pancake.js"></script>
     <script src="scripts/weatherSummary.js"></script>
+    <script src="scripts/fivedayforecast.js"></script>
+    <script src="scripts/townevents.js"></script>
+
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/webfront/1.6.26/webfront.js"></script>
     <script>

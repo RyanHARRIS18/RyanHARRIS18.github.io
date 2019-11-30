@@ -121,10 +121,6 @@
    display: block;
  }
 
- .navigation li {
-   display: none;
- }
-
  .navigation a {
    display: block;
    color: #fff;
@@ -145,12 +141,12 @@
    padding: 0.75rem;
    text-align: center;
    list-style: circle;
-   ;
  }
 
- /* the onclick JS toggles the .repsonsive class from display none (.navigation li) to display block because the repsonsive class is added to the end of the class list like this in HTML Line #6.
-  <ul class="navigation responsive">
-  */
+ .navigation li {
+  display: none;
+}
+
  .responsive li {
    display: block;
  }
@@ -304,7 +300,7 @@ font-size: 1.5em;
  }
 
  .hero-img-sun{
-  width: 100%;
+  width: 95%;
 }
  .weather-summary {
    grid-column: 1/7;
@@ -312,7 +308,7 @@ font-size: 1.5em;
    background-color: rgba(236, 236, 236, 0.877);
    opacity: 0.8;
    border-radius: 15px;
-   margin-top: -6em;
+   margin-top: -3em;
    margin-bottom: 2em;
  }
 

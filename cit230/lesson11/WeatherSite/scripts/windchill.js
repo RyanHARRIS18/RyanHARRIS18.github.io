@@ -1,5 +1,8 @@
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?id=5604473&appid=62fa2f44eb8059b7d0e3a0af3aa66bf7&units=imperial";
-fetch(apiUrl)
+const apiKey = "62fa2f44eb8059b7d0e3a0af3aa66bf7";
+let cityID = document.getElementById("cityID").value;
+const unit = "imperial";
+const apiweatherURL = `https://api.openweathermap.org/data/2.5/weather?id=${cityID}&units=${unit}&appid=${apiKey}`;
+fetch(apiweatherURL)
   .then(
     (response) => 
       response.json()
@@ -29,6 +32,7 @@ fetch(apiUrl)
 
     }
   )
+  
   
 
   

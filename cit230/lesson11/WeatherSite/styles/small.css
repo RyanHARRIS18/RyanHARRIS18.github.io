@@ -121,6 +121,10 @@
    display: block;
  }
 
+ .navigation li {
+  display: none;
+}
+
  .navigation a {
    display: block;
    color: #fff;
@@ -143,9 +147,7 @@
    list-style: circle;
  }
 
- .navigation li {
-  display: none;
-}
+
 
  .responsive li {
    display: block;

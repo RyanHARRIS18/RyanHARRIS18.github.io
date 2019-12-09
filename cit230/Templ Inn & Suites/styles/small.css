@@ -1,0 +1,353 @@
+ /* ------------------------------------------------------------------------------------------------------------------------------
+              ------------------------------------------
+                Temple Inn & Suites Style Sheet - Small
+              --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ 
+ ------------------------------------------------------------------------------------------------------------------------------ 
+ Basic outline
+- Home
+- Temple1 -  Rome Temple
+- Temple2 -  Fort Collins
+- Temple3 -  San Diego  
+- Temple4 - Salt Lake City
+ -----------------------------> address, telephone, email, services, history, ordinance schedule, 
+                                  session schedule, temple closure schedule (from a JSON source), 
+                                  and summary—current weather information obtained from a third party API. 
+- Registration Form
+ -----------------------------> the location, date, number and type of rooms, registrant's full name, email, 
+                                phone, home state or country, and special accommodations/comments. You will 
+                                need to use the CSS flex method for the layout of your reservation form for 
+                                full credit.
+- Services Page
+            - Receptions
+            --------------------> displaying information about the wedding reception accommodations, including 
+                                 options for food service and setup.
+
+            - Full-Time Missionary Page
+            --------------------> page that provides information and images about the suites offered at the hotel 
+                                  with a simple Contact Us form for more details
+ ------------------------------------------------------------------------------------------------------------------------------ 
+ Color Scheme / Typography
+Site Header	Tangerine	40px	        #747CBC  - Grayish Blue
+Primary Nav	Tangerine	30px	        #111826  - Black Gray
+Footer Nav	ubuntu   	20px	        #111826  - Black Gray
+Heading 1	Tangerine	30px	        #747CBC  - Grayish Blue
+Heading 2	Ubuntu	    25px	        #A6A6A6  - Tanish Gray
+Heading 3	Ubuntu	    20px	        #8F94A6  - Lighter Gray
+Paragraph   text	    Ubuntu	16px	#000000  - black
+
+ ------------------------------------------------------------------------------------------------------------------------------ 
+
+ ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    General Rules - Small
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+ /* --------------------------------------------------------------------------------------------------------------------------- */ */
+ body {
+   padding: 0;
+ }
+
+ header {
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   flex-direction: row;
+ }
+
+ .headings {
+   display: flex;
+   flex-direction: column;
+ }
+
+ .Site-Logo {
+   z-index: 1;
+   width: 250px;
+   height: 250px;
+   margin-right: -20em;
+   margin-left: 3em;
+   opacity: 0.4;
+   margin-top: -1em;
+ }
+
+ h1 {
+    color:  #111826;
+    font-size: 35px;
+    border-radius: 5px;
+    border-bottom: 2px double #111826 ;
+    font-family: 'Tangerine', cursive;
+    text-align: center;
+    padding: .25em;
+    text-shadow: 2px 2px  #8F94A6  ;
+    letter-spacing: 18px;
+  }
+
+ h1.logo-box {
+   color:  #111826;
+   font-size: 35px;
+   border-radius: 5px;
+   border-bottom: 2px double #111826 ;
+   margin-bottom: 1em;
+   font-family: 'Tangerine', cursive;
+   z-index: 5;
+   text-align: center;
+   padding: .25em;
+   margin-right: 2em;
+   margin-left: 2.8em;
+   margin-top: 1em;
+   text-shadow: 2px 2px  #8F94A6  ;
+   letter-spacing: 18px;
+ }
+
+ .moto {
+    letter-spacing: 5px;
+    margin-top: -1em;
+    color:#111826;
+    font-family: 'Ubuntu', cursive;
+    font-size: 15px;
+    text-shadow: 2px 2px rgb(193, 193, 193);
+    margin-right: 1em;
+    margin-left: 5em;
+  }
+
+ h2 {
+   color: rgb(0, 0, 0);
+   font-size: 30px;
+   border-bottom: 5px solid black;
+   font-family: 'Tangerine', cursive;
+   text-align: center;
+   border-bottom: 5px solid rgb(1, 1, 2);
+   /* background: #8F94A6; */
+   padding: 0.25em;
+   text-shadow: 2px 2px rgb(193, 193, 193);
+   box-shadow: 2px 2px rgb(193, 193, 193);
+   border-radius: 15px;
+ }
+
+ h3 {
+   color: rgb(55, 125, 190);
+   font-size: 25px;
+   border-radius: 5px;
+   /* border-bottom: 5px solid  rgb(55, 125, 190); */
+   font-family: 'Merriweather Sans', cursive;
+   margin-top: -0.5em;
+   text-shadow: 2px 2px rgb(193, 193, 193);
+   text-align: center;
+   margin-top: 1em;
+   background-color: rgba(255, 206, 99, 0.616);
+   display: block;
+   text-align: center;
+   box-shadow: 2px 2px rgb(193, 193, 193);
+   padding: 0.5em;
+ }
+
+ h4 {
+   color: rgb(255, 206, 99);
+   font-size: 25px;
+   border-radius: 5px;
+   /* border-bottom: 5px solid  rgb(255, 206, 99); */
+   font-family: 'Merriweather Sans', cursive;
+   z-index: 2;
+   text-align: center;
+   margin-left: 2em;
+   margin-right: 2em;
+   text-shadow: 2px 2px rgb(193, 193, 193);
+ }
+
+ nav {
+   margin: 0 auto;
+   max-width: 1560px;
+   background-color: rgb(185, 180, 167);
+ }
+
+ .navigation {
+   list-style: none;
+   text-align: center;
+   padding: 0;
+   z-index: 5;
+ }
+
+ .navigation li:first-child {
+   display: block;
+ }
+
+ .navigation li {
+  display: none;
+}
+
+ .navigation a {
+   display: block;
+   color: #000;
+   padding: 0.75rem;
+   text-align: center;
+   text-decoration: none;
+ }
+
+ .navigation a:hover {
+   color: black;
+   background-color:#cacaca;
+   font-weight: 700;
+ }
+
+ ul:nth-child(3) {
+   display: block;
+   color: rgb(218, 110, 110);
+   padding: 0.75rem;
+   text-align: center;
+   list-style: circle;
+ }
+
+ .responsive li {
+    display: block;
+  }
+
+ .active{
+    color: rgb(255, 206, 99);
+ }
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    Home - Small
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+
+
+#cta{
+    z-index: 0;
+}
+
+/* Call to Action */
+.cta-img {
+    /* The image used */
+    background-image: url("../images/bricks-narrow.jpg");
+    /* Control the height of the image */
+    min-height: 220px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  p.intro-p {
+    grid-column: 1/2;
+    text-align: center;
+    margin-left: 0.5em;
+    margin-right: 10em;
+    display: inline;
+    font-size: 1.25em;
+    color: rgb(255, 255, 255);
+    background-color:#666666c0;
+    padding: 1em;
+    font-family: 'Ubuntu', cursive;
+}
+  
+  /* Add styles to the form container */
+  .container {
+    grid-column: 2/3;
+    text-align: left;
+    position: relative;
+    right: 0;
+    max-height: 200px;
+    max-width: 200px;
+    padding: 16px;
+    background-color: rgba(211, 212, 216, 0.808);
+    margin-left: -10em;
+  }
+  
+  /* Full-width input fields */
+    input[type=text], input[type=password] {
+    width: 85%;
+    padding: 5px;
+    margin: 2px 0 11px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+    
+  }
+  
+  /* Set a style for the submit button */
+  .cta {
+    /* background-color: #4CAF50; */
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .cta:hover {
+    opacity: 1;
+  }
+
+  .cta-h2 {
+    font-family: 'Ubuntu', cursive;
+     color: rgb(0, 0, 0);
+     font-size: 20px;
+     border-bottom: 5px solid black;
+     text-align: center;
+     border-bottom: 5px solid rgb(1, 1, 2);
+     padding: 0.25em;
+     text-shadow: 2px 2px rgb(193, 193, 193);
+     box-shadow: 2px 2px rgb(193, 193, 193);
+     border-radius: 15px;
+     margin-top: -0.75em;
+   }
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    Temple1: Rome - Small
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+/*
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    Temple2: Fort Collins - Small
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+/*
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    Temple1: Sand Diego - Small
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+/*
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    Temple1: Salt Lake City - Small
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+/*
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                     Registration Form - Small
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+/*
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    - Services Page - Small
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------ 
+                    - Receptions - Small
+------------------------------------------------------------------------------------------------------------------------------  */
+
+/* ------------------------------------------------------------------------------------------------------------------------------ 
+                - Full-Time Missionary Page - Small
+------------------------------------------------------------------------------------------------------------------------------  */

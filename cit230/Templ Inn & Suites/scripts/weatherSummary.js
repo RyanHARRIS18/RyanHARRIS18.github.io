@@ -48,8 +48,7 @@ currentDay = (currentDate.getDay());
 var daysInputted = 0;
 for( i=1; currentDay <= 6; i++){
         var nameOfDay= daysOfWeek[currentDay++];
-        var c = String(i);
-        document.getElementById("day"+ c).innerHTML = nameOfDay;
+        document.getElementById("day"+[i]).innerHTML = nameOfDay;
         daysInputted++;
     }
     var remaniderDays = 5 - daysInputted;  

@@ -249,19 +249,23 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-style: outset;
+
   }
 
   p.intro-p {
     grid-column: 1/2;
     text-align: center;
     margin-left: 0.5em;
-    margin-right: 10em;
+    margin-right: 9em;
     display: inline;
     font-size: 1.25em;
     color: rgb(255, 255, 255);
     background-color:#666666c0;
     padding: 1em;
     font-family: 'Ubuntu', cursive;
+    border-style: inset;
+
 }
   
   /* Add styles to the form container */
@@ -271,10 +275,12 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
     position: relative;
     right: 0;
     max-height: 200px;
-    max-width: 200px;
+    max-width: 300px;
     padding: 16px;
     background-color: rgba(211, 212, 216, 0.808);
     margin-left: -10em;
+    border-style: inset;
+
   }
   
   /* Full-width input fields */
@@ -290,6 +296,10 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
     background-color: #ddd;
     outline: none;
     
+  }
+
+  .banner-h2{
+      display: none;
   }
   
   /* Set a style for the submit button */
@@ -330,7 +340,7 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
         -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
         filter: grayscale(75%);
         margin-bottom: 5em;
-        
+        border-style: inset;
    }
 
    .homepage-images{
@@ -394,7 +404,87 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
                     Temple1: Rome - Small
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
-/*
+
+ .section-1 {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+   margin-bottom: 5em;
+   margin-left: 1em;
+   margin-right: 1em;
+   background-color: none;
+   margin-bottom: 5em;
+ }
+
+
+ #section-1-img {
+   grid-column: 2/5;
+   grid-row: 1/2;
+   z-index: -1;
+ }
+
+
+ #Forecast1,
+ #Forecast2,
+ #Forecast3,
+ #Forecast4,
+ #Forecast5 {
+   margin-left: 2em;
+   font-size: 150%;
+ }
+
+ .hero-img-sun{
+  width: 95%;
+}
+ .weather-summary {
+  width: 350px;
+   background-color: rgba(236, 236, 236, 0.877);
+   opacity: 0.8;
+   border-radius: 15px;
+   margin-top: -3em;
+   padding: 1em;
+   margin-right: 1em;
+   /* margin-bottom: 2em; */
+ }
+
+ .Five-Day-Forecast {
+  margin-top: 2em;
+  display: visible;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: rgba(208, 208, 208, 0.719);
+  text-align: center;
+  align-items: center;
+}
+
+#five-day-header {
+  grid-column: 2/3;
+}
+
+#five-day-tabel {
+  grid-column: 2/3;
+}
+
+tr, td, th{
+  background-color: #cacacaab;
+}
+
+
+.Five-Day-Forecast {
+  margin-left: -2em;
+  padding: 2em;
+  margin-top: 2em;
+  display: visible;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgba(95, 95, 95, 0.685);
+  text-align: center;
+  align-items: center;
+}
+
+tr, td, th{
+  grid-column: 2/3;
+  background-color:  #cacaca71;
+}
 
 /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------

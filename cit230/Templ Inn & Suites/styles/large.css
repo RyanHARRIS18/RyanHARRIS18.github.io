@@ -71,6 +71,54 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
 
+ /* @media only screen and (min-width: 800px) and (max-width: 1100px){
+  .homepage-sections{
+    display: inline-block;
+    width: 20%;
+     margin-left: 3em;
+     margin-right: 2em;
+  }
+
+     #section0, #section1, #section2, #section3{
+      margin-left: 1em;
+      margin-right: 1em;
+    }
+
+  } */
+      
+        @media only screen and (min-width: 1100px) and (max-width: 3000px){
+          .homepage-sections{
+            display: inline-block;
+            width: 20%;
+          }
+        
+             #section0, #section1, #section2, #section3{
+              margin-left: 2em;
+              margin-right: 1em;
+            }
+      
+          }
+    
+        @media only screen and (min-width: 1000px){
+        .banner-h2{
+          font-size: 3.5em;
+          /* margin-right: -0.01em; */
+        }
+        
+        .container{
+          grid-column: 3/5;
+          max-height: 200px;
+          max-width: 400px;
+          /* margin-top: -0.05em; */
+          font-size: 1.25em;
+          /* margin-left: -em; */
+        }
+        
+        .intro-p{
+          grid-column: 1/2;
+          margin-right: 0;
+        }
+        }
  
 /*
 

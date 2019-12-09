@@ -101,17 +101,11 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
     font-family: 'Ubuntu', cursive;
 }
 
-/* div.temples-cards{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-} */
 
-
-
-
-@media only screen and (min-width: 600px) and (max-width: 750px){
+/* Card Resizes */
+@media only screen and (min-width: 600px) and (max-width: 1200px){
   .homepage-sections{
-    width: 45%;
+    width: 40%;
     display: inline-block;
      margin-left: auto;
      margin-right: auto;
@@ -122,79 +116,43 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
      margin-bottom: 5em;
   }
   #section0, #section1, #section2, #section3{
-    margin-left: 1em;
+    margin-left: 3.5em;
+    margin-right: auto;
   }
 }
 
-@media only screen and (min-width: 750px) and (max-width: 1100px){
-  .homepage-sections{
-    width: 30%;
-    display: inline-block;
-     margin-left: auto;
-     margin-right: auto;
-     background-image: url("../images/whitebricks.jpg");
-     /* background-image.opacity{ 0.5}; */
-     -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
-     filter: grayscale(75%);
-     margin-bottom: 5em;
-     margin-left: 1em;
-     margin-right: 1em;
-  }
-    #section0, #section1, #section2, #section3{
-      margin-left: 0em;
-    }
-
-    #section3{
-      width: 75%;
-      margin-left: 5em;
-    }
-  }
-
-  @media only screen and (min-width: 1100px) and (max-width: 1600px){
-    .homepage-sections{
-      display: inline-block;
-      /* display: grid;
-      grid-column: 4/5; */
-      width: 30%;
-       background-image: url("../images/whitebricks.jpg");
-       -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
-       filter: grayscale(75%);
-       margin-left: 3em;
-       margin-right: 2em;
-    }
-  
-       #section0, #section1, #section2, #section3{
-        margin-left: 0em;
-      }
-
-      #section3{
-        width: 45%;
-        margin-left: 20em;
-
-      }
-    }
-
-@media only screen and (min-width: 1600px) and (max-width: 3000px){
-  .homepage-sections{
-    display: inline-block;
-    /* display: grid;
-    grid-column: 4/5; */
-    width: 23%;
-     background-image: url("../images/whitebricks.jpg");
-     -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
-     filter: grayscale(75%);
-     margin-left: 3em;
-     margin-right: 2em;
-  }
-
-     #section0, #section1, #section2, #section3{
-      margin-left: 0em;
-    }
-  }
+/* CTA */
 
 
+.cta{
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
 
+@media only screen and (min-width: 850px){
+.banner-h2{
+  grid-column: 2/3;
+  display: inline;
+  font-size: 3em;
+  margin-left: -4em;
+  margin-right: 5em;
+}
+}
 
+.container{
+  grid-column: 4/5;
+  max-height: 200px;
+  max-width: 300px;
+  margin-top: 1em;
+}
+
+.intro-p{
+  grid-column: 1/2;
+  margin-right: 0;
+}
+
+.contact-p{
+  font-size: 25px;
+}
 /* 
 #section1{
   margin-top: 2em;

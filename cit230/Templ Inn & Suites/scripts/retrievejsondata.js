@@ -1,4 +1,4 @@
-const templesRequest = url("./json/temples.json");
+const templesRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/Templ%20Inn%20%26%20Suites/json/temples.json";
 fetch(templesRequest)
   .then(function (response) {
     return response.json();

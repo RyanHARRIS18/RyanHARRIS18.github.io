@@ -117,55 +117,44 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
    font-family: 'Tangerine', cursive;
    text-align: center;
    border-bottom: 5px solid rgb(1, 1, 2);
-   /* background: #8F94A6; */
    padding: 0.25em;
    text-shadow: 2px 2px rgb(193, 193, 193);
    box-shadow: 2px 2px rgb(193, 193, 193);
+   background-color: rgba(255, 255, 255, 0.685);
    border-radius: 15px;
  }
- /* Color Scheme / Typography
-   Site Header	Tangerine	40px	        #747CBC  - Grayish Blue
-   Primary Nav	Tangerine	30px	        #111826  - Black Gray
-   Footer Nav	ubuntu   	20px	        #111826  - Black Gray
-   Heading 1	Tangerine	30px	        #747CBC  - Grayish Blue
-   Heading 2	Ubuntu	    25px	        #A6A6A6  - Tanish Gray
-   Heading 3	Ubuntu	    20px	        #8F94A6  - Lighter Gray
-   Paragraph   text	    Ubuntu	16px	#000000  - black */
 
  h3 {
    color: #111826  ;
    font-size: 25px;
    border-radius: 5px;
-   /* border-bottom: 5px solid  rgb(55, 125, 190); */
    font-family: 'Ubuntu', cursive;
    margin-top: -0.5em;
-   /* text-shadow: 2px 2px rgb(193, 193, 193); */
    text-align: center;
    margin-top: 1em;
-   background-color: rgba(143, 148, 166, 0.555) ;
    display: block;
    text-align: center;
-   box-shadow: 2px 2px rgb(193, 193, 193);
    padding: 0.5em;
  }
 
  h4 {
-   color: rgb(255, 206, 99);
-   font-size: 25px;
+   color: rgb(0, 0, 0);
+   font-size: 30px;
    border-radius: 5px;
    /* border-bottom: 5px solid  rgb(255, 206, 99); */
-   font-family: 'Merriweather Sans', cursive;
+   font-family: 'Ubuntu', cursive;
    z-index: 2;
    text-align: center;
    margin-left: 2em;
    margin-right: 2em;
    text-shadow: 2px 2px rgb(193, 193, 193);
+   font-style: bold;
  }
 
  nav {
    margin: 0 auto;
    max-width: 1560px;
-   background-color: rgb(185, 180, 167);
+   background-color: rgb(175, 175, 175);
  }
 
  .navigation {
@@ -199,7 +188,6 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
 
  ul:nth-child(3) {
    display: block;
-   color: rgb(218, 110, 110);
    padding: 0.75rem;
    text-align: center;
    list-style: circle;
@@ -209,9 +197,33 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
     display: block;
   }
 
- .active{
-    color: rgb(255, 206, 99);
+ a.active{
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px rgb(0, 0, 0);
+
  }
+
+ 
+ /* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    THESE ARE THE FOOTER RULES
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+
+ .footer-text {
+    margin: 1px;
+    color: black;
+    border: 1px;
+    padding: 10px;
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+  }
+ 
+  footer {
+    align-items: left;
+    background-color:#cacaca;
+  }
 
 /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------
@@ -313,14 +325,69 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
        display: block;
         margin-left: auto;
         margin-right: auto;
+        background-image: url("../images/whitebricks.jpg");
+        /* background-image.opacity{ 0.5}; */
+        -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(75%);
+        margin-bottom: 5em;
+        
    }
 
    .homepage-images{
-       width: 100%;
+       margin-top: 1em;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+       width: 90%;
+       border-radius: 100%;
+       border-style: inset;
+       opacity: 0.9;
    }
 
+   .temples-p{
+       margin-top: -0.5em;
+       font-size: 25px;
+       text-align: center;
+       background-color: #cacacaab;
+       border-style: inset;
+       padding: 1em;
+   }
 
-  
+   .temples-headers{
+    border-style: outset;
+    margin-top: -0.5em;
+    font-size: 30px;
+    text-align: center;
+    background-color: #cacacaab;
+   }
+
+   .contact-p{
+       text-align: center;
+       margin-bottom: 1em;
+       background-color: rgba(255, 255, 255, 0.685);
+   }
+
+   .parallax-home{
+    /* The image used */
+    background-image: url("../images/paralax-home.jpg");
+    /* Set a specific height */
+    height: 100%;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(75%);
+  }
+
+    iframe{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+    }
 
 /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------

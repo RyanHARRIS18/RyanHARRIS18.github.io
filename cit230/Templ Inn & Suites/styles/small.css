@@ -112,7 +112,7 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
 
  h2 {
    color: rgb(0, 0, 0);
-   font-size: 30px;
+   font-size: 35px;
    border-bottom: 5px solid black;
    font-family: 'Tangerine', cursive;
    text-align: center;
@@ -123,18 +123,26 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
    box-shadow: 2px 2px rgb(193, 193, 193);
    border-radius: 15px;
  }
+ /* Color Scheme / Typography
+   Site Header	Tangerine	40px	        #747CBC  - Grayish Blue
+   Primary Nav	Tangerine	30px	        #111826  - Black Gray
+   Footer Nav	ubuntu   	20px	        #111826  - Black Gray
+   Heading 1	Tangerine	30px	        #747CBC  - Grayish Blue
+   Heading 2	Ubuntu	    25px	        #A6A6A6  - Tanish Gray
+   Heading 3	Ubuntu	    20px	        #8F94A6  - Lighter Gray
+   Paragraph   text	    Ubuntu	16px	#000000  - black */
 
  h3 {
-   color: rgb(55, 125, 190);
+   color: #111826  ;
    font-size: 25px;
    border-radius: 5px;
    /* border-bottom: 5px solid  rgb(55, 125, 190); */
    font-family: 'Merriweather Sans', cursive;
    margin-top: -0.5em;
-   text-shadow: 2px 2px rgb(193, 193, 193);
+   /* text-shadow: 2px 2px rgb(193, 193, 193); */
    text-align: center;
    margin-top: 1em;
-   background-color: rgba(255, 206, 99, 0.616);
+   background-color: rgba(143, 148, 166, 0.555) ;
    display: block;
    text-align: center;
    box-shadow: 2px 2px rgb(193, 193, 193);
@@ -300,7 +308,19 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
      margin-top: -0.75em;
    }
 
+   .homepage-sections{
+       width: 300px;
+       display: block;
+        margin-left: auto;
+        margin-right: auto;
+   }
 
+   .homepage-images{
+       width: 100%;
+   }
+
+
+  
 
 /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------

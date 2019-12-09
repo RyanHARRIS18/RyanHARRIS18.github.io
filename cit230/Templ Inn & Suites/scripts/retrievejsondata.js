@@ -12,6 +12,13 @@ fetch(templesRequest)
       let section = document.createElement('section');
       section.setAttribute('id', temples[i].name + "section");
       section.setAttribute('class', "homepage-sections");
+
+      let image = document.createElement('img');
+      image.setAttribute('src', temples[i].photo);
+      image.setAttribute('alt', temples[i].name);
+      image.setAttribute('id', temples[i].name + "Img");
+      image.setAttribute('class', "homepage-images");
+      section.appendChild(image);
      
 
      let h3 = document.createElement('h3');
@@ -23,19 +30,14 @@ fetch(templesRequest)
       address.setAttribute('class', "address");
       section.appendChild(address);
 
+      
       let Milestones  = document.createElement('p');
       Milestones.textContent = 'Milestones: ' + temples[i].Milestones;
       Milestones.setAttribute('class', "Milestones");
       section.appendChild(Milestones);
 
-      let image = document.createElement('img');
-      image.setAttribute('src', temples[i].photo);
-      image.setAttribute('alt', temples[i].name);
-      image.setAttribute('id', temples[i].name + "Img");
-      image.setAttribute('class', "homepage-images");
+    
 
-      section.appendChild(image);
-      
       document.querySelector('div.temple-cards').appendChild(section);
     }
   });

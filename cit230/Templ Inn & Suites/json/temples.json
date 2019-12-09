@@ -38,25 +38,6 @@
             "Map": "<iframe src=\"<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3351.2012469975734!2d-117.23093288576514!3d32.86639438673187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc06d32da29aff%3A0x3681ef10f8a92fa4!2sSan%20Diego%20California%20Temple!5e0!3m2!1sen!2sus!4v1575870192417!5m2!1sen!2sus\" width=\"400\" height=\"300\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"></iframe>"
         },
         {
-            "name": "Rome Italy Temple",
-            "photo": "https://assets.ldscdn.org/b5/37/b537f20ccdd2f7ba4f3413a055bcaab21fd3e107/rome_italy_temple.png",
-            "address": "Via di Settebagni 376, Rome RM, Italy",
-            "Telephone": "(39) 06-9480-5050",
-            "Services": [
-                "Clothing Rental Available",
-                "No cafeteria available",
-                "Patron housing available",
-                "Distribution center nearby"
-            ],
-            "Milestones": [
-                "4 October 2008 - Announced",
-                "23 October 2010 - Groundbreaking",
-                "10 March 2019 - Dedicated — dedicatory prayer"
-            ],
-            "Milestone-Prayer": "https://www.churchofjesuschrist.org/temples/details/rome-italy-temple/prayer/2019-03-10",
-            "Map": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2966.3869224808936!2d12.542602215444031!3d41.970501779214935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f643086c21e99%3A0xcb6509821c71b70c!2sRome%20Italy%20Temple!5e0!3m2!1sen!2sus!4v1575859212198!5m2!1sen!2sus\" width=\"400\" height=\"300\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"></iframe>"
-        },
-        {
             "name": "Fort Collins Colorado Temple",
             "photo": "https://assets.ldscdn.org/39/f0/39f0cb02ca79fff03cdbe8014db605233b15a78d/fort_collins_colorado_temple_sunset_exterior.jpeg",
             "address": "2180 Majestic Dr, Fort Collins, CO 80528 United States",
@@ -74,7 +55,25 @@
             ],
             "Milestone-Prayer":"https://www.churchofjesuschrist.org/temples/details/fort-collins-colorado-temple/prayer/2016-10-16?lang=eng",
             "Map": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3034.149376895116!2d-105.04002168441484!3d40.49407975885522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87694cd5e0acf98f%3A0xd7789acfa395ec8c!2sFort%20Collins%20Colorado%20Temple%20-%20The%20Church%20of%20Jesus%20Christ%20of%20Latter-day%20Saints!5e0!3m2!1sen!2sus!4v1575860260232!5m2!1sen!2sus\" width=\"400\" height=\"300\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"></iframe>"
+        },
+        {
+            "name": "Rome Italy Temple",
+            "photo": "https://assets.ldscdn.org/b5/37/b537f20ccdd2f7ba4f3413a055bcaab21fd3e107/rome_italy_temple.png",
+            "address": "Via di Settebagni 376, Rome RM, Italy",
+            "Telephone": "(39) 06-9480-5050",
+            "Services": [
+                "Clothing Rental Available",
+                "No cafeteria available",
+                "Patron housing available",
+                "Distribution center nearby"
+            ],
+            "Milestones": [
+                "4 October 2008 - Announced",
+                "23 October 2010 - Groundbreaking",
+                "10 March 2019 - Dedicated — dedicatory prayer"
+            ],
+            "Milestone-Prayer": "https://www.churchofjesuschrist.org/temples/details/rome-italy-temple/prayer/2019-03-10",
+            "Map": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2966.3869224808936!2d12.542602215444031!3d41.970501779214935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f643086c21e99%3A0xcb6509821c71b70c!2sRome%20Italy%20Temple!5e0!3m2!1sen!2sus!4v1575859212198!5m2!1sen!2sus\" width=\"400\" height=\"300\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"></iframe>"
         }
-      
     ]
 }

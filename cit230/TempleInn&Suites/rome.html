@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles/large.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Tangerine|Ubuntu:300&display=swap" rel="stylesheet">
-    <title> Homepage </title>
+    <title> Rome Temple Information </title>
     <!-- Home Page 
     The home page is a contemporary, exciting landing page providing images of temples and 
 temple attending activities and must include the following:
@@ -36,8 +36,8 @@ temple attending activities and must include the following:
             <nav>
                 <ul class="navigation">
                     <li><a href="#" onclick="toggleMenu()">&#9776; Menu</a></li>
-                    <li><a class="active" href="./index.html">Home</a></li>
-                    <li><a href="./rome.html"> Rome</a></li>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a class="active" href="./rome.html"> Rome</a></li>
                     <li><a href="./fortcollins.html">Fort-Collins</a></li>
                     <li><a href="./sanDiego.html">San-Diego</a></li>
                     <li><a href="./saltLakeCity.html">SLC</a></li>
@@ -48,17 +48,19 @@ temple attending activities and must include the following:
         </div>
         <!-- temple attending activities and must include the following:
         A call to action to make a hotel reservation  -->
+       
         <section>
-            <div class="parallax-home">
+        <input type="hidden" id="cityID" value="6542288">
+            <div class="parallax-rome">
                 
                 <!-- Call To Action-->
                 <Section class="cta-img">
                 <p class="intro-p">
                 Welcome to your next hotel destination while attend the Temple.
                 </p>
-                <h2 class="banner-h2"> ~ Reserve your Room Now while we still have Vacancy ~ </h2>
+                <h2 class="banner-h2"> ~ When in Rome: Stay with Temples Inn & Suites! ~ </h2>
                 <form action="/action_page.php" class="container">
-                <h2 class="cta-h2">Register Now!</h2>
+                <h2 class="cta-h2">Go to Rome!</h2>
                         
                 <label for="email"><b>Email</b></label>
                 <input type="text" placeholder="Enter Email" name="email" required>
@@ -72,11 +74,57 @@ temple attending activities and must include the following:
 
       
             <!-- Summary information about a temples of your choosing -->
+
                 <!-- parlax -->
                 <section class="card-Holder">
                     <h2 id="homepage-h2">Our Locations</h2>
                     <div class="temple-cards"></div>
                 </section>
+
+                <section class="section-1">
+                        <div class="weather-summary">
+                            <h2>Weather Summary:</h2>
+                            <div class="temples-p" id="Forecast1"> </div>
+                            <div class="temples-p" id="Forecast2"> </div>
+                            <div class="temples-p" id="Forecast3"> </div>
+                            <div class="temples-p" id="Forecast4"> </div>
+                            <div class="temples-p" id="Forecast5"> </div>
+                        </div>
+                    </section>
+
+                    <section class="Five-Day-Forecast">
+                            <h2 id="five-day-header"> 5 -Day Weather Forecast</h2>
+            
+                            <table id="five-day-tabel">
+                                <tr>
+                                    <th>Day</th>
+                                    <th id="day1"></th>
+                                    <th id="day2"></th>
+                                    <th id="day3"></th>
+                                    <th id="day4"></th>
+                                    <th id="day5"></th>
+                                </tr>
+                                <tr class="bottom-column">
+                                    <td id="Forecast">Forecast</td>
+                                    <td class="forecast-img" id="temp1"></td>
+                                    <td class="forecast-img" id="temp2"></td>
+                                    <td class="forecast-img" id="temp3"></td>
+                                    <td class="forecast-img" id="temp4"></td>
+                                    <td class="forecast-img" id="temp5"></td>
+                                </tr>
+                                <tr>
+                                        <td><img id="default-area"src="./images/Weather-Logo-color-noback.png" alt="weather logo"></td>
+                                        <td><img id="img1" src="" alt=""></td>
+                                        <td><img id="img2" src="" alt=""></td>
+                                        <td><img id="img3" src="" alt=""></td>
+                                        <td><img id="img4" src="" alt=""></td>
+                                        <td><img id="img5" src="" alt=""></td>
+                                     </tr>
+                                
+                            </table>
+                        </section>
+    
+         
 
                <!-- contact information for the hotel chain -->
                <section class="contact">
@@ -98,8 +146,11 @@ temple attending activities and must include the following:
             
             </div>
             </section>
-        </main>
+        <!-- <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.6980275686024!2d-111.67383426000858!3d40.05983937940822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874da4b42a2bae79%3A0x6b6c439374501d1a!2sB%26M%20Storage!5e0!3m2!1sen!2sus!4v1571072032478!5m2!1sen!2sus"
+        width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
 
+    </main>
 
     <footer>
         <div class="footer">
@@ -108,8 +159,13 @@ temple attending activities and must include the following:
         </div>
     </footer>
 
-    <script src="./scripts/retrievejsondata.js"></script>
+    <!-- <script src="./scripts/retrievejsondata.js"></script> -->
+    <script src="./scripts/retrieveCityjsondata.js"></script>
     <script src="./scripts/main.js"> </script>
+    <script src="scripts/windchill.js"></script>
+    <script src="scripts/weatherSummary.js"></script>
+    <script src="scripts/fivedayforecast.js"></script>
+
 
 </body>
 

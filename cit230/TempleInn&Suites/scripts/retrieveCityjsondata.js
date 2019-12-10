@@ -64,14 +64,16 @@ fetch(templesRequest)
       Milestones.setAttribute('class', "temples-p");
       section.appendChild(Milestones);
 
-      // let link  = document.createElement('a');
-      // link.textContent = 'Dedicatory Prayer';
-      // link.href = temples[cardNumber].Milestone-Prayer;
-      // section.appendChild(link);
+    //   let link  = document.createElement('a');
+    //   link.setAttribute('href', temples[cardNumber].Milestone-Prayer);
+    //   link.textContent = "Dedicatory Prayer";
+    //   section.appendChild(link);
 
       let iframe = document.createElement('iframe');
       iframe.setAttribute('src', temples[cardNumber].Map);
       section.appendChild(iframe);
+
+      
 
       document.querySelector('div.temple-cards').appendChild(section);
     

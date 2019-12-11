@@ -28,7 +28,7 @@ fetch(templesRequest)
     return response.json();
   })
   .then(function (jsonObject) {
-    // console.table(jsonObject);  // temporary checking for valid response and data parsing
+    console.table(jsonObject);  // temporary checking for valid response and data parsing
     const temples = jsonObject['temples'];
 
       let section = document.createElement('section');
@@ -77,44 +77,42 @@ fetch(templesRequest)
   });
 }
 
+function makePriceCard(cardNumber){
+  const templesRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/price.json";
+fetch(templesRequest)
+.then(function (response) {
+  return response.json();
+})
+.then(function (jsonObject) {
+  console.table(jsonObject);  // temporary checking for valid response and data parsing
+  const price = jsonObject['pricing'];
+  for (let i = 1; i < 8; i++ ) {
+    let section = document.createElement('section');
+    section.setAttribute('id', "priceSection"[i]);
+    section.setAttribute('class', "homepage-sections");
+
+    // let href = documnet.createElement('a');
+    // href.setAttribute('href'= './' + toLowerCase(temples[cardNumber].name));
+    
+  let h3 = document.createElement('h3');
+  h3.textContent = (price[cardNumber].toString(roomType[i]));
+  h3.setAttribute('class', "temples-headers");
+  section.appendChild(h3);
+
+    let image = document.createElement('img');
+    image.setAttribute('src', price[cardNumber].roomTypePhoto+[i]);
+    image.setAttribute('alt', price[cardNumber].price+[i]);
+    image.setAttribute('id', "roomType"+[i]);
+    image.setAttribute('class', "homepage-images");
+    section.appendChild(image);
   
 
-        function makePriceCard(cardNumber){
-          const templesRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/temples.json";
-        fetch(templesRequest)
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (jsonObject) {
-          // console.table(jsonObject);  // temporary checking for valid response and data parsing
-          const temples = jsonObject['temples'];
-          for (let i = 1; i < 8; i++ ) {
-            let section = document.createElement('section');
-            section.setAttribute('id', "priceSection"[i]);
-            section.setAttribute('class', "homepage-sections");
+    let h4 = document.createElement('h4');
+    h4.textContent = 'Price' + price[cardNumber].price+[i];
+    h4.setAttribute('class', "temples-headers");
+    section.appendChild(h4);
 
-            // let href = documnet.createElement('a');
-            // href.setAttribute('href'= './' + toLowerCase(temples[cardNumber].name));
-            
-          let h3 = document.createElement('h3');
-          h3.textContent = temples[cardNumber].price.roomType+[i];
-          h3.setAttribute('class', "temples-headers");
-          section.appendChild(h3);
-
-            let image = document.createElement('img');
-            image.setAttribute('src', temples[cardNumber].price.roomTypePhoto1);
-            image.setAttribute('alt', temples[cardNumber].price);
-            image.setAttribute('id', "roomType"+[i]);
-            image.setAttribute('class', "homepage-images");
-            section.appendChild(image);
-          
-
-            let h4 = document.createElement('h4');
-            h4.textContent = 'Price' + temples[cardNumber].price.price+[i];
-            h4.setAttribute('class', "temples-headers");
-            section.appendChild(h4);
-
-            document.querySelector('section.hotel-Card-Holder').appendChild(section);
-   }
-  })
+    document.querySelector('section.hotel-Card-Holder').appendChild(section);
+}
+})
 }

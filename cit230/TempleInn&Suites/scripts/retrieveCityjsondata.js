@@ -88,33 +88,33 @@ fetch(templesRequest)
         .then(function (jsonObject) {
           // console.table(jsonObject);  // temporary checking for valid response and data parsing
           const temples = jsonObject['temples'];
-          for (let i = 0; i < 8; i++ ) {
+          for (let i = 1; i < 8; i++ ) {
             let section = document.createElement('section');
-            section.setAttribute('id', "priceSection"[i] + [cardNumber]);
+            section.setAttribute('id', "priceSection"[i]);
             section.setAttribute('class', "homepage-sections");
 
             // let href = documnet.createElement('a');
             // href.setAttribute('href'= './' + toLowerCase(temples[cardNumber].name));
             
           let h3 = document.createElement('h3');
-          h3.textContent = temples[cardNumber].roomType[i];
+          h3.textContent = temples[cardNumber].roomType+[i];
           h3.setAttribute('class', "temples-headers");
           section.appendChild(h3);
 
             let image = document.createElement('img');
-            image.setAttribute('src', temples[cardNumber].roomTypePhoto[i]);
-            image.setAttribute('alt', temples[cardNumber].roomType[i] + "photo");
-            image.setAttribute('id', "roomType"[i] + "Img");
+            image.setAttribute('src', temples[cardNumber].roomTypePhoto+[i]);
+            image.setAttribute('alt', temples[cardNumber].roomType+[i] + "photo");
+            image.setAttribute('id', "roomType"+[i]);
             image.setAttribute('class', "homepage-images");
             section.appendChild(image);
           
 
             let h4 = document.createElement('h4');
-            h4.textContent = 'Price' + temples[cardNumber].price[i];
+            h4.textContent = 'Price' + temples[cardNumber].price+[i];
             h4.setAttribute('class', "temples-headers");
             section.appendChild(h4);
 
-            document.querySelector('div.hotel-Card-Holder').appendChild(section);
+            document.querySelector('section.hotel-Card-Holder').appendChild(section);
    }
   })
 }

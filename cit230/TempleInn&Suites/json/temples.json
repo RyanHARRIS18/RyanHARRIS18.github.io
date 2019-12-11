@@ -1,5 +1,6 @@
 {
-    "temples": [  {
+    "temples": [  
+        {
         "ID": "5780993",
         "name": "Salt Lake City Temple",
         "photo": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Temple_Square%2C_Salt_Lake_City%2C_1899_retouched.jpg",
@@ -15,32 +16,7 @@
             "28 July 1847 - Announced",
             "14 February 1853 - Groundbreaking",
             "6 April 1893 - Dedicated — dedicatory prayer"
-        ],
-        "price":[ {
-        "roomType1": "1 Adult - Full Size Bed",
-        "roomType2": "2 Adults - Full Size Bed",
-        "roomType3": "2 Adults - Queen Size Bed",
-        "roomType4": "2 Adults - King Size Bed",
-        "roomType5": "2 Full Size Beds",
-        "roomType6": "2  Queen Size Beds",
-        "roomType7": "2  King Size Beds",
-        "roomTypePhoto1": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/full-bed-1.jpg",
-        "roomTypePhoto2": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
-        "roomTypePhoto3": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/queen.jpg",
-        "roomTypePhoto4": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king.jpg",
-        "roomTypePhoto5": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
-        "roomTypePhoto6": "https://github.com/RyanHARRIS18/RyanHARRIS18.github.io/blob/master/cit230/TempleInn%26Suites/images/two%20queen.jpg",
-        "roomTypePhoto7": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king%20two.jpg",
-        "price1": "75$",
-        "price2": "100$",
-        "price3": "115$",
-        "price4": "135$",
-        "price5": "$120",
-        "price6": "150$",
-        "price7": "180$"
-        }
         ]
-
     },
         {
             "ID": "5391811",
@@ -58,30 +34,6 @@
                 "7 April 1984 - Announced",
                 "27 February 1988 - Groundbreaking",
                 "25 April 1993 - Dedicated — dedicatory prayer"
-            ],
-            "price":[ {
-            "roomType1": "1 Adult - Full Size Bed",
-            "roomType2": "2 Adults - Full Size Bed",
-            "roomType3": "2 Adults - Queen Size Bed",
-            "roomType4": "2 Adults - King Size Bed",
-            "roomType5": "2 Full Size Beds",
-            "roomType6": "2  Queen Size Beds",
-            "roomType7": "2  King Size Beds",
-            "roomTypePhoto1": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/full-bed-1.jpg",
-            "roomTypePhoto2": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
-            "roomTypePhoto3": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/queen.jpg",
-            "roomTypePhoto4": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king.jpg",
-            "roomTypePhoto5": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
-            "roomTypePhoto6": "https://github.com/RyanHARRIS18/RyanHARRIS18.github.io/blob/master/cit230/TempleInn%26Suites/images/two%20queen.jpg",
-            "roomTypePhoto7": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king%20two.jpg",
-            "price1": "100$",
-            "price2": "115$",
-            "price3": "130$",
-            "price4": "165$",
-            "price5": "$140",
-            "price6": "180$",
-            "price7": "200$"
-                }
             ]
         },
         {
@@ -100,33 +52,9 @@
                 "2 April 2011 - Announced",
                 "24 August 2013 - Groundbreaking",
                 "16 October 2016 - Dedicated — dedicatory prayer"
-            ],
-            "price":[ {
-            "roomType1": "1 Adult - Full Size Bed",
-            "roomType2": "2 Adults - Full Size Bed",
-            "roomType3": "2 Adults - Queen Size Bed",
-            "roomType4": "2 Adults - King Size Bed",
-            "roomType5": "2 Full Size Beds",
-            "roomType6": "2  Queen Size Beds",
-            "roomType7": "2  King Size Beds",
-            "roomTypePhoto1": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/full-bed-1.jpg",
-            "roomTypePhoto2": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
-            "roomTypePhoto3": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/queen.jpg",
-            "roomTypePhoto4": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king.jpg",
-            "roomTypePhoto5": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
-            "roomTypePhoto6": "https://github.com/RyanHARRIS18/RyanHARRIS18.github.io/blob/master/cit230/TempleInn%26Suites/images/two%20queen.jpg",
-            "roomTypePhoto7": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king%20two.jpg",
-            "price1": "65$",
-            "price2": "90$",
-            "price3": "105$",
-            "price4": "125$",
-            "price5": "$110",
-            "price6": "140$",
-            "price7": "175$"
-            }]
+            ]
         },
-        {
-            
+        { 
             "ID":"6542288",
             "name": "Rome Italy Temple",
             "photo": "https://assets.ldscdn.org/b5/37/b537f20ccdd2f7ba4f3413a055bcaab21fd3e107/rome_italy_temple.png",
@@ -142,30 +70,7 @@
                 "4 October 2008 - Announced",
                 "23 October 2010 - Groundbreaking",
                 "10 March 2019 - Dedicated — dedicatory prayer"
-            ],
-            "price":[ {
-            "roomType1": "1 Adult - Full Size Bed",
-            "roomType2": "2 Adults - Full Size Bed",
-            "roomType3": "2 Adults - Queen Size Bed",
-            "roomType4": "2 Adults - King Size Bed",
-            "roomType5": "2 Full Size Beds",
-            "roomType6": "2  Queen Size Beds",
-            "roomType7": "2  King Size Beds",
-            "roomTypePhoto1": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/full-bed-1.jpg",
-            "roomTypePhoto2": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
-            "roomTypePhoto3": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/queen.jpg",
-            "roomTypePhoto4": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king.jpg",
-            "roomTypePhoto5": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
-            "roomTypePhoto6": "https://github.com/RyanHARRIS18/RyanHARRIS18.github.io/blob/master/cit230/TempleInn%26Suites/images/two%20queen.jpg",
-            "roomTypePhoto7": "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king%20two.jpg",
-            "price1": "120$",
-            "price2": "145$",
-            "price3": "170$",
-            "price4": "195$",
-            "price5": "$160",
-            "price6": "210$",
-            "price7": "250$"
-            }]
+            ]
          }
     ]
 }

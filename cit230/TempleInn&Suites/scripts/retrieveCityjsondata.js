@@ -97,20 +97,20 @@ fetch(templesRequest)
             // href.setAttribute('href'= './' + toLowerCase(temples[cardNumber].name));
             
           let h3 = document.createElement('h3');
-          h3.textContent = temples[cardNumber].roomType+[i];
+          h3.textContent = temples[cardNumber].price.roomType+[i];
           h3.setAttribute('class', "temples-headers");
           section.appendChild(h3);
 
             let image = document.createElement('img');
-            image.setAttribute('src', temples[cardNumber].roomTypePhoto+[i]);
-            image.setAttribute('alt', temples[cardNumber].roomType+[i] + "photo");
+            image.setAttribute('src', temples[cardNumber].price.roomTypePhoto1);
+            image.setAttribute('alt', temples[cardNumber].price);
             image.setAttribute('id', "roomType"+[i]);
             image.setAttribute('class', "homepage-images");
             section.appendChild(image);
           
 
             let h4 = document.createElement('h4');
-            h4.textContent = 'Price' + temples[cardNumber].price+[i];
+            h4.textContent = 'Price' + temples[cardNumber].price.price+[i];
             h4.setAttribute('class', "temples-headers");
             section.appendChild(h4);
 

@@ -15,7 +15,7 @@ else if(document.getElementById("cityID").value === '5780993') {
 }
 
 function makeCard(cardNumber){
-const templesRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/Templ%20Inn%20%26%20Suites/json/temples.json";
+const templesRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/temples.json";
 fetch(templesRequest)
   .then(function (response) {
     return response.json();
@@ -64,14 +64,16 @@ fetch(templesRequest)
       Milestones.setAttribute('class', "temples-p");
       section.appendChild(Milestones);
 
-    //   let link  = document.createElement('a');
-    //   link.setAttribute('href', temples[cardNumber].Milestone-Prayer);
-    //   link.textContent = "Dedicatory Prayer";
-    //   section.appendChild(link);
+      let MilestonePrayer  = document.createElement('p');
+      MilestonePrayer.textContent = temples[cardNumber].MilestonePrayer;
+      MilestonePrayer.setAttribute('class', "temples-p");
+      MilestonePrayer.setAttribute('class', "prayer-link");
+      section.appendChild(MilestonePrayer);
 
-      let iframe = document.createElement('iframe');
-      iframe.setAttribute('src', temples[cardNumber].Map);
-      section.appendChild(iframe);
+
+      // let iframe = document.createElement('iframe');
+      // iframe.setAttribute('src', temples[cardNumber].Map);
+      // section.appendChild(iframe);
 
       
 

@@ -399,25 +399,13 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
         width: 75%;
     }
 
+
 /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------
-                    Temple1: Rome - Small
+                    Temple Pages General
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
- .parallax-rome{
-  /* The image used */
-  background-image: url("../images/paralax-rome.jpg");
-  /* Set a specific height */
-  height: 100%;
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 5px;
-  -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(75%);
-}
+
  .section-1 {
    display: grid;
    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -449,13 +437,13 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
   width: 95%;
 }
  .weather-summary {
-  width: 350px;
+  width: 250px;
    background-color: rgba(236, 236, 236, 0.877);
    opacity: 0.8;
    border-radius: 15px;
    margin-top: -3em;
    padding: 1em;
-   margin-right: 1em;
+   margin-left: 3em;
    /* margin-bottom: 2em; */
  }
 
@@ -464,9 +452,26 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
   display: visible;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background: rgba(208, 208, 208, 0.719);
+  background-color: rgba(208, 208, 208, 0.719);
   text-align: center;
   align-items: center;
+}
+
+
+
+.Five-Day-Forecast {
+  width: 200px;
+  margin-left: -2em;
+  padding: 2em;
+  margin-top: 2em;
+  display: visible;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgba(95, 95, 95, 0.685);
+  text-align: center;
+  align-items: center;
+  display: none;
+
 }
 
 #five-day-header {
@@ -482,21 +487,29 @@ tr, td, th{
 }
 
 
-.Five-Day-Forecast {
-  margin-left: -2em;
-  padding: 2em;
-  margin-top: 2em;
-  display: visible;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: rgba(95, 95, 95, 0.685);
-  text-align: center;
-  align-items: center;
-}
-
 tr, td, th{
   grid-column: 2/3;
   background-color:  #cacaca71;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+            ------------------------------------------
+                    Temple1: Rome - Small
+               --------------------------------------
+ ------------------------------------------------------------------------------------------------------------------------------ */
+ .parallax-rome{
+  /* The image used */
+  background-image: url("../images/paralax-rome.jpg");
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(75%);
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------
@@ -572,7 +585,7 @@ tr, td, th{
 
  .parallax-registration{
   /* The image used */
-  background-image: url("../images/Bountiful_Temple_Moroni.jpg");
+  background-image: url("../images/registracion-parallax.jpg");
   /* Set a specific height */
   height: 100%;
   /* Create the parallax scrolling effect */
@@ -680,6 +693,20 @@ tr, td, th{
  ------------------------------------------------------------------------------------------------------------------------------ */
 
 
+ .parallax-services{
+  /* The image used */
+  background-image: url("../images/services.jfif");
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(75%);
+}
 /* ------------------------------------------------------------------------------------------------------------------------------ 
                     - Receptions - Small
 ------------------------------------------------------------------------------------------------------------------------------  */

@@ -16,6 +16,7 @@
             "14 February 1853 - Groundbreaking",
             "6 April 1893 - Dedicated — dedicatory prayer"
         ],
+        "price":[ {
         "roomType1": "1 Adult - Full Size Bed",
         "roomType2": "2 Adults - Full Size Bed",
         "roomType3": "2 Adults - Queen Size Bed",
@@ -37,6 +38,8 @@
         "price5": "$120",
         "price6": "150$",
         "price7": "180$"
+        }
+        ]
 
     },
         {
@@ -56,6 +59,7 @@
                 "27 February 1988 - Groundbreaking",
                 "25 April 1993 - Dedicated — dedicatory prayer"
             ],
+            "price":[ {
             "roomType1": "1 Adult - Full Size Bed",
             "roomType2": "2 Adults - Full Size Bed",
             "roomType3": "2 Adults - Queen Size Bed",
@@ -77,6 +81,8 @@
             "price5": "$140",
             "price6": "180$",
             "price7": "200$"
+                }
+            ]
         },
         {
             "ID": "5577147",
@@ -95,6 +101,7 @@
                 "24 August 2013 - Groundbreaking",
                 "16 October 2016 - Dedicated — dedicatory prayer"
             ],
+            "price":[ {
             "roomType1": "1 Adult - Full Size Bed",
             "roomType2": "2 Adults - Full Size Bed",
             "roomType3": "2 Adults - Queen Size Bed",
@@ -116,8 +123,10 @@
             "price5": "$110",
             "price6": "140$",
             "price7": "175$"
+            }]
         },
         {
+            
             "ID":"6542288",
             "name": "Rome Italy Temple",
             "photo": "https://assets.ldscdn.org/b5/37/b537f20ccdd2f7ba4f3413a055bcaab21fd3e107/rome_italy_temple.png",
@@ -134,6 +143,7 @@
                 "23 October 2010 - Groundbreaking",
                 "10 March 2019 - Dedicated — dedicatory prayer"
             ],
+            "price":[ {
             "roomType1": "1 Adult - Full Size Bed",
             "roomType2": "2 Adults - Full Size Bed",
             "roomType3": "2 Adults - Queen Size Bed",
@@ -155,6 +165,7 @@
             "price5": "$160",
             "price6": "210$",
             "price7": "250$"
-        }
+            }]
+         }
     ]
 }

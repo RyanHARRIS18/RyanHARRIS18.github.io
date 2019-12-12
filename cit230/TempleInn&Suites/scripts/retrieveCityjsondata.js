@@ -103,8 +103,8 @@ fetch(priceRequest)
     section.appendChild(h3);
     
     let image = document.createElement('img');
-    image.setAttribute('src', pricing[cardNumber].rootTypePhoto[j]);
-    image.setAttribute('alt', pricing[cardNumber].price[i]);
+    image.setAttribute('src', pricing[cardNumber].roomTypePhoto[j]);
+    image.setAttribute('alt', pricing[cardNumber].roomType[i]);
     image.setAttribute('id', 'roomType' +[i]);
     image.setAttribute('class', "homepage-images");
     section.appendChild(image);

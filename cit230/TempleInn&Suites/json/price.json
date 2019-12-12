@@ -4,8 +4,8 @@
             "name": "Salt Lake City Temple",
             "roomType": [
                 "1 Adult - Full Size Bed",
-                "2 Adults - Full Size Bed",
-                "2 Adults - Queen Size Bed",
+                "2 Adults - 1 Full Size Bed",
+                "2 Adults - 1 Queen Size Bed",
                 "2 Adults - King Size Bed",
                 "2 Full Size Beds",
                 "2  Queen Size Beds",
@@ -35,8 +35,8 @@
             "name": "San Diego California Temple",
             "roomType": [
                 "1 Adult - Full Size Bed",
-                "2 Adults - Full Size Bed",
-                "2 Adults - Queen Size Bed",
+                "2 Adults - 1 Full Size Bed",
+                "2 Adults - 1 Queen Size Bed",
                 "2 Adults - King Size Bed",
                 "2 Full Size Beds",
                 "2  Queen Size Beds",
@@ -64,8 +64,8 @@
         {
             "roomType": [
                 "1 Adult - Full Size Bed",
-                "2 Adults - Full Size Bed",
-                "2 Adults - Queen Size Bed",
+                "2 Adults - 1 Full Size Bed",
+                "2 Adults - 1 Queen Size Bed",
                 "2 Adults - King Size Bed",
                 "2 Full Size Beds",
                 "2  Queen Size Beds",
@@ -95,8 +95,8 @@
             "name": "Rome Italy Temple",
             "roomType": [
                 "1 Adult - Full Size Bed",
-                "2 Adults - Full Size Bed",
-                "2 Adults - Queen Size Bed",
+                "2 Adults - 1 Full Size Bed",
+                "2 Adults - 1 Queen Size Bed",
                 "2 Adults - King Size Bed",
                 "2 Full Size Beds",
                 "2  Queen Size Beds",
@@ -126,8 +126,8 @@
         {
             "roomType": [
                 "1 Adult - Full Size Bed",
-                "2 Adults - Full Size Bed",
-                "2 Adults - Queen Size Bed",
+                "2 Adults - 1 Full Size Bed",
+                "2 Adults - 1 Queen Size Bed",
                 "2 Adults - King Size Bed",
                 "2 Full Size Beds",
                 "2  Queen Size Beds",
@@ -156,8 +156,38 @@
         {
             "roomType": [
                 "1 Adult - Full Size Bed",
-                "2 Adults - Full Size Bed",
-                "2 Adults - Queen Size Bed",
+                "2 Adults - 1 Full Size Bed",
+                "2 Adults - 1 Queen Size Bed",
+                "2 Adults - King Size Bed",
+                "2 Full Size Beds",
+                "2  Queen Size Beds",
+                "2  King Size Beds"
+            ],
+            "rootTypePhoto": [
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/full-bed-1.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/queen.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/two-full-bed.jpg",
+                "https://github.com/RyanHARRIS18/RyanHARRIS18.github.io/blob/master/cit230/TempleInn%26Suites/images/two%20queen.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/king%20two.jpg"
+
+            ],
+            "price": [
+                "65$",
+                "90$",
+                "105$",
+                "125$",
+                "$110",
+                "140$",
+                "175$"
+            ]
+        },
+        {
+            "roomType": [
+                "1 Adult - Full Size Bed",
+                "2 Adults - 1 Full Size Bed",
+                "2 Adults - 1 Queen Size Bed",
                 "2 Adults - King Size Bed",
                 "2 Full Size Beds",
                 "2  Queen Size Beds",

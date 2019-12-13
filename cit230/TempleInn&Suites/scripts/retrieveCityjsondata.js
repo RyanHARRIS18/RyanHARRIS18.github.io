@@ -116,31 +116,31 @@ fetch(priceRequest)
 })
 }
 
-// function makeGallery(cardNumber){
-//   const galleryRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/temples.json";
-//   fetch(galleryRequest)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (jsonObject) {
-//     console.table(jsonObject);  // temporary checking for valid response and data parsing
-//     var temples = jsonObject['temples'];
-//     var j = 0;
-//      for (i in gallery)  {
-//       let section = document.createElement('section');
-//       section.setAttribute('id', "gallerySection"+[j]);
-//       section.setAttribute('class', "gallery-pages-sections");
+function makeGallery(cardNumber){
+  const galleryRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/gallery.json";
+  fetch(galleryRequest)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (jsonObject) {
+    console.table(jsonObject);  // temporary checking for valid response and data parsing
+    var gallery = jsonObject['gallery'];
+    var j = 0;
+     for (i in gallery)  {
+      let section = document.createElement('section');
+      section.setAttribute('id', "gallerySection"+[j]);
+      section.setAttribute('class', "gallery-pages-sections");
   
-//       let image = document.createElement('img');
-//       image.setAttribute('src', temples[cardNumber].gallery[j]);
-//       image.setAttribute('alt', 'Gallery Image of' + gallery[cardNumber].name + [j]);
-//       image.setAttribute('id', 'gallery' +[i]);
-//       image.setAttribute('class', "gallery-images");
-//       section.appendChild(image);
+      let image = document.createElement('img');
+      image.setAttribute('src', gallery[cardNumber].gallery[j]);
+      image.setAttribute('alt', 'Gallery Image of' + gallery[cardNumber].name + [j]);
+      image.setAttribute('id', 'gallery' +[j]);
+      image.setAttribute('class', "gallery-images");
+      section.appendChild(image);
        
-//       document.querySelector('section.gallery-Card-Holder').appendChild(section);
-//       j++;
+      document.querySelector('section.gallery-Card-Holder').appendChild(section);
+      j++;
   
-//       }
-//   })
-//   }
+      }
+  })
+  }

@@ -1,15 +1,14 @@
 {
-    "gallery": [
-        {
+    "gallery": [{
             "name": "Salt Lake City Temple",
             "gallery": [
-            "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc1.jpg",
-            "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc2.jpg",
-            "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc3.jpg",
-            "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc4.jpg",
-            "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc5.jpg"
-        ]
-    },
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc1.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc2.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc3.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc4.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc5.jpg"
+            ]
+        },
         {
             "name": "San Diego California Temple",
             "gallery": [
@@ -29,7 +28,7 @@
                 "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/fct4.jpg",
                 "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/fct5.jpg"
             ]
-           
+
         },
         {
             "name": "Rome Italy Temple",
@@ -40,7 +39,16 @@
                 "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/rome4.jpg",
                 "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/rome5.jpg"
             ]
+        },
+        {
+            "name": "Temple",
+            "gallery": [
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc1.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc2.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc3.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc4.jpg",
+                "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc5.jpg"
+            ]
         }
-           
     ]
 }

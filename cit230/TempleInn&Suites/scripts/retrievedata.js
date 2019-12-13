@@ -51,4 +51,36 @@ fetch(request)
 
 
     }
-  });
+
+
+const priceRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/price.json";
+fetch(priceRequest)
+.then(function (response) {
+  return response.json();
+})
+.then(function (jsonObject) {
+  console.table(jsonObject);  // temporary checking for valid response and data parsing
+  const pricing = jsonObject['pricing'];
+
+ 
+  for (let i = 0; i < 4; i++ )  {
+    let hotelImageSection = document.createElement('section');
+    hotelImageSection.setAttribute('id', "hoteImageSection"+[i]);
+    hotelImageSection.setAttribute('class', "hotel-image-sections");
+
+    h3.textContent = (pricing[i].name);
+    h3.setAttribute('class', "hotel-image-headers");
+    hotelImageSection.appendChild(h3);
+    
+    image.setAttribute('src', pricing[i].hotelPhoto);
+    image.setAttribute('alt', pricing[cardNumber].name + "hotel image");
+    image.setAttribute('id', 'hotelImage' +[i]);
+    image.setAttribute('class', "hotel-images");
+    hotelImageSection.appendChild(image);
+    
+
+    document.querySelector('section.hotel-images-holder').appendChild(hotelImageSection);
+
+    }
+})
+});

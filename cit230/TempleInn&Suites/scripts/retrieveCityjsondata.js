@@ -35,7 +35,8 @@ fetch(templesRequest)
 
       let section = document.createElement('section');
       section.setAttribute('id', "section" + [cardNumber]);
-      section.setAttribute('class', "homepage-sections");
+      section.setAttribute('class', "temple-page-information");
+
 
       let image = document.createElement('img');
       image.setAttribute('src', temples[cardNumber].photo);
@@ -70,7 +71,7 @@ fetch(templesRequest)
       Milestones.setAttribute('class', "temples-p");
       section.appendChild(Milestones);
 
-      document.querySelector('div.temple-cards').appendChild(section);
+      document.querySelector('section.temple-cards').appendChild(section);
     
   });
 }

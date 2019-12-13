@@ -22,6 +22,7 @@ else if(document.getElementById("cityID").value === '5780993') {
 }
 
 function makeCard(cardNumber){
+  var x;
 const templesRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/temples.json";
 fetch(templesRequest)
   .then(function (response) {
@@ -70,8 +71,7 @@ fetch(templesRequest)
       Milestones.textContent = temples[cardNumber].Milestones;
       Milestones.setAttribute('class', "temples-p");
       section.appendChild(Milestones);
-
-
+      
       document.querySelector('div.temple-cards').appendChild(section);
     
   });
@@ -87,12 +87,9 @@ fetch(priceRequest)
   console.table(jsonObject);  // temporary checking for valid response and data parsing
   const pricing = jsonObject['pricing'];
 
-
-   
   var j = 0;
   
    for (i in pricing)  {
-    
     let section = document.createElement('section');
     section.setAttribute('id', "pricingSection"+[j]);
     section.setAttribute('class', "temples-pages-sections");

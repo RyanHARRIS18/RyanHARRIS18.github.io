@@ -405,6 +405,47 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
                     Temple Pages General
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
+ .temples-pages-sections{
+  width: 300px;
+  display: block;
+   margin-left: auto;
+   margin-right: auto;
+   background-image: url("../images/open-door-backdrop.png");
+   /* background-image.opacity{ 0.5}; */
+   -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+   filter: grayscale(75%);
+   margin-bottom: 6em;
+   border-style: inset;
+}
+
+.temples-pages-images{
+  margin-top: 1em;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 2em;
+  width: 90%;
+  border-radius: 100%;
+  border-style: inset;
+  opacity: 0.95;
+}
+
+.temples-pages-p{
+  margin-top: -0.5em;
+  font-size: 25px;
+  text-align: center;
+  background-color: #cacacaab;
+  border-style: inset;
+  padding: 1em;
+}
+
+.temples-pages-headers{
+border-style: outset;
+margin-top: -0.5em;
+font-size: 30px;
+text-align: center;
+background-color: #cacacae0;
+}
 
  .section-1 {
    display: grid;

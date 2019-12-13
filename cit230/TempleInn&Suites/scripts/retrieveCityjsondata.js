@@ -95,23 +95,23 @@ fetch(priceRequest)
     
     let section = document.createElement('section');
     section.setAttribute('id', "pricingSection"+[j]);
-    section.setAttribute('class', "homepage-sections");
+    section.setAttribute('class', "temples-pages-sections");
 
     let h3 = document.createElement('h3');
     h3.textContent = (pricing[cardNumber].roomType[j]);
-    h3.setAttribute('class', "temples-headers");
+    h3.setAttribute('class', "temples-pages-headers");
     section.appendChild(h3);
     
     let image = document.createElement('img');
     image.setAttribute('src', pricing[cardNumber].roomTypePhoto[j]);
     image.setAttribute('alt', pricing[cardNumber].roomType[i]);
     image.setAttribute('id', 'roomType' +[i]);
-    image.setAttribute('class', "homepage-images");
+    image.setAttribute('class', "temples-pages-images");
     section.appendChild(image);
     
     let h4 = document.createElement('h4');
-    h4.textContent = 'pricing' + pricing[cardNumber].price[i];
-    h4.setAttribute('class', "temples-headers");
+    h4.textContent = 'Pricing: ' + pricing[cardNumber].price[i];
+    h4.setAttribute('class', "temples-pages-headers");
     section.appendChild(h4);
 
     document.querySelector('section.hotel-Card-Holder').appendChild(section);

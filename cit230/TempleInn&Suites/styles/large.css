@@ -132,8 +132,12 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
    grid-template-columns: 1fr 1fr;
  }
  
- .hotel-image-sections{
+ .hotel-image-sections, .temple-page-information{
   width: 600px;
+  grid-column: 1/3;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
  .hotel-Card-Holder{
@@ -159,9 +163,7 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
   margin-left: 20em;
 }
 
-.weather-summary{
-width: 500px;
-}
+
 
 .Five-Day-Forecast{
   margin-left: 1em;

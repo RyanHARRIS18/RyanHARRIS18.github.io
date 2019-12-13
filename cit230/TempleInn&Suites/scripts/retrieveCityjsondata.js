@@ -101,11 +101,6 @@ fetch(templesRequest)
         hotelImageSection.setAttribute('class', "hotel-image-sections");
 
         
-        let h2 = document.createElement('h2');
-        h2.textContent = (hotel[cardNumber].name);
-        h2.setAttribute('class', "hotel-image-headers");
-        hotelImageSection.appendChild(h2);
-        
         let image = document.createElement('img');
         image.setAttribute('src', hotel[cardNumber].hotelPhoto);
         image.setAttribute('alt', hotel[cardNumber].name + "hotel image");
@@ -116,7 +111,7 @@ fetch(templesRequest)
         let info  = document.createElement('p');
         info.textContent = hotel[cardNumber].hotelDescription;
         info.setAttribute('class', "hotels-info-p");
-        section.appendChild(info);
+        hotelImageSection.appendChild(info);
 
         document.querySelector('section.hotel-images-holder').appendChild(hotelImageSection);
       });

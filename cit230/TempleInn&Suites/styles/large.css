@@ -155,6 +155,10 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
   grid-column: 2/3;
 }
 
+#hotelImages0, #hotelImages1, #hotelImages2, #hotelImages4{
+  margin-left: 20em;
+}
+
 .weather-summary{
 width: 500px;
 }

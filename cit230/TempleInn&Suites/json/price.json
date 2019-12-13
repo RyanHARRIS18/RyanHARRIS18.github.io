@@ -3,6 +3,7 @@
         {
             "name": "Salt Lake City",
             "hotelPhoto" : "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/images/slc-hotel.jpg",
+            "hotelDescription": "We do hope that you will come and enjoy the beautiful area of Salt Lake City! Salt Lake City is the capital and most populous municipality of the U.S. state of Utah. With an estimated population of 200,591 in 2018, the city is the core of the Salt Lake City metropolitan area, which has a population of 1,222,540. The Salt Lake Temple, constructed on the block later called Temple Square, took 40 years to complete. Construction started in 1853, and the temple was dedicated on April 6, 1893. The temple has become an icon for the city and serves as its centerpiece. In fact, the southeast corner of Temple Square is the initial point of reference for the Salt Lake meridian, and for all addresses in the Salt Lake Valley.",
             "roomType": [
                 "1 Adult - 1 Full Size Bed",
                 "2 Adults - 1 Full Size Bed",

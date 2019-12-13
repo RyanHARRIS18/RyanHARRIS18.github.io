@@ -157,11 +157,10 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
 .contact-p{
   font-size: 25px;
 }
-/* 
-#section1{
-  margin-top: 2em;
-} */
 
+.hotel-image-sections{
+  width: 600px;
+}
 /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------
                     Temple Pages General

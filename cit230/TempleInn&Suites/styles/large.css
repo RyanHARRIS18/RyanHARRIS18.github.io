@@ -127,7 +127,14 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
                     Temple Pages General
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
-
+ .hotel-images-holder{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+ }
+ 
+ .hotel-image-sections{
+  width: 600px;
+}
 
  .hotel-Card-Holder{
   display: grid;

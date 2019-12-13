@@ -371,6 +371,42 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
     background-color: #cacacaab;
    }
 
+   /* hotel images */
+   .hotel-image-sections{
+    width: 300px;
+    display: block;
+     margin-left: auto;
+     margin-right: auto;
+     background-image: url("../images/whitebricks.jpg");
+     /* background-image.opacity{ 0.5}; */
+     -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+     filter: grayscale(75%);
+     margin-bottom: 5em;
+     border-style: inset;
+     padding: 2em;
+}
+
+.hotel-images{
+    margin-top: 1em;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+    width: 100%;
+    /* border-radius: 100%; */
+    border-style: inset;
+    opacity: 0.9;
+}
+
+
+.temples-headers{
+ border-style: outset;
+ margin-top: -0.5em;
+ font-size: 30px;
+ text-align: center;
+ background-color: #cacacaab;
+}
+
+
    .contact-p{
        text-align: center;
        margin-bottom: 1em;

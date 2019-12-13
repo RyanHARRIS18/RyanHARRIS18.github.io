@@ -71,6 +71,19 @@ fetch(templesRequest)
       Milestones.setAttribute('class', "temples-p");
       section.appendChild(Milestones);
 
+      let h43 = document.createElement('h4');
+      h43.textContent = 'Services';
+      h43.setAttribute('class', "temples-headers");
+      section.appendChild(h43);
+      
+
+      for (let i = 0; i < 4; i++ ) {
+      let Services  = document.createElement('p');
+      Services.textContent = temples[cardNumber].Services[i];
+      Services.setAttribute('class', "temples-p");
+      section.appendChild(Services);
+      }
+
       document.querySelector('section.temple-cards').appendChild(section);
     
   });

@@ -214,6 +214,31 @@ width: 700px;
                     - Services Page - large
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
+ .hotels-info-amenities-p{
+  margin-top: -0.5em;
+  font-size: 25px;
+  text-align: center;
+  background-color: #cacacae0;
+  border-style: inset;
+  padding: 1em;
+  margin-right: 25em;
+  margin-left: 25em;
+}
+
+.hotels-info-pargraphs{
+  margin-top: -0.5em;
+  font-size: 25px;
+  text-align: center;
+  background-color: #cacacae0;
+  border-style: inset;
+  padding: 1em;
+  margin-right: 25em;
+  margin-left: 25em;
+}
+
+li.missionary{
+  font-style: italic;
+}
 
 
 /* ------------------------------------------------------------------------------------------------------------------------------ 

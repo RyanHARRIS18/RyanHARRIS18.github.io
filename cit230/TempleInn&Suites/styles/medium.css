@@ -44,6 +44,13 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
 ------------------------------------------------------------------------------------------------------------------------------ */
 @media only screen and (min-width: 650px){
 
+  .body{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+  }
+
     .Site-Logo {
         width: 300px;
         height: 300px;
@@ -91,6 +98,8 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
 .homepage-h2{
   font-size: 4em;
   margin-left: 1em;
+  margin-right: 1em;
+
 }
 
  p.intro-p {
@@ -264,7 +273,7 @@ a.menu{
 
   @media only screen and (min-width: 1200px){
     .weather-summary{
-      width: 120%;
+      width: 100%;
       margin-right: 2em;
       display: block;
       margin-left: 8em;
@@ -358,6 +367,35 @@ a.menu{
                     - Services Page - medium
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
+ .hotels-info-amenities-p{
+  margin-top: -0.5em;
+  font-size: 25px;
+  text-align: center;
+  background-color: #cacacae0;
+  border-style: inset;
+  padding: 1em;
+  margin-right: 5em;
+  margin-left: 5em;
+}
+
+.hotels-info-pargraphs{
+  margin-top: -0.5em;
+  font-size: 25px;
+  text-align: center;
+  background-color: #cacacae0;
+  border-style: inset;
+  padding: 1em;
+  margin-right: 5em;
+  margin-left: 5em;
+  color: rgb(12, 125, 210);
+
+}
+
+li.missionary{
+  font-style: italic;
+}
+
+
 
 
 /* ------------------------------------------------------------------------------------------------------------------------------ 

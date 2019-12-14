@@ -5,21 +5,25 @@ if (document.getElementById("cityID").value === '6542288') {
     makeCard(3);
     makePriceCard(3);
     makeGallery(3);
+    makeClosureSection(3);
 }
 else if (document.getElementById("cityID").value === '5577147') {
     makeCard(2);
     makePriceCard(2);
     makeGallery(2);
+    makeClosureSection(2);
 }
 else if (document.getElementById("cityID").value === '5391811') {
     makeCard(1);
     makePriceCard(1);
     makeGallery(1);
+    makeClosureSection(1);
 }
 else if(document.getElementById("cityID").value === '5780993') {
     makeCard(0);
     makePriceCard(0);
     makeGallery(0);
+    makeClosureSection(0);
 }
 
 function makeCard(cardNumber){
@@ -30,7 +34,7 @@ fetch(templesRequest)
     return response.json();
   })
   .then(function (jsonObject) {
-    console.table(jsonObject);  // temporary checking for valid response and data parsing
+    // console.table(jsonObject);  // temporary checking for valid response and data parsing
     //make temp information
     const temples = jsonObject['temples'];
 
@@ -88,19 +92,7 @@ fetch(templesRequest)
 
       document.querySelector('section.temple-cards').appendChild(section);
 
-             
-      //closure cards
-      for (let i = 0; i < (temples.closures.length); i++ ) {
-        let closureSection = document.createElement('section');
-        closureSection.setAttribute('id', "section" + [cardNumber]);
-        closureSection.setAttribute('class', "temple-page-information");
-  
-        let address  = document.createElement('p');
-        address.textContent = temples[cardNumber].closures[i];
-        address.setAttribute('class', "temples-p");
-        closureSection.appendChild(address);
-        document.querySelector('section.closure-cards').appendChild(section);
-        }
+   
 
 //hotel images card
       const hotelRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/price.json";
@@ -109,7 +101,7 @@ fetch(templesRequest)
         return response.json();
       })
       .then(function (jsonObject) {
-        console.table(jsonObject);  // temporary checking for valid response and data parsing
+        // console.table(jsonObject);  // temporary checking for valid response and data parsing
         const hotel = jsonObject['pricing'];
 
     
@@ -136,6 +128,36 @@ fetch(templesRequest)
   });
 }
 
+function makeClosureSection(cardNumber){
+  const closure = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/temples.json";
+  fetch(closure)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (jsonObject) {
+    // console.table(jsonObject);  // temporary checking for valid response and data parsing
+    const closure = jsonObject['temples'];
+  
+    var j = 0;
+    // var total = (closure.closures).length;
+     for (i in closure)  {
+      let closureSection = document.createElement('section');
+      closureSection.setAttribute('id', "closureSection"+[j]);
+      closureSection.setAttribute('class', "closure-sections");
+  
+      let p = document.createElement('p');
+      p.textContent = (closure[cardNumber].closures[j]);
+      p.setAttribute('class', "temples-pages-headers");
+      closureSection.appendChild(p);
+      
+      document.querySelector('section.closure-Card-Holder').appendChild(closureSection);
+      j++;
+  
+      }
+  })
+  }
+
+
 function makePriceCard(cardNumber){
 const priceRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/price.json";
 fetch(priceRequest)
@@ -143,7 +165,7 @@ fetch(priceRequest)
   return response.json();
 })
 .then(function (jsonObject) {
-  console.table(jsonObject);  // temporary checking for valid response and data parsing
+  // console.table(jsonObject);  // temporary checking for valid response and data parsing
   const pricing = jsonObject['pricing'];
 
   var j = 0;

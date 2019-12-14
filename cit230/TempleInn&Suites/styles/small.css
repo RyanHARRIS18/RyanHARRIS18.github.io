@@ -347,6 +347,11 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
         border-style: inset;
    }
 
+   .homepage-h2{
+    font-size: 4em;
+    padding: 0.5em;
+  }
+
    .homepage-images{
        margin-top: 1em;
         display: block;
@@ -366,6 +371,36 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
        border-style: inset;
        padding: 1em;
    }
+
+   li.hotels-info-amenities-p{
+    margin-top: -0.5em;
+    font-size: 25px;
+    text-align: center;
+    background-color: #cacacae0;
+    border-style: inset;
+    padding: 1em;
+    list-style: none;
+}
+
+
+.hotels-info-amenities{
+  margin-top: -0.5em;
+  font-size: 25px;
+  text-align: center;
+  background-color: #cacacae0;
+  border-style: inset;
+  padding: 2em;
+  list-style: none;
+}
+
+.hotels-info-amenities-p{
+  margin-top: -0.5em;
+  font-size: 35px;
+  text-align: center;
+  background-color: #cacacae0;
+  border-style: inset;
+  padding: 1em;
+}
 
    .temples-headers{
     border-style: outset;
@@ -607,6 +642,20 @@ section.gallery-Card-Holder{
   margin-bottom: 2em;
 }
 
+.closure-cards{
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.upcoming-Closures{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+}
+
 /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------
                     Temple1: Rome - Small
@@ -698,7 +747,7 @@ section.gallery-Card-Holder{
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
 
- .parallax-registration{
+ .parallax-reservation{
   /* The image used */
   background-image: url("../images/registracion-parallax.jpg");
   /* Set a specific height */
@@ -816,7 +865,7 @@ body{
 
  .parallax-services{
   /* The image used */
-  background-image: url("../images/services.jfif");
+  background-image: url("../images/services.jpg");
   /* Set a specific height */
   height: 100%;
   /* Create the parallax scrolling effect */
@@ -831,11 +880,38 @@ body{
 /* ------------------------------------------------------------------------------------------------------------------------------ 
                     - Receptions - Small
 ------------------------------------------------------------------------------------------------------------------------------  */
+.parallax-receptions{
+  /* The image used */
+  background-image: url("../images/services.jfif");
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(75%);
+}
 
 /* ------------------------------------------------------------------------------------------------------------------------------ 
                 - Full-Time Missionary Page - Small
 ------------------------------------------------------------------------------------------------------------------------------  */
+.parallax-fullTImeMissionaries{
+  background-image: url("../images/paralax-missionary.jpg");
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(75%);
 
+}
 
 /* ------------------------------------------------------------------------------------------------------------------------------ 
                 - contact us - Small
@@ -853,4 +929,34 @@ body{
   border-radius: 5px;
   -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
   filter: grayscale(75%);
+}
+
+
+#missionary1, #missionary2, #missionary3, #missionary4, #missionary5, #missionary6 {
+  font-style: italic;
+  font-size: 25px;
+  color: rgb(12, 125, 210);
+  text-shadow: black;
+}
+
+#couples1, #couples2, #couples3, #couples4, #couples5, #couples6 {
+  font-style: italic;
+  font-size: 25px;
+  color: rgb(12, 125, 210);
+  text-shadow: black;
+}
+
+
+
+.hotels-info-pargraphs{
+  margin-top: -0.5em;
+  font-size: 25px;
+  text-align: center;
+  background-color: #cacacae0;
+  border-style: inset;
+  padding: 1em;
+  margin-right: 5em;
+  margin-left: 5em;
+  color: rgb(12, 125, 210);
+
 }

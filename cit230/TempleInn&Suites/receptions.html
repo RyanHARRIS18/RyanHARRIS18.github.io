@@ -62,174 +62,82 @@ temple attending activities and must include the following:
        
         <section>
         <input type="hidden" id="cityID" value="5577147">
-            <div class="parallax-services">
+            <div class="parallax-receptions">
                 
-                <!-- Call To Action-->
-                <!-- <Section class="cta-img">
-                <p class="intro-p">
-                Welcome to your next hotel destination while attend the Temple.
-                </p>
-                <h2 class="banner-h2"> ~ When in Rome: Stay with Temples Inn & Suites! ~ </h2>
-                <form action="/action_page.php" class="container">
-                <h2 class="cta-h2">Go to Rome!</h2>
+                <div class="parallax-storm-center">
                         
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
-                        
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-                        
-                 <button type="submit" class="btn">Login</button>
-                </form>    
-                </Section> -->
+                    <h2 class="homepage-h2">
+                      We offer Great Services You wont Find Anywhere Else
+                    </h2>
 
-      
-            <!-- Summary information about a temples of your choosing -->
+                    <p  class="hotels-info-amenities">
+                       Congradulations on your BIG DAY! If you are already married or intending to marry here we throw the best 
+                       receptions around! We offer many services and have designated cordinators to help with the big plans!
+                       Reach out to  999-999-9999 for more information and details.
+                     </p>
 
+                   <li class="hotels-info-amenities-p" >Free Wifi</li>
+                   <li class="hotels-info-amenities-p" id="couples1" >Shuttling to & from Temple</li>
+                   <p  class="hotels-info-pargraphs">
+                    The convience of having a ride to and from the Temple gives great convience for all the guests you'll bring.
+                  </p>
+                   <li class="hotels-info-amenities-p" id="couples2" >Any Themes for any Party</li>
+                   <p  class="hotels-info-pargraphs">
+                    To make it look great takes lots of stuff, we already got it! Let us know how it should look
+                  </p>
+                   <li class="hotels-info-amenities-p">Continential Breakfast</li>
+                   <li class="hotels-info-amenities-p">Sunday Meetings and Services</li>
+                   <li class="hotels-info-amenities-p" id="couples3" >Band & Dj on Staff</li>
+                   <p  class="hotels-info-pargraphs">
+                    Great music is essential luckily we got that covered too
+                  </p>
+                   <li class="hotels-info-amenities-p">Pool, Sauna, & Hottub</li>
+                   <li class="hotels-info-amenities-p"id="couples4" >karaoke & Lounge Area open for Reservations</li>
+                   <p  class="hotels-info-pargraphs">
+                    Looking for a smaller venue to hold this day, look no futher you will love it
+                  </p>
+                   <li class="hotels-info-amenities-p">Fully Equiped Gym</li>
+                   <li class="hotels-info-amenities-p">Room Service</li>
+                   <li class="hotels-info-amenities-p">Parking</li>
+                   <li class="hotels-info-amenities-p">Full Sized Fridges</li>
+                   <li class="hotels-info-amenities-p">Kitchens & Dinning Tables</li>
+                   <li class="hotels-info-amenities-p">Day Care for Children under 12</li>
+                   <li class="hotels-info-amenities-p">Family History Research Center open 24/7</li>
+                   <li class="hotels-info-amenities-p" id="couples5">Affordable Large Cattering Services</li>
+                   <p  class="hotels-info-pargraphs">
+                   This might feel like feeling an army, lets make sure that it doesn't for your wallet.
+                  </p>
+                   <li class="hotels-info-amenities-p"id="couples6" >Dancing Hall</li>
+                   <p  class="hotels-info-pargraphs">
+                    The bigger the better right? Well whatever the size the Dance Hall will help your event to be great.
+                  </p>
+
+           
+                 
                   
-                        <main id="stormCenterMain">
-                                <div class="parallax-storm-center">
-                        
-                                <h2>
-                                   Please Enter Your Information
-                                </h2>
-                        
-                                <p class="stormCenterParagraphs">
-                                    Nothing helps the community more then active reports of the craziest storms, let us know how the weather was. This will help us better predict future weather 
-                                    patterns and then allow us to better inform Idaho of what to expect.
-                                </p>
-                                <!-- Generall this would be POST but we use get because GITHUB support only GET -->
-                                <form action="./thanks.html" method="GET">
-                        
-                                    <h3> Fill Out a Weather Report:</h3>
-                                    <!-- A. full name using input of type text and is required and only accepts alpha characters with a minimum of five characters using a regular expression pattern -->
-                                    <div>
-                                        <label for="fullName">Full Name: </label>
-                                        <input type="text" id="fullName" name="fullName" pattern=".{5,}" required>
-                                    </div>
-                        
-                        
-                                    <!-- B. email using input of type email and use a placeholder to provide a demo email -->
-                                    <div>
-                                        <label for="email">Email: </label>
-                                        <input type="email" id="email" name="email" placeholder="example1@gmail.com">
-                                    </div>
-                        
-                        
-                                    <!-- C. phone number using input of type tel and is required -->
-                                    <div>
-                                        <label for="phone">Phone Number: </label>
-                                        <input type="tel" id="phone" name="phone" required>
-                                    </div>
-                        
-                        
-                                    <!-- D. zip code using input of type number and is required -->
-                                    <div>
-                                        <label for="zipCode">Zip Code: </label>
-                                        <input type="number" id="zipCode" name="zipCode" required>
-                                    </div>
-                        
-                        
-                                    <!-- E. storm date using input of type date -->
-                                    <div>
-                                        <label for="stormDate">Storm Date: </label>
-                                        <input type="date" id="stormDate" name="stormDate">
-                                    </div>
-                        
-                        
-                                    <!-- F. storm type using input with a list attribute referencing a datalist of suggestions that include "Flash Flood," "Hail," "Hurricane," "Thunderstorm," and "Tornado." -->
-                                    <div>
-                                        <label for="stormType">Storm Type: </label>
-                                        <input list="stormTypes" id="stormType" name="stormType" placeholder="Storm Type...">
-                                        <datalist id="stormTypes">
-                                            <option value="Flash Flood"></option>
-                                            <option value="Hail"></option>
-                                            <option value="Hurricane"></option>
-                                            <option value="ThunderStorm"></option>
-                                            <option value="Tornado"></option>
-                                        </datalist>
-                                    </div>
-                        
-                        
-                                    <!-- G.  storm severity using type range (1 to 10) with a corresponding label that indicates the current range value from 1 to 10. -->
-                                    <div>
-                                        <label for="stormSeverity">Storm Severity: &nbsp;&nbsp;&nbsp;
-                                            <input type="range" id="stormSeverity" value="5" min="1" max="10" step="1" list="tickmarks"
-                                                oninput="adjustRating(this.value)" onchange="adjustRating(this.value)">
-                                            <span id="ratingvalue">5</span>
-                                        </label>
-                                    </div>
-                        
-                        
-                                    <!-- H. storm region using select with drop-down options of "Preston", "Sugar City", and "Fish Haven". 
-                                            Add a first option with the text "Select Region ..." that is shown by default but not selectable (disabled).
-                                            The rest of the options should have relevant value attributes. -->
-                                    <div>
-                                        <label for="stormRegion">Storm Region: </label>
-                                        <select name="cityList" id="stormRegion">
-                                            <option value="" selected disabled>Select Region</option>
-                                            <option value="Preston">Preston</option>
-                                            <option value="Sugar City">Sugar City</option>
-                                            <option value="Fish Haven">Fish Haven</option>
-                                        </select>
-                                    </div>
-                        
-                        
-                                    <!-- I. user in-danger level using input of type radio with options and values of "yes," "maybe," and "no." -->
-                                    <div class="flex">
-                                        <span>Are you in Danger?</span>
-                                        <div class="noMargin">
-                                            <input id="yes" name="danger" type="radio" value="yes">
-                                            <label for="yes">Yes</label>
-                        
-                                            <div>
-                                                <input id="no" name="danger" type="radio" value="No">
-                                                <label for="no">No</label>
-                                            </div>
-                                            <div>
-                                                <input id="maybe" name="danger" type="radio" value="Maybe">
-                                                <label for="Maybe">Maybe</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                        
-                        
-                                    <!-- J. additional information or comments using a textarea  -->
-                                    <div>
-                                        <label for="comments" class="align-top">Comments: </label>
-                                        <textarea name="comment" id="commentBox" cols="28" rows="10"></textarea>
-                                    </div>
-                        
-                        
-                                    <!-- K. form submission button using input of type submit -->
-                                    <div id="submitReset">
-                                        <input type="submit" value="Submit">
-                                        <input type="reset" value="Reset">
-                                    </div>
-                        
-                                </form>
-                        
-
-               <!-- contact information for the hotel chain -->
-               <section class="contact">
-                    <h2>Contact Infomration</h2>
-                    <div class="article-box">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.6980275686024!2d-111.67383426000858!3d40.05983937940822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874da4b42a2bae79%3A0x6b6c439374501d1a!2sB%26M%20Storage!5e0!3m2!1sen!2sus!4v1571072032478!5m2!1sen!2sus"
-                            width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-    
-                        <div class="contact-p">
-                            <p> Temples Inn & Suites:</p>
-                            <p> 16645 Nowheresville USA</p>
-                            <p> NoOneCares Utah</p>
-    
-                            <span style='font-size:20px; margin: 2em;'>&#9742; 999-999-9999</span>
-                        </div>
-                    </div>
-                </section>
+                    <!-- Generall this would be POST but we use get because GITHUB support only GET -->
+                  
             
-            </div>
-            </section>
+
+   <!-- contact information for the hotel chain -->
+   <section class="contact">
+    <h2 class="homepage-h2">Contact Infomration</h2>
+    <div class="article-box">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2344351.7228566534!2d-76.12608304347377!3d38.66264924840764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c97b6b3b5b43%3A0x9c8eb1c5547b83eb!2s4800%20Montgomery%20Ln%20%23300%2C%20Bethesda%2C%20MD%2020814!5e0!3m2!1sen!2sus!4v1576282805090!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        <div class="contact-p">
+            <p> Temples Inn & Suites:</p>
+            <p>  4800 Montgomery Ln #300 </p>
+            <p>Bethesda, MD 20814</p>
+            <a href="./registration.html"> Registration</a>
+
+            <span style='font-size:20px; margin: 2em;'>&#9742; 999-999-9999</span>
+        </div>
+    </div>
+</section>
+
+</div>
+</section>
+                      
         <!-- <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.6980275686024!2d-111.67383426000858!3d40.05983937940822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x874da4b42a2bae79%3A0x6b6c439374501d1a!2sB%26M%20Storage!5e0!3m2!1sen!2sus!4v1571072032478!5m2!1sen!2sus"
         width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->

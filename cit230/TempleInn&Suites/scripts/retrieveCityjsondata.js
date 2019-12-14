@@ -31,6 +31,7 @@ fetch(templesRequest)
   })
   .then(function (jsonObject) {
     console.table(jsonObject);  // temporary checking for valid response and data parsing
+    //make temp information
     const temples = jsonObject['temples'];
 
       let section = document.createElement('section');
@@ -75,8 +76,8 @@ fetch(templesRequest)
       h43.textContent = 'Services';
       h43.setAttribute('class', "temples-headers");
       section.appendChild(h43);
-      
-
+     
+      //add the services
       for (let i = 0; i < 4; i++ ) {
       let Services  = document.createElement('p');
       Services.textContent = temples[cardNumber].Services[i];
@@ -84,8 +85,24 @@ fetch(templesRequest)
       section.appendChild(Services);
       }
 
+
       document.querySelector('section.temple-cards').appendChild(section);
 
+             
+      //closure cards
+      for (let i = 0; i < (temples.closures.length); i++ ) {
+        let closureSection = document.createElement('section');
+        closureSection.setAttribute('id', "section" + [cardNumber]);
+        closureSection.setAttribute('class', "temple-page-information");
+  
+        let address  = document.createElement('p');
+        address.textContent = temples[cardNumber].closures[i];
+        address.setAttribute('class', "temples-p");
+        closureSection.appendChild(address);
+        document.querySelector('section.closure-cards').appendChild(section);
+        }
+
+//hotel images card
       const hotelRequest = "https://raw.githubusercontent.com/RyanHARRIS18/RyanHARRIS18.github.io/master/cit230/TempleInn%26Suites/json/price.json";
       fetch(hotelRequest)
       .then(function (response) {
@@ -115,6 +132,7 @@ fetch(templesRequest)
 
         document.querySelector('section.hotel-images-holder').appendChild(hotelImageSection);
       });
+  
   });
 }
 

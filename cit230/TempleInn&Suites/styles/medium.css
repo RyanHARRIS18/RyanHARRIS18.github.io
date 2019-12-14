@@ -162,6 +162,10 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
 .hotel-image-sections{
   width: 600px;
 }
+
+a.menu{
+  display: none;
+}
 /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------
                     Temple Pages General
@@ -256,13 +260,14 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
   .weather-summary{
     width: 140%;
   }
+}
 
   @media only screen and (min-width: 1200px){
     .weather-summary{
-      width: 150%;
+      width: 120%;
       margin-right: 2em;
       display: block;
-      margin-left: 10em;
+      margin-left: 8em;
       margin-right: auto;
     }
   }

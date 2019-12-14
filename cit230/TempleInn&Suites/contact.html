@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/small.css">
+    <link rel="stylesheet" href="./styles/small-medium.css">
+    <link rel="stylesheet" href="./styles/medium.css">
+    <link rel="stylesheet" href="./styles/large.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Tangerine|Ubuntu:300&display=swap" rel="stylesheet">
+    <title> Contact Page</title>
+    <!-- Home Page 
+    The home page is a contemporary, exciting landing page providing images of temples and 
+temple attending activities and must include the following:
+        - A call to action to make a hotel reservation
+        - Readily available navigation and contact information for the hotel chain
+        - Summary information about a temple of your choosing
+-->
+</head>
+
+<body>
+    <main>
+        <header>
+            <img class="Site-Logo" src="./images/logo-v-1.png" alt="logo of a sun, moon, and stars">
+            <section class="headings">
+                <h1 class="logo-box">Temples Inn & Suites</h1>
+                <div class='moto'>Stay Close to Paradise </div>
+            </section>
+        </header>
+  
+        <!-- temple attending activities and must include the following:
+        A call to action to make a hotel reservation  -->
+       
+        <section>
+            <div class="parallax-contact-us">
+                
+                <!-- Call To Action-->
+                <div class="navigation-grid-hamburger">
+                    <nav>
+                        <ul class="navigation">
+                            <li><a href="#" onclick="toggleMenu()">&#9776; Menu</a></li>
+                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./rome.html"> Rome</a></li>
+                            <li><a href="./fortcollins.html">Fort-Collins</a></li>
+                            <li><a href="./sanDiego.html">San-Diego</a></li>
+                            <li><a  href="./saltLakeCity.html">SLC</a></li>
+                            <li><a href="./services.html">Services</a></li>
+                            <li><a href="./registration.html">Reservation</a></li>
+                            <li><a class="active" href="./contact.html">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+      
+            <!-- Summary information about a temples of your choosing -->
+
+                  
+                        <main id="stormCenterMain">
+               <!-- contact information for the hotel chain -->
+               <section class="contact">
+                <h2 class="homepage-h2">Contact Infomration</h2>
+                <div class="article-box">
+                    <div class="contact-p">
+                        <p>We hope you have had a great expiernce, if so we would love to hear about it! If not we would like to hear about your expiernce and determine how to improve our sevices.   Nothing helps our company more then your feedback, let us know how your stay was. This will help us better suit the needs of guests and make your stay better.</p>
+                        <p> Temples Inn & Suites:</p>
+                        <p>  4800 Montgomery Ln #300 </p>
+                        <p>Bethesda, MD 20814</p>
+                        <a href="./registration.html"> Reservations</a>
+
+                        <span style='font-size:20px; margin: 2em;'>&#9742; 999-999-9999</span>
+                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2344351.7228566534!2d-76.12608304347377!3d38.66264924840764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c97b6b3b5b43%3A0x9c8eb1c5547b83eb!2s4800%20Montgomery%20Ln%20%23300%2C%20Bethesda%2C%20MD%2020814!5e0!3m2!1sen!2sus!4v1576282805090!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    
+                </div>
+
+                <div class="parallax-storm-center">
+                        
+                    <h2>
+                       Please Enter Your Information
+                    </h2>
+            
+                    <h4>
+                      
+                    </h4>
+                    <!-- Generall this would be POST but we use get because GITHUB support only GET -->
+                    <form action="./thanks.html" method="GET">
+            
+                        <h3> Please fill out the review:</h3>
+                        <!-- A. full name using input of type text and is required and only accepts alpha characters with a minimum of five characters using a regular expression pattern -->
+                        <div>
+                            <label for="fullName">Full Name: </label>
+                            <input type="text" id="fullName" name="fullName" pattern=".{2,}" required>
+                        </div>
+            
+            
+                        <!-- B. email using input of type email and use a placeholder to provide a demo email -->
+                        <div>
+                            <label for="email">Email: </label>
+                            <input type="email" id="email" name="email" placeholder="example1@gmail.com">
+                        </div>
+            
+            
+                        <!-- C. phone number using input of type tel and is required -->
+                        <div>
+                            <label for="phone">Phone Number: </label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+            
+            
+                        <!-- D. zip code using input of type number and is required -->
+                        <div>
+                            <label for="zipCode">Zip Code: </label>
+                            <input type="number" id="zipCode" name="zipCode" required>
+                        </div>
+            
+            
+                        <!-- E. storm date using input of type date -->
+                        <div>
+                            <label for="stormDate">Arrival Date: </label>
+                            <input type="date" id="stormDate" name="stormDate">
+                        </div>
+
+                        <div>
+                            <label for="stormDate">Departure Date: </label>
+                            <input type="date" id="stormDate" name="stormDate">
+                        </div>
+            
+            
+                        <!-- F. storm type using input with a list attribute referencing a datalist of suggestions that include "Flash Flood," "Hail," "Hurricane," "Thunderstorm," and "Tornado." -->
+                        <div>
+                            <label for="stormType">Location: </label>
+                            <input list="stormTypes" id="stormType" name="stormType" placeholder="Storm Type...">
+                            <datalist id="stormTypes">
+                                <option value="Salt Lake">Salt Lake</option>
+                                <option value="Fort Collins">Fort Collins</option>
+                                <option value="Rome">Rome</option>
+                                <option value="San Diego">San Diego</option>
+                                <option value="other"></option>
+                            </datalist>
+                        </div>
+            
+            
+                        <!-- G.  storm severity using type range (1 to 10) with a corresponding label that indicates the current range value from 1 to 10. -->
+                        <div>
+                            <label for="stormSeverity"> Rating: &nbsp;&nbsp;&nbsp;
+                                <input type="range" id="stormSeverity" value="5" min="1" max="10" step="1" list="tickmarks"
+                                    oninput="adjustRating(this.value)" onchange="adjustRating(this.value)">
+                                <span id="ratingvalue">5</span>
+                            </label>
+                        </div>
+            
+            
+                        <!-- H. storm region using select with drop-down options of "Preston", "Sugar City", and "Fish Haven". 
+                                Add a first option with the text "Select Region ..." that is shown by default but not selectable (disabled).
+                                The rest of the options should have relevant value attributes. -->
+                        <div>
+                            <label for="stormRegion">Regarding: </label>
+                            <select name="cityList" id="stormRegion">
+                                <option value="" selected disabled>Specific Service</option>
+                                <option value="Preston">Room Service</option>
+                                <option value="Preston">Check Inn</option>
+                                <option value="Preston">Shuttle Bus</option>
+                                <option value="Preston">Reception</option>
+                                <option value="Sugar City">Maintence</option>
+                                <option value="Fish Haven">Management</option>
+                            </select>
+                        </div>
+            
+            
+                        <!-- I. user in-danger level using input of type radio with options and values of "yes," "maybe," and "no." -->
+                        <div class="flex">
+                            <span>Would you like a Call?</span>
+                            <div class="noMargin">
+                                <input id="yes" name="danger" type="radio" value="yes">
+                                <label for="yes">Yes</label>
+            
+                                <div>
+                                    <input id="no" name="danger" type="radio" value="No">
+                                    <label for="no">No</label>
+                                </div>
+                            </div>
+                        </div>
+            
+            
+                        <!-- J. additional information or comments using a textarea  -->
+                        <div>
+                            <label for="comments" class="align-top">Comments: </label>
+                            <textarea name="comment" id="commentBox" cols="28" rows="10"></textarea>
+                        </div>
+            
+            
+                        <!-- K. form submission button using input of type submit -->
+                        <div id="submitReset">
+                            <input type="submit" value="Submit">
+                            <input type="reset" value="Reset">
+                        </div>
+            
+                    </form>
+
+            </section>
+    </main>
+
+
+    <footer>
+        <div class="footer">
+            <p class='footer-text'> CIT230 &copy; <span id="currentDate"> &star; Ryan P. Harris | Colorado | BYUI
+                </span></p>
+        </div>
+    </footer>
+
+    <!-- <script src="./scripts/retrievejsondata.js"></script> -->
+    <script src="./scripts/retrieveCityjsondata.js"></script>
+    <script src="./scripts/main.js"> </script>
+    <script src="scripts/windchill.js"></script>
+    <script src="scripts/weatherSummary.js"></script>
+    <script src="scripts/fivedayforecast.js"></script>
+    <script src="./scripts/adjustRating.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+   
+
+

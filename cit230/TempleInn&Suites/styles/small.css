@@ -250,6 +250,9 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
     display: grid;
     grid-template-columns: 1fr 1fr;
     border-style: outset;
+    margin-left: 2em;
+    margin-right: 2em;
+   padding: -2em;
 
   }
 
@@ -329,6 +332,7 @@ Paragraph   text	    Ubuntu	16px	#000000  - black
      border-radius: 15px;
      margin-top: -0.75em;
    }
+
 
    .homepage-sections{
        width: 300px;
@@ -690,7 +694,7 @@ section.gallery-Card-Holder{
  ------------------------------------------------------------------------------------------------------------------------------ */
  /* ------------------------------------------------------------------------------------------------------------------------------
             ------------------------------------------
-                    THESE ARE THE STORM CENTER RULES
+                    THESE ARE THE FORM RULES
                --------------------------------------
  ------------------------------------------------------------------------------------------------------------------------------ */
 
@@ -709,17 +713,23 @@ section.gallery-Card-Holder{
   filter: grayscale(75%);
 }
 
+body{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
   form {
     max-width: 500px;
     margin: 0 auto;
     margin-left: 2em;
-    background-color: rgba(255, 206, 99, 0.692);
+    background-color: rgba(251, 237, 207, 0.692);
     padding: 2em;
-    border: 5px dashed rgb(55, 125, 190);
-    color: rgb(18, 61, 101);
     font-size: 20px;
     margin-bottom: 3em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   #stormDate{
@@ -825,3 +835,22 @@ section.gallery-Card-Holder{
 /* ------------------------------------------------------------------------------------------------------------------------------ 
                 - Full-Time Missionary Page - Small
 ------------------------------------------------------------------------------------------------------------------------------  */
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------ 
+                - contact us - Small
+------------------------------------------------------------------------------------------------------------------------------  */
+.parallax-contact-us{
+  /* The image used */
+  background-image: url("../images/contact-us-parallax.jpg");
+  /* Set a specific height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  -webkit-filter: grayscale(75%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(75%);
+}

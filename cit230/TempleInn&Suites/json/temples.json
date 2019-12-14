@@ -16,6 +16,10 @@
             "28 July 1847 - Announced",
             "14 February 1853 - Groundbreaking",
             "6 April 1893 - Dedicated — dedicatory prayer"
+        ],
+        "closures": [
+            "Tuesday, 24 December 2019 - Wednesday, 25 December 2019",
+            "Tuesday, 31 December 2019"
         ]
     },
         {
@@ -34,6 +38,19 @@
                 "7 April 1984 - Announced",
                 "27 February 1988 - Groundbreaking",
                 "25 April 1993 - Dedicated — dedicatory prayer"
+            ],
+            "closures": [
+                "Tuesday, 24 December 2019 - Wednesday, 25 December 2019",
+                "Tuesday, 31 December 2019",
+                "Wednesday, 1 January 2020",
+                "Monday, 16 March 2020 - Monday, 30 March 2020",
+                "Saturday, 4 April 2020",
+                "Saturday, 4 July 2020",
+                "Monday, 14 September 2020 - Monday, 28 September 2020",
+                "Saturday, 3 October 2020",
+                "Wednesday, 25 November 2020 - Thursday, 26 November 2020",
+                "Thursday, 24 December 2020 - Friday, 25 December 2020",
+                "Thursday, 31 December 2020"
             ]
         },
         {
@@ -52,6 +69,24 @@
                 "2 April 2011 - Announced",
                 "24 August 2013 - Groundbreaking",
                 "16 October 2016 - Dedicated — dedicatory prayer"
+            ],
+            "closures": [
+                "Tuesday, 24 December 2019",
+                "Wednesday, 25 December 2019",
+                "Tuesday, 31 December 2019 (Limited Hours)",               
+               " Wednesday, 1 January 2020",
+                "Monday, 17 February 2020 - Monday, 2 March 2020",
+                "Monday, 2 March 2020 - Monday, 23 March 2020 (Limited Hours)",
+                "Saturday, 4 April 2020",
+                "Saturday, 4 July 2020",
+                "Monday, 17 August 2020 - Monday, 31 August 2020",
+                "Saturday, 3 October 2020",
+                "Wednesday, 25 November 2020 (Limited Hours)",
+                "Thursday, 26 November 2020",
+                "Thursday, 24 December 2020",
+                "Friday, 25 December 2020",
+                "Thursday, 31 December 2020 (Limited Hours)",
+                "Friday, 1 January 2021"
             ]
         },
         { 
@@ -70,6 +105,14 @@
                 "4 October 2008 - Announced",
                 "23 October 2010 - Groundbreaking",
                 "10 March 2019 - Dedicated — dedicatory prayer"
+            ],
+            "closures": [
+                "Tuesday, 24 December 2019 - Thursday, 26 December 2019",
+                "Tuesday, 31 December 2019 - Wednesday, 1 January 2020",
+                "Monday, 23 March 2020 - Monday, 6 April 2020",
+                "Monday, 21 September 2020 - Monday, 5 October 2020",
+                "Thursday, 24 December 2020 - Saturday, 26 December 2020",
+                "Thursday, 31 December 2020 - Friday, 1 January 2021"
             ]
          }
     ]

@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>Chapter 9 assingments question 1</title>
+
+         <script>
+             "use strict";
+
+             //defining table
+             //input:hand - an array of cards
+             //processing:add all card value
+             //output: return total/sum of car value
+             //
+
+            function Test() {
+              
+            var d = parseFloat(document.getElementById("d").value);
+            var s = parseFloat(document.getElementById("s").value);
+              
+              var length = CableFormula(s, d)
+              document.getElementById("output").innerHTML = length;
+            }
+
+            
+            function CableFormula(s,d){
+                    var Length = s + ( (8 * ( d * d) ) / (3 * s ) ); 
+                    return Length;
+            }
+
+             
+ </script>
+</head>
+
+ <body>
+    Distance<input type="text" id="d" size="5">
+    slack<input type="text" id="s" size="5">
+    <button type="button" onclick= "Test()"> test </button><br>
+    <div id="output"></div>
+   
+    
+ </body>
+
+</html>

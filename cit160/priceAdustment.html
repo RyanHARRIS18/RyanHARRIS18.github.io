@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>when to go to bed</title>
+
+            <script>
+               /*Defining table 
+               *input: 2 inputs: day of the week and subtotal of customers purchase
+               *processing: give 10% on tuesday or wednesday if subtotal is greter then 50
+               Output + 0.06 % tax
+               *output: the determined subtotal 
+               */
+              
+
+                function totalPrice() {
+                    // Get  child age and current season
+                    var cost = parseFloat(document.getElementById("cost").value);
+                    
+                   
+        
+                            //Determine message || choose based of style #
+                            var newsubtotal
+                            var discount
+                            var dayOfWeek = new Date ().getDay();
+
+                             if (dayOfWeek == 2 || dayOfWeek == 3 )  {
+                               if ( cost > 50 ) {
+                               discount = (cost * 0.90);
+                               newsubtotatl = (discount * 1.06)
+                             }
+                               else {
+                                   newsubtotal = cost * 1.06
+                               }
+                             }
+
+                             else {
+                               newsubtotal = cost * 1.06
+                                 }
+                              
+                             
+
+                            
+                     //display product for the user to see
+                      document.getElementById("output").innerHTML = newsubtotal;
+            
+                                
+                }
+
+                
+            </script>
+
+         </head>
+
+         <body>
+            
+             <br>
+            Enter the subtotal before tax <input type="text" id="cost"> <br>
+          <button type="button" onclick= "totalPrice()">Your Cost</button>
+            <div id="output"></div>
+            
+
+         </body>
+
+</html>

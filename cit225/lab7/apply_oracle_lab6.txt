@@ -1,0 +1,1637 @@
+SQL> 
+SQL> -- ... insert lab 6 commands here ...
+SQL> 
+SQL> --part 1--
+SQL> ALTER TABLE rental_item
+  2  	 ADD(Rental_item_price NUMBER)
+  3  	 ADD(rental_item_type NUMBER);
+
+Table altered.
+
+SQL> 
+SQL> 	 SET NULL ''
+SQL> COLUMN table_name	 FORMAT A14
+SQL> COLUMN column_id	 FORMAT 9999
+SQL> COLUMN column_name  FORMAT A22
+SQL> COLUMN data_type	 FORMAT A12
+SQL> SELECT   table_name
+  2  ,	      column_id
+  3  ,	      column_name
+  4  ,	      CASE
+  5  		WHEN nullable = 'N' THEN 'NOT NULL'
+  6  		ELSE ''
+  7  	      END AS nullable
+  8  ,	      CASE
+  9  		WHEN data_type IN ('CHAR','VARCHAR2','NUMBER') THEN
+ 10  		  data_type||'('||data_length||')'
+ 11  		ELSE
+ 12  		  data_type
+ 13  	      END AS data_type
+ 14  FROM     user_tab_columns
+ 15  WHERE    table_name = 'RENTAL_ITEM'
+ 16  ORDER BY 2;
+
+                         Column                                                 
+Table Name     COLUMN_ID Name                   NULLABLE DATA_TYPE              
+-------------- --------- ---------------------- -------- ------------           
+RENTAL_ITEM            1 RENTAL_ITEM_ID         NOT NULL NUMBER(22)             
+RENTAL_ITEM            2 RENTAL_ID              NOT NULL NUMBER(22)             
+RENTAL_ITEM            3 ITEM_ID                NOT NULL NUMBER(22)             
+RENTAL_ITEM            4 CREATED_BY             NOT NULL NUMBER(22)             
+RENTAL_ITEM            5 CREATION_DATE          NOT NULL DATE                   
+RENTAL_ITEM            6 LAST_UPDATED_BY        NOT NULL NUMBER(22)             
+RENTAL_ITEM            7 LAST_UPDATE_DATE       NOT NULL DATE                   
+RENTAL_ITEM            8 RENTAL_ITEM_PRICE               NUMBER(22)             
+RENTAL_ITEM            9 RENTAL_ITEM_TYPE                NUMBER(22)             
+
+9 rows selected.
+
+SQL> 
+SQL> --------------------------------------------------------------------------
+SQL> -----------------------------------------------------------------------------
+SQL> ----------------------------------------------------------------------------
+SQL> 
+SQL> 
+SQL> --part 2--
+SQL> CREATE TABLE PRICE
+  2  ( PRICE_ID 		  NUMBER
+  3  , ITEM_ID			  NUMBER    CONSTRAINT nn_price_1 NOT NULL
+  4  , PRICE_TYPE		  NUMBER
+  5  , ACTIVE_FLAG	      VARCHAR2(19) CONSTRAINT nn_price_2 NOT NULL
+  6  , START_DATE	      VARCHAR2(20) CONSTRAINT nn_price_3 NOT NULL
+  7  , END_DATE 		  VARCHAR2(20)
+  8  , AMOUNT			  NUMBER  CONSTRAINT nn_price_4 NOT NULL
+  9  , CREATED_BY		  NUMBER  CONSTRAINT nn_price_5 NOT NULL
+ 10  , CREATION_DATE		  varchar2(20) CONSTRAINT nn_price_6 NOT NULL
+ 11  , LAST_UPDATED_BY		  NUMBER CONSTRAINT nn_price_7 NOT NULL
+ 12  , LAST_UPDATED_DATE	  VARCHAR2(20) CONSTRAINT nn_price_8 NOT NULL
+ 13  , CONSTRAINT pk_price_1	 PRIMARY KEY(PRICE_ID)
+ 14  , CONSTRAINT fk_price_1	FOREIGN KEY (ITEM_ID) REFERENCES item(item_id)
+ 15  , CONSTRAINT fk_price_2   FOREIGN KEY (PRICE_TYPE) REFERENCES common_lookup(common_lookup_id)
+ 16  , CONSTRAINT fk_price_3  FOREIGN KEY (CREATED_BY) REFERENCES system_user(system_user_id)
+ 17  , CONSTRAINT fk_price_4  FOREIGN KEY (LAST_UPDATED_BY) REFERENCES system_user(system_user_id)
+ 18  , CONSTRAINT  YN_PRICE CHECK (ACTIVE_FLAG IN('Y', 'N')));
+
+Table created.
+
+SQL> 
+SQL> SET NULL ''
+SQL> COLUMN table_name	 FORMAT A14
+SQL> COLUMN column_id	 FORMAT 9999
+SQL> COLUMN column_name  FORMAT A22
+SQL> COLUMN data_type	 FORMAT A12
+SQL> SELECT   table_name
+  2  ,	      column_id
+  3  ,	      column_name
+  4  ,	      CASE
+  5  		WHEN nullable = 'N' THEN 'NOT NULL'
+  6  		ELSE ''
+  7  	      END AS nullable
+  8  ,	      CASE
+  9  		WHEN data_type IN ('CHAR','VARCHAR2','NUMBER') THEN
+ 10  		  data_type||'('||data_length||')'
+ 11  		ELSE
+ 12  		  data_type
+ 13  	      END AS data_type
+ 14  FROM     user_tab_columns
+ 15  WHERE    table_name = 'PRICE'
+ 16  ORDER BY 2;
+
+                         Column                                                 
+Table Name     COLUMN_ID Name                   NULLABLE DATA_TYPE              
+-------------- --------- ---------------------- -------- ------------           
+PRICE                  1 PRICE_ID               NOT NULL NUMBER(22)             
+PRICE                  2 ITEM_ID                NOT NULL NUMBER(22)             
+PRICE                  3 PRICE_TYPE                      NUMBER(22)             
+PRICE                  4 ACTIVE_FLAG            NOT NULL VARCHAR2(19)           
+PRICE                  5 START_DATE             NOT NULL VARCHAR2(20)           
+PRICE                  6 END_DATE                        VARCHAR2(20)           
+PRICE                  7 AMOUNT                 NOT NULL NUMBER(22)             
+PRICE                  8 CREATED_BY             NOT NULL NUMBER(22)             
+PRICE                  9 CREATION_DATE          NOT NULL VARCHAR2(20)           
+PRICE                 10 LAST_UPDATED_BY        NOT NULL NUMBER(22)             
+PRICE                 11 LAST_UPDATED_DATE      NOT NULL VARCHAR2(20)           
+
+11 rows selected.
+
+SQL> 
+SQL> COLUMN constraint_name   FORMAT A16
+SQL> COLUMN search_condition  FORMAT A30
+SQL> SELECT   uc.constraint_name
+  2  ,	      uc.search_condition
+  3  FROM     user_constraints uc INNER JOIN user_cons_columns ucc
+  4  ON       uc.table_name = ucc.table_name
+  5  AND      uc.constraint_name = ucc.constraint_name
+  6  WHERE    uc.table_name = UPPER('price')
+  7  AND      ucc.column_name = UPPER('active_flag')
+  8  AND      uc.constraint_name = UPPER('yn_price')
+  9  AND      uc.constraint_type = 'C';
+
+Constraint Name  Search Condition                                               
+---------------- ------------------------------                                 
+YN_PRICE         ACTIVE_FLAG IN('Y', 'N')                                       
+
+1 row selected.
+
+SQL> --------------------------------------------------------------------------
+SQL> -----------------------------------------------------------------------------
+SQL> ----------------------------------------------------------------------------
+SQL> 
+SQL> 
+SQL> --part 3--
+SQL> 
+SQL> -- part3.a--
+SQL> 
+SQL> ALTER TABLE Item
+  2  RENAME COLUMN item_release_date to release_date;
+
+Table altered.
+
+SQL> SET NULL ''
+SQL> COLUMN table_name	 FORMAT A14
+SQL> COLUMN column_id	 FORMAT 9999
+SQL> COLUMN column_name  FORMAT A22
+SQL> COLUMN data_type	 FORMAT A12
+SQL> SELECT   table_name
+  2  ,	      column_id
+  3  ,	      column_name
+  4  ,	      CASE
+  5  		WHEN nullable = 'N' THEN 'NOT NULL'
+  6  		ELSE ''
+  7  	      END AS nullable
+  8  ,	      CASE
+  9  		WHEN data_type IN ('CHAR','VARCHAR2','NUMBER') THEN
+ 10  		  data_type||'('||data_length||')'
+ 11  		ELSE
+ 12  		  data_type
+ 13  	      END AS data_type
+ 14  FROM     user_tab_columns
+ 15  WHERE    table_name = 'ITEM'
+ 16  ORDER BY 2;
+
+                         Column                                                 
+Table Name     COLUMN_ID Name                   NULLABLE DATA_TYPE              
+-------------- --------- ---------------------- -------- ------------           
+ITEM                   1 ITEM_ID                NOT NULL NUMBER(22)             
+ITEM                   2 ITEM_BARCODE           NOT NULL VARCHAR2(14)           
+ITEM                   3 ITEM_TYPE              NOT NULL NUMBER(22)             
+ITEM                   4 ITEM_TITLE             NOT NULL VARCHAR2(60)           
+ITEM                   5 ITEM_SUBTITLE                   VARCHAR2(60)           
+ITEM                   6 ITEM_RATING            NOT NULL VARCHAR2(8)            
+ITEM                   7 RELEASE_DATE           NOT NULL DATE                   
+ITEM                   8 CREATED_BY             NOT NULL NUMBER(22)             
+ITEM                   9 CREATION_DATE          NOT NULL DATE                   
+ITEM                  10 LAST_UPDATED_BY        NOT NULL NUMBER(22)             
+ITEM                  11 LAST_UPDATE_DATE       NOT NULL DATE                   
+
+11 rows selected.
+
+SQL> 
+SQL> --part3.b--
+SQL> INSERT INTO item
+  2  ( item_id
+  3  , item_barcode
+  4  , item_type
+  5  , item_title
+  6  , item_subtitle
+  7  , item_rating
+  8  , release_date
+  9  , created_by
+ 10  , creation_date
+ 11  , last_updated_by
+ 12  , last_update_date )
+ 13  VALUES
+ 14  ( item_s1.nextval
+ 15  ,'9886-05840-5'
+ 16  ,(SELECT	common_lookup_id
+ 17    FROM	common_lookup
+ 18    WHERE	common_lookup_context = 'ITEM'
+ 19    AND	common_lookup_type = 'DVD_WIDE_SCREEN')
+ 20  ,'Tron'
+ 21  ,'Special Collector''s Edition'
+ 22  ,'R'
+ 23  , (TRUNC(SYSDATE) - 1)
+ 24  , 1001
+ 25  , SYSDATE
+ 26  , 1001
+ 27  , SYSDATE);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO item
+  2  ( item_id
+  3  , item_barcode
+  4  , item_type
+  5  , item_title
+  6  , item_subtitle
+  7  , item_rating
+  8  , release_date
+  9  , created_by
+ 10  , creation_date
+ 11  , last_updated_by
+ 12  , last_update_date )
+ 13  VALUES
+ 14  ( item_s1.nextval
+ 15  ,'9546-05888-6'
+ 16  ,(SELECT	common_lookup_id
+ 17    FROM	common_lookup
+ 18    WHERE	common_lookup_context = 'ITEM'
+ 19    AND	common_lookup_type = 'DVD_WIDE_SCREEN')
+ 20  ,'Enders Game'
+ 21  ,'Special Collector''s Edition'
+ 22  ,'R'
+ 23  , (TRUNC(SYSDATE) - 1)
+ 24  , 1001
+ 25  , SYSDATE
+ 26  , 1001
+ 27  , SYSDATE);
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO item
+  2  ( item_id
+  3  , item_barcode
+  4  , item_type
+  5  , item_title
+  6  , item_subtitle
+  7  , item_rating
+  8  , release_date
+  9  , created_by
+ 10  , creation_date
+ 11  , last_updated_by
+ 12  , last_update_date )
+ 13  VALUES
+ 14  ( item_s1.nextval
+ 15  ,'1258-68748-4'
+ 16  ,(SELECT	common_lookup_id
+ 17    FROM	common_lookup
+ 18    WHERE	common_lookup_context = 'ITEM'
+ 19    AND	common_lookup_type = 'DVD_WIDE_SCREEN')
+ 20  ,'Elysium'
+ 21  ,'Special Collector''s Edition'
+ 22  ,'PG-13'
+ 23  , (TRUNC(SYSDATE) - 1)
+ 24  , 1001
+ 25  , SYSDATE
+ 26  , 1001
+ 27  , SYSDATE);
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL> SELECT   i.item_title
+  2  ,	      SYSDATE AS today
+  3  ,	      i.release_date
+  4  FROM     item i
+  5  WHERE   (SYSDATE - i.release_date) < 31;
+
+Item Title                 TODAY              RELEASE_DATE                      
+-------------------------- ------------------ ------------------                
+Tron                       04-JUN-19          03-JUN-19                         
+Enders Game                04-JUN-19          03-JUN-19                         
+Elysium                    04-JUN-19          03-JUN-19                         
+
+3 rows selected.
+
+SQL> 
+SQL> --------------------------------------------------------------------------
+SQL> -----------------------------------------------------------------------------
+SQL> ----------------------------------------------------------------------------
+SQL> 
+SQL> --part 3.c--
+SQL> -- ------------------------------------------------------------------
+SQL> --  Insert first contact in a group account user.
+SQL> -- ----------------------------------------------------------------
+SQL> INSERT INTO MEMBER
+  2  VALUES
+  3  (member_s1.nextval 			    -- member_id
+  4  , 1004					    -- member_type
+  5  ,'US00011' 				    -- account_number
+  6  ,'6011-0000-0000-0078'			    -- credit_card_number
+  7  ,(SELECT	     common_lookup_id
+  8    FROM  common_lookup
+  9    WHERE common_lookup_context = 'MEMBER'
+ 10    AND   common_lookup_type = 'DISCOVER_CARD')  -- credit_card_type
+ 11  ,(SELECT	     system_user_id
+ 12  	 FROM	     system_user
+ 13  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 14  , SYSDATE						    -- creation_date
+ 15  ,(SELECT	     system_user_id
+ 16  	  FROM	     system_user
+ 17  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 18  , SYSDATE						    -- last_update_date
+ 19  	);
+
+1 row created.
+
+SQL> 
+SQL> 	INSERT INTO contact
+  2  	( contact_id
+  3    , member_id
+  4    , contact_type
+  5    , first_name
+  6    , last_name
+  7    , created_by
+  8    , creation_date
+  9    , last_updated_by
+ 10    , last_update_date )
+ 11    VALUES
+ 12    ( contact_s1.nextval			    -- contact_id
+ 13    , member_s1.currval			    -- member_id
+ 14    ,(SELECT      common_lookup_id
+ 15  	  FROM	     common_lookup
+ 16  	 WHERE	     common_lookup_context = 'CONTACT'
+ 17  	 AND common_lookup_type = 'CUSTOMER')	    -- contact_type
+ 18    ,'Harry' 					    -- first_name
+ 19    ,'Potter'					    -- last_name
+ 20  	 ,(SELECT    system_user_id
+ 21  	  FROM	     system_user
+ 22  	 WHERE	     system_user_name = 'SYSADMIN')	    -- created_by
+ 23  	, SYSDATE					    -- creation_date
+ 24    ,(SELECT      system_user_id
+ 25  	 FROM	     system_user
+ 26  	 WHERE	     system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 27  	 , SYSDATE					    -- last_update_date
+ 28    );
+
+1 row created.
+
+SQL> 
+SQL> 	INSERT INTO address
+  2  	 ( address_id
+  3  	 , contact_id
+  4  	 , address_type
+  5  	 , city
+  6  	 , state_province
+  7  	 , postal_code
+  8  	 , created_by
+  9  	 , creation_date
+ 10  	, last_updated_by
+ 11  	, last_update_date )
+ 12  	VALUES
+ 13  	( address_s1.nextval			    -- address_id
+ 14  	, contact_s1.currval			    -- contact_id
+ 15  	,(SELECT     common_lookup_id
+ 16  	  FROM	     common_lookup
+ 17  	  WHERE      common_lookup_type = 'HOME')	    -- address_type
+ 18  	,'Provo'				    -- city
+ 19  	,'Utah' 					    -- state_province
+ 20  	,'84604'					    -- postal_code
+ 21  	,(SELECT     system_user_id
+ 22  	  FROM	     system_user
+ 23  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 24  	, SYSDATE					    -- creation_date
+ 25  	,(SELECT     system_user_id
+ 26  	  FROM	     system_user
+ 27  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 28  	, SYSDATE					    -- last_update_date
+ 29  	);
+
+1 row created.
+
+SQL> 
+SQL> 	 INSERT INTO street_address
+  2  	( street_address_id
+  3  	, address_id
+  4  	, street_address
+  5  	, created_by
+  6    , creation_date
+  7  	, last_updated_by
+  8  	, last_update_date )
+  9  	 VALUES
+ 10  	( street_address_s1.nextval		    -- street_address_id
+ 11  	, address_s1.currval			    -- address_id
+ 12  	,'900, E 300 N' 			    -- street_address
+ 13  	,(SELECT     system_user_id
+ 14  	  FROM	     system_user
+ 15  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 16  	, SYSDATE					    -- creation_date
+ 17  	,(SELECT     system_user_id
+ 18  	  FROM	     system_user
+ 19  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 20  	, SYSDATE					    -- last_update_date
+ 21  	);
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL> 	INSERT INTO telephone
+  2  	( telephone_id
+  3  	, contact_id
+  4  	, address_id
+  5  	, telephone_type
+  6  	, country_code
+  7  	, area_code
+  8    , telephone_number
+  9  	, created_by
+ 10  	, creation_date
+ 11  	, last_updated_by
+ 12  	, last_update_date )
+ 13  	 VALUES
+ 14  	( telephone_s1.nextval				    -- telephone_id
+ 15  	, address_s1.currval			    -- address_id
+ 16  	, contact_s1.currval			    -- contact_id
+ 17  	,(SELECT     common_lookup_id
+ 18  	  FROM	     common_lookup
+ 19  	  WHERE      common_lookup_context = 'MULTIPLE'
+ 20  	  AND	     common_lookup_type = 'HOME')	    -- telephone_type
+ 21  	,'001'						    -- country_code
+ 22    ,'801'						    -- area_code
+ 23  	,'333-3333'				    -- telephone_number
+ 24  	,(SELECT     system_user_id
+ 25  	  FROM	     system_user
+ 26  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 27  	, SYSDATE					    -- creation_date
+ 28  	,(SELECT     system_user_id
+ 29  	  FROM	     system_user
+ 30  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 31  	, SYSDATE					    -- last_update_date
+ 32  	);
+
+1 row created.
+
+SQL> 
+SQL> 	------------------------------------------------------------------
+SQL> --  Insert second contact in a group account user.
+SQL> -- ------------------------------------------------------------------
+SQL> 
+SQL> 	 INSERT INTO contact
+  2  	( contact_id
+  3    , member_id
+  4    , contact_type
+  5    , first_name
+  6    , last_name
+  7    , created_by
+  8    , creation_date
+  9    , last_updated_by
+ 10    , last_update_date )
+ 11    VALUES
+ 12    ( contact_s1.nextval			    -- contact_id
+ 13    , member_s1.currval			    -- member_id
+ 14    ,(SELECT      common_lookup_id
+ 15  	  FROM	     common_lookup
+ 16  	 WHERE	     common_lookup_context = 'CONTACT'
+ 17  	 AND common_lookup_type = 'CUSTOMER')	    -- contact_type
+ 18    ,'Ginny' 					    -- first_name
+ 19    ,'Potter'					    -- last_name
+ 20  	 ,(SELECT    system_user_id
+ 21  	  FROM	     system_user
+ 22  	 WHERE	     system_user_name = 'SYSADMIN')	    -- created_by
+ 23  	, SYSDATE					    -- creation_date
+ 24    ,(SELECT      system_user_id
+ 25  	 FROM	     system_user
+ 26  	 WHERE	     system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 27  	 , SYSDATE					    -- last_update_date
+ 28    );
+
+1 row created.
+
+SQL> 
+SQL> 	INSERT INTO address
+  2  	 ( address_id
+  3  	 , contact_id
+  4  	 , address_type
+  5  	 , city
+  6  	 , state_province
+  7  	 , postal_code
+  8  	 , created_by
+  9  	 , creation_date
+ 10  	, last_updated_by
+ 11  	, last_update_date )
+ 12  	VALUES
+ 13  	( address_s1.nextval			    -- address_id
+ 14  	, contact_s1.currval			    -- contact_id
+ 15  	,(SELECT     common_lookup_id
+ 16  	  FROM	     common_lookup
+ 17  	  WHERE      common_lookup_type = 'HOME')	    -- address_type
+ 18  	,'Provo'				    -- city
+ 19  	,'Utah' 					    -- state_province
+ 20  	,'84604'					    -- postal_code
+ 21  	,(SELECT     system_user_id
+ 22  	  FROM	     system_user
+ 23  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 24  	, SYSDATE					    -- creation_date
+ 25  	,(SELECT     system_user_id
+ 26  	  FROM	     system_user
+ 27  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 28  	, SYSDATE					    -- last_update_date
+ 29  	);
+
+1 row created.
+
+SQL> 
+SQL> 	 INSERT INTO street_address
+  2  	( street_address_id
+  3  	, address_id
+  4  	, street_address
+  5  	, created_by
+  6    , creation_date
+  7  	, last_updated_by
+  8  	, last_update_date )
+  9  	 VALUES
+ 10  	( street_address_s1.nextval		    -- street_address_id
+ 11  	, address_s1.currval			    -- address_id
+ 12  	,'900, E 300 N' 			    -- street_address
+ 13  	,(SELECT     system_user_id
+ 14  	  FROM	     system_user
+ 15  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 16  	, SYSDATE					    -- creation_date
+ 17  	,(SELECT     system_user_id
+ 18  	  FROM	     system_user
+ 19  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 20  	, SYSDATE					    -- last_update_date
+ 21  	);
+
+1 row created.
+
+SQL> 
+SQL> 	 INSERT INTO telephone
+  2  	( telephone_id
+  3  	, contact_id
+  4  	, address_id
+  5  	, telephone_type
+  6  	, country_code
+  7  	, area_code
+  8    , telephone_number
+  9  	, created_by
+ 10  	, creation_date
+ 11  	, last_updated_by
+ 12  	, last_update_date )
+ 13  	 VALUES
+ 14  	( telephone_s1.nextval				    -- telephone_id
+ 15  	, address_s1.currval			    -- address_id
+ 16  	, contact_s1.currval			    -- contact_id
+ 17  	,(SELECT     common_lookup_id
+ 18  	  FROM	     common_lookup
+ 19  	  WHERE      common_lookup_context = 'MULTIPLE'
+ 20  	  AND	     common_lookup_type = 'HOME')	    -- telephone_type
+ 21  	,'001'						    -- country_code
+ 22    ,'801'						    -- area_code
+ 23  	,'333-3333'				    -- telephone_number
+ 24  	,(SELECT     system_user_id
+ 25  	  FROM	     system_user
+ 26  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 27  	, SYSDATE					    -- creation_date
+ 28  	,(SELECT     system_user_id
+ 29  	  FROM	     system_user
+ 30  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 31  	, SYSDATE					    -- last_update_date
+ 32  	);
+
+1 row created.
+
+SQL> 
+SQL> 	  ------------------------------------------------------------------
+SQL> --  Insert third contact in a group account user.
+SQL> -- ------------------------------------------------------------------
+SQL> 
+SQL> 	    INSERT INTO contact
+  2  	( contact_id
+  3    , member_id
+  4    , contact_type
+  5    , first_name
+  6    , middle_name
+  7    , last_name
+  8    , created_by
+  9    , creation_date
+ 10    , last_updated_by
+ 11    , last_update_date )
+ 12    VALUES
+ 13    ( contact_s1.nextval			    -- contact_id
+ 14    , member_s1.currval			    -- member_id
+ 15    ,(SELECT      common_lookup_id
+ 16  	  FROM	     common_lookup
+ 17  	 WHERE	     common_lookup_context = 'CONTACT'
+ 18  	 AND common_lookup_type = 'CUSTOMER')	    -- contact_type
+ 19    ,'Lily'			 -- first_name
+ 20    , 'Luna'
+ 21    ,'Potter'					    -- last_name
+ 22  	 ,(SELECT    system_user_id
+ 23  	  FROM	     system_user
+ 24  	 WHERE	     system_user_name = 'SYSADMIN')	    -- created_by
+ 25  	, SYSDATE					    -- creation_date
+ 26    ,(SELECT      system_user_id
+ 27  	 FROM	     system_user
+ 28  	 WHERE	     system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 29  	 , SYSDATE					    -- last_update_date
+ 30    );
+
+1 row created.
+
+SQL> 
+SQL> 	  INSERT INTO address
+  2  	 ( address_id
+  3  	 , contact_id
+  4  	 , address_type
+  5  	 , city
+  6  	 , state_province
+  7  	 , postal_code
+  8  	 , created_by
+  9  	 , creation_date
+ 10  	, last_updated_by
+ 11  	, last_update_date )
+ 12  	VALUES
+ 13  	( address_s1.nextval			    -- address_id
+ 14  	, contact_s1.currval			    -- contact_id
+ 15  	,(SELECT     common_lookup_id
+ 16  	  FROM	     common_lookup
+ 17  	  WHERE      common_lookup_type = 'HOME')	    -- address_type
+ 18  	,'Provo'				    -- city
+ 19  	,'Utah' 					    -- state_province
+ 20  	,'84604'					    -- postal_code
+ 21  	,(SELECT     system_user_id
+ 22  	  FROM	     system_user
+ 23  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 24  	, SYSDATE					    -- creation_date
+ 25  	,(SELECT     system_user_id
+ 26  	  FROM	     system_user
+ 27  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 28  	, SYSDATE					    -- last_update_date
+ 29  	);
+
+1 row created.
+
+SQL> 
+SQL> 	 INSERT INTO street_address
+  2  	( street_address_id
+  3  	, address_id
+  4  	, street_address
+  5  	, created_by
+  6    , creation_date
+  7  	, last_updated_by
+  8  	, last_update_date )
+  9  	 VALUES
+ 10  	( street_address_s1.nextval		    -- street_address_id
+ 11  	, address_s1.currval			    -- address_id
+ 12  	,'900, E 300 N' 			    -- street_address
+ 13  	,(SELECT     system_user_id
+ 14  	  FROM	     system_user
+ 15  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 16  	, SYSDATE					    -- creation_date
+ 17  	,(SELECT     system_user_id
+ 18  	  FROM	     system_user
+ 19  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 20  	, SYSDATE					    -- last_update_date
+ 21  	);
+
+1 row created.
+
+SQL> 
+SQL> 	 INSERT INTO telephone
+  2  	( telephone_id
+  3  	, contact_id
+  4  	, address_id
+  5  	, telephone_type
+  6  	, country_code
+  7  	, area_code
+  8    , telephone_number
+  9  	, created_by
+ 10  	, creation_date
+ 11  	, last_updated_by
+ 12  	, last_update_date )
+ 13  	 VALUES
+ 14  	( telephone_s1.nextval				    -- telephone_id
+ 15  	, address_s1.currval			    -- address_id
+ 16  	, contact_s1.currval			    -- contact_id
+ 17  	,(SELECT     common_lookup_id
+ 18  	  FROM	     common_lookup
+ 19  	  WHERE      common_lookup_context = 'MULTIPLE'
+ 20  	  AND	     common_lookup_type = 'HOME')	    -- telephone_type
+ 21  	,'001'						    -- country_code
+ 22  	,'801'						    -- area_code
+ 23  	,'333-3333'				    -- telephone_number
+ 24  	,(SELECT     system_user_id
+ 25  	  FROM	     system_user
+ 26  	  WHERE      system_user_name = 'SYSADMIN')	    -- created_by
+ 27  	, SYSDATE					    -- creation_date
+ 28  	,(SELECT     system_user_id
+ 29  	  FROM	     system_user
+ 30  	  WHERE      system_user_name = 'SYSADMIN')	    -- last_updated_by
+ 31  	, SYSDATE					    -- last_update_date
+ 32  	);
+
+1 row created.
+
+SQL> 
+SQL> 	COLUMN account_number  FORMAT A10  HEADING "Account|Number"
+SQL> COLUMN full_name	    FORMAT A16	HEADING "Name|(Last, First MI)"
+SQL> COLUMN street_address  FORMAT A14	HEADING "Street Address"
+SQL> COLUMN city	    FORMAT A10	HEADING "City"
+SQL> COLUMN state	    FORMAT A10	HEADING "State"
+SQL> COLUMN postal_code     FORMAT A6	HEADING "Postal|Code"
+SQL> SELECT   m.account_number
+  2  ,	      c.last_name || ', ' || c.first_name
+  3  ||       CASE
+  4  		WHEN c.middle_name IS NOT NULL THEN
+  5  		  ' ' || c.middle_name || ' '
+  6  	      END AS full_name
+  7  ,	      sa.street_address
+  8  ,	      a.city
+  9  ,	      a.state_province AS state
+ 10  ,	      a.postal_code
+ 11  FROM     member m INNER JOIN contact c
+ 12  ON       m.member_id = c.member_id INNER JOIN address a
+ 13  ON       c.contact_id = a.contact_id INNER JOIN street_address sa
+ 14  ON       a.address_id = sa.address_id INNER JOIN telephone t
+ 15  ON       c.contact_id = t.contact_id
+ 16  WHERE    c.last_name = 'Potter';
+
+Account    Name                                                  Postal         
+Number     (Last, First MI) Street Address City       State      Code           
+---------- ---------------- -------------- ---------- ---------- ------         
+US00011    Potter, Harry    900, E 300 N   Provo      Utah       84604          
+US00011    Potter, Ginny    900, E 300 N   Provo      Utah       84604          
+US00011    Potter, Lily Lun 900, E 300 N   Provo      Utah       84604          
+           a                                                                    
+                                                                                
+
+3 rows selected.
+
+SQL> ------------------------------------------------------------------------------------
+SQL> ------------------------------------------------------------------------------------
+SQL> -------------------------------------------------------------------------------------
+SQL> 
+SQL> --PART 3.d--
+SQL> -- .NEXTVAL pseudo column calls for the primary key values and .CURRVAL pseudo column calls for the foreign key values into RENTAL and RENTAL_ITEM tables respectively. --
+SQL> 
+SQL> 
+SQL> 
+SQL> INSERT INTO rental
+  2  ( rental_id
+  3  , customer_id
+  4  , check_out_date
+  5  , return_date
+  6  , created_by
+  7  , creation_date
+  8  , last_updated_by
+  9  , last_update_date )
+ 10  VALUES
+ 11  ( rental_s1.nextval
+ 12  ,(SELECT	contact_id
+ 13    FROM	contact
+ 14    WHERE	last_name = 'Potter'
+ 15    AND	first_name = 'Harry')
+ 16  , TRUNC(SYSDATE)
+ 17  , TRUNC(SYSDATE) + 1
+ 18  , 1001
+ 19  , SYSDATE
+ 20  , 1001
+ 21  , SYSDATE);
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL>   ---------last_update_date
+SQL> 
+SQL> 
+SQL> 	INSERT INTO rental_item
+  2  	 (rental_item_id
+  3  	 , rental_id
+  4  	 , item_id
+  5  	 , created_by
+  6  	 , creation_date
+  7  	 , last_updated_by
+  8  	 , last_update_date)
+  9    VALUES
+ 10  	(rental_item_s1.nextval
+ 11  	,  rental_s1.currval
+ 12  	, 1023
+ 13  	, 1001
+ 14  	, TRUNC(SYSDATE)
+ 15  	, 1001
+ 16  	, TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL> 	 INSERT INTO rental_item
+  2  	 (rental_item_id
+  3  	 , rental_id
+  4  	 , item_id
+  5  	 , created_by
+  6  	 , creation_date
+  7  	 , last_updated_by
+  8  	 , last_update_date
+  9  	 , rental_item_price
+ 10  	 , rental_item_type)
+ 11    VALUES
+ 12  	(rental_item_s1.nextval 		      ---rental_item_id
+ 13  	,  rental_s1.currval				   --renal_id
+ 14  	, (SELECT item_id				    ---item_id
+ 15  	   FROM   item
+ 16  	   WHERE item_title = 'Star Wars III')
+ 17  	 , 1001 					    ---created_by
+ 18  	, TRUNC(SYSDATE)				----creation_date
+ 19  	, 1001						 ---last_updated_by
+ 20  	, TRUNC(SYSDATE)				 -----last_update_date
+ 21  	, 10						     ----rental_item_price
+ 22  	, 1);
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> INSERT INTO rental
+  2  ( rental_id
+  3  , customer_id
+  4  , check_out_date
+  5  , return_date
+  6  , created_by
+  7  , creation_date
+  8  , last_updated_by
+  9  , last_update_date )
+ 10  VALUES
+ 11  ( rental_s1.nextval
+ 12  ,(SELECT	contact_id
+ 13    FROM	contact
+ 14    WHERE	last_name = 'Potter'
+ 15    AND	first_name = 'Ginny')
+ 16  , TRUNC(SYSDATE)
+ 17  , TRUNC(SYSDATE) + 3
+ 18  , 1001
+ 19  , SYSDATE
+ 20  , 1001
+ 21  , SYSDATE);
+
+1 row created.
+
+SQL> ---------last_update_date
+SQL> 
+SQL> 
+SQL> 
+SQL> 	     INSERT INTO rental_item
+  2  	 (rental_item_id
+  3  	 , rental_id
+  4  	 , item_id
+  5  	 , created_by
+  6  	 , creation_date
+  7  	 , last_updated_by
+  8  	 , last_update_date
+  9  	 , rental_item_price
+ 10  	 , rental_item_type)
+ 11    VALUES
+ 12  	(rental_item_s1.nextval 			  ---rental_item_id
+ 13  	,  rental_s1.currval				  --renal_id
+ 14  	, (SELECT item_id				  ---item_id
+ 15  	   FROM   item
+ 16  	   WHERE item_title = 'Elysium')
+ 17  	 , 1001 				       ---created_by
+ 18  	, TRUNC(SYSDATE)			       ----creation_date
+ 19  	, 1001					       ---last_updated_by
+ 20  	, TRUNC(SYSDATE)			       -----last_update_date
+ 21  	, 10					       ----rental_item_price
+ 22  	, 1);
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> INSERT INTO rental
+  2  ( rental_id
+  3  , customer_id
+  4  , check_out_date
+  5  , return_date
+  6  , created_by
+  7  , creation_date
+  8  , last_updated_by
+  9  , last_update_date )
+ 10  VALUES
+ 11  ( rental_s1.nextval
+ 12  ,(SELECT	contact_id
+ 13    FROM	contact
+ 14    WHERE	last_name = 'Potter'
+ 15    AND	first_name = 'Lily')
+ 16  , TRUNC(SYSDATE)
+ 17  , TRUNC(SYSDATE) + 5
+ 18  , 1001
+ 19  , SYSDATE
+ 20  , 1001
+ 21  , SYSDATE);
+
+1 row created.
+
+SQL> ---------last_update_date
+SQL> 
+SQL> 
+SQL> 
+SQL> 	INSERT INTO rental_item
+  2  	 (rental_item_id
+  3  	 , rental_id
+  4  	 , item_id
+  5  	 , created_by
+  6  	 , creation_date
+  7  	 , last_updated_by
+  8  	 , last_update_date
+  9  	 , rental_item_price
+ 10  	 , rental_item_type)
+ 11    VALUES
+ 12  	(rental_item_s1.nextval 		   ---rental_item_id
+ 13  	,  rental_s1.currval			  --renal_id
+ 14  	, (SELECT item_id			  ---item_id
+ 15  	   FROM   item
+ 16  	   WHERE item_title = 'Tron')
+ 17  	 , 1001 				 ---created_by
+ 18  	, TRUNC(SYSDATE)			 ----creation_date
+ 19  	, 1001					 ---last_updated_by
+ 20  	, TRUNC(SYSDATE)			 -----last_update_date
+ 21  	, 10					  ----rental_item_price
+ 22  	, 1);
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL>   COLUMN full_name   FORMAT A18
+SQL> COLUMN rental_id	FORMAT 9999
+SQL> COLUMN rental_days FORMAT A14
+SQL> COLUMN rentals	FORMAT 9999
+SQL> COLUMN items	FORMAT 9999
+SQL> SELECT   c.last_name||', '||c.first_name||' '||c.middle_name AS full_name
+  2  ,	      r.rental_id
+  3  ,	     (r.return_date - r.check_out_date) || '-DAY RENTAL' AS rental_days
+  4  ,	      COUNT(DISTINCT r.rental_id) AS rentals
+  5  ,	      COUNT(ri.rental_item_id) AS items
+  6  FROM     rental r INNER JOIN rental_item ri
+  7  ON       r.rental_id = ri.rental_id INNER JOIN contact c
+  8  ON       r.customer_id = c.contact_id
+  9  WHERE   (SYSDATE - r.check_out_date) < 15
+ 10  AND      c.last_name = 'Potter'
+ 11  GROUP BY c.last_name||', '||c.first_name||' '||c.middle_name
+ 12  ,	      r.rental_id
+ 13  ,	     (r.return_date - r.check_out_date) || '-DAY RENTAL'
+ 14  ORDER BY 2;
+
+Name                Rent                                                        
+(Last, First MI)    ID # RENTAL_DAYS    RENTALS ITEMS                           
+------------------ ----- -------------- ------- -----                           
+Potter, Harry       1006 1-DAY RENTAL         1     2                           
+Potter, Ginny       1007 3-DAY RENTAL         1     1                           
+Potter, Lily Luna   1008 5-DAY RENTAL         1     1                           
+
+3 rows selected.
+
+SQL> 
+SQL> --------------------------------
+SQL>  -------------------------------------------------------------------
+SQL> 
+SQL>  --PART 4.A---
+SQL>  DROP INDEX common_lookup_n1;
+
+Index dropped.
+
+SQL>  DROP INDEX common_lookup_u2;
+
+Index dropped.
+
+SQL> 
+SQL>  COLUMN table_name FORMAT A14
+SQL> COLUMN index_name FORMAT A20
+SQL> SELECT   table_name
+  2  ,	      index_name
+  3  FROM     user_indexes
+  4  WHERE    table_name = 'COMMON_LOOKUP';
+
+Table Name     Index Name                                                       
+-------------- --------------------                                             
+COMMON_LOOKUP  PK_CLOOKUP_1                                                     
+
+1 row selected.
+
+SQL> 
+SQL>   ------------------------------------------------------------------
+SQL>  -------------------------------------------------------------------
+SQL>  -- PART 4.B---
+SQL>  ALTER TABLE common_lookup
+  2   ADD (common_lookup_table VARCHAR2 (30));
+
+Table altered.
+
+SQL> 
+SQL>  ALTER TABLE common_lookup
+  2   ADD (common_lookup_column VARCHAR2 (30));
+
+Table altered.
+
+SQL> 
+SQL>  ALTER TABLE common_lookup
+  2   ADD (common_lookup_code VARCHAR2 (30));
+
+Table altered.
+
+SQL> 
+SQL> SET NULL ''
+SQL> COLUMN table_name	 FORMAT A14
+SQL> COLUMN column_id	 FORMAT 9999
+SQL> COLUMN column_name  FORMAT A22
+SQL> COLUMN data_type	 FORMAT A12
+SQL> SELECT   table_name
+  2  ,	      column_id
+  3  ,	      column_name
+  4  ,	      CASE
+  5  		WHEN nullable = 'N' THEN 'NOT NULL'
+  6  		ELSE ''
+  7  	      END AS nullable
+  8  ,	      CASE
+  9  		WHEN data_type IN ('CHAR','VARCHAR2','NUMBER') THEN
+ 10  		  data_type||'('||data_length||')'
+ 11  		ELSE
+ 12  		  data_type
+ 13  	      END AS data_type
+ 14  FROM     user_tab_columns
+ 15  WHERE    table_name = 'COMMON_LOOKUP'
+ 16  ORDER BY 2;
+
+                         Column                                                 
+Table Name     COLUMN_ID Name                   NULLABLE DATA_TYPE              
+-------------- --------- ---------------------- -------- ------------           
+COMMON_LOOKUP          1 COMMON_LOOKUP_ID       NOT NULL NUMBER(22)             
+COMMON_LOOKUP          2 COMMON_LOOKUP_CONTEXT  NOT NULL VARCHAR2(30)           
+COMMON_LOOKUP          3 COMMON_LOOKUP_TYPE     NOT NULL VARCHAR2(30)           
+COMMON_LOOKUP          4 COMMON_LOOKUP_MEANING  NOT NULL VARCHAR2(30)           
+COMMON_LOOKUP          5 CREATED_BY             NOT NULL NUMBER(22)             
+COMMON_LOOKUP          6 CREATION_DATE          NOT NULL DATE                   
+COMMON_LOOKUP          7 LAST_UPDATED_BY        NOT NULL NUMBER(22)             
+COMMON_LOOKUP          8 LAST_UPDATE_DATE       NOT NULL DATE                   
+COMMON_LOOKUP          9 COMMON_LOOKUP_TABLE             VARCHAR2(30)           
+COMMON_LOOKUP         10 COMMON_LOOKUP_COLUMN            VARCHAR2(30)           
+COMMON_LOOKUP         11 COMMON_LOOKUP_CODE              VARCHAR2(30)           
+
+11 rows selected.
+
+SQL>  ------------------------------------------------------------------
+SQL> 
+SQL> 
+SQL>  -- part 4 c1 --
+SQL>  --Migrate data and populate (or seed) new columns with existing data.
+SQL> -- Migrate COMMON_LOOKUP_CONTEXT column values. It is possible to make these changes one at a time, as the instructions explain. It is also possible to make multiple changes in a single query. The detail verification scripts verify the detailed steps. You may ignore them if you write a more complex UPDATE statement.
+SQL> --The state of the COMMON_LOOKUP table before any data changes:
+SQL> 
+SQL> COLUMN common_lookup_context  FORMAT A14  HEADING "Common|Lookup Context"
+SQL> COLUMN common_lookup_table    FORMAT A12  HEADING "Common|Lookup Table"
+SQL> COLUMN common_lookup_column   FORMAT A18  HEADING "Common|Lookup Column"
+SQL> COLUMN common_lookup_type	   FORMAT A18  HEADING "Common|Lookup Type"
+SQL> SELECT   common_lookup_context
+  2  ,	      common_lookup_table
+  3  ,	      common_lookup_column
+  4  ,	      common_lookup_type
+  5  FROM     common_lookup
+  6  ORDER BY 1, 2, 3;
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+CONTACT                                        EMPLOYEE                         
+CONTACT                                        CUSTOMER                         
+ITEM                                           DVD_WIDE_SCREEN                  
+ITEM                                           NINTENDO_GAMECUBE                
+ITEM                                           BLU-RAY                          
+ITEM                                           PLAYSTATION2                     
+ITEM                                           DVD_FULL_SCREEN                  
+ITEM                                           XBOX                             
+MEMBER                                         VISA_CARD                        
+MEMBER                                         MASTER_CARD                      
+MEMBER                                         GROUP                            
+MEMBER                                         INDIVIDUAL                       
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+MEMBER                                         DISCOVER_CARD                    
+MULTIPLE                                       WORK                             
+MULTIPLE                                       HOME                             
+SYSTEM_USER                                    INDIVIDUAL                       
+SYSTEM_USER                                    COST_CENTER                      
+SYSTEM_USER                                    SYSTEM_GROUP                     
+SYSTEM_USER                                    DBA                              
+SYSTEM_USER                                    SYSTEM_ADMIN                     
+
+20 rows selected.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL>  -- part 4 c2--
+SQL> --Update the COMMON_LOOKUP_TABLE column with the value of the COMMON_LOOKUP_CONTEXT column when the COMMON_LOOKUP_CONTEXT column’s value isn’t equal to a value of 'MULTIPLE'..--
+SQL> 
+SQL>   UPDATE	common_lookup
+  2  SET      common_lookup_table = common_lookup_context
+  3  WHERE common_lookup_context <> 'MULTIPLE';
+
+18 rows updated.
+
+SQL> 
+SQL> COLUMN common_lookup_context  FORMAT A14  HEADING "Common|Lookup Context"
+SQL> COLUMN common_lookup_table    FORMAT A12  HEADING "Common|Lookup Table"
+SQL> COLUMN common_lookup_column   FORMAT A18  HEADING "Common|Lookup Column"
+SQL> COLUMN common_lookup_type	   FORMAT A18  HEADING "Common|Lookup Type"
+SQL> SELECT   common_lookup_context
+  2  ,	      common_lookup_table
+  3  ,	      common_lookup_column
+  4  ,	      common_lookup_type
+  5  FROM     common_lookup
+  6  ORDER BY 1, 2, 3;
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+CONTACT        CONTACT                         EMPLOYEE                         
+CONTACT        CONTACT                         CUSTOMER                         
+ITEM           ITEM                            DVD_WIDE_SCREEN                  
+ITEM           ITEM                            NINTENDO_GAMECUBE                
+ITEM           ITEM                            BLU-RAY                          
+ITEM           ITEM                            PLAYSTATION2                     
+ITEM           ITEM                            DVD_FULL_SCREEN                  
+ITEM           ITEM                            XBOX                             
+MEMBER         MEMBER                          VISA_CARD                        
+MEMBER         MEMBER                          MASTER_CARD                      
+MEMBER         MEMBER                          GROUP                            
+MEMBER         MEMBER                          INDIVIDUAL                       
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+MEMBER         MEMBER                          DISCOVER_CARD                    
+MULTIPLE                                       WORK                             
+MULTIPLE                                       HOME                             
+SYSTEM_USER    SYSTEM_USER                     INDIVIDUAL                       
+SYSTEM_USER    SYSTEM_USER                     COST_CENTER                      
+SYSTEM_USER    SYSTEM_USER                     SYSTEM_GROUP                     
+SYSTEM_USER    SYSTEM_USER                     DBA                              
+SYSTEM_USER    SYSTEM_USER                     SYSTEM_ADMIN                     
+
+20 rows selected.
+
+SQL> 
+SQL> 
+SQL> -- part 4 c 3---
+SQL> --Update the COMMON_LOOKUP_TABLE column with the value of of 'ADDRESS' when the COMMON_LOOKUP_CONTEXT column value is equal to 'MULTIPLE'..
+SQL> 
+SQL> UPDATE common_lookup
+  2  SET common_lookup_table = 'ADDRESS'
+  3  WHERE common_lookup_context = 'MULTIPLE';
+
+2 rows updated.
+
+SQL> 
+SQL> COLUMN common_lookup_context  FORMAT A14  HEADING "Common|Lookup Context"
+SQL> COLUMN common_lookup_table    FORMAT A12  HEADING "Common|Lookup Table"
+SQL> COLUMN common_lookup_column   FORMAT A18  HEADING "Common|Lookup Column"
+SQL> COLUMN common_lookup_type	   FORMAT A18  HEADING "Common|Lookup Type"
+SQL> SELECT   common_lookup_context
+  2  ,	      common_lookup_table
+  3  ,	      common_lookup_column
+  4  ,	      common_lookup_type
+  5  FROM     common_lookup
+  6  ORDER BY 1, 2, 3;
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+CONTACT        CONTACT                         EMPLOYEE                         
+CONTACT        CONTACT                         CUSTOMER                         
+ITEM           ITEM                            DVD_WIDE_SCREEN                  
+ITEM           ITEM                            NINTENDO_GAMECUBE                
+ITEM           ITEM                            BLU-RAY                          
+ITEM           ITEM                            PLAYSTATION2                     
+ITEM           ITEM                            DVD_FULL_SCREEN                  
+ITEM           ITEM                            XBOX                             
+MEMBER         MEMBER                          VISA_CARD                        
+MEMBER         MEMBER                          MASTER_CARD                      
+MEMBER         MEMBER                          GROUP                            
+MEMBER         MEMBER                          INDIVIDUAL                       
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+MEMBER         MEMBER                          DISCOVER_CARD                    
+MULTIPLE       ADDRESS                         WORK                             
+MULTIPLE       ADDRESS                         HOME                             
+SYSTEM_USER    SYSTEM_USER                     INDIVIDUAL                       
+SYSTEM_USER    SYSTEM_USER                     COST_CENTER                      
+SYSTEM_USER    SYSTEM_USER                     SYSTEM_GROUP                     
+SYSTEM_USER    SYSTEM_USER                     DBA                              
+SYSTEM_USER    SYSTEM_USER                     SYSTEM_ADMIN                     
+
+20 rows selected.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> -- part 4 c 4---
+SQL> --Update the COMMON_LOOKUP_COLUMN column with the value of the COMMON_LOOKUP_CONTEXT column and a '_TYPE' string where the COMMON_LOOKUP_CONTEXT column contains a valid table name.
+SQL> 
+SQL> UPDATE common_lookup
+  2  SET common_lookup_column = common_lookup_context || '_TYPE'
+  3  WHERE common_lookup_context <> 'MULTIPLE';
+
+18 rows updated.
+
+SQL> 
+SQL> COLUMN common_lookup_context  FORMAT A14  HEADING "Common|Lookup Context"
+SQL> COLUMN common_lookup_table    FORMAT A12  HEADING "Common|Lookup Table"
+SQL> COLUMN common_lookup_column   FORMAT A18  HEADING "Common|Lookup Column"
+SQL> COLUMN common_lookup_type	   FORMAT A18  HEADING "Common|Lookup Type"
+SQL> SELECT   common_lookup_context
+  2  ,	      common_lookup_table
+  3  ,	      common_lookup_column
+  4  ,	      common_lookup_type
+  5  FROM     common_lookup
+  6  WHERE    common_lookup_table IN
+  7  	       (SELECT table_name
+  8  		FROM   user_tables)
+  9  ORDER BY 1, 2, 3;
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+CONTACT        CONTACT      CONTACT_TYPE       EMPLOYEE                         
+CONTACT        CONTACT      CONTACT_TYPE       CUSTOMER                         
+ITEM           ITEM         ITEM_TYPE          DVD_WIDE_SCREEN                  
+ITEM           ITEM         ITEM_TYPE          NINTENDO_GAMECUBE                
+ITEM           ITEM         ITEM_TYPE          BLU-RAY                          
+ITEM           ITEM         ITEM_TYPE          PLAYSTATION2                     
+ITEM           ITEM         ITEM_TYPE          DVD_FULL_SCREEN                  
+ITEM           ITEM         ITEM_TYPE          XBOX                             
+MEMBER         MEMBER       MEMBER_TYPE        VISA_CARD                        
+MEMBER         MEMBER       MEMBER_TYPE        MASTER_CARD                      
+MEMBER         MEMBER       MEMBER_TYPE        GROUP                            
+MEMBER         MEMBER       MEMBER_TYPE        INDIVIDUAL                       
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+MEMBER         MEMBER       MEMBER_TYPE        DISCOVER_CARD                    
+MULTIPLE       ADDRESS                         WORK                             
+MULTIPLE       ADDRESS                         HOME                             
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   INDIVIDUAL                       
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   COST_CENTER                      
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   SYSTEM_GROUP                     
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   DBA                              
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   SYSTEM_ADMIN                     
+
+20 rows selected.
+
+SQL> 
+SQL> 
+SQL> --Update the COMMON_LOOKUP_COLUMN column with the value of 'ADDRESS_TYPE' string where the COMMON_LOOKUP_CONTEXT column contains a MULTIPLE string.
+SQL> --The table will look like the following after migrating COMMON_LOOKUP_CONTEXT values to the COMMON_LOOKUP_TABLE and COMMON_LOOKUP_COLUMN column values:--
+SQL> 
+SQL> 
+SQL> -- part 4 c 5---
+SQL> --Update the COMMON_LOOKUP_COLUMN column with the value of 'ADDRESS_TYPE' string where the COMMON_LOOKUP_CONTEXT column contains a MULTIPLE string.
+SQL> --The table will look like the following after migrating COMMON_LOOKUP_CONTEXT values to the COMMON_LOOKUP_TABLE and COMMON_LOOKUP_COLUMN column values:--
+SQL>  UPDATE common_lookup
+  2   SET common_lookup_column = 'ADDRESS_TYPE'
+  3   WHERE common_lookup_context = 'MULTIPLE';
+
+2 rows updated.
+
+SQL> 
+SQL> COLUMN common_lookup_context  FORMAT A14  HEADING "Common|Lookup Context"
+SQL> COLUMN common_lookup_table    FORMAT A12  HEADING "Common|Lookup Table"
+SQL> COLUMN common_lookup_column   FORMAT A18  HEADING "Common|Lookup Column"
+SQL> COLUMN common_lookup_type	   FORMAT A18  HEADING "Common|Lookup Type"
+SQL> SELECT   common_lookup_context
+  2  ,	      common_lookup_table
+  3  ,	      common_lookup_column
+  4  ,	      common_lookup_type
+  5  FROM     common_lookup
+  6  WHERE    common_lookup_table IN
+  7  	       (SELECT table_name
+  8  		FROM   user_tables)
+  9  ORDER BY 1, 2, 3;
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+CONTACT        CONTACT      CONTACT_TYPE       EMPLOYEE                         
+CONTACT        CONTACT      CONTACT_TYPE       CUSTOMER                         
+ITEM           ITEM         ITEM_TYPE          DVD_WIDE_SCREEN                  
+ITEM           ITEM         ITEM_TYPE          NINTENDO_GAMECUBE                
+ITEM           ITEM         ITEM_TYPE          BLU-RAY                          
+ITEM           ITEM         ITEM_TYPE          PLAYSTATION2                     
+ITEM           ITEM         ITEM_TYPE          DVD_FULL_SCREEN                  
+ITEM           ITEM         ITEM_TYPE          XBOX                             
+MEMBER         MEMBER       MEMBER_TYPE        VISA_CARD                        
+MEMBER         MEMBER       MEMBER_TYPE        MASTER_CARD                      
+MEMBER         MEMBER       MEMBER_TYPE        GROUP                            
+MEMBER         MEMBER       MEMBER_TYPE        INDIVIDUAL                       
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+MEMBER         MEMBER       MEMBER_TYPE        DISCOVER_CARD                    
+MULTIPLE       ADDRESS      ADDRESS_TYPE       WORK                             
+MULTIPLE       ADDRESS      ADDRESS_TYPE       HOME                             
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   INDIVIDUAL                       
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   COST_CENTER                      
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   SYSTEM_GROUP                     
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   DBA                              
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   SYSTEM_ADMIN                     
+
+20 rows selected.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> /* -------------------------------------------------------------------
+>  --part 4 d Add two new rows to the COMMON_LOOKUP table to support the 'HOME' and 'WORK' possibilities for the TELEPHONE_TYPE column. The following shows you what to insert into the COMMON_LOOKUP table:
+SQL> Table Name: COMMON_LOOKUP
+SQL> Table   Column  Code    Type    Meaning
+SQL> TEELEPHONE
+SQL> TELEPHONE_TYPE
+SQL> HOME
+SQL> Home
+SQL> 
+SQL> 
+SQL> TELEPHONE
+SQL> TELEPHONE_TYPE
+SQL> WORK
+SQL> Work;
+SQL> You should insert the required two rows by using the following named notation signature for the INSERT statement:
+SQL>  ---------------------------------------------------------------------*/
+SQL>  INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      'TELEPHONE'
+  5   ,      'HOME'
+  6   ,      'HOME'
+  7   ,      1
+  8   ,      SYSDATE
+  9   ,      1
+ 10   ,      SYSDATE
+ 11   ,      'TELEPHONE'
+ 12   ,      'TELEPHONE_TYPE'
+ 13   ,      '');
+
+1 row created.
+
+SQL> 
+SQL>  INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      'TELEPHONE'
+  5   ,      'WORK'
+  6   ,      'WORK'
+  7   ,      1
+  8   ,      SYSDATE
+  9   ,      1
+ 10   ,      SYSDATE
+ 11   ,      'TELEPHONE'
+ 12   ,      'TELEPHONE_TYPE'
+ 13   ,      '');
+
+1 row created.
+
+SQL> 
+SQL>  COLUMN common_lookup_context  FORMAT A14	HEADING "Common|Lookup Context"
+SQL> COLUMN common_lookup_table    FORMAT A12  HEADING "Common|Lookup Table"
+SQL> COLUMN common_lookup_column   FORMAT A18  HEADING "Common|Lookup Column"
+SQL> COLUMN common_lookup_type	   FORMAT A18  HEADING "Common|Lookup Type"
+SQL> SELECT   common_lookup_context
+  2  ,	      common_lookup_table
+  3  ,	      common_lookup_column
+  4  ,	      common_lookup_type
+  5  FROM     common_lookup
+  6  WHERE    common_lookup_table IN
+  7  	       (SELECT table_name
+  8  		FROM   user_tables)
+  9  ORDER BY 1, 2, 3;
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+CONTACT        CONTACT      CONTACT_TYPE       EMPLOYEE                         
+CONTACT        CONTACT      CONTACT_TYPE       CUSTOMER                         
+ITEM           ITEM         ITEM_TYPE          DVD_WIDE_SCREEN                  
+ITEM           ITEM         ITEM_TYPE          NINTENDO_GAMECUBE                
+ITEM           ITEM         ITEM_TYPE          PLAYSTATION2                     
+ITEM           ITEM         ITEM_TYPE          XBOX                             
+ITEM           ITEM         ITEM_TYPE          BLU-RAY                          
+ITEM           ITEM         ITEM_TYPE          DVD_FULL_SCREEN                  
+MEMBER         MEMBER       MEMBER_TYPE        VISA_CARD                        
+MEMBER         MEMBER       MEMBER_TYPE        MASTER_CARD                      
+MEMBER         MEMBER       MEMBER_TYPE        DISCOVER_CARD                    
+MEMBER         MEMBER       MEMBER_TYPE        GROUP                            
+
+Common         Common       Common             Common                           
+Lookup Context Lookup Table Lookup Column      Lookup Type                      
+-------------- ------------ ------------------ ------------------               
+MEMBER         MEMBER       MEMBER_TYPE        INDIVIDUAL                       
+MULTIPLE       ADDRESS      ADDRESS_TYPE       WORK                             
+MULTIPLE       ADDRESS      ADDRESS_TYPE       HOME                             
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   INDIVIDUAL                       
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   COST_CENTER                      
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   SYSTEM_GROUP                     
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   SYSTEM_ADMIN                     
+SYSTEM_USER    SYSTEM_USER  SYSTEM_USER_TYPE   DBA                              
+TELEPHONE      TELEPHONE    TELEPHONE_TYPE     HOME                             
+TELEPHONE      TELEPHONE    TELEPHONE_TYPE     WORK                             
+
+22 rows selected.
+
+SQL> 
+SQL> 
+SQL>  -------------------------------------------------------------------
+SQL>  --part 4 e
+SQL>  ---------------------------------------------------------------------
+SQL>  ---4.e.1
+SQL>  --You must get rid of old and now obsolete COMMON_LOOKUP_CONTEXT column.--
+SQL>   ALTER TABLE common_lookup
+  2    DROP COLUMN COMMON_LOOKUP_CONTEXT;
+
+Table altered.
+
+SQL> 
+SQL>   SET NULL ''
+SQL> COLUMN table_name	 FORMAT A14
+SQL> COLUMN column_id	 FORMAT 9999
+SQL> COLUMN column_name  FORMAT A22
+SQL> COLUMN data_type	 FORMAT A12
+SQL> SELECT   table_name
+  2  ,	      column_id
+  3  ,	      column_name
+  4  ,	      CASE
+  5  		WHEN nullable = 'N' THEN 'NOT NULL'
+  6  		ELSE ''
+  7  	      END AS nullable
+  8  ,	      CASE
+  9  		WHEN data_type IN ('CHAR','VARCHAR2','NUMBER') THEN
+ 10  		  data_type||'('||data_length||')'
+ 11  		ELSE
+ 12  		  data_type
+ 13  	      END AS data_type
+ 14  FROM     user_tab_columns
+ 15  WHERE    table_name = 'COMMON_LOOKUP'
+ 16  ORDER BY 2;
+
+                         Column                                                 
+Table Name     COLUMN_ID Name                   NULLABLE DATA_TYPE              
+-------------- --------- ---------------------- -------- ------------           
+COMMON_LOOKUP          1 COMMON_LOOKUP_ID       NOT NULL NUMBER(22)             
+COMMON_LOOKUP          2 COMMON_LOOKUP_TYPE     NOT NULL VARCHAR2(30)           
+COMMON_LOOKUP          3 COMMON_LOOKUP_MEANING  NOT NULL VARCHAR2(30)           
+COMMON_LOOKUP          4 CREATED_BY             NOT NULL NUMBER(22)             
+COMMON_LOOKUP          5 CREATION_DATE          NOT NULL DATE                   
+COMMON_LOOKUP          6 LAST_UPDATED_BY        NOT NULL NUMBER(22)             
+COMMON_LOOKUP          7 LAST_UPDATE_DATE       NOT NULL DATE                   
+COMMON_LOOKUP          8 COMMON_LOOKUP_TABLE             VARCHAR2(30)           
+COMMON_LOOKUP          9 COMMON_LOOKUP_COLUMN            VARCHAR2(30)           
+COMMON_LOOKUP         10 COMMON_LOOKUP_CODE              VARCHAR2(30)           
+
+10 rows selected.
+
+SQL> 
+SQL>   ---4.e.2 & 3---
+SQL>   --Add a NOT NULL constraint to the COMMON_LOOKUP_TABLE column.--
+SQL> ALTER TABLE common_lookup
+  2  MODIFY (common_lookup_table  VARCHAR2(30) CONSTRAINT NN_CLOOKUP_8 NOT NULL);
+
+Table altered.
+
+SQL> 
+SQL> ALTER TABLE common_lookup
+  2  MODIFY (common_lookup_column VARCHAR2(30) CONSTRAINT NN_CLOOKUP_9 NOT NULL);
+
+Table altered.
+
+SQL> 
+SQL> 	COLUMN constraint_name	 FORMAT A22  HEADING "Constraint Name"
+SQL> COLUMN search_condition  FORMAT A36  HEADING "Search Condition"
+SQL> COLUMN constraint_type   FORMAT A10  HEADING "Constraint|Type"
+SQL> SELECT   uc.constraint_name
+  2  ,	      uc.search_condition
+  3  ,	      uc.constraint_type
+  4  FROM     user_constraints uc INNER JOIN user_cons_columns ucc
+  5  ON       uc.table_name = ucc.table_name
+  6  AND      uc.constraint_name = ucc.constraint_name
+  7  WHERE    uc.table_name = UPPER('common_lookup')
+  8  AND      uc.constraint_type IN (UPPER('c'),UPPER('p'))
+  9  ORDER BY uc.constraint_type DESC
+ 10  ,	      uc.constraint_name;
+
+                                                            Constraint          
+Constraint Name        Search Condition                     Type                
+---------------------- ------------------------------------ ----------          
+PK_CLOOKUP_1                                                P                   
+NN_CLOOKUP_2           "COMMON_LOOKUP_TYPE" IS NOT NULL     C                   
+NN_CLOOKUP_3           "COMMON_LOOKUP_MEANING" IS NOT NULL  C                   
+NN_CLOOKUP_4           "CREATED_BY" IS NOT NULL             C                   
+NN_CLOOKUP_5           "CREATION_DATE" IS NOT NULL          C                   
+NN_CLOOKUP_6           "LAST_UPDATED_BY" IS NOT NULL        C                   
+NN_CLOOKUP_7           "LAST_UPDATE_DATE" IS NOT NULL       C                   
+NN_CLOOKUP_8           "COMMON_LOOKUP_TABLE" IS NOT NULL    C                   
+NN_CLOOKUP_9           "COMMON_LOOKUP_COLUMN" IS NOT NULL   C                   
+
+9 rows selected.
+
+SQL> 
+SQL>  ---4.e.4--
+SQL>   -- Add a unique index using the following three columns:
+SQL> CREATE INDEX clookup_u1
+  2  ON common_lookup(COMMON_LOOKUP_TABLE, COMMON_LOOKUP_COLUMN, COMMON_LOOKUP_TYPE);
+
+Index created.
+
+SQL> 
+SQL> COLUMN sequence_name   FORMAT A22 HEADING "Sequence Name"
+SQL> COLUMN column_position FORMAT 999 HEADING "Column|Position"
+SQL> COLUMN column_name     FORMAT A22 HEADING "Column|Name"
+SQL> SELECT   UI.index_name
+  2  ,	      uic.column_position
+  3  ,	      uic.column_name
+  4  FROM     user_indexes UI INNER JOIN user_ind_columns uic
+  5  ON       UI.index_name = uic.index_name
+  6  AND      UI.table_name = uic.table_name
+  7  WHERE    UI.table_name = UPPER('common_lookup')
+  8  ORDER BY UI.index_name
+  9  ,	      uic.column_position;
+
+                       Column Column                                            
+Index Name           Position Name                                              
+-------------------- -------- ----------------------                            
+CLOOKUP_U1                  1 COMMON_LOOKUP_TABLE                               
+CLOOKUP_U1                  2 COMMON_LOOKUP_COLUMN                              
+CLOOKUP_U1                  3 COMMON_LOOKUP_TYPE                                
+PK_CLOOKUP_1                1 COMMON_LOOKUP_ID                                  
+
+4 rows selected.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 	      -------------------------------------------------------------------
+SQL>  --part 4 f
+SQL>  ---------------------------------------------------------------------
+SQL> 
+SQL>  -- The last step requires that you update incorrect foreign key values in the telephone table. They are invalid because the rows in the COMMON_LOOKUP table that once supported both the ADDRESS and TELEPHONE tables now only supports the ADDRESS table. You need to copy the values of the correct COMMON_LOOKUP_ID column values (the surrogate primary key column) into the TELEPHONE_TYPE column of the TELEPHONE table.
+SQL> 
+SQL> --You should structure and UPDATE statement that sets the TELEPHONE_TYPE column values equal to the correct values where they are currently the obsolete values. --
+SQL>  UPDATE telephone
+  2   SET telephone_type = (SELECT common_lookup_id
+  3  			 FROM common_lookup WHERE common_lookup_table = 'TELEPHONE'
+  4  			 AND common_lookup_meaning = 'HOME');
+
+15 rows updated.
+
+SQL> 
+SQL>  COLUMN common_lookup_table  FORMAT A14 HEADING "Common|Lookup Table"
+SQL> COLUMN common_lookup_column FORMAT A14 HEADING "Common|Lookup Column"
+SQL> COLUMN common_lookup_type	 FORMAT A8  HEADING "Common|Lookup|Type"
+SQL> COLUMN count_dependent	 FORMAT 999 HEADING "Count of|Foreign|Keys"
+SQL> COLUMN count_lookup	 FORMAT 999 HEADING "Count of|Primary|Keys"
+SQL> SELECT   cl.common_lookup_table
+  2  ,	      cl.common_lookup_column
+  3  ,	      cl.common_lookup_type
+  4  ,	      COUNT(a.address_id) AS count_dependent
+  5  ,	      COUNT(DISTINCT cl.common_lookup_table) AS count_lookup
+  6  FROM     address a RIGHT JOIN common_lookup cl
+  7  ON       a.address_type = cl.common_lookup_id
+  8  WHERE    cl.common_lookup_table = 'ADDRESS'
+  9  AND      cl.common_lookup_column = 'ADDRESS_TYPE'
+ 10  AND      cl.common_lookup_type IN ('HOME','WORK')
+ 11  GROUP BY cl.common_lookup_table
+ 12  ,	      cl.common_lookup_column
+ 13  ,	      cl.common_lookup_type
+ 14  UNION
+ 15  SELECT   cl.common_lookup_table
+ 16  ,	      cl.common_lookup_column
+ 17  ,	      cl.common_lookup_type
+ 18  ,	      COUNT(t.telephone_id) AS count_dependent
+ 19  ,	      COUNT(DISTINCT cl.common_lookup_table) AS count_lookup
+ 20  FROM     telephone t RIGHT JOIN common_lookup cl
+ 21  ON       t.telephone_type = cl.common_lookup_id
+ 22  WHERE    cl.common_lookup_table = 'TELEPHONE'
+ 23  AND      cl.common_lookup_column = 'TELEPHONE_TYPE'
+ 24  AND      cl.common_lookup_type IN ('HOME','WORK')
+ 25  GROUP BY cl.common_lookup_table
+ 26  ,	      cl.common_lookup_column
+ 27  ,	      cl.common_lookup_type;
+
+                              Common   Count of Count of                        
+Common         Common         Lookup    Foreign  Primary                        
+Lookup Table   Lookup Column  Type         Keys     Keys                        
+-------------- -------------- -------- -------- --------                        
+ADDRESS        ADDRESS_TYPE   HOME           15        1                        
+ADDRESS        ADDRESS_TYPE   WORK            0        1                        
+TELEPHONE      TELEPHONE_TYPE HOME           15        1                        
+TELEPHONE      TELEPHONE_TYPE WORK            0        1                        
+
+4 rows selected.
+
+SQL> 
+SQL> SPOOL OFF

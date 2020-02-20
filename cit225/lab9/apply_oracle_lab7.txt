@@ -1,0 +1,958 @@
+SQL> 
+SQL> ---- ---------------------------------------------Step #1----------------------------------------------------------
+SQL> /*-- Step #1 instructions ----------------------
+> --  -------You write two INSERT statements to the COMMON_LOOKUP table.--
+SQL> 
+SQL> --   insert two new ROWS into the COMMON_LOOKUP table to support the ACTIVE_FLAG column in the PRICE table that you created in Lab #6: --
+SQL> --  Insert two ACTIVE_FLAG records in the COMMON_LOOKUP table.*/
+SQL> 
+SQL> /* follow this table while creating
+SQL> 
+SQL> Table Name: COMMON_LOOKUP
+SQL> 
+SQL> Table   Column	   Code      Type    Meaning
+SQL> PRICE   ACTIVE_FLAG	Y    YES	    Yes
+SQL> PRICE   ACTIVE_FLAG	N    NO 	     No */
+SQL> 
+SQL> 			 -- *****Insert step #1 statements here*****--
+SQL>  INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      'YES'
+  5   ,      'Yes'
+  6   ,      1
+  7   ,      SYSDATE
+  8   ,      1
+  9   ,      SYSDATE
+ 10   ,      'PRICE'
+ 11   ,      'ACTIVE_FLAG'
+ 12   ,      'Y');
+
+1 row created.
+
+SQL> 
+SQL>  INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      'NO'
+  5   ,      'No'
+  6   ,      1
+  7   ,      SYSDATE
+  8   ,      1
+  9   ,      SYSDATE
+ 10   ,      'PRICE'
+ 11   ,      'ACTIVE_FLAG'
+ 12   ,      'N');
+
+1 row created.
+
+SQL> 
+SQL> COLUMN common_lookup_table  FORMAT A20 HEADING "COMMON_LOOKUP_TABLE"
+SQL> COLUMN common_lookup_column FORMAT A20 HEADING "COMMON_LOOKUP_COLUMN"
+SQL> COLUMN common_lookup_type	 FORMAT A20 HEADING "COMMON_LOOKUP_TYPE"
+SQL> SELECT   common_lookup_table
+  2  ,	      common_lookup_column
+  3  ,	      common_lookup_type
+  4  FROM     common_lookup
+  5  WHERE    common_lookup_table = 'PRICE'
+  6  AND      common_lookup_column = 'ACTIVE_FLAG'
+  7  ORDER BY 1, 2, 3 DESC;
+
+COMMON_LOOKUP_TABLE  COMMON_LOOKUP_COLUMN COMMON_LOOKUP_TYPE                    
+-------------------- -------------------- --------------------                  
+PRICE                ACTIVE_FLAG          YES                                   
+PRICE                ACTIVE_FLAG          NO                                    
+
+2 rows selected.
+
+SQL> 
+SQL> /* 1 should display:
+SQL> COMMON_LOOKUP_TABLE  COMMON_LOOKUP_COLUMN COMMON_LOOKUP_TYPE
+SQL> -------------------- -------------------- --------------------
+SQL> PRICE		  ACTIVE_FLAG	       YES
+SQL> PRICE		  ACTIVE_FLAG	       NO
+SQL> 2 rows selected.
+SQL> -- --------------------------------------------------------*/
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> ---- ---------------------------------------------Step #2----------------------------------------------------------
+SQL> /*-- Step #2-------------------------------------
+> -- Insert three new rows into the COMMON_LOOKUP table to support the PRICE_TYPE column in the PRICE table, and three new rows into the COMMON_LOOKUP table to support the RENTAL_ITEM_TYPE column in the RENTAL_ITEM table.
+SQL> --  -------
+SQL> --  Insert three PRICE_TYPE and three RENTAL_ITEM_TYPE
+SQL> --  records in the COMMON_LOOKUP table.
+SQL> -- --------------------------------------------------------
+SQL> --You write six INSERT statements to the COMMON_LOOKUP table.-- */
+SQL> /* follow this table while creating
+SQL> 
+SQL> Table Name: COMMON_LOOKUP
+SQL> Table	    Column	     Code    Type	     Meaning
+SQL> PRICE	    PRICE_TYPE		  1	1-DAY RENTAL   1-Day Rental
+SQL> PRICE	    PRICE_TYPE		  3	3-DAY RENTAL   3-Day Rental
+SQL> PRICE	    PRICE_TYPE		  5	5-DAY RENTAL   5-Day Rental
+SQL> RENTAL_ITEM	RENTAL_ITEM_TYPE      1 	1-DAY RENTAL   1-Day Rental
+SQL> RENTAL_ITEM	RENTAL_ITEM_TYPE      3 	3-DAY RENTAL   3-Day Rental
+SQL> RENTAL_ITEM	RENTAL_ITEM_TYPE      5 	5-DAY RENTAL   5-Day Rental   */
+SQL> 
+SQL> 		 -- *****Insert step #2 statements here*****--
+SQL> 
+SQL> INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      '1-DAY RENTAL'
+  5   ,      '1-DAY RENTAL'
+  6   ,      1
+  7   ,      SYSDATE
+  8   ,      1
+  9   ,      SYSDATE
+ 10   ,      'PRICE'
+ 11   ,      'PRICE_TYPE'
+ 12   ,      '1');
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL> INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      '3-DAY RENTAL'
+  5   ,      '3-DAY RENTAL'
+  6   ,      1
+  7   ,      SYSDATE
+  8   ,      1
+  9   ,      SYSDATE
+ 10   ,      'PRICE'
+ 11   ,      'PRICE_TYPE'
+ 12   ,      '3');
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL> INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      '5-DAY RENTAL'
+  5   ,      '5-DAY RENTAL'
+  6   ,      1
+  7   ,      SYSDATE
+  8   ,      1
+  9   ,      SYSDATE
+ 10   ,      'PRICE'
+ 11   ,      'PRICE_TYPE'
+ 12   ,      '5');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      '1-DAY RENTAL'
+  5   ,      '1-DAY RENTAL'
+  6   ,      1
+  7   ,      SYSDATE
+  8   ,      1
+  9   ,      SYSDATE
+ 10   ,      'RENTAL_ITEM'
+ 11   ,      'RENTAL_ITEM_TYPE'
+ 12   ,      '1');
+
+1 row created.
+
+SQL> 
+SQL>  INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      '3-DAY RENTAL'
+  5   ,      '3-DAY RENTAL'
+  6   ,      1
+  7   ,      SYSDATE
+  8   ,      1
+  9   ,      SYSDATE
+ 10   ,      'RENTAL_ITEM'
+ 11   ,      'RENTAL_ITEM_TYPE'
+ 12   ,      '3');
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO common_lookup
+  2   VALUES
+  3   (common_lookup_s1.nextval
+  4   ,      '5-DAY RENTAL'
+  5   ,      '5-DAY RENTAL'
+  6   ,      1
+  7   ,      SYSDATE
+  8   ,      1
+  9   ,      SYSDATE
+ 10   ,      'RENTAL_ITEM'
+ 11   ,      'RENTAL_ITEM_TYPE'
+ 12   ,      '5');
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL> COLUMN common_lookup_table  FORMAT A20 HEADING "COMMON_LOOKUP_TABLE"
+SQL> COLUMN common_lookup_column FORMAT A20 HEADING "COMMON_LOOKUP_COLUMN"
+SQL> COLUMN common_lookup_type	 FORMAT A20 HEADING "COMMON_LOOKUP_TYPE"
+SQL> SELECT   common_lookup_table
+  2  ,	      common_lookup_column
+  3  ,	      common_lookup_type
+  4  FROM     common_lookup
+  5  WHERE    common_lookup_table IN ('PRICE','RENTAL_ITEM')
+  6  AND      common_lookup_column IN ('PRICE_TYPE','RENTAL_ITEM_TYPE')
+  7  ORDER BY 1, 3;
+
+COMMON_LOOKUP_TABLE  COMMON_LOOKUP_COLUMN COMMON_LOOKUP_TYPE                    
+-------------------- -------------------- --------------------                  
+PRICE                PRICE_TYPE           1-DAY RENTAL                          
+PRICE                PRICE_TYPE           3-DAY RENTAL                          
+PRICE                PRICE_TYPE           5-DAY RENTAL                          
+RENTAL_ITEM          RENTAL_ITEM_TYPE     1-DAY RENTAL                          
+RENTAL_ITEM          RENTAL_ITEM_TYPE     3-DAY RENTAL                          
+RENTAL_ITEM          RENTAL_ITEM_TYPE     5-DAY RENTAL                          
+
+6 rows selected.
+
+SQL> 
+SQL> /* 2 should display
+SQL> 
+SQL> COMMON_LOOKUP_TABLE  COMMON_LOOKUP_COLUMN COMMON_LOOKUP_TYPE
+SQL> -------------------- -------------------- --------------------
+SQL> PRICE		  PRICE_TYPE	       1-DAY RENTAL
+SQL> PRICE		  PRICE_TYPE	       3-DAY RENTAL
+SQL> PRICE		  PRICE_TYPE	       5-DAY RENTAL
+SQL> RENTAL_ITEM	  RENTAL_ITEM_TYPE     1-DAY RENTAL
+SQL> RENTAL_ITEM	  RENTAL_ITEM_TYPE     3-DAY RENTAL
+SQL> RENTAL_ITEM	  RENTAL_ITEM_TYPE     5-DAY RENTAL
+SQL> 
+SQL> 6 rows selected. */
+SQL> 
+SQL> 
+SQL> 
+SQL> /*-- ---------------------------------------------Step #3--------------------------------------------------------
+> --  6 points] You added a RENTAL_ITEM_PRICE and RENTAL_ITEM_TYPE columns in the previous (Lab #6). Here you update the RENTAL_ITEM_TYPE column with values for all pre-existing rows. After you have updated the pre-existing rows, you add a NOT NULL constraint on the RENTAL_ITEM_TYPE column.
+SQL> 
+SQL> You update the null values in RENTAL_ITEM_TYPE column of the RENTAL_ITEM table with a correlated UPDATE
+SQL> 	 statement; and then you enable a NOT NULL constraint not the RENTAL_ITEM_TYPE column.
+SQL> --  -------
+SQL> --  Update the RENTAL_ITEM_TYPE column values and add a
+SQL> --  foreign key constraint on the RENTAL_ITEM_TYPE column.
+SQL> -- --------------------------------------------------------*/
+SQL> --OVERRAL WHAT YOU DO IN 3 [6 points] You added a RENTAL_ITEM_PRICE and RENTAL_ITEM_TYPE columns in the previous (Lab #6). Here you update the RENTAL_ITEM_TYPE column with values for all pre-existing rows. After you have updated the pre-existing rows, you add a NOT NULL constraint on the RENTAL_ITEM_TYPE column. --
+SQL> 
+SQL> 
+SQL> 
+SQL> /* Instructions for 3.A.1.........................
+SQL> You update the null values in RENTAL_ITEM_TYPE column of the RENTAL_ITEM table with a correlated UPDATE
+SQL> statement; and then you enable a NOT NULL constraint not the RENTAL_ITEM_TYPE column.
+SQL> 
+SQL> Update the rental_item_type column with values for all pre-existing rows,
+SQL> so you can add a FOREIGN KEY and NOT NULL constraint on the rental_item_type column in steps b and c respectively.
+SQL> You can not populate the rental_item_price until you get to Lab #8. */
+SQL> 
+SQL> /* follow this table while creating
+SQL> 
+SQL> Table Name: RENTAL_ITEM
+SQL> 
+SQL> Column Name	    Constraint
+SQL> 			 ___________________________________________________	Data	    Physical
+SQL> 			  Type		 Refrence Table     Refrence Column	    Type	Size
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL>  RENTAL_ITEM_TYPE	      FOREIGN KEY
+SQL> 			 ___________________________________________________	Data	    Physical
+SQL> 			  NOT NULL	COMMON_LOOKUP	COMMON_LOOKUP_ID	INTEGER      MAX
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 	RENTAL_ITEM_TYPE
+SQL> 			 ___________________________________________________	Data	    Physical
+SQL> 			  NOT NULL						INTEGER      MAX    */
+SQL> 
+SQL> 			    -- Insert step #3.a.1 statements here.
+SQL> 		     /*
+SQL>  UPDATE telephone
+SQL>  SET telephone_type = (SELECT common_lookup_id
+SQL> 			 FROM common_lookup WHERE common_lookup_table = 'TELEPHONE'
+SQL> 			 AND common_lookup_meaning = 'HOME'); */
+SQL> 
+SQL> UPDATE   rental_item ri
+  2  SET      rental_item_type =
+  3  		(SELECT   cl.common_lookup_id
+  4  		 FROM	  common_lookup cl
+  5  		 WHERE	  cl.common_lookup_code =
+  6  		   (SELECT   r.return_date - r.check_out_date
+  7  		    FROM     rental r
+  8  		    WHERE    r.rental_id = ri.rental_id)
+  9  		 AND	  cl.common_lookup_table = 'RENTAL_ITEM'
+ 10  		 AND	  cl.common_lookup_column = 'RENTAL_ITEM_TYPE');
+
+13 rows updated.
+
+SQL> 
+SQL> 
+SQL> COLUMN table_name	 FORMAT A14
+SQL> COLUMN column_id	 FORMAT 9999
+SQL> COLUMN column_name  FORMAT A22
+SQL> COLUMN data_type	 FORMAT A12
+SQL> SELECT   table_name
+  2  ,	      column_id
+  3  ,	      column_name
+  4  ,	      CASE
+  5  		WHEN nullable = 'N' THEN 'NOT NULL'
+  6  		ELSE ''
+  7  	      END AS nullable
+  8  ,	      CASE
+  9  		WHEN data_type IN ('CHAR','VARCHAR2','NUMBER') THEN
+ 10  		  data_type||'('||data_length||')'
+ 11  		ELSE
+ 12  		  data_type
+ 13  	      END AS data_type
+ 14  FROM     user_tab_columns
+ 15  WHERE    table_name = 'RENTAL_ITEM'
+ 16  ORDER BY 2;
+
+                         Column                                                 
+Table Name     Column ID Name                   Nullable Data Type              
+-------------- --------- ---------------------- -------- ------------           
+RENTAL_ITEM            1 RENTAL_ITEM_ID         NOT NULL NUMBER(22)             
+RENTAL_ITEM            2 RENTAL_ID              NOT NULL NUMBER(22)             
+RENTAL_ITEM            3 ITEM_ID                NOT NULL NUMBER(22)             
+RENTAL_ITEM            4 CREATED_BY             NOT NULL NUMBER(22)             
+RENTAL_ITEM            5 CREATION_DATE          NOT NULL DATE                   
+RENTAL_ITEM            6 LAST_UPDATED_BY        NOT NULL NUMBER(22)             
+RENTAL_ITEM            7 LAST_UPDATE_DATE       NOT NULL DATE                   
+RENTAL_ITEM            8 RENTAL_ITEM_PRICE               NUMBER(22)             
+RENTAL_ITEM            9 RENTAL_ITEM_TYPE                NUMBER(22)             
+
+9 rows selected.
+
+SQL> 
+SQL> /* 3.A.1 should display
+SQL> TABLE_NAME     COLUMN_ID COLUMN_NAME	     NULLABLE DATA_TYPE
+SQL> -------------- --------- ---------------------- -------- ------------
+SQL> RENTAL_ITEM	    1 RENTAL_ITEM_ID	     NOT NULL NUMBER(22)
+SQL> RENTAL_ITEM	    2 RENTAL_ID 	     NOT NULL NUMBER(22)
+SQL> RENTAL_ITEM	    3 ITEM_ID		     NOT NULL NUMBER(22)
+SQL> RENTAL_ITEM	    4 CREATED_BY	     NOT NULL NUMBER(22)
+SQL> RENTAL_ITEM	    5 CREATION_DATE	     NOT NULL DATE
+SQL> RENTAL_ITEM	    6 LAST_UPDATED_BY	     NOT NULL NUMBER(22)
+SQL> RENTAL_ITEM	    7 LAST_UPDATE_DATE	     NOT NULL DATE
+SQL> RENTAL_ITEM	    8 RENTAL_ITEM_TYPE		      NUMBER(22)
+SQL> RENTAL_ITEM	    9 RENTAL_ITEM_PRICE 	      NUMBER(22)
+SQL> 
+SQL> 9 rows selected. */
+SQL> 
+SQL> 
+SQL> 	     UPDATE   rental_item ri
+  2  	     SET      rental_item_type =
+  3  		(SELECT   cl.common_lookup_id
+  4  		 FROM	  common_lookup cl
+  5  		 WHERE	  cl.common_lookup_code =
+  6  		   (SELECT   r.return_date - r.check_out_date
+  7  		    FROM     rental r
+  8  		    WHERE    r.rental_id = ri.rental_id)
+  9  		 AND	  cl.common_lookup_table = 'RENTAL_ITEM'
+ 10  		 AND	  cl.common_lookup_column = 'RENTAL_ITEM_TYPE');
+
+13 rows updated.
+
+SQL> 
+SQL> 
+SQL>   --You should use the following to verify that the UPDATE statement worked successfully in this step:--
+SQL> 	 SELECT   ROW_COUNT
+  2  	 ,	  col_count
+  3  	 FROM	 (SELECT   COUNT(*) AS ROW_COUNT
+  4  	      FROM     rental_item) rc CROSS JOIN
+  5  	     (SELECT   COUNT(rental_item_type) AS col_count
+  6  	      FROM     rental_item
+  7  	      WHERE    rental_item_type IS NOT NULL) cc;
+
+ ROW_COUNT  COL_COUNT                                                           
+---------- ----------                                                           
+        13         13                                                           
+
+1 row selected.
+
+SQL> 
+SQL> /* 3a2 should display
+SQL> ROW_COUNT	COL_COUNT
+SQL> ---------- ----------
+SQL> 	     13 	13
+SQL> 
+SQL> 1 row selected.*/
+SQL> 
+SQL> 
+SQL>   -- START OF #3B --.
+SQL> /*---instructions 3b
+SQL> 	     Add the FK_RENTAL_ITEM_7 foreign key to the RENTAL_ITEM table.
+SQL> 	     The FK_RENTAL_ITEM_7 foreign key belongs on the RENTAL_ITEM_TYPE column
+SQL> 	     of the RENTAL_ITEM table and references the COMMON_LOOKUP_ID column of the COMMON_LOOKUP table. */
+SQL> 
+SQL> 				     -- Insert step #3.b statements here.
+SQL> 
+SQL>   ALTER TABLE RENTAL_ITEM
+  2  ADD CONSTRAINT FK_RENTAL_ITEM_7 FOREIGN KEY (rental_item_type) REFERENCES COMMON_LOOKUP(COMMON_LOOKUP_ID);
+
+Table altered.
+
+SQL> 
+SQL> 
+SQL> 	  --The following query, lets you verify that you’ve set the foreign key constraint for the RENTAL_ITEM_TYPE column:--
+SQL> 	     COLUMN table_name	    FORMAT A12 HEADING "TABLE NAME"
+SQL> COLUMN constraint_name FORMAT A18 HEADING "CONSTRAINT NAME"
+SQL> COLUMN constraint_type FORMAT A12 HEADING "CONSTRAINT|TYPE"
+SQL> COLUMN column_name     FORMAT A18 HEADING "COLUMN NAME"
+SQL> SELECT   uc.table_name
+  2  ,	      uc.constraint_name
+  3  ,	      CASE
+  4  		WHEN uc.constraint_type = 'R' THEN
+  5  		 'FOREIGN KEY'
+  6  	      END AS constraint_type
+  7  ,	      ucc.column_name
+  8  FROM     user_constraints uc INNER JOIN user_cons_columns ucc
+  9  ON       uc.constraint_name = ucc.constraint_name
+ 10  WHERE    uc.table_name = 'RENTAL_ITEM'
+ 11  AND      ucc.column_name = 'RENTAL_ITEM_TYPE';
+
+                                CONSTRAINT                                      
+TABLE NAME   CONSTRAINT NAME    TYPE         COLUMN NAME                        
+------------ ------------------ ------------ ------------------                 
+RENTAL_ITEM  FK_RENTAL_ITEM_7   FOREIGN KEY  RENTAL_ITEM_TYPE                   
+
+1 row selected.
+
+SQL> 
+SQL> /*--3B should return
+SQL> CONSTRAINT
+SQL> TABLE NAME   CONSTRAINT NAME    TYPE	  COLUMN NAME
+SQL> ------------ ------------------ ------------ ------------------
+SQL> RENTAL_ITEM  FK_RENTAL_ITEM_7   FOREIGN KEY  RENTAL_ITEM_TYPE
+SQL> 
+SQL> 1 row selected. */
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL>   -- START OF #3c --.
+SQL> /* instruction 3c
+SQL> Change the RENTAL_ITEM_TYPE column of the RENTAL_ITEM table from a null allowed column to a not null constrained column. */
+SQL> 
+SQL> 
+SQL> -- Insert step #3.c statements here.
+SQL> 
+SQL> ALTER TABLE RENTAL_ITEM
+  2  MODIFY (RENTAL_ITEM_TYPE NUMBER CONSTRAINT NN_rental_item_7 NOT NULL);
+
+Table altered.
+
+SQL> 
+SQL> COLUMN CONSTRAINT FORMAT A10
+SQL> SELECT   TABLE_NAME
+  2  ,	      column_name
+  3  ,	      CASE
+  4  		WHEN NULLABLE = 'N' THEN 'NOT NULL'
+  5  		ELSE 'NULLABLE'
+  6  	      END AS CONSTRAINT
+  7  FROM     user_tab_columns
+  8  WHERE    TABLE_NAME = 'RENTAL_ITEM'
+  9  AND      column_name = 'RENTAL_ITEM_TYPE';
+
+TABLE NAME   COLUMN NAME        CONSTRAINT                                      
+------------ ------------------ ----------                                      
+RENTAL_ITEM  RENTAL_ITEM_TYPE   NOT NULL                                        
+
+1 row selected.
+
+SQL> 
+SQL> 
+SQL> /*--3c should display
+SQL> TABLE_NAME     COLUMN_NAME 	   CONSTRAINT
+SQL> -------------- ---------------------- ----------
+SQL> RENTAL_ITEM    RENTAL_ITEM_TYPE	   NOT NULL
+SQL> 
+SQL> 1 row selected.*/
+SQL> 
+SQL> - ---------------------------------------------Step #4--------------------------------------------------------
+> /*--Step #4 Instructions --------------------------------------------------------
+> --
+SP2-0734: unknown command beginning "- --------..." - rest of line ignored.
+SQL> You write the logic for the SELECT-list, which includes the use
+SP2-0734: unknown command beginning "You write ..." - rest of line ignored.
+SQL> of CASE operators; and the negation logic to filter out the
+SP2-0734: unknown command beginning "of CASE op..." - rest of line ignored.
+SQL> fabricated rows that do not apply to the data set.
+SP2-0734: unknown command beginning "fabricated..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> 
+SQL> The SELECT-list (or query) draws data from the current ITEM table and
+SP2-0734: unknown command beginning "The SELECT..." - rest of line ignored.
+SQL> adds values that let you calculate different value sets for the
+SP2-0734: unknown command beginning "adds value..." - rest of line ignored.
+SQL> ACTIVE_FLAG and AMOUNT column. Specifically, you must add the following values:
+SP2-0734: unknown command beginning "ACTIVE_FLA..." - rest of line ignored.
+SQL> 
+SQL> 			     ACTIVE_FLAG values: 'Y' and 'N'
+SP2-0734: unknown command beginning "ACTIVE_FLA..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> 			     AMOUNT values: '1', '3', '5', '10', and '15'
+SP2-0734: unknown command beginning "AMOUNT val..." - rest of line ignored.
+SQL> 
+SQL> You can fabricate the data set with a query like the example below. The sample query returns 24 (the number of) rows from the ITEM table times 2 rows from the fabrication of 'Y' and 'N' values times 3 rows from the fabrication of the '1', '3', and '5' rental day values. */
+SP2-0734: unknown command beginning "You can fa..." - rest of line ignored.
+SQL> 
+SQL> --  -------
+SQL> --  Create a query to fabricate pricing data that you
+SQL> --  will insert into a PRICE table in lab 8.
+SQL> -- --------------------------------------------------------
+SQL> 
+SQL> -- Insert step #4 statements here.--
+SQL> 
+SQL> 
+SQL> SELECT   i.item_id
+  2  ,	      af.active_flag
+  3  ,	      cl.common_lookup_id AS price_type
+  4  ,	      cl.common_lookup_type AS price_desc
+  5  ,	      CASE
+  6  		WHEN  (TRUNC(SYSDATE) - i.release_date) <= 30 OR
+  7  		(TRUNC(SYSDATE) - i.release_date > 30) AND af.active_flag = 'N' THEN i.release_date
+  8  		ELSE  i.release_date + 31
+  9  	      END AS start_date
+ 10  	      ,CASE
+ 11  	      WHEN (TRUNC(SYSDATE) - i.release_date > 30)  AND af.active_flag = 'N' THEN i.release_date + 30
+ 12  	      END AS end_date
+ 13  ,	      CASE
+ 14  		WHEN (TRUNC(SYSDATE) - i.release_date <= 30)  THEN
+ 15  		CASE
+ 16  		     WHEN dr.rental_days = 1 THEN 3
+ 17  		     WHEN  dr.rental_days = 3 THEN 10
+ 18  		     WHEN  dr.rental_days = 5 THEN 15
+ 19  		 END
+ 20  	     WHEN (TRUNC(SYSDATE) - i.release_date > 30)  AND af.active_flag = 'N' THEN
+ 21  	     CASE
+ 22  		WHEN  dr.rental_days = 1 THEN 3
+ 23  		WHEN  dr.rental_days = 3 THEN 10
+ 24  		WHEN  dr.rental_days = 5 THEN 15
+ 25  		END
+ 26  	     ELSE
+ 27  		CASE
+ 28  		 WHEN dr.rental_days = 1 THEN 1
+ 29  		 WHEN dr.rental_days = 3 THEN 3
+ 30  		 WHEN dr.rental_days = 5 THEN 5
+ 31  	       END
+ 32  	      END AS amount
+ 33  FROM     item i CROSS JOIN
+ 34  	     (SELECT 'Y' AS active_flag FROM dual
+ 35  	      UNION ALL
+ 36  	      SELECT 'N' AS active_flag FROM dual) af CROSS JOIN
+ 37  	     (SELECT '1' AS rental_days FROM dual
+ 38  	      UNION ALL
+ 39  	      SELECT '3' AS rental_days FROM dual
+ 40  	      UNION ALL
+ 41  	      SELECT '5' AS rental_days FROM dual) dr INNER JOIN
+ 42  	      common_lookup cl ON dr.rental_days = SUBSTR(cl.common_lookup_type,1,1)
+ 43  WHERE    cl.common_lookup_table = 'PRICE'
+ 44  AND      cl.common_lookup_column = 'PRICE_TYPE'
+ 45  AND NOT (af.active_flag = 'N' AND (TRUNC(SYSDATE) - 30) < i.release_date)	--Logic of A
+ 46  ORDER BY 1, 2, 3;
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1001 N       1020 1-DAY RENTAL 02-MAR-90 01-APR-90      3                      
+ 1001 N       1021 3-DAY RENTAL 02-MAR-90 01-APR-90     10                      
+ 1001 N       1022 5-DAY RENTAL 02-MAR-90 01-APR-90     15                      
+ 1001 Y       1020 1-DAY RENTAL 02-APR-90                1                      
+ 1001 Y       1021 3-DAY RENTAL 02-APR-90                3                      
+ 1001 Y       1022 5-DAY RENTAL 02-APR-90                5                      
+ 1002 N       1020 1-DAY RENTAL 04-MAY-99 03-JUN-99      3                      
+ 1002 N       1021 3-DAY RENTAL 04-MAY-99 03-JUN-99     10                      
+ 1002 N       1022 5-DAY RENTAL 04-MAY-99 03-JUN-99     15                      
+ 1002 Y       1020 1-DAY RENTAL 04-JUN-99                1                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1002 Y       1021 3-DAY RENTAL 04-JUN-99                3                      
+ 1002 Y       1022 5-DAY RENTAL 04-JUN-99                5                      
+ 1003 N       1020 1-DAY RENTAL 16-MAY-02 15-JUN-02      3                      
+ 1003 N       1021 3-DAY RENTAL 16-MAY-02 15-JUN-02     10                      
+ 1003 N       1022 5-DAY RENTAL 16-MAY-02 15-JUN-02     15                      
+ 1003 Y       1020 1-DAY RENTAL 16-JUN-02                1                      
+ 1003 Y       1021 3-DAY RENTAL 16-JUN-02                3                      
+ 1003 Y       1022 5-DAY RENTAL 16-JUN-02                5                      
+ 1004 N       1020 1-DAY RENTAL 16-MAY-02 15-JUN-02      3                      
+ 1004 N       1021 3-DAY RENTAL 16-MAY-02 15-JUN-02     10                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1004 N       1022 5-DAY RENTAL 16-MAY-02 15-JUN-02     15                      
+ 1004 Y       1020 1-DAY RENTAL 16-JUN-02                1                      
+ 1004 Y       1021 3-DAY RENTAL 16-JUN-02                3                      
+ 1004 Y       1022 5-DAY RENTAL 16-JUN-02                5                      
+ 1005 N       1020 1-DAY RENTAL 19-MAY-05 18-JUN-05      3                      
+ 1005 N       1021 3-DAY RENTAL 19-MAY-05 18-JUN-05     10                      
+ 1005 N       1022 5-DAY RENTAL 19-MAY-05 18-JUN-05     15                      
+ 1005 Y       1020 1-DAY RENTAL 19-JUN-05                1                      
+ 1005 Y       1021 3-DAY RENTAL 19-JUN-05                3                      
+ 1005 Y       1022 5-DAY RENTAL 19-JUN-05                5                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1006 N       1020 1-DAY RENTAL 16-MAY-02 15-JUN-02      3                      
+ 1006 N       1021 3-DAY RENTAL 16-MAY-02 15-JUN-02     10                      
+ 1006 N       1022 5-DAY RENTAL 16-MAY-02 15-JUN-02     15                      
+ 1006 Y       1020 1-DAY RENTAL 16-JUN-02                1                      
+ 1006 Y       1021 3-DAY RENTAL 16-JUN-02                3                      
+ 1006 Y       1022 5-DAY RENTAL 16-JUN-02                5                      
+ 1007 N       1020 1-DAY RENTAL 24-JUL-03 23-AUG-03      3                      
+ 1007 N       1021 3-DAY RENTAL 24-JUL-03 23-AUG-03     10                      
+ 1007 N       1022 5-DAY RENTAL 24-JUL-03 23-AUG-03     15                      
+ 1007 Y       1020 1-DAY RENTAL 24-AUG-03                1                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1007 Y       1021 3-DAY RENTAL 24-AUG-03                3                      
+ 1007 Y       1022 5-DAY RENTAL 24-AUG-03                5                      
+ 1008 N       1020 1-DAY RENTAL 30-JUN-03 30-JUL-03      3                      
+ 1008 N       1021 3-DAY RENTAL 30-JUN-03 30-JUL-03     10                      
+ 1008 N       1022 5-DAY RENTAL 30-JUN-03 30-JUL-03     15                      
+ 1008 Y       1020 1-DAY RENTAL 31-JUL-03                1                      
+ 1008 Y       1021 3-DAY RENTAL 31-JUL-03                3                      
+ 1008 Y       1022 5-DAY RENTAL 31-JUL-03                5                      
+ 1009 N       1020 1-DAY RENTAL 30-JUN-03 30-JUL-03      3                      
+ 1009 N       1021 3-DAY RENTAL 30-JUN-03 30-JUL-03     10                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1009 N       1022 5-DAY RENTAL 30-JUN-03 30-JUL-03     15                      
+ 1009 Y       1020 1-DAY RENTAL 31-JUL-03                1                      
+ 1009 Y       1021 3-DAY RENTAL 31-JUL-03                3                      
+ 1009 Y       1022 5-DAY RENTAL 31-JUL-03                5                      
+ 1010 N       1020 1-DAY RENTAL 17-NOV-03 17-DEC-03      3                      
+ 1010 N       1021 3-DAY RENTAL 17-NOV-03 17-DEC-03     10                      
+ 1010 N       1022 5-DAY RENTAL 17-NOV-03 17-DEC-03     15                      
+ 1010 Y       1020 1-DAY RENTAL 18-DEC-03                1                      
+ 1010 Y       1021 3-DAY RENTAL 18-DEC-03                3                      
+ 1010 Y       1022 5-DAY RENTAL 18-DEC-03                5                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1011 N       1020 1-DAY RENTAL 08-APR-03 08-MAY-03      3                      
+ 1011 N       1021 3-DAY RENTAL 08-APR-03 08-MAY-03     10                      
+ 1011 N       1022 5-DAY RENTAL 08-APR-03 08-MAY-03     15                      
+ 1011 Y       1020 1-DAY RENTAL 09-MAY-03                1                      
+ 1011 Y       1021 3-DAY RENTAL 09-MAY-03                3                      
+ 1011 Y       1022 5-DAY RENTAL 09-MAY-03                5                      
+ 1012 N       1020 1-DAY RENTAL 15-NOV-04 15-DEC-04      3                      
+ 1012 N       1021 3-DAY RENTAL 15-NOV-04 15-DEC-04     10                      
+ 1012 N       1022 5-DAY RENTAL 15-NOV-04 15-DEC-04     15                      
+ 1012 Y       1020 1-DAY RENTAL 16-DEC-04                1                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1012 Y       1021 3-DAY RENTAL 16-DEC-04                3                      
+ 1012 Y       1022 5-DAY RENTAL 16-DEC-04                5                      
+ 1013 N       1020 1-DAY RENTAL 19-MAY-06 18-JUN-06      3                      
+ 1013 N       1021 3-DAY RENTAL 19-MAY-06 18-JUN-06     10                      
+ 1013 N       1022 5-DAY RENTAL 19-MAY-06 18-JUN-06     15                      
+ 1013 Y       1020 1-DAY RENTAL 19-JUN-06                1                      
+ 1013 Y       1021 3-DAY RENTAL 19-JUN-06                3                      
+ 1013 Y       1022 5-DAY RENTAL 19-JUN-06                5                      
+ 1014 N       1020 1-DAY RENTAL 28-APR-06 28-MAY-06      3                      
+ 1014 N       1021 3-DAY RENTAL 28-APR-06 28-MAY-06     10                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1014 N       1022 5-DAY RENTAL 28-APR-06 28-MAY-06     15                      
+ 1014 Y       1020 1-DAY RENTAL 29-MAY-06                1                      
+ 1014 Y       1021 3-DAY RENTAL 29-MAY-06                3                      
+ 1014 Y       1022 5-DAY RENTAL 29-MAY-06                5                      
+ 1015 N       1020 1-DAY RENTAL 01-MAR-92 31-MAR-92      3                      
+ 1015 N       1021 3-DAY RENTAL 01-MAR-92 31-MAR-92     10                      
+ 1015 N       1022 5-DAY RENTAL 01-MAR-92 31-MAR-92     15                      
+ 1015 Y       1020 1-DAY RENTAL 01-APR-92                1                      
+ 1015 Y       1021 3-DAY RENTAL 01-APR-92                3                      
+ 1015 Y       1022 5-DAY RENTAL 01-APR-92                5                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1016 N       1020 1-DAY RENTAL 05-JAN-98 04-FEB-98      3                      
+ 1016 N       1021 3-DAY RENTAL 05-JAN-98 04-FEB-98     10                      
+ 1016 N       1022 5-DAY RENTAL 05-JAN-98 04-FEB-98     15                      
+ 1016 Y       1020 1-DAY RENTAL 05-FEB-98                1                      
+ 1016 Y       1021 3-DAY RENTAL 05-FEB-98                3                      
+ 1016 Y       1022 5-DAY RENTAL 05-FEB-98                5                      
+ 1017 N       1020 1-DAY RENTAL 02-NOV-99 02-DEC-99      3                      
+ 1017 N       1021 3-DAY RENTAL 02-NOV-99 02-DEC-99     10                      
+ 1017 N       1022 5-DAY RENTAL 02-NOV-99 02-DEC-99     15                      
+ 1017 Y       1020 1-DAY RENTAL 03-DEC-99                1                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1017 Y       1021 3-DAY RENTAL 03-DEC-99                3                      
+ 1017 Y       1022 5-DAY RENTAL 03-DEC-99                5                      
+ 1018 N       1020 1-DAY RENTAL 28-JUN-94 28-JUL-94      3                      
+ 1018 N       1021 3-DAY RENTAL 28-JUN-94 28-JUL-94     10                      
+ 1018 N       1022 5-DAY RENTAL 28-JUN-94 28-JUL-94     15                      
+ 1018 Y       1020 1-DAY RENTAL 29-JUL-94                1                      
+ 1018 Y       1021 3-DAY RENTAL 29-JUL-94                3                      
+ 1018 Y       1022 5-DAY RENTAL 29-JUL-94                5                      
+ 1019 N       1020 1-DAY RENTAL 11-DEC-91 10-JAN-92      3                      
+ 1019 N       1021 3-DAY RENTAL 11-DEC-91 10-JAN-92     10                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1019 N       1022 5-DAY RENTAL 11-DEC-91 10-JAN-92     15                      
+ 1019 Y       1020 1-DAY RENTAL 11-JAN-92                1                      
+ 1019 Y       1021 3-DAY RENTAL 11-JAN-92                3                      
+ 1019 Y       1022 5-DAY RENTAL 11-JAN-92                5                      
+ 1020 N       1020 1-DAY RENTAL 04-DEC-92 03-JAN-93      3                      
+ 1020 N       1021 3-DAY RENTAL 04-DEC-92 03-JAN-93     10                      
+ 1020 N       1022 5-DAY RENTAL 04-DEC-92 03-JAN-93     15                      
+ 1020 Y       1020 1-DAY RENTAL 04-JAN-93                1                      
+ 1020 Y       1021 3-DAY RENTAL 04-JAN-93                3                      
+ 1020 Y       1022 5-DAY RENTAL 04-JAN-93                5                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1021 N       1020 1-DAY RENTAL 15-MAY-98 14-JUN-98      3                      
+ 1021 N       1021 3-DAY RENTAL 15-MAY-98 14-JUN-98     10                      
+ 1021 N       1022 5-DAY RENTAL 15-MAY-98 14-JUN-98     15                      
+ 1021 Y       1020 1-DAY RENTAL 15-JUN-98                1                      
+ 1021 Y       1021 3-DAY RENTAL 15-JUN-98                3                      
+ 1021 Y       1022 5-DAY RENTAL 15-JUN-98                5                      
+ 1022 Y       1020 1-DAY RENTAL 17-JUN-19                3                      
+ 1022 Y       1021 3-DAY RENTAL 17-JUN-19               10                      
+ 1022 Y       1022 5-DAY RENTAL 17-JUN-19               15                      
+ 1023 Y       1020 1-DAY RENTAL 17-JUN-19                3                      
+
+                                                     Price                      
+                                                    ------                      
+ Item ACTIVE PRICE              Start     End                                   
+ ID # FLAG    TYPE PRICE DESC   Date      Date      Amount                      
+----- ------ ----- ------------ --------- --------- ------                      
+ 1023 Y       1021 3-DAY RENTAL 17-JUN-19               10                      
+ 1023 Y       1022 5-DAY RENTAL 17-JUN-19               15                      
+ 1024 Y       1020 1-DAY RENTAL 17-JUN-19                3                      
+ 1024 Y       1021 3-DAY RENTAL 17-JUN-19               10                      
+ 1024 Y       1022 5-DAY RENTAL 17-JUN-19               15                      
+
+135 rows selected.
+
+SQL> 
+SQL> 
+SQL> /* following instrucitons
+SQL> --When you have written the correct logic for the preceding query, you should see the following results: --
+SQL> 
+SQL> You should note that the result set displays the price_type value. The price_type value is a foreign key and a copy of the common_lookup_id value in the common_lookup table.
+SQL> 
+SQL> You find the common_lookup_id value by using the natural key. Three columns define the natural key. They are the uppercase strings:
+SQL> 
+SQL> common_lookup_table column
+SQL> common_lookup_column column
+SQL> common_lookup_type column
+SQL> String literals of PRICE and PRICE_TYPE match the common_lookup_table and common_lookup_column column values and the Cartesian join resolves the common_lookup_type column by comparing it against the first character of the rental_days column. The rental_days column is fabricated into the data set via a CROSS JOIN.*/
+SQL> 
+SQL> --You can use the following SQL*Plus formatting commands to display the information from your query for step 4 --
+SQL> COLUMN item_id	FORMAT 9999 HEADING "ITEM|ID"
+SQL> COLUMN active_flag FORMAT A6   HEADING "ACTIVE|FLAG"
+SQL> COLUMN price_type	FORMAT 9999 HEADING "PRICE|TYPE"
+SQL> COLUMN price_desc	FORMAT A12  HEADING "PRICE DESC"
+SQL> COLUMN start_date	FORMAT A10  HEADING "START|DATE"
+SQL> COLUMN end_date	FORMAT A10  HEADING "END|DATE"
+SQL> COLUMN amount	FORMAT 9999 HEADING "AMOUNT"
+SQL> 
+SQL> /* it should display
+SQL> ITEM ACTIVE PRICE
+SQL> 	ID FLAG    TYPE PRICE DESC   START DATE 	END DATE	   AMOUNT
+SQL> ----- ------ ----- ------------ ------------------ ------------------ ------
+SQL>  1001 N	   1020 1-DAY RENTAL 02-MAR-90 00:00:00 01-APR-90 00:00:00	3
+SQL>  1001 N	   1021 3-DAY RENTAL 02-MAR-90 00:00:00 01-APR-90 00:00:00     10
+SQL>  1001 N	   1022 5-DAY RENTAL 02-MAR-90 00:00:00 01-APR-90 00:00:00     15
+SQL>  1001 Y	   1020 1-DAY RENTAL 02-APR-90 00:00:00 			1
+SQL>  1001 Y	   1021 3-DAY RENTAL 02-APR-90 00:00:00 			3
+SQL>  1001 Y	   1022 5-DAY RENTAL 02-APR-90 00:00:00 			5
+SQL>  1002 N	   1020 1-DAY RENTAL 04-MAY-99 00:00:00 03-JUN-99 00:00:00	3
+SQL>  1002 N	   1021 3-DAY RENTAL 04-MAY-99 00:00:00 03-JUN-99 00:00:00     10
+SQL>  1002 N	   1022 5-DAY RENTAL 04-MAY-99 00:00:00 03-JUN-99 00:00:00     15
+SQL>  1002 Y	   1020 1-DAY RENTAL 04-JUN-99 00:00:00 			1
+SQL>  1002 Y	   1021 3-DAY RENTAL 04-JUN-99 00:00:00 			3
+SQL>  1002 Y	   1022 5-DAY RENTAL 04-JUN-99 00:00:00 			5
+SQL>  1003 N	   1020 1-DAY RENTAL 16-MAY-02 00:00:00 15-JUN-02 00:00:00	3
+SQL>  1003 N	   1021 3-DAY RENTAL 16-MAY-02 00:00:00 15-JUN-02 00:00:00     10
+SQL>  1003 N	   1022 5-DAY RENTAL 16-MAY-02 00:00:00 15-JUN-02 00:00:00     15
+SQL>  1003 Y	   1020 1-DAY RENTAL 16-JUN-02 00:00:00 			1
+SQL>  1003 Y	   1021 3-DAY RENTAL 16-JUN-02 00:00:00 			3
+SQL>  1003 Y	   1022 5-DAY RENTAL 16-JUN-02 00:00:00 			5
+SQL>  1004 N	   1020 1-DAY RENTAL 16-MAY-02 00:00:00 15-JUN-02 00:00:00	3
+SQL>  1004 N	   1021 3-DAY RENTAL 16-MAY-02 00:00:00 15-JUN-02 00:00:00     10
+SQL>  1004 N	   1022 5-DAY RENTAL 16-MAY-02 00:00:00 15-JUN-02 00:00:00     15
+SQL>  1004 Y	   1020 1-DAY RENTAL 16-JUN-02 00:00:00 			1
+SQL>  1004 Y	   1021 3-DAY RENTAL 16-JUN-02 00:00:00 			3
+SQL>  1004 Y	   1022 5-DAY RENTAL 16-JUN-02 00:00:00 			5
+SQL>  1005 N	   1020 1-DAY RENTAL 19-MAY-05 00:00:00 18-JUN-05 00:00:00	3
+SQL>  1005 N	   1021 3-DAY RENTAL 19-MAY-05 00:00:00 18-JUN-05 00:00:00     10
+SQL>  1005 N	   1022 5-DAY RENTAL 19-MAY-05 00:00:00 18-JUN-05 00:00:00     15
+SQL>  1005 Y	   1020 1-DAY RENTAL 19-JUN-05 00:00:00 			1
+SQL>  1005 Y	   1021 3-DAY RENTAL 19-JUN-05 00:00:00 			3
+SQL>  1005 Y	   1022 5-DAY RENTAL 19-JUN-05 00:00:00 			5
+SQL>  1006 N	   1020 1-DAY RENTAL 16-MAY-02 00:00:00 15-JUN-02 00:00:00	3
+SQL>  1006 N	   1021 3-DAY RENTAL 16-MAY-02 00:00:00 15-JUN-02 00:00:00     10
+SQL>  1006 N	   1022 5-DAY RENTAL 16-MAY-02 00:00:00 15-JUN-02 00:00:00     15
+SQL>  1006 Y	   1020 1-DAY RENTAL 16-JUN-02 00:00:00 			1
+SQL>  1006 Y	   1021 3-DAY RENTAL 16-JUN-02 00:00:00 			3
+SQL>  1006 Y	   1022 5-DAY RENTAL 16-JUN-02 00:00:00 			5
+SQL>  1007 N	   1020 1-DAY RENTAL 24-JUL-03 00:00:00 23-AUG-03 00:00:00	3
+SQL>  1007 N	   1021 3-DAY RENTAL 24-JUL-03 00:00:00 23-AUG-03 00:00:00     10
+SQL>  1007 N	   1022 5-DAY RENTAL 24-JUL-03 00:00:00 23-AUG-03 00:00:00     15
+SQL>  1007 Y	   1020 1-DAY RENTAL 24-AUG-03 00:00:00 			1
+SQL>  1007 Y	   1021 3-DAY RENTAL 24-AUG-03 00:00:00 			3
+SQL>  1007 Y	   1022 5-DAY RENTAL 24-AUG-03 00:00:00 			5
+SQL>  1008 N	   1020 1-DAY RENTAL 30-JUN-03 00:00:00 30-JUL-03 00:00:00	3
+SQL>  1008 N	   1021 3-DAY RENTAL 30-JUN-03 00:00:00 30-JUL-03 00:00:00     10
+SQL>  1008 N	   1022 5-DAY RENTAL 30-JUN-03 00:00:00 30-JUL-03 00:00:00     15
+SQL>  1008 Y	   1020 1-DAY RENTAL 31-JUL-03 00:00:00 			1
+SQL>  1008 Y	   1021 3-DAY RENTAL 31-JUL-03 00:00:00 			3
+SQL>  1008 Y	   1022 5-DAY RENTAL 31-JUL-03 00:00:00 			5
+SQL>  1009 N	   1020 1-DAY RENTAL 30-JUN-03 00:00:00 30-JUL-03 00:00:00	3
+SQL>  1009 N	   1021 3-DAY RENTAL 30-JUN-03 00:00:00 30-JUL-03 00:00:00     10
+SQL>  1009 N	   1022 5-DAY RENTAL 30-JUN-03 00:00:00 30-JUL-03 00:00:00     15
+SQL>  1009 Y	   1020 1-DAY RENTAL 31-JUL-03 00:00:00 			1
+SQL>  1009 Y	   1021 3-DAY RENTAL 31-JUL-03 00:00:00 			3
+SQL>  1009 Y	   1022 5-DAY RENTAL 31-JUL-03 00:00:00 			5
+SQL>  1010 N	   1020 1-DAY RENTAL 17-NOV-03 00:00:00 17-DEC-03 00:00:00	3
+SQL>  1010 N	   1021 3-DAY RENTAL 17-NOV-03 00:00:00 17-DEC-03 00:00:00     10
+SQL>  1010 N	   1022 5-DAY RENTAL 17-NOV-03 00:00:00 17-DEC-03 00:00:00     15
+SQL>  1010 Y	   1020 1-DAY RENTAL 18-DEC-03 00:00:00 			1
+SQL>  1010 Y	   1021 3-DAY RENTAL 18-DEC-03 00:00:00 			3
+SQL>  1010 Y	   1022 5-DAY RENTAL 18-DEC-03 00:00:00 			5
+SQL>  1011 N	   1020 1-DAY RENTAL 08-APR-03 00:00:00 08-MAY-03 00:00:00	3
+SQL>  1011 N	   1021 3-DAY RENTAL 08-APR-03 00:00:00 08-MAY-03 00:00:00     10
+SQL>  1011 N	   1022 5-DAY RENTAL 08-APR-03 00:00:00 08-MAY-03 00:00:00     15
+SQL>  1011 Y	   1020 1-DAY RENTAL 09-MAY-03 00:00:00 			1
+SQL>  1011 Y	   1021 3-DAY RENTAL 09-MAY-03 00:00:00 			3
+SQL>  1011 Y	   1022 5-DAY RENTAL 09-MAY-03 00:00:00 			5
+SQL>  1012 N	   1020 1-DAY RENTAL 15-NOV-04 00:00:00 15-DEC-04 00:00:00	3
+SQL>  1012 N	   1021 3-DAY RENTAL 15-NOV-04 00:00:00 15-DEC-04 00:00:00     10
+SQL>  1012 N	   1022 5-DAY RENTAL 15-NOV-04 00:00:00 15-DEC-04 00:00:00     15
+SQL>  1012 Y	   1020 1-DAY RENTAL 16-DEC-04 00:00:00 			1
+SQL>  1012 Y	   1021 3-DAY RENTAL 16-DEC-04 00:00:00 			3
+SQL>  1012 Y	   1022 5-DAY RENTAL 16-DEC-04 00:00:00 			5
+SQL>  1013 N	   1020 1-DAY RENTAL 19-MAY-06 00:00:00 18-JUN-06 00:00:00	3
+SQL>  1013 N	   1021 3-DAY RENTAL 19-MAY-06 00:00:00 18-JUN-06 00:00:00     10
+SQL>  1013 N	   1022 5-DAY RENTAL 19-MAY-06 00:00:00 18-JUN-06 00:00:00     15
+SQL>  1013 Y	   1020 1-DAY RENTAL 19-JUN-06 00:00:00 			1
+SQL>  1013 Y	   1021 3-DAY RENTAL 19-JUN-06 00:00:00 			3
+SQL>  1013 Y	   1022 5-DAY RENTAL 19-JUN-06 00:00:00 			5
+SQL>  1014 N	   1020 1-DAY RENTAL 28-APR-06 00:00:00 28-MAY-06 00:00:00	3
+SQL>  1014 N	   1021 3-DAY RENTAL 28-APR-06 00:00:00 28-MAY-06 00:00:00     10
+SQL>  1014 N	   1022 5-DAY RENTAL 28-APR-06 00:00:00 28-MAY-06 00:00:00     15
+SQL>  1014 Y	   1020 1-DAY RENTAL 29-MAY-06 00:00:00 			1
+SQL>  1014 Y	   1021 3-DAY RENTAL 29-MAY-06 00:00:00 			3
+SQL>  1014 Y	   1022 5-DAY RENTAL 29-MAY-06 00:00:00 			5
+SQL>  1015 N	   1020 1-DAY RENTAL 01-MAR-92 00:00:00 31-MAR-92 00:00:00	3
+SQL>  1015 N	   1021 3-DAY RENTAL 01-MAR-92 00:00:00 31-MAR-92 00:00:00     10
+SQL>  1015 N	   1022 5-DAY RENTAL 01-MAR-92 00:00:00 31-MAR-92 00:00:00     15
+SQL>  1015 Y	   1020 1-DAY RENTAL 01-APR-92 00:00:00 			1
+SQL>  1015 Y	   1021 3-DAY RENTAL 01-APR-92 00:00:00 			3
+SQL>  1015 Y	   1022 5-DAY RENTAL 01-APR-92 00:00:00 			5
+SQL>  1016 N	   1020 1-DAY RENTAL 05-JAN-98 00:00:00 04-FEB-98 00:00:00	3
+SQL>  1016 N	   1021 3-DAY RENTAL 05-JAN-98 00:00:00 04-FEB-98 00:00:00     10
+SQL>  1016 N	   1022 5-DAY RENTAL 05-JAN-98 00:00:00 04-FEB-98 00:00:00     15
+SQL>  1016 Y	   1020 1-DAY RENTAL 05-FEB-98 00:00:00 			1
+SQL>  1016 Y	   1021 3-DAY RENTAL 05-FEB-98 00:00:00 			3
+SQL>  1016 Y	   1022 5-DAY RENTAL 05-FEB-98 00:00:00 			5
+SQL>  1017 N	   1020 1-DAY RENTAL 02-NOV-99 00:00:00 02-DEC-99 00:00:00	3
+SQL>  1017 N	   1021 3-DAY RENTAL 02-NOV-99 00:00:00 02-DEC-99 00:00:00     10
+SQL>  1017 N	   1022 5-DAY RENTAL 02-NOV-99 00:00:00 02-DEC-99 00:00:00     15
+SQL>  1017 Y	   1020 1-DAY RENTAL 03-DEC-99 00:00:00 			1
+SQL>  1017 Y	   1021 3-DAY RENTAL 03-DEC-99 00:00:00 			3
+SQL>  1017 Y	   1022 5-DAY RENTAL 03-DEC-99 00:00:00 			5
+SQL>  1018 N	   1020 1-DAY RENTAL 28-JUN-94 00:00:00 28-JUL-94 00:00:00	3
+SQL>  1018 N	   1021 3-DAY RENTAL 28-JUN-94 00:00:00 28-JUL-94 00:00:00     10
+SQL>  1018 N	   1022 5-DAY RENTAL 28-JUN-94 00:00:00 28-JUL-94 00:00:00     15
+SQL>  1018 Y	   1020 1-DAY RENTAL 29-JUL-94 00:00:00 			1
+SQL>  1018 Y	   1021 3-DAY RENTAL 29-JUL-94 00:00:00 			3
+SQL>  1018 Y	   1022 5-DAY RENTAL 29-JUL-94 00:00:00 			5
+SQL>  1019 N	   1020 1-DAY RENTAL 11-DEC-91 00:00:00 10-JAN-92 00:00:00	3
+SQL>  1019 N	   1021 3-DAY RENTAL 11-DEC-91 00:00:00 10-JAN-92 00:00:00     10
+SQL>  1019 N	   1022 5-DAY RENTAL 11-DEC-91 00:00:00 10-JAN-92 00:00:00     15
+SQL>  1019 Y	   1020 1-DAY RENTAL 11-JAN-92 00:00:00 			1
+SQL>  1019 Y	   1021 3-DAY RENTAL 11-JAN-92 00:00:00 			3
+SQL>  1019 Y	   1022 5-DAY RENTAL 11-JAN-92 00:00:00 			5
+SQL>  1020 N	   1020 1-DAY RENTAL 04-DEC-92 00:00:00 03-JAN-93 00:00:00	3
+SQL>  1020 N	   1021 3-DAY RENTAL 04-DEC-92 00:00:00 03-JAN-93 00:00:00     10
+SQL>  1020 N	   1022 5-DAY RENTAL 04-DEC-92 00:00:00 03-JAN-93 00:00:00     15
+SQL>  1020 Y	   1020 1-DAY RENTAL 04-JAN-93 00:00:00 			1
+SQL>  1020 Y	   1021 3-DAY RENTAL 04-JAN-93 00:00:00 			3
+SQL>  1020 Y	   1022 5-DAY RENTAL 04-JAN-93 00:00:00 			5
+SQL>  1021 N	   1020 1-DAY RENTAL 15-MAY-98 00:00:00 14-JUN-98 00:00:00	3
+SQL>  1021 N	   1021 3-DAY RENTAL 15-MAY-98 00:00:00 14-JUN-98 00:00:00     10
+SQL>  1021 N	   1022 5-DAY RENTAL 15-MAY-98 00:00:00 14-JUN-98 00:00:00     15
+SQL>  1021 Y	   1020 1-DAY RENTAL 15-JUN-98 00:00:00 			1
+SQL>  1021 Y	   1021 3-DAY RENTAL 15-JUN-98 00:00:00 			3
+SQL>  1021 Y	   1022 5-DAY RENTAL 15-JUN-98 00:00:00 			5
+SQL>  1022 Y	   1020 1-DAY RENTAL 28-MAY-14 00:00:00 			3
+SQL>  1022 Y	   1021 3-DAY RENTAL 28-MAY-14 00:00:00 		       10
+SQL>  1022 Y	   1022 5-DAY RENTAL 28-MAY-14 00:00:00 		       15
+SQL>  1023 Y	   1020 1-DAY RENTAL 28-MAY-14 00:00:00 			3
+SQL>  1023 Y	   1021 3-DAY RENTAL 28-MAY-14 00:00:00 		       10
+SQL>  1023 Y	   1022 5-DAY RENTAL 28-MAY-14 00:00:00 		       15
+SQL>  1024 Y	   1020 1-DAY RENTAL 28-MAY-14 00:00:00 			3
+SQL>  1024 Y	   1021 3-DAY RENTAL 28-MAY-14 00:00:00 		       10
+SQL>  1024 Y	   1022 5-DAY RENTAL 28-MAY-14 00:00:00 		       15
+SQL> 
+SQL> 135 rows selected. */
+SQL> 
+SQL> -- Close log file.
+SQL> SPOOL OFF

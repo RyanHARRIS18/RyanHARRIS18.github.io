@@ -12,8 +12,7 @@ SET SERVEROUTPUT ON SIZE UNLIMITED
 SPOOL apply_plsql_lab7.log
 
 -- Enter your solution here.
--- 0) Step 0 
---validating it’s state with this query:
+-- 0) Step 0 validating it’s state with this query:
 SELECT system_user_id
 ,      system_user_name
 FROM   system_user

@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+h1{
+    font-size: 50px;
+    font-family: 'Abel', sans-serif;
+}
+
+h2{
+    font-size: 30px;
+    font-family: 'Abel', sans-serif;
+}
+
+h3{
+    font-size: 30px;
+    margin-right: 1em;
+    /* margin-left: 1em; */
+    font-family: 'Abel', sans-serif;
+}
+
+table{
+    display: inline-block;
+}
+
+td{
+    width:366;
+    width:274.5pt;
+      height:35.05pt'
+}
+
+.for-gt-small{
+    display: none;
+}
+
+.opening{
+  display: block;
+  text-align: center;
+}
+
+
+@media only screen and (min-width: 800px) {
+
+    .for-gt-small{
+        display: inline;
+    }
+
+    .for-small{
+        display: none;
+    }
+
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .overlay {
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: rgb(210, 210, 210);
+    background-color: rgba(255, 255, 255, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 0%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+   a {
+    padding: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    color: black;
+  }
+  
+   a:hover, .overlay a:focus,  .tab button:hover {
+    color: red;
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 45px;
+    font-size: 60px;
+    z-index: 1;
+  }
+  
+ 
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 55px;
+    }
+  }
+
+   p{
+    font-family: 'Abel', sans-serif;
+    color: black;
+    font-size: 20px;
+  }
+
+  p.a{
+    font-family: 'Abel', sans-serif;
+    color: black;
+    font-size: 5px;
+  } */
+
+  td p, h3{
+    text-align: left;
+  }
+
+  
+
+
+
+/* Web Work Rules */
+.intro{
+  margin-left: 6em;
+  margin-right: 6em;
+}
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 5fr;
+    margin-left: 5em;
+    margin-right: 5em;
+    border-top: 1px solid rgba(0, 0, 0, 0.8);
+
+  }
+  .grid-item {
+    padding: 5px;
+    font-size: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  }
+  .highlightRow{
+    grid-column: 1/4;
+  }
+
+  .banners{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    width: 100%;
+  }
+
+  
+  .significantScripts{
+    margin-left: 5em;
+    margin-right: 5em;
+  }
+  
+  .vertical-menu {
+    text-align: left;
+    font-size: 15px;
+  }
+  
+/* The tab for the javascript sections */
+  .tab {
+    /* overflow: hidden; */
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    text-align: center;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+    
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    text-align: center;
+  }
+
+  
+
+.vertical-menu a {
+  background-color: #eee; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  color: red;
+}
+
+.vertical-menu a.active {
+  background-color: black; /* Add a green color to the "active/current" link */
+  color: white;
+}
+
+

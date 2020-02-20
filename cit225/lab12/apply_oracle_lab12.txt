@@ -1,0 +1,424 @@
+SQL> 
+SQL> -- --------------------------------------------------------
+SQL> --  Step #1
+SQL> --  -------
+SQL> --  Create the CALENDAR table as per the specifications.
+SQL> -- --------------------------------------------------------
+SQL> 
+SQL> /*
+SQL> You should use the following specification to create the calendar table and calendar_s1 sequence.
+SQL> */
+SQL> 
+SQL> 
+SQL> CREATE TABLE CALENDAR
+  2  ( CALENDAR_ID		   NUMBER
+  3  , CALENDAR_NAME	  VARCHAR2(10) CONSTRAINT SYS_C00169405_1 NOT NULL
+  4  , CALENDAR_SHORT_NAME  VARCHAR2(3) CONSTRAINT SYS_C00169406_2 NOT NULL
+  5  , START_DATE		   DATE CONSTRAINT SYS_C00169407_3 NOT NULL
+  6  , END_DATE 		   DATE CONSTRAINT SYS_C00169408_4 NOT NULL
+  7  , CREATED_BY		   NUMBER CONSTRAINT SYS_C00169409_5 NOT NULL
+  8  , creation_date		   DATE   CONSTRAINT SYS_C00169410_6 NOT NULL
+  9  , last_updated_by		   NUMBER CONSTRAINT SYS_C00169411_7 NOT NULL
+ 10  , last_update_date 	   DATE   CONSTRAINT SYS_C00169412_8 NOT NULL
+ 11  , CONSTRAINT pk_calendar_1 PRIMARY KEY(calendar_id)
+ 12  , CONSTRAINT fk_calendar_1 FOREIGN KEY(CREATED_BY) REFERENCES SYSTEM_USER(SYSTEM_USER_id)
+ 13  , CONSTRAINT fk_calendar_2 FOREIGN KEY(last_updated_by) REFERENCES SYSTEM_USER(SYSTEM_USER_id));
+
+Table created.
+
+SQL> 
+SQL> SET NULL ''
+SQL> COLUMN table_name	 FORMAT A16
+SQL> COLUMN column_id	 FORMAT 9999
+SQL> COLUMN column_name  FORMAT A22
+SQL> COLUMN data_type	 FORMAT A12
+SQL> SELECT   table_name
+  2  ,	      column_id
+  3  ,	      column_name
+  4  ,	      CASE
+  5  		WHEN nullable = 'N' THEN 'NOT NULL'
+  6  		ELSE ''
+  7  	      END AS nullable
+  8  ,	      CASE
+  9  		WHEN data_type IN ('CHAR','VARCHAR2','NUMBER') THEN
+ 10  		  data_type||'('||data_length||')'
+ 11  		ELSE
+ 12  		  data_type
+ 13  	      END AS data_type
+ 14  FROM     user_tab_columns
+ 15  WHERE    table_name = 'CALENDAR'
+ 16  ORDER BY 2;
+
+Table Name       Column ID Column Name            Nullable Data Type                                                                                  
+---------------- --------- ---------------------- -------- ------------                                                                               
+CALENDAR                 1 CALENDAR_ID            NOT NULL NUMBER(22)                                                                                 
+CALENDAR                 2 CALENDAR_NAME          NOT NULL VARCHAR2(10)                                                                               
+CALENDAR                 3 CALENDAR_SHORT_NAME    NOT NULL VARCHAR2(3)                                                                                
+CALENDAR                 4 START_DATE             NOT NULL DATE                                                                                       
+CALENDAR                 5 END_DATE               NOT NULL DATE                                                                                       
+CALENDAR                 6 CREATED_BY             NOT NULL NUMBER(22)                                                                                 
+CALENDAR                 7 CREATION_DATE          NOT NULL DATE                                                                                       
+CALENDAR                 8 LAST_UPDATED_BY        NOT NULL NUMBER(22)                                                                                 
+CALENDAR                 9 LAST_UPDATE_DATE       NOT NULL DATE                                                                                       
+
+9 rows selected.
+
+SQL> 
+SQL> COLUMN constraint_name   FORMAT A22  HEADING "Constraint Name"
+SQL> COLUMN search_condition  FORMAT A36  HEADING "Search Condition"
+SQL> COLUMN constraint_type   FORMAT A1   HEADING "C|T"
+SQL> SELECT   uc.constraint_name
+  2  ,	      uc.search_condition
+  3  ,	      uc.constraint_type
+  4  FROM     user_constraints uc INNER JOIN user_cons_columns ucc
+  5  ON       uc.table_name = ucc.table_name
+  6  AND      uc.constraint_name = ucc.constraint_name
+  7  WHERE    uc.table_name = UPPER('calendar')
+  8  AND      uc.constraint_type IN (UPPER('c'),UPPER('p'))
+  9  ORDER BY uc.constraint_type DESC
+ 10  ,	      uc.constraint_name;
+
+                                                            C                                                                                         
+Constraint Name        Search Condition                     T                                                                                         
+---------------------- ------------------------------------ -                                                                                         
+PK_CALENDAR_1                                               P                                                                                         
+SYS_C00169405_1        "CALENDAR_NAME" IS NOT NULL          C                                                                                         
+SYS_C00169406_2        "CALENDAR_SHORT_NAME" IS NOT NULL    C                                                                                         
+SYS_C00169407_3        "START_DATE" IS NOT NULL             C                                                                                         
+SYS_C00169408_4        "END_DATE" IS NOT NULL               C                                                                                         
+SYS_C00169409_5        "CREATED_BY" IS NOT NULL             C                                                                                         
+SYS_C00169410_6        "CREATION_DATE" IS NOT NULL          C                                                                                         
+SYS_C00169411_7        "LAST_UPDATED_BY" IS NOT NULL        C                                                                                         
+SYS_C00169412_8        "LAST_UPDATE_DATE" IS NOT NULL       C                                                                                         
+
+9 rows selected.
+
+SQL> 
+SQL> COL constraint_source FORMAT A38 HEADING "Constraint Name:| Table.Column"
+SQL> COL references_column FORMAT A40 HEADING "References:| Table.Column"
+SQL> SELECT   uc.constraint_name||CHR(10)
+  2  ||      '('||ucc1.table_name||'.'||ucc1.column_name||')' constraint_source
+  3  ,	     'REFERENCES'||CHR(10)
+  4  ||      '('||ucc2.table_name||'.'||ucc2.column_name||')' references_column
+  5  FROM     user_constraints uc
+  6  ,	      user_cons_columns ucc1
+  7  ,	      user_cons_columns ucc2
+  8  WHERE    uc.constraint_name = ucc1.constraint_name
+  9  AND      uc.r_constraint_name = ucc2.constraint_name
+ 10  AND      ucc1.position = ucc2.position -- Correction for multiple column primary keys.
+ 11  AND      uc.constraint_type = 'R'
+ 12  AND      ucc1.table_name = 'CALENDAR'
+ 13  ORDER BY ucc1.table_name
+ 14  ,	      uc.constraint_name;
+
+Constraint Name:                       References:                                                                                                    
+ Table.Column                           Table.Column                                                                                                  
+-------------------------------------- ----------------------------------------                                                                       
+FK_CALENDAR_1                          REFERENCES                                                                                                     
+(CALENDAR.CREATED_BY)                  (SYSTEM_USER.SYSTEM_USER_ID)                                                                                   
+                                                                                                                                                      
+FK_CALENDAR_2                          REFERENCES                                                                                                     
+(CALENDAR.LAST_UPDATED_BY)             (SYSTEM_USER.SYSTEM_USER_ID)                                                                                   
+                                                                                                                                                      
+
+2 rows selected.
+
+SQL> 
+SQL> CREATE SEQUENCE calendar_s1 START WITH 1001;
+CREATE SEQUENCE calendar_s1 START WITH 1001
+                *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> 
+SQL> -- Insert step #1 statements here.
+SQL> 
+SQL> -- --------------------------------------------------------
+SQL> --  Step #2
+SQL> --  -------
+SQL> --  Seed the CALENDAR table.
+SQL> -- --------------------------------------------------------
+SQL>  INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'January'
+  5   ,      'JAN'
+  6   ,      '01-JAN-2009'
+  7   ,      '31-JAN-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'February'
+  5   ,      'FEB'
+  6   ,      '01-FEB-2009'
+  7   ,      '28-FEB-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'March'
+  5   ,      'MAR'
+  6   ,      '01-MAR-09'
+  7   ,      '31-MAR-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'April'
+  5   ,      'APR'
+  6   ,      '01-APR-2009'
+  7   ,      '30-APR-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'May'
+  5   ,      'MAY'
+  6   ,      '01-MAY-2009'
+  7   ,      '31-MAY-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'June'
+  5   ,      'JUN'
+  6   ,      '01-JUN-2009'
+  7   ,      '30-JUN-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'July'
+  5   ,      'JUL'
+  6   ,      '01-JUL-2009'
+  7   ,      '31-JUL-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'August'
+  5   ,      'AUG'
+  6   ,      '01-AUG-2009'
+  7   ,      '31-AUG-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'September'
+  5   ,      'SEP'
+  6   ,      '01-SEP-2009'
+  7   ,      '30-SEP-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'October'
+  5   ,      'OCT'
+  6   ,      '01-OCT-2009'
+  7   ,      '31-OCT-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'November'
+  5   ,      'NOV'
+  6   ,      '01-NOV-2009'
+  7   ,      '30-NOV-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>   INSERT INTO CALENDAR
+  2   VALUES
+  3   (calendar_s1.nextval
+  4   ,      'December'
+  5   ,      'DEC'
+  6   ,      '01-DEC-2009'
+  7   ,      '31-DEC-2009'
+  8   ,      1001
+  9   ,      TRUNC(SYSDATE)
+ 10   ,      1001
+ 11   ,      TRUNC(SYSDATE));
+
+1 row created.
+
+SQL> 
+SQL>  -- Query the data insert.
+SQL> COL calendar_name	      FORMAT A10  HEADING "Calendar|Name"
+SQL> COL calendar_short_name  FORMAT A8  HEADING "Calendar|Short|Name"
+SQL> COL start_date	      FORMAT A9   HEADING "Start|Date"
+SQL> COL end_date	      FORMAT A9   HEADING "End|Date"
+SQL> SELECT   calendar_name
+  2  ,	      calendar_short_name
+  3  ,	      start_date
+  4  ,	      end_date
+  5  FROM     calendar;
+
+           Calendar                                                                                                                                   
+Calendar   Short    Start     End                                                                                                                     
+Name       Name     Date      Date                                                                                                                    
+---------- -------- --------- ---------                                                                                                               
+January    JAN      01-JAN-09 31-JAN-09                                                                                                               
+February   FEB      01-FEB-09 28-FEB-09                                                                                                               
+March      MAR      01-MAR-09 31-MAR-09                                                                                                               
+April      APR      01-APR-09 30-APR-09                                                                                                               
+May        MAY      01-MAY-09 31-MAY-09                                                                                                               
+June       JUN      01-JUN-09 30-JUN-09                                                                                                               
+July       JUL      01-JUL-09 31-JUL-09                                                                                                               
+August     AUG      01-AUG-09 31-AUG-09                                                                                                               
+September  SEP      01-SEP-09 30-SEP-09                                                                                                               
+October    OCT      01-OCT-09 31-OCT-09                                                                                                               
+November   NOV      01-NOV-09 30-NOV-09                                                                                                               
+
+           Calendar                                                                                                                                   
+Calendar   Short    Start     End                                                                                                                     
+Name       Name     Date      Date                                                                                                                    
+---------- -------- --------- ---------                                                                                                               
+December   DEC      01-DEC-09 31-DEC-09                                                                                                               
+
+12 rows selected.
+
+SQL> 
+SQL> -- --------------------------------------------------------
+SQL> 
+SQL> -- Insert step #3 statements here.
+SQL> 
+SQL> -- --------------------------------------------------------
+SQL> CREATE TABLE TRANSACTION_REVERSAL
+  2  ( TRANSACTION_ID			NUMBER
+  3  , TRANSACTION_ACCOUNT		 VARCHAR2(15)
+  4  , TRANSACTION_TYPE 		NUMBER
+  5  , TRANSACTION_DATE 		DATE
+  6  , TRANSACTION_AMOUNT		NUMBER
+  7  , RENTAL_ID			NUMBER
+  8  , PAYMENT_METHOD_TYPE		NUMBER
+  9  , PAYMENT_ACCOUNT_NUMBER		VARCHAR2(19)
+ 10  , CREATED_BY			NUMBER
+ 11  , CREATION_DATE			DATE
+ 12  , LAST_UPDATED_BY			NUMBER
+ 13  , LAST_UPDATE_DATE 		DATE
+ 14  , CONSTRAINT pk_transaction_reversal_1 PRIMARY KEY(TRANSACTION_ID));
+
+Table created.
+
+SQL> 
+SQL> INSERT INTO TRANSACTION
+  2  (SELECT TRANSACTION_ID, TRANSACTION_ACCOUNT, TRANSACTION_TYPE, TRANSACTION_DATE, TRANSACTION_AMOUNT, RENTAL_ID, PAYMENT_METHOD_TYPE, PAYMENT_ACCOUNT_NUMBER, CREATED_BY, CREATION_DATE, LAST_UPDATED_BY, LAST_UPDATE_DATE
+  3  FROM    transaction_reversal);
+
+0 rows created.
+
+SQL> COLUMN "Debit Transactions"  FORMAT A20
+SQL> COLUMN "Credit Transactions" FORMAT A20
+SQL> COLUMN "All Transactions"	  FORMAT A20
+SQL> 
+SQL> -- Check current contents of the model.
+SQL> SELECT 'SELECT record counts' AS "Statement" FROM dual;
+
+Statement                                                                                                                                             
+--------------------                                                                                                                                  
+SELECT record counts                                                                                                                                  
+
+1 row selected.
+
+SQL> SELECT   LPAD(TO_CHAR(c1.transaction_count,'99,999'),19,' ') AS "Debit Transactions"
+  2  ,	      LPAD(TO_CHAR(c2.transaction_count,'99,999'),19,' ') AS "Credit Transactions"
+  3  ,	      LPAD(TO_CHAR(c3.transaction_count,'99,999'),19,' ') AS "All Transactions"
+  4  FROM    (SELECT COUNT(*) AS transaction_count FROM transaction WHERE transaction_account = '111-111-111-111') c1 CROSS JOIN
+  5  	     (SELECT COUNT(*) AS transaction_count FROM transaction WHERE transaction_account = '222-222-222-222') c2 CROSS JOIN
+  6  	     (SELECT COUNT(*) AS transaction_count FROM transaction) c3;
+
+Debit Transactions   Credit Transactions  All Transactions                                                                                            
+-------------------- -------------------- --------------------                                                                                        
+              4,681                    0                4,681                                                                                         
+
+1 row selected.
+
+SQL> 
+SQL> --  Step #4
+SQL> --  -------
+SQL> --  Create a annual financial report using selective
+SQL> --  aggregation.
+SQL> -- --------------------------------------------------------
+SQL> 
+SQL> -- Insert step #4 statements here.
+SQL> 
+SQL> -- Close log file.
+SQL> SPOOL OFF

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>Chapter 10 mad lib</title>
+
+         <script>
+
+             //defining table
+             //input:hand - an array of cards
+             //processing:add all card value
+             //output: return total/sum of car value
+             //
+
+             "use strict";
+             function chooseNoun() {
+               var nouns = ["hat", "dress", "pants", "apple", "parrot", "carrot", "jedi", "wizard", "chocolate"];
+               // Get a pseudo random index
+               var n = Math.floor(Math.random() * nouns.length);
+               // Return one of the nouns.
+                return nouns[n];
+             }
+
+              function chooseVerb(){
+                var verb = ["yawn", "fight", "yell", "swim", "galavant", "fly", "meander", "sleep", "run"];
+               // Get a pseudo random index
+               var v = Math.floor(Math.random() * verb.length);
+               // Return one of the nouns.
+                return verb[v];
+             }
+              
+
+              function chooseAdjective(){
+                var adjective = ["yellow", "bright", "smooth", "slimy", "ugly", "rough", "cracked", "small", "large"];
+               // Get a pseudo random index
+               var adj = Math.floor(Math.random() * adjective.length);
+               // Return one of the nouns.
+                return adjective[adj];
+             }
+              
+
+              
+
+              function chooseAdverb(){
+                var adverb = ["very", "quickly", "slowly", "silently", "loundly", "obnoxiously", "kindly", "sadly", "happily"];
+               // Get a pseudo random index
+               var adv = Math.floor(Math.random() * adverb.length);
+               // Return one of the nouns.
+                return adverb[adv];
+
+              }
+
+              function chooseInteger(){
+               var x = 1 + Math.floor(Math.random() * 99);
+                return x;
+              }
+
+           
+             function crazyStory() {
+    var story = "The man comes "
+        + chooseVerb() + "ing a horse. The horse is "
+        + chooseAdverb() + " " + chooseAdjective()
+        + " and has no " + chooseNoun()
+        + ". The saddle is " + chooseAdjective()
+        + ", and the stirrups don't match. His clothing"
+        + " is strange. He wears " + chooseInteger()
+        + " hats and a " + chooseAdjective()
+        + " shirt. One " + chooseNoun()
+        + " of his pants is torn off to the knee. His sword is "
+        + chooseAdjective() + " and has a broken hilt and "
+        + chooseVerb() + "s from the bottom of the "
+        + chooseNoun() + ".";
+    document.getElementById('output').innerHTML = story;
+}
+          
+
+             
+ </script>
+</head>
+
+ <body>
+  
+    <button type="button" onclick= "crazyStory()"> test</button><br>
+    <div id="output"></div>
+   
+    
+ </body>
+
+</html>

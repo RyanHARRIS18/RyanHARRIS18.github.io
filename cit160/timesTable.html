@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>To Sleep....to die....no more: that is the question</title>
+
+            <script>
+               /*Defining table
+                print the five times table from 1 to 12 in this format:
+                    5 x 1 = 5
+                    5 x 2 = 10
+                    …
+                    5 x 12 = 60
+               *input: no user input
+               *processing: loop that repeats 12 times (string contatinate on series)|| x will be the num
+                past = 0 || present = 1 || future = past + present
+               *output: first 25 numbers of the standard fibonacci series
+               */
+               
+              
+
+                function timesTables5() {
+                   
+                     //build string of first 12 5 times tables
+              
+                     var series = ""; 
+                    
+                   
+                    //calculate the future 
+                    var i = 1;
+                    var output = series
+                   
+                    while (i <= 12){
+                    answerTable = 5*i;
+                    series = (" 5 x " + i + " = " + answerTable);
+                    
+                     output += series + " <br> ";  
+                     i = i+1
+                }
+
+                        //display the message for the user to see.
+                      document.getElementById("output").innerHTML = output;
+                      
+                }
+              
+    
+
+               // for (var x = 0; x < 12; x++) {
+                        //series += past + ", ";
+                       // future = past +present;
+                        //past = present;
+                        //present = future; 
+                     
+
+                
+            </script>
+
+         </head>
+
+         <body>
+            
+             <br>
+            
+         time tables <button type="button" onclick= "timesTables5()"></button>
+            <div id="output"></div>
+            
+
+         </body>
+
+</html>

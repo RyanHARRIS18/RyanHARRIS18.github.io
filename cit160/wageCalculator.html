@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Taxes</title>
+<script>
+
+/* Defining Table
+ * Input: Hours Worked + Wage  per Hour
+ * Processing: Hours*Wage = grossPay
+                grossPay*0.15 = tax amount
+                grossPay - taxamount = NetPay     
+ * Output: After Tax Pay(NetPay)
+ */
+function AfterTaxPaid() {
+    // Get the Users hrs and wph.
+    var hoursWorked = parseFloat(document.getElementById("hrs").value);
+    var hourlyWage = parseFloat(document.getElementById("wph").value);
+
+    // compute the slowest and fastest benificial heart rates
+    var grossPay = hoursWorked * hourlyWage;
+    var taxamount = grossPay * 0.15;
+    var netPay = grossPay - taxamount;
+
+    //display the net pay
+    document.getElementById("netPay").innerHTML ="$" + netPay.toFixed(2);
+  
+}
+</script>
+</head>
+
+<body>      
+    <p> Hours Worked:<input type="text" id="hrs"></p>  
+    <p> Wage per Hour:<input type="text" id="wph"></p>                               
+    <button type="button" onclick="AfterTaxPaid()">What you get</button>
+    <div id ="netPay"></div>
+   
+</body>
+</html>

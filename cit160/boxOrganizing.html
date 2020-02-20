@@ -1,0 +1,37 @@
+<!DocTYPE HTML>
+<html lang = "en-us">
+<head> 
+    <meta charset = "utf-8">
+    <title> Title </title>
+    <script>
+        "use strict";
+    /*defining Table
+    //Input : total boxes and boxes per stack
+    *prcesingj: Math.cell(total boxes / bpxes per stack
+    *Output: number of stacks
+        */
+
+    function numberOfStacks() {
+        //Get total boxes and boxes per stack form lthe user.
+        var total = parseInt(document.getElementById("totalBoxes").value);
+        var perStack = parseInt(document.getElementById("perStack").value);
+
+            //copute the number of stack.
+            var stacker = Math.ceil(total / perStack);
+
+            //Display the number of stack for the user to see.
+            document.getElementById("output").innerHTML = stacker;
+    }
+    
+      </script>
+ </head>
+
+ <body>
+    Total Boxes <input type="text" id="totalBoxes" size= "4"><br><br> 
+    Boxes In Each Stack <input type = "text" id="perStack" size="4"> <br>
+    <button type="button" onclick="numberOfStacks()">Number of Stacks</button><br>
+    <div id="output"></div>
+    
+ </body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DocTYPE HTML>
+<html lang = "en-us">
+<head> 
+    <meta charset = "utf-8">
+    <title> Volume of a Tetrahedron </title>
+
+    <script>
+        "use strict";
+    /*defining Table
+    //Input : a: edge length
+    *prcesing: v = a*a*a/ 6 * square root 2
+    *Output: volume
+     */
+
+    function volume() {
+        //Get edge length
+        var eL = parseFloat(document.getElementById("a").value);
+
+         //compute the tire volume.
+            var volume = (eL * eL * eL)/(Math.sqrt(72));
+
+        //Display the tire volume
+            document.getElementById("output").innerHTML = volume;
+
+  
+    }
+      </script>
+      
+ </head>
+
+ <body>
+    <p>Input Edge Length: a</p>
+    <input type="text" id="a"><br>
+    <button type="button" onclick="volume()">Volume of Tetrahedron</button><br>
+    <div id="output"></div>
+    
+ </body>
+
+</html>

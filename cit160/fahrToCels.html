@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+    <head>
+            
+         <meta charset="utf-8">
+         
+         <title>Multipy</title>
+         <script src="draw.js"></script>
+
+            <script>
+              
+                function doInputOutput() {
+                        //get temp from text field
+                        var f = parseFloat(document.getElementById("fahren").value);
+                        
+                        //call fahrtocels func and stor the returned value.
+                       var c = fahrToCels(f)
+
+                       // display celsius val for user
+                       document.getElementById("output").innerHTML = c;
+                        
+                }
+            
+             function fahrToCels(fahr) {
+                 var cels = (fahr -32) * 5 / 9; 
+                 
+                 //return celsius temp
+                 return cels;
+            }
+
+
+            </script>
+
+     </head>
+
+ <body> 
+    Fahrenheit <input type="text" id="fahren"> <br>     
+    <button type="button" onclick= "doInputOutput()">Calculate</button><br>
+    <div id="output"> </div>
+ </body>
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>Multipy</title>
+
+            <script>
+               /*Defining table 
+               *input: patron status & number of overdue books in the last year
+               *processing: nested if statements. Outer ifs handle patrons stats
+                            innter ifs handle overdue books
+               *output: How long someone is allowed to keep a book (weeks)
+               */
+              
+
+                function computeLoanDuration() {
+                    // Geet patron status and number of overdue books from the user.
+                    var status = (document.getElementById("status").value);
+                    var overdue = parseInt(document.getElementById("overdue").value);
+        
+                //choose the loan duration in weeks.
+                 
+                            var duration
+                            ;
+                             if (status == "student") {
+                             if (overdue == 0) {
+                                 duration = 6;
+                             }
+
+                             else if ( overdue < 3 )
+                             {
+                                 duration = 4;
+                             }
+
+                             else {
+                                duration = 2;
+                             }
+                           }
+
+                                        else if (status == "faculty") {
+                                        if (overdue == 0) {
+                                            duration = 16;
+                                        }
+
+                                        else if ( overdue < 3 )
+                                        {
+                                            duration = 12;
+                                        }
+
+                                        else {
+                                            duration = 8;
+                                        }
+                                   }
+                                    
+                                        
+                                                    else {
+                                                    if (overdue == 0) {
+                                                    duration = 4;
+                                                    }
+
+                                                    else if ( overdue < 3 )
+                                                    {
+                                                        duration = 3;
+                                                    }
+
+                                                else {
+                                                    duration = 2;
+                                                }
+                                            }
+                                                
+
+                          
+
+                     //display product for the user to see
+                      document.getElementById("output").innerHTML = duration;
+            
+                }
+
+                
+            </script>
+
+         </head>
+
+         <body>
+
+             
+             Patron status (student, faculty, other) <input type="text" id="status"> <br>
+             number of overdue books in last year <input type="text" id="overdue"> <br>
+             <button type="button" onclick= "computeLoanDuration()">Duration of weeks</button>
+            <div id="output"></div>
+            
+
+         </body>
+
+</html>

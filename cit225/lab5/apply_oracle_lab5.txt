@@ -1,0 +1,881 @@
+SQL> 
+SQL> -- ... insert lab 5 commands here ...
+SQL> --..part 1.a....--
+SQL> COL account_number FORMAT A10  HEADING "Account #"
+SQL> COL first_name	FORMAT A10  HEADING "First Name"
+SQL> COL last_name	FORMAT A10  HEADING "Last Name"
+SQL> 
+SQL> 			     --original--
+SQL> SELECT member_id
+  2  ,	    contact_id
+  3  FROM member INNER JOIN contact
+  4  USING(member_id);
+
+Member                                                                          
+  ID # CONTACT_ID                                                               
+------ ----------                                                               
+  1001       1001                                                               
+  1001       1002                                                               
+  1002       1003                                                               
+  1002       1004                                                               
+  1003       1005                                                               
+  1003       1006                                                               
+  1003       1007                                                               
+  1004       1008                                                               
+  1005       1009                                                               
+  1006       1010                                                               
+  1007       1011                                                               
+  1008       1012                                                               
+
+12 rows selected.
+
+SQL> 
+SQL> 			     --modified--
+SQL> SELECT member_id, contact_id, account_number, first_name, last_name
+  2  FROM  member INNER JOIN contact
+  3  USING (member_id);
+
+Member                                                                          
+  ID # CONTACT_ID Account #  First Name Last Name                               
+------ ---------- ---------- ---------- ----------                              
+  1001       1001 B293-71445 Randi      Winn                                    
+  1001       1002 B293-71445 Brian      Winn                                    
+  1002       1003 B293-71446 Oscar      Vizquel                                 
+  1002       1004 B293-71446 Doreen     Vizquel                                 
+  1003       1005 B293-71447 Meaghan    Sweeney                                 
+  1003       1006 B293-71447 Matthew    Sweeney                                 
+  1003       1007 B293-71447 Ian        Sweeney                                 
+  1004       1008 R11-514-34 Goeffrey   Clinton                                 
+  1005       1009 R11-514-35 Wendy      Moss                                    
+  1006       1010 R11-514-36 Simon      Gretelz                                 
+  1007       1011 R11-514-37 Elizabeth  Royal                                   
+  1008       1012 R11-514-38 Brian      Smith                                   
+
+12 rows selected.
+
+SQL> 
+SQL> --..part1.b...--
+SQL> COL CITY		 FORMAT A14  HEADING "City"
+SQL> COL STATE_PROVINCE  FORMAT A8  HEADING "State"
+SQL> 
+SQL> 			 --original
+SQL> SELECT m.member_id
+  2  ,	     contact_id
+  3  FROM member m, contact c
+  4  WHERE m.member_id = c.member_id;
+
+Member                                                                          
+  ID # CONTACT_ID                                                               
+------ ----------                                                               
+  1001       1001                                                               
+  1001       1002                                                               
+  1002       1003                                                               
+  1002       1004                                                               
+  1003       1005                                                               
+  1003       1006                                                               
+  1003       1007                                                               
+  1004       1008                                                               
+  1005       1009                                                               
+  1006       1010                                                               
+  1007       1011                                                               
+  1008       1012                                                               
+
+12 rows selected.
+
+SQL> 
+SQL> 			 --modified--
+SQL> SELECT member_id, contact_id, account_number, first_name, last_name
+  2  FROM  member INNER JOIN contact
+  3  USING (member_id);
+
+Member                                                                          
+  ID # CONTACT_ID Account #  First Name Last Name                               
+------ ---------- ---------- ---------- ----------                              
+  1001       1001 B293-71445 Randi      Winn                                    
+  1001       1002 B293-71445 Brian      Winn                                    
+  1002       1003 B293-71446 Oscar      Vizquel                                 
+  1002       1004 B293-71446 Doreen     Vizquel                                 
+  1003       1005 B293-71447 Meaghan    Sweeney                                 
+  1003       1006 B293-71447 Matthew    Sweeney                                 
+  1003       1007 B293-71447 Ian        Sweeney                                 
+  1004       1008 R11-514-34 Goeffrey   Clinton                                 
+  1005       1009 R11-514-35 Wendy      Moss                                    
+  1006       1010 R11-514-36 Simon      Gretelz                                 
+  1007       1011 R11-514-37 Elizabeth  Royal                                   
+  1008       1012 R11-514-38 Brian      Smith                                   
+
+12 rows selected.
+
+SQL> 
+SQL> --..part1.c..--
+SQL> 			 --original--
+SQL> SELECT contact_id
+  2  ,	    address_id
+  3  FROM contact INNER JOIN address
+  4  USING(contact_id);
+
+CONTACT_ID ADDRESS_ID                                                           
+---------- ----------                                                           
+      1001       1001                                                           
+      1002       1002                                                           
+      1003       1003                                                           
+      1004       1004                                                           
+      1005       1005                                                           
+      1006       1006                                                           
+      1007       1007                                                           
+      1008       1008                                                           
+      1009       1009                                                           
+      1010       1010                                                           
+      1011       1011                                                           
+      1012       1012                                                           
+
+12 rows selected.
+
+SQL> 
+SQL> 			 --modified--
+SQL> COL CITY		 FORMAT A14  HEADING "City"
+SQL> COL STATE_PROVINCE  FORMAT A8  HEADING "State"
+SQL> 
+SQL> SELECT contact_id, address_id, first_name, last_name, City
+  2  , STATE_PROVINCE
+  3  FROM  contact INNER JOIN address
+  4  USING (contact_id);
+
+CONTACT_ID ADDRESS_ID First Name Last Name  City           State                
+---------- ---------- ---------- ---------- -------------- --------             
+      1001       1001 Randi      Winn       San Jose       CA                   
+      1002       1002 Brian      Winn       San Jose       CA                   
+      1003       1003 Oscar      Vizquel    San Jose       CA                   
+      1004       1004 Doreen     Vizquel    San Jose       CA                   
+      1005       1005 Meaghan    Sweeney    San Jose       CA                   
+      1006       1006 Matthew    Sweeney    San Jose       CA                   
+      1007       1007 Ian        Sweeney    San Jose       CA                   
+      1008       1008 Goeffrey   Clinton    Provo          Utah                 
+      1009       1009 Wendy      Moss       Provo          Utah                 
+      1010       1010 Simon      Gretelz    Provo          Utah                 
+      1011       1011 Elizabeth  Royal      Provo          Utah                 
+      1012       1012 Brian      Smith      Spanish Fork   Utah                 
+
+12 rows selected.
+
+SQL> 
+SQL> --..part1.d..--
+SQL> 
+SQL> 		     --..modified instructions..--
+SQL> COL CITY		 FORMAT A14  HEADING "City"
+SQL> COL STATE_PROVINCE  FORMAT A8  HEADING "State"
+SQL> 
+SQL> SELECT c.contact_id, a.address_id, first_name, last_name, city, STATE_PROVINCE
+  2  FROM contact c, address a
+  3  WHERE c.contact_id = a.address_id;
+
+CONTACT_ID ADDRESS_ID First Name Last Name  City           State                
+---------- ---------- ---------- ---------- -------------- --------             
+      1001       1001 Randi      Winn       San Jose       CA                   
+      1002       1002 Brian      Winn       San Jose       CA                   
+      1003       1003 Oscar      Vizquel    San Jose       CA                   
+      1004       1004 Doreen     Vizquel    San Jose       CA                   
+      1005       1005 Meaghan    Sweeney    San Jose       CA                   
+      1006       1006 Matthew    Sweeney    San Jose       CA                   
+      1007       1007 Ian        Sweeney    San Jose       CA                   
+      1008       1008 Goeffrey   Clinton    Provo          Utah                 
+      1009       1009 Wendy      Moss       Provo          Utah                 
+      1010       1010 Simon      Gretelz    Provo          Utah                 
+      1011       1011 Elizabeth  Royal      Provo          Utah                 
+      1012       1012 Brian      Smith      Spanish Fork   Utah                 
+
+12 rows selected.
+
+SQL> 
+SQL> --..part1.e..--
+SQL> 
+SQL> SELECT address_id
+  2  ,	    street_address_id
+  3  FROM address INNER JOIN street_address
+  4  USING(address_id);
+
+ADDRESS_ID STREET_ADDRESS_ID                                                    
+---------- -----------------                                                    
+      1001              1001                                                    
+      1002              1002                                                    
+      1003              1003                                                    
+      1004              1004                                                    
+      1005              1005                                                    
+      1006              1006                                                    
+      1007              1007                                                    
+      1008              1008                                                    
+      1009              1009                                                    
+      1010              1010                                                    
+      1011              1011                                                    
+      1012              1012                                                    
+
+12 rows selected.
+
+SQL> 
+SQL> --..part1.f..--
+SQL> 
+SQL> SELECT a.address_id
+  2  ,	    street_address_id
+  3  FROM address a, street_address sa
+  4  WHERE a.address_id = sa.street_address_id;
+
+ADDRESS_ID STREET_ADDRESS_ID                                                    
+---------- -----------------                                                    
+      1001              1001                                                    
+      1002              1002                                                    
+      1003              1003                                                    
+      1004              1004                                                    
+      1005              1005                                                    
+      1006              1006                                                    
+      1007              1007                                                    
+      1008              1008                                                    
+      1009              1009                                                    
+      1010              1010                                                    
+      1011              1011                                                    
+      1012              1012                                                    
+
+12 rows selected.
+
+SQL> 
+SQL> --..part1.g..--
+SQL> SELECT address_id
+  2  ,	    telephone_id
+  3  FROM address INNER JOIN telephone
+  4  USING(address_id);
+
+ADDRESS_ID TELEPHONE_ID                                                         
+---------- ------------                                                         
+      1001         1001                                                         
+      1002         1002                                                         
+      1003         1003                                                         
+      1004         1004                                                         
+      1005         1005                                                         
+      1006         1006                                                         
+      1007         1007                                                         
+      1008         1008                                                         
+      1009         1009                                                         
+      1010         1010                                                         
+      1011         1011                                                         
+      1012         1012                                                         
+
+12 rows selected.
+
+SQL> 
+SQL> --..part1.h..--
+SQL> SELECT a.address_id
+  2  ,	    telephone_id
+  3  FROM address a, telephone t
+  4  WHERE a.address_id = t.telephone_id;
+
+ADDRESS_ID TELEPHONE_ID                                                         
+---------- ------------                                                         
+      1001         1001                                                         
+      1002         1002                                                         
+      1003         1003                                                         
+      1004         1004                                                         
+      1005         1005                                                         
+      1006         1006                                                         
+      1007         1007                                                         
+      1008         1008                                                         
+      1009         1009                                                         
+      1010         1010                                                         
+      1011         1011                                                         
+      1012         1012                                                         
+
+12 rows selected.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> --..part2.a...--
+SQL> SELECT c.contact_id
+  2  ,	    system_user_id
+  3  FROM contact c INNER JOIN system_user su
+  4  ON c.created_by = su.system_user_id;
+
+           System                                                               
+             User                                                               
+CONTACT_ID   ID #                                                               
+---------- ------                                                               
+      1001      1                                                               
+      1002      1                                                               
+      1003      1                                                               
+      1004      1                                                               
+      1005      1                                                               
+      1006      1                                                               
+      1007      1                                                               
+      1008   1001                                                               
+      1009   1001                                                               
+      1010   1001                                                               
+      1011   1001                                                               
+      1012   1001                                                               
+
+12 rows selected.
+
+SQL> 
+SQL> --..part2.b...--
+SQL> SELECT c.contact_id
+  2  ,	     system_user_id
+  3  FROM contact c, system_user su
+  4  WHERE c.created_by = su.system_user_id;
+
+           System                                                               
+             User                                                               
+CONTACT_ID   ID #                                                               
+---------- ------                                                               
+      1001      1                                                               
+      1002      1                                                               
+      1003      1                                                               
+      1004      1                                                               
+      1005      1                                                               
+      1006      1                                                               
+      1007      1                                                               
+      1008   1001                                                               
+      1009   1001                                                               
+      1010   1001                                                               
+      1011   1001                                                               
+      1012   1001                                                               
+
+12 rows selected.
+
+SQL> 
+SQL> --..part2.c..--
+SQL> SELECT contact_id
+  2  ,	    system_user_id
+  3  from contact c INNER JOIN system_user su
+  4  ON c.LAST_UPDATED_BY = su.system_user_id;
+
+           System                                                               
+             User                                                               
+CONTACT_ID   ID #                                                               
+---------- ------                                                               
+      1001      1                                                               
+      1002      1                                                               
+      1003      1                                                               
+      1004      1                                                               
+      1005      1                                                               
+      1006      1                                                               
+      1007      1                                                               
+      1008   1001                                                               
+      1009   1001                                                               
+      1010   1001                                                               
+      1011   1001                                                               
+      1012   1001                                                               
+
+12 rows selected.
+
+SQL> 
+SQL> --..part2.d..--
+SQL> SELECT c.contact_id
+  2  ,	    system_user_id
+  3  FROM contact c, system_user su
+  4  WHERE c.last_updated_by = su.system_user_id;
+
+           System                                                               
+             User                                                               
+CONTACT_ID   ID #                                                               
+---------- ------                                                               
+      1001      1                                                               
+      1002      1                                                               
+      1003      1                                                               
+      1004      1                                                               
+      1005      1                                                               
+      1006      1                                                               
+      1007      1                                                               
+      1008   1001                                                               
+      1009   1001                                                               
+      1010   1001                                                               
+      1011   1001                                                               
+      1012   1001                                                               
+
+12 rows selected.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> --..part3.a..--
+SQL> COL system_user_id  FORMAT 999999	HEADING "System|User|ID #|--------|Table #1"
+SQL> COL created_by	 FORMAT 999999	HEADING "Created|By|ID #|--------|Table #1"
+SQL> COL system_user_pk  FORMAT 999999	HEADING "System|User|ID #|--------|Table #2"
+SQL> 
+SQL> 
+SQL> SELECT su1.system_user_id, su1.created_by, su2.system_user_id AS System_user_pk
+  2  FROM system_user su1 INNER JOIN system_user su2
+  3  ON su1.created_by = su2.system_user_id;
+
+  System  Created   System                                                      
+    User       By     User                                                      
+    ID #     ID #     ID #                                                      
+-------- -------- --------                                                      
+Table #1 Table #1 Table #2                                                      
+-------- -------- --------                                                      
+       1        1        1                                                      
+    1001        1        1                                                      
+    1002        1        1                                                      
+
+3 rows selected.
+
+SQL> 
+SQL> 
+SQL> --..part3.b..--
+SQL> COL system_user_id   FORMAT 999999  HEADING "System|User|ID #|--------|Table #1"
+SQL> COL last_updated_by  FORMAT 999999  HEADING "Last|Updated|By|ID #|--------|Table #1"
+SQL> COL system_user_pk   FORMAT 999999  HEADING "System|User|ID #|--------|Table #2"
+SQL> SELECT su1.system_user_id, su1.created_by, su2.system_user_id AS system_user_pk
+  2  FROM system_user su1 inner JOIN system_user su2
+  3  ON su1.last_updated_by = su2.system_user_id;
+
+  System  Created   System                                                      
+    User       By     User                                                      
+    ID #     ID #     ID #                                                      
+-------- -------- --------                                                      
+Table #1 Table #1 Table #2                                                      
+-------- -------- --------                                                      
+       1        1        1                                                      
+    1001        1        1                                                      
+    1002        1        1                                                      
+
+3 rows selected.
+
+SQL> 
+SQL> --..part3.c..--
+SQL> COL user_id	FORMAT 999999  HEADING "System|User|ID #|--------|Table #1"
+SQL> COL user_name	FORMAT A8      HEADING "System|User|Name|--------|Table #1"
+SQL> COL cby_user_id	FORMAT 999999  HEADING "System|User|ID #|--------|Table #2"
+SQL> COL cby_user_name	FORMAT A8      HEADING "System|User|Name|--------|Table #2"
+SQL> COL lby_user_id	FORMAT 999999  HEADING "System|User|ID #|--------|Table #3"
+SQL> COL lby_user_name	FORMAT A8      HEADING "System|User|Name|--------|Table #3"
+SQL> SELECT su1.system_user_id
+  2  ,	    su1.system_user_name
+  3  ,	    su2.system_user_id AS cby_user_
+  4  ,	    su2.system_user_id AS CREATED_BY
+  5  ,	    su3.system_user_name AS UPDATED_USER
+  6  ,	    su3.last_updated_by AS LAST_UPDATED_BY
+  7  FROM	 system_user su1 INNER JOIN system_user su2
+  8  	 ON su2.system_user_id = su1.created_by INNER JOIN system_user su3
+  9  	 ON su1.last_updated_by = su3.system_user_id;
+
+                                                                 Last           
+  System                        Created                       Updated           
+    User                             By                            By           
+    ID # System                    ID #                          ID #           
+-------- User                  --------                      --------           
+Table #1 Name        CBY_USER_ Table #1 UPDATED_USER         Table #1           
+-------- ---------- ---------- -------- -------------------- --------           
+       1 SYSADMIN            1        1 SYSADMIN                    1           
+    1001 DBA1                1        1 SYSADMIN                    1           
+    1002 DBA2                1        1 SYSADMIN                    1           
+
+3 rows selected.
+
+SQL> 
+SQL> --..part4..--
+SQL> SELECT r.rental_id
+  2  ,	    ri.rental_id
+  3  ,	    ri.item_id
+  4  ,	    i.item_id
+  5  FROM rental r INNER JOIN rental_item ri
+  6  	 ON r.rental_id = ri.item_id INNER JOIN item i
+  7  	 ON ri.item_id = i.item_id;
+
+ Rent  Rent  Item  Item                                                         
+ ID #  ID #  ID #  ID #                                                         
+----- ----- ----- -----                                                         
+ 1002  1001  1002  1002                                                         
+ 1004  1001  1004  1004                                                         
+ 1005  1001  1005  1005                                                         
+ 1001  1005  1001  1001                                                         
+
+4 rows selected.
+
+SQL> 
+SQL> --..part5..--
+SQL> /* Conditionally drop non-equijoin sample tables. */
+SQL> 
+SQL> /* Conditionally drop non-equijoin sample tables. */
+SQL> BEGIN
+  2    FOR i IN (SELECT   object_name
+  3  		 ,	  object_type
+  4  		 FROM	  user_objects
+  5  		 WHERE	  object_name IN ('DEPARTMENT','DEPARTMENT_S'
+  6  				       ,'EMPLOYEE','EMPLOYEE_S'
+  7  				       ,'SALARY','SALARY_S')
+  8  		 ORDER BY object_type) LOOP
+  9  	 IF i.object_type = 'TABLE' THEN
+ 10  	   EXECUTE IMMEDIATE 'DROP '||i.object_type||' '||i.object_name||' CASCADE CONSTRAINTS';
+ 11  	 ELSIF i.object_type = 'SEQUENCE' THEN
+ 12  	   EXECUTE IMMEDIATE 'DROP '||i.object_type||' '||i.object_name;
+ 13  	 END IF;
+ 14    END LOOP;
+ 15  END;
+ 16  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> /* Create department table. */
+SQL> CREATE TABLE department
+  2  ( department_id	NUMBER	CONSTRAINT department_pk PRIMARY KEY
+  3  , department_name	VARCHAR2(20));
+
+Table created.
+
+SQL> 
+SQL> /* Create a department_s sequence. */
+SQL> CREATE SEQUENCE department_s;
+
+Sequence created.
+
+SQL> 
+SQL> /* Create a salary table. */
+SQL> CREATE TABLE salary
+  2  ( salary_id	     NUMBER  CONSTRAINT salary_pk   PRIMARY KEY
+  3  , effective_start_date  DATE    CONSTRAINT salary_nn1  NOT NULL
+  4  , effective_end_date    DATE
+  5  , salary		     NUMBER  CONSTRAINT salary_nn2  NOT NULL);
+
+Table created.
+
+SQL> 
+SQL> /* Create a salary_s sequence. */
+SQL> CREATE SEQUENCE salary_s;
+
+Sequence created.
+
+SQL> 
+SQL> /* Create an employee table. */
+SQL> CREATE TABLE employee
+  2  ( employee_id    NUMBER	    CONSTRAINT employee_pk  PRIMARY KEY
+  3  , department_id  NUMBER	    CONSTRAINT employee_nn1 NOT NULL
+  4  , salary_id      NUMBER	    CONSTRAINT employee_nn2 NOT NULL
+  5  , first_name     VARCHAR2(20)  CONSTRAINT employee_nn3 NOT NULL
+  6  , last_name      VARCHAR2(20)  CONSTRAINT employee_nn4 NOT NULL
+  7  , CONSTRAINT employee_fk FOREIGN KEY(employee_id) REFERENCES employee(employee_id));
+
+Table created.
+
+SQL> 
+SQL> /* Create an employee_s sequence. */
+SQL> CREATE SEQUENCE employee_s;
+
+Sequence created.
+
+SQL> 
+SQL> 
+SQL> /* Create an anonymous program to insert data. */
+SQL> SET SERVEROUTPUT ON SIZE UNLIMITED
+SQL> DECLARE
+  2    /* Declare a collection of strings. */
+  3    TYPE xname IS TABLE OF VARCHAR2(20);
+  4  
+  5    /* Declare a collection of numbers. */
+  6    TYPE xsalary IS TABLE OF NUMBER;
+  7  
+  8    /* Local variable generated by a random foreign key. */
+  9    lv_department_id  NUMBER;
+ 10    lv_salary_id	 NUMBER;
+ 11  
+ 12    /* A collection of first names. */
+ 13    lv_first XNAME := xname('Ann','Abbey','Amanda','Archie','Antonio','Arnold'
+ 14  			      ,'Barbara','Basil','Bernie','Beth','Brian','Bryce'
+ 15  			      ,'Carl','Carrie','Charlie','Christine','Corneilus','Crystal'
+ 16  			      ,'Dana','Darlene','Darren','Dave','Davi','Deidre'
+ 17  			      ,'Eamonn','Eberhard','Ecaterina','Ebony','Elana','Eric'
+ 18  			      ,'Fabian','Faith','Fernando','Farris','Fiana','Francesca'
+ 19  			      ,'Gabe','Gayle','Geoffrey','Gertrude','Grayson','Guy'
+ 20  			      ,'Harry','Harriet','Henry','Henrica','Herman','Hesper'
+ 21  			      ,'Ian','Ida','Iggy','Iliana','Imogene','Issac'
+ 22  			      ,'Jan','Jack','Jennifer','Jerry','Julian','June'
+ 23  			      ,'Kacey','Karen','Kaitlyn','Keith','Kevin','Kyle'
+ 24  			      ,'Laney','Lawrence','Leanne','Liam','Lois','Lynne'
+ 25  			      ,'Marcel','Marcia','Mark','Meagan','Mina','Michael'
+ 26  			      ,'Nancy','Naomi','Narcissa','Nasim','Nathaniel','Neal'
+ 27  			      ,'Obadiah','Odelia','Ohanna','Olaf','Olive','Oscar'
+ 28  			      ,'Paige','Palmer','Paris','Pascal','Patricia','Peter'
+ 29  			      ,'Qadir','Qasim','Quaid','Quant','Quince','Quinn'
+ 30  			      ,'Rachelle','Rafael','Raj','Randy','Ramona','Raven'
+ 31  			      ,'Savina','Sadie','Sally','Samuel','Saul','Santino'
+ 32  			      ,'Tabitha','Tami','Tanner','Thomas','Timothy','Tina'
+ 33  			      ,'Ugo','Ululani','Umberto','Una','Urbi','Ursula'
+ 34  			      ,'Val','Valerie','Valiant','Vanessa','Vaughn','Verna'
+ 35  			      ,'Wade','Wagner','Walden','Wanda','Wendy','Wilhelmina'
+ 36  			      ,'Xander','Xavier','Xena','Xerxes','Xia','Xylon'
+ 37  			      ,'Yana','Yancy','Yasmina','Yasmine','Yepa','Yeva'
+ 38  			      ,'Zacarias','Zach','Zahara','Zander','Zane');
+ 39  
+ 40    /* A collection of last names. */
+ 41    lv_last	XNAME := xname('Abernathy','Anderson','Baker','Barney'
+ 42  			      ,'Christensen','Cafferty','Davis','Donaldson'
+ 43  			      ,'Eckhart','Eidelman','Fern','Finkel','Frank','Frankel','Fromm'
+ 44  			      ,'Garfield','Geary','Harvey','Hamilton','Harwood'
+ 45  			      ,'Ibarguen','Imbezi','Lindblom','Lynstrom'
+ 46  			      ,'Martel','McKay','McLellen','Nagata','Noonan','Nunes'
+ 47  			      ,'O''Brien','Oakey','Patterson','Petersen','Pratel','Preston'
+ 48  			      ,'Qian','Queen','Ricafort','Richards','Roberts','Robertson'
+ 49  			      ,'Sampson','Simon','Tabacchi','Travis','Trevor','Tower'
+ 50  			      ,'Ubel','Urie','Vassen','Vanderbosch'
+ 51  			      ,'Wacha','Walcott','West','Worley','Xian','Xiang'
+ 52  			      ,'Yackley','Yaguchi','Zarbarsky','Zambelli');
+ 53  
+ 54    /* A collection of department names. */
+ 55    lv_dept	XNAME := xname('Accounting','Operations','Sales','Factory','Manufacturing');
+ 56  
+ 57    /* A colleciton of possible salaries. */
+ 58    lv_salary  XSALARY := xsalary( 36000, 42000, 48000, 52000, 64000 );
+ 59  
+ 60    /* Define a local function. */
+ 61    FUNCTION random_foreign_key RETURN INTEGER IS
+ 62  	 /* Declare a return variable. */
+ 63  	 lv_return_value  NUMBER;
+ 64    BEGIN
+ 65  	 /* Select a random number between 1 and 5 and assign it to a local variable. */
+ 66  	 SELECT CASE
+ 67  		  WHEN num = 0 THEN 5 ELSE num
+ 68  		END AS random_key
+ 69  	 INTO	lv_return_value
+ 70  	 FROM	(SELECT ROUND(dbms_random.VALUE(1,1000)/100/2,0) num FROM dual) il;
+ 71  
+ 72  	 /* Return the random number. */
+ 73  	 RETURN lv_return_value;
+ 74    END random_foreign_key;
+ 75  
+ 76  BEGIN
+ 77    /* Insert departments. */
+ 78    FOR i IN 1..lv_dept.LAST LOOP
+ 79  	 INSERT INTO department
+ 80  	 ( department_id
+ 81  	 , department_name )
+ 82  	 VALUES
+ 83  	 ( department_s.NEXTVAL
+ 84  	 , lv_dept(i));
+ 85    END LOOP;
+ 86  
+ 87    /* Insert salary. */
+ 88    FOR i IN 1..lv_salary.LAST LOOP
+ 89  	 INSERT INTO salary
+ 90  	 ( salary_id
+ 91  	 , effective_start_date
+ 92  	 , salary )
+ 93  	 VALUES
+ 94  	 ( salary_s.NEXTVAL
+ 95  	 , TRUNC(SYSDATE) - 30
+ 96  	 , lv_salary(i));
+ 97    END LOOP;
+ 98  
+ 99    /* Insert random employees. */
+100    FOR i IN 1..lv_first.LAST LOOP
+101  	 FOR j IN 1..lv_last.LAST LOOP
+102  	   /* Assign a random values to a local variable. */
+103  	   lv_department_id := random_foreign_key;
+104  	   lv_salary_id := random_foreign_key;
+105  
+106  	   /* Insert values into the employee table. */
+107  	   INSERT INTO employee
+108  	   ( employee_id
+109  	   , department_id
+110  	   , salary_id
+111  	   , first_name
+112  	   , last_name )
+113  	   VALUES
+114  	   ( employee_s.NEXTVAL
+115  	   , lv_department_id
+116  	   , lv_salary_id
+117  	   , lv_first(i)
+118  	   , lv_last(j));
+119  	 END LOOP;
+120    END LOOP;
+121  
+122    /* Commit the writes. */
+123    COMMIT;
+124  END;
+125  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> SELECT   d.department_name
+  2  ,	      ROUND(AVG(s.salary),0) AS salary
+  3  FROM     employee e INNER JOIN department d
+  4  ON       e.department_id = d.department_id INNER JOIN salary s
+  5  ON       e.salary_id = s.salary_id
+  6  GROUP BY d.department_name
+  7  ORDER BY d.department_name;
+
+DEPARTMENT_NAME          SALARY                                                 
+-------------------- ----------                                                 
+Accounting                48386                                                 
+Factory                   48376                                                 
+Manufacturing             48048                                                 
+Operations                48298                                                 
+Sales                     48366                                                 
+
+5 rows selected.
+
+SQL> 
+SQL> /* Conditionally drop the table. */
+SQL> BEGIN
+  2    FOR i IN (SELECT table_name
+  3  		 FROM	user_tables
+  4  		 WHERE	table_name = 'MOCK_CALENDAR') LOOP
+  5  	 EXECUTE IMMEDIATE 'DROP TABLE '||i.table_name||' CASCADE CONSTRAINTS';
+  6    END LOOP;
+  7  END;
+  8  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> /* Create a mock_calendar table. */
+SQL> CREATE TABLE mock_calendar
+  2  ( short_month  VARCHAR2(3)
+  3  , long_month   VARCHAR2(9)
+  4  , start_date   DATE
+  5  , end_date     DATE );
+
+Table created.
+
+SQL> 
+SQL> /* Seed the table with 10 years of data. */
+SQL> DECLARE
+  2    /* Create local collection data types. */
+  3    TYPE smonth IS TABLE OF VARCHAR2(3);
+  4    TYPE lmonth IS TABLE OF VARCHAR2(9);
+  5  
+  6    /* Declare month arrays. */
+  7    short_month SMONTH := smonth('JAN','FEB','MAR','APR','MAY','JUN'
+  8  				   ,'JUL','AUG','SEP','OCT','NOV','DEC');
+  9    long_month  LMONTH := lmonth('January','February','March','April','May','June'
+ 10  				   ,'July','August','September','October','November','December');
+ 11  
+ 12    /* Declare base dates. */
+ 13    start_date DATE := '01-JAN-15';
+ 14    end_date   DATE := '31-JAN-15';
+ 15  
+ 16    /* Declare years. */
+ 17    years	  NUMBER := 4;
+ 18  
+ 19  BEGIN
+ 20  
+ 21    /* Loop through years and months. */
+ 22    FOR i IN 1..years LOOP
+ 23  	 FOR j IN 1..short_month.COUNT LOOP
+ 24  	   INSERT INTO mock_calendar VALUES
+ 25  	   ( short_month(j)
+ 26  	   , long_month(j)
+ 27  	   , ADD_MONTHS(start_date,(j-1)+(12*(i-1)))
+ 28  	   , ADD_MONTHS(end_date,(j-1)+(12*(i-1))));
+ 29  	 END LOOP;
+ 30    END LOOP;
+ 31  
+ 32    /* Commit the records. */
+ 33    COMMIT;
+ 34  END;
+ 35  /
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> /* Set output parameters. */
+SQL> SET PAGESIZE 16
+SQL> 
+SQL> /* Format column output. */
+SQL> COL short_month FORMAT A5 HEADING "Short|Month"
+SQL> COL long_month  FORMAT A9 HEADING "Long|Month"
+SQL> COL start_date  FORMAT A9 HEADING "Start|Date"
+SQL> COL end_date    FORMAT A9 HEADING "End|Date"
+SQL> 
+SQL> /* Query the results from the table. */
+SQL> SELECT * FROM mock_calendar;
+
+Short Long      Start     End                                                   
+Month Month     Date      Date                                                  
+----- --------- --------- ---------                                             
+JAN   January   01-JAN-15 31-JAN-15                                             
+FEB   February  01-FEB-15 28-FEB-15                                             
+MAR   March     01-MAR-15 31-MAR-15                                             
+APR   April     01-APR-15 30-APR-15                                             
+MAY   May       01-MAY-15 31-MAY-15                                             
+JUN   June      01-JUN-15 30-JUN-15                                             
+JUL   July      01-JUL-15 31-JUL-15                                             
+AUG   August    01-AUG-15 31-AUG-15                                             
+SEP   September 01-SEP-15 30-SEP-15                                             
+OCT   October   01-OCT-15 31-OCT-15                                             
+NOV   November  01-NOV-15 30-NOV-15                                             
+DEC   December  01-DEC-15 31-DEC-15                                             
+
+Short Long      Start     End                                                   
+Month Month     Date      Date                                                  
+----- --------- --------- ---------                                             
+JAN   January   01-JAN-16 31-JAN-16                                             
+FEB   February  01-FEB-16 29-FEB-16                                             
+MAR   March     01-MAR-16 31-MAR-16                                             
+APR   April     01-APR-16 30-APR-16                                             
+MAY   May       01-MAY-16 31-MAY-16                                             
+JUN   June      01-JUN-16 30-JUN-16                                             
+JUL   July      01-JUL-16 31-JUL-16                                             
+AUG   August    01-AUG-16 31-AUG-16                                             
+SEP   September 01-SEP-16 30-SEP-16                                             
+OCT   October   01-OCT-16 31-OCT-16                                             
+NOV   November  01-NOV-16 30-NOV-16                                             
+DEC   December  01-DEC-16 31-DEC-16                                             
+
+Short Long      Start     End                                                   
+Month Month     Date      Date                                                  
+----- --------- --------- ---------                                             
+JAN   January   01-JAN-17 31-JAN-17                                             
+FEB   February  01-FEB-17 28-FEB-17                                             
+MAR   March     01-MAR-17 31-MAR-17                                             
+APR   April     01-APR-17 30-APR-17                                             
+MAY   May       01-MAY-17 31-MAY-17                                             
+JUN   June      01-JUN-17 30-JUN-17                                             
+JUL   July      01-JUL-17 31-JUL-17                                             
+AUG   August    01-AUG-17 31-AUG-17                                             
+SEP   September 01-SEP-17 30-SEP-17                                             
+OCT   October   01-OCT-17 31-OCT-17                                             
+NOV   November  01-NOV-17 30-NOV-17                                             
+DEC   December  01-DEC-17 31-DEC-17                                             
+
+Short Long      Start     End                                                   
+Month Month     Date      Date                                                  
+----- --------- --------- ---------                                             
+JAN   January   01-JAN-18 31-JAN-18                                             
+FEB   February  01-FEB-18 28-FEB-18                                             
+MAR   March     01-MAR-18 31-MAR-18                                             
+APR   April     01-APR-18 30-APR-18                                             
+MAY   May       01-MAY-18 31-MAY-18                                             
+JUN   June      01-JUN-18 30-JUN-18                                             
+JUL   July      01-JUL-18 31-JUL-18                                             
+AUG   August    01-AUG-18 31-AUG-18                                             
+SEP   September 01-SEP-18 30-SEP-18                                             
+OCT   October   01-OCT-18 31-OCT-18                                             
+NOV   November  01-NOV-18 30-NOV-18                                             
+DEC   December  01-DEC-18 31-DEC-18                                             
+
+48 rows selected.
+
+SQL> 
+SQL> 
+SQL> SELECT   d.department_name
+  2  ,	      ROUND(AVG(s.salary),0) AS salary
+  3  FROM     employee e INNER JOIN department d
+  4  ON       e.department_id = d.department_id INNER JOIN salary s
+  5  ON       e.salary_id = s.salary_id
+  6  WHERE   ( Trunc(SYSDATE) - 60 < effective_start_date) AND (effective_start_date < Trunc(SYSDATE) + 1)
+  7  GROUP BY d.department_name
+  8  ORDER BY d.department_name;
+
+DEPARTMENT_NAME          SALARY                                                 
+-------------------- ----------                                                 
+Accounting                48386                                                 
+Factory                   48376                                                 
+Manufacturing             48048                                                 
+Operations                48298                                                 
+Sales                     48366                                                 
+
+5 rows selected.
+
+SQL> 
+SQL> 
+SQL> SPOOL OFF;

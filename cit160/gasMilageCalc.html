@@ -1,0 +1,46 @@
+<!DocTYPE HTML>
+<html lang = "en-us">
+<head> 
+    <meta charset = "utf-8">
+    <title> Title </title>
+    <script>
+        "use strict";
+    /*defining Table
+    //Input : enter beginning, ending odometer, & number of gallons used
+    *prcesingj: Math.cell(total boxes / bpxes per stack
+    *Output: compute the mileage of a vehicle in miles per gallon.
+    
+    Write a defining table and a JavaScript program to compute the mileage of a vehicle. 
+    Your program should allow the user to enter the beginning and ending odometer readings 
+    and the number of gallons of gasoline used and should output the mileage in miles per gallon. 
+    Your program should correctly handle real numbers such as 7.54.
+        */
+
+    function gasMileage() {
+        //Get start, end odometer, and gallons used from the user.
+        var startOdometer = parseFloat(document.getElementById("start").value);
+        var gallons = parseFloat(document.getElementById("gallonsGulped").value);
+        var endOdometer = parseFloat(document.getElementById("final").value);
+
+         //compute the change of Odometer and the div by gallons to get mpg.
+            var calculatedMPG = ( (endOdometer - startOdometer) / gallons);
+
+        //Display the number of stack for the user to see.
+            document.getElementById("output").innerHTML = calculatedMPG;
+
+  
+    }
+    
+      </script>
+ </head>
+
+ <body>
+    Starting Odometer reading <input type="text" id="start"><br>
+    Final Odometer reading <input type = "text" id="final"> <br>
+    Gallons used between readings <input type = "text" id="gallonsGulped"> <br>
+    <button type="button" onclick="gasMileage()">Your Gas mileage</button><br>
+    <div id="output"></div>
+    
+ </body>
+
+</html>

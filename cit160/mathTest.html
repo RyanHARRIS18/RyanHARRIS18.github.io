@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>Math Checker</title>
+
+            <script>
+               /*Defining table 
+               *input: "x" "operator" "y" "child answer"
+               *processing: take vars and see if they are equal to the true answer
+               *output: respond if correct or incorrect
+               */
+              
+
+                function checkmathskills() {
+                    // Get patron status and number of overdue books from the user.
+                    var x = parseFloat(document.getElementById("x").value);
+                    var operator = (document.getElementById("operator").value);
+                    var y = parseFloat(document.getElementById("y").value);
+                    var ChildAnswer = parseFloat(document.getElementById("childAnswer").value);
+        
+                            //compute the actual answer 
+                            var operator
+                            var realAnswer
+                            var message
+                            var ChildAnswer
+                            
+                             if ( operator == "-")  {
+                              (realAnswer = x - y);
+                             }
+
+                             else if ( operator == "+" ) {
+                               (realAnswer = x + y);
+                             }
+
+                             else if  (operator == "*" ) {
+                                (realAnswer = x * y);
+                             }
+
+                             else if  (operator == "/")  {
+                                (realAnswer = x / y);
+                             }
+                
+                                
+                            // compare real answer to childs answer. give message
+                                if (realAnswer == ChildAnswer) {
+                                    message = "Correct! Good job.";
+                                }
+
+                                else { message = "Incorrect. Try again!";
+
+                                }     
+                           
+
+
+                     //display product for the user to see
+                      document.getElementById("output").innerHTML = message;
+            
+                                
+                }
+
+                
+            </script>
+
+         </head>
+
+         <body>
+            Enter an number followed by an operation sign (+,-,*, or /)
+            and click the button to see if you are correct
+             <br>
+            <input type="text" id="x"> <br>
+            <input type="text" id="operator"> <br>
+            <input type="text" id="y"> <br>
+           = <input type="text" id="childAnswer"> <br>
+
+          <button type="button" onclick= "checkmathskills()">Check</button>
+            <div id="output"></div>
+            
+
+         </body>
+
+</html>

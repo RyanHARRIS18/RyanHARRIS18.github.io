@@ -1,0 +1,231 @@
+SQL> 
+SQL> -- Anonymous block to cleanup the lab files.
+SQL> BEGIN
+  2    FOR i IN (SELECT    object_name
+  3  		 ,	   object_type
+  4  		 ,	   last_ddl_time
+  5  		 FROM	   user_objects
+  6  		 WHERE	   object_name NOT IN
+  7  			     ('APEX$_ACL'
+  8  			     ,'APEX$_ACL_IDX1'
+  9  			     ,'APEX$_ACL_PK'
+ 10  			     ,'APEX$_ACL_T1'
+ 11  			     ,'APEX$_WS_FILES'
+ 12  			     ,'APEX$_WS_FILES_IDX1'
+ 13  			     ,'APEX$_WS_FILES_IDX2'
+ 14  			     ,'APEX$_WS_FILES_PK'
+ 15  			     ,'APEX$_WS_FILES_T1'
+ 16  			     ,'APEX$_WS_HISTORY'
+ 17  			     ,'APEX$_WS_HISTORY_IDX'
+ 18  			     ,'APEX$_WS_LINKS'
+ 19  			     ,'APEX$_WS_LINKS_IDX1'
+ 20  			     ,'APEX$_WS_LINKS_IDX2'
+ 21  			     ,'APEX$_WS_LINKS_PK'
+ 22  			     ,'APEX$_WS_LINKS_T1'
+ 23  			     ,'APEX$_WS_NOTES'
+ 24  			     ,'APEX$_WS_NOTES_IDX1'
+ 25  			     ,'APEX$_WS_NOTES_IDX2'
+ 26  			     ,'APEX$_WS_NOTES_PK'
+ 27  			     ,'APEX$_WS_NOTES_T1'
+ 28  			     ,'APEX$_WS_ROWS'
+ 29  			     ,'APEX$_WS_ROWS_IDX'
+ 30  			     ,'APEX$_WS_ROWS_PK'
+ 31  			     ,'APEX$_WS_ROWS_T1'
+ 32  			     ,'APEX$_WS_ROWS_UK1'
+ 33  			     ,'APEX$_WS_SEQ'
+ 34  			     ,'APEX$_WS_TAGS'
+ 35  			     ,'APEX$_WS_TAGS_IDX1'
+ 36  			     ,'APEX$_WS_TAGS_IDX2'
+ 37  			     ,'APEX$_WS_TAGS_PK'
+ 38  			     ,'APEX$_WS_TAGS_T1'
+ 39  			     ,'APEX$_WS_WEBPG_SECHIST_IDX1'
+ 40  			     ,'APEX$_WS_WEBPG_SECTIONS'
+ 41  			     ,'APEX$_WS_WEBPG_SECTIONS_PK'
+ 42  			     ,'APEX$_WS_WEBPG_SECTIONS_T1'
+ 43  			     ,'APEX$_WS_WEBPG_SECTION_HISTORY'
+ 44  			     ,'DEMO_CONSTRAINT_LOOKUP'
+ 45  			     ,'DEMO_CUSTOMERS'
+ 46  			     ,'DEMO_CUSTOMERS_BD'
+ 47  			     ,'DEMO_CUSTOMERS_BIU'
+ 48  			     ,'DEMO_CUSTOMERS_BI'
+ 49  			     ,'DEMO_CUSTOMERS_PK'
+ 50  			     ,'DEMO_CUSTOMERS_UK'
+ 51  			     ,'DEMO_CUST_NAME_IX'
+ 52  			     ,'DEMO_CUST_SEQ'
+ 53  			     ,'DEMO_ORDERS'
+ 54  			     ,'DEMO_ORDERS_BD'
+ 55  			     ,'DEMO_ORDERS_BIU'
+ 56  			     ,'DEMO_ORDER_ITEMS'
+ 57  			     ,'DEMO_ORDER_ITEMS_AIUD_TOTAL'
+ 58  			     ,'DEMO_ORDER_ITEMS_BI'
+ 59  			     ,'DEMO_ORDER_ITEMS_BIU_GET_PRICE'
+ 60  			     ,'DEMO_ORDER_ITEMS_PK'
+ 61  			     ,'DEMO_ORDER_ITEMS_SEQ'
+ 62  			     ,'DEMO_ORDER_ITEMS_UK'
+ 63  			     ,'DEMO_ORDER_PK'
+ 64  			     ,'DEMO_ORD_CUSTOMER_IX'
+ 65  			     ,'DEMO_ORD_SEQ'
+ 66  			     ,'DEMO_PRODUCT_INFO'
+ 67  			     ,'DEMO_PRODUCT_INFO_BD'
+ 68  			     ,'DEMO_PRODUCT_INFO_BIU'
+ 69  			     ,'DEMO_PRODUCT_INFO_PK'
+ 70  			     ,'DEMO_PRODUCT_INFO_UK'
+ 71  			     ,'DEMO_PROD_SEQ'
+ 72  			     ,'DEMO_STATES'
+ 73  			     ,'DEMO_TAGS'
+ 74  			     ,'DEMO_TAGS_BIU'
+ 75  			     ,'DEMO_TAGS_SUM'
+ 76  			     ,'DEMO_TAGS_SUM_PK'
+ 77  			     ,'DEMO_TAGS_TYPE_SUM'
+ 78  			     ,'DEMO_TAGS_TYPE_SUM_PK'
+ 79  			     ,'DEPT'
+ 80  			     ,'DEPT_SEQ'
+ 81  			     ,'DEPT_TRG1'
+ 82  			     ,'EMP'
+ 83  			     ,'EMP_SEQ'
+ 84  			     ,'EMP_TRG1'
+ 85  			     ,'SAMPLE_DATA_PKG'
+ 86  			     ,'SAMPLE_DATA_PKG'
+ 87  			     ,'SAMPLE_PKG'
+ 88  			     ,'SAMPLE_PKG'
+ 89  			     ,'SYS_C0011214'
+ 90  			     ,'SYS_C0011216'
+ 91  			     ,'SYS_C0011221'
+ 92  			     ,'SYS_C0011248'
+ 93  			     ,'SYS_LOB0000025723C00007$$'
+ 94  			     ,'SYS_LOB0000025745C00007$$'
+ 95  			     ,'SYS_LOB0000025745C00008$$'
+ 96  			     ,'SYS_LOB0000025751C00165$$'
+ 97  			     ,'SYS_LOB0000025751C00166$$'
+ 98  			     ,'SYS_LOB0000025759C00007$$'
+ 99  			     ,'SYS_LOB0000025767C00010$$'
+100  			     ,'SYS_LOB0000025771C00008$$'
+101  			     ,'SYS_LOB0000025771C00009$$')
+102  		 ORDER BY object_name ASC) LOOP
+103  
+104  	 /* Drop types in descending order. */
+105  	 IF i.object_type = 'TYPE' THEN
+106  
+107  	   /* Print the executed statement. */
+108  	   dbms_output.put_line('DROP '||i.object_type||' '||i.object_name||';');
+109  	   /* Drop type and force operation because dependencies may exist. Oracle 12c
+110  	      also fails to remove object types with dependents in pluggable databases
+111  	      (at least in release 12.1). Type evolution works in container database
+112  	      schemas. */
+113  	   EXECUTE IMMEDIATE 'DROP '||i.object_type||' '||i.object_name||' FORCE';
+114  
+115  	 /* Drop table tables in descending order. */
+116  	 ELSIF i.object_type = 'TABLE' THEN
+117  
+118  	   /* Print the executed statement. */
+119  	   dbms_output.put_line('DROP '||i.object_type||' '||i.object_name||';');
+120  	   /* Drop table with cascading constraints to ensure foreign key constraints
+121  	      don't prevent the action. */
+122  	   EXECUTE IMMEDIATE 'DROP '||i.object_type||' '||i.object_name||' CASCADE CONSTRAINTS PURGE';
+123  
+124  	   /* Oracle 12c ONLY: Purge the recyclebin to dispose of system-generated
+125  	      sequence values because dropping the table doesn't automatically
+126  	      remove them from the active session.
+127  	      CRITICAL: Remark out the following when working in Oracle Database 11g. */
+128  	   EXECUTE IMMEDIATE 'PURGE RECYCLEBIN';
+129  
+130  	 ELSIF i.object_type = 'LOB' OR i.object_type = 'INDEX' THEN
+131  
+132  	   /* Print the executed statement. */
+133  	   dbms_output.put_line('DROP '||i.object_type||' '||i.object_name||';');
+134  	   /* A system generated LOB column or INDEX will cause a failure in a
+135  	      generic drop of a table because it is listed in the cursor but removed
+136  	      by the drop of its table. This NULL block ensures there is no attempt
+137  	      to drop an implicit LOB data type or index because the dropping the
+138  	      table takes care of it. */
+139  	   NULL;
+140  
+141  	 ELSE
+142  
+143  	   /* Print the executed statement. */
+144  	   dbms_output.put_line('DROP '||i.object_type||' '||i.object_name||';');
+145  	   /* Drop any other objects, like sequences, functions, procedures, and packages. */
+146  	   -- EXECUTE IMMEDIATE 'DROP '||i.object_type||' '||i.object_name;
+147  	   NULL;
+148  
+149  	 END IF;
+150    END LOOP;
+151  END;
+152  /
+DROP SEQUENCE ACCOUNT_LIST_S1;                                                  
+DROP TABLE ADDRESS;                                                             
+DROP INDEX ADDRESS_N1;                                                          
+DROP INDEX ADDRESS_N2;                                                          
+DROP SEQUENCE ADDRESS_S1;                                                       
+DROP SEQUENCE AIRPORT_S1;                                                       
+DROP INDEX CLOOKUP_U1;                                                          
+DROP TABLE COMMON_LOOKUP;                                                       
+DROP SEQUENCE COMMON_LOOKUP_S1;                                                 
+DROP TABLE CONTACT;                                                             
+DROP PROCEDURE CONTACT_INSERT;                                                  
+DROP PROCEDURE CONTACT_INSERT_LAB;                                              
+DROP PROCEDURE CONTACT_LAB_INSERT;                                              
+DROP INDEX CONTACT_N1;                                                          
+DROP INDEX CONTACT_N2;                                                          
+DROP SEQUENCE CONTACT_S1;                                                       
+DROP VIEW CURRENT_RENTAL;                                                       
+DROP VIEW CURRENT_RENTAL_LAB;                                                   
+DROP TABLE DEPARTMENT;                                                          
+DROP INDEX DEPARTMENT_PK;                                                       
+DROP SEQUENCE DEPARTMENT_S;                                                     
+DROP FUNCTION DROP_TABLE;                                                       
+DROP FUNCTION DROP_TYPES;                                                       
+DROP TABLE EMPLOYEE;                                                            
+DROP INDEX EMPLOYEE_PK;                                                         
+DROP SEQUENCE EMPLOYEE_S;                                                       
+DROP FUNCTION GET_TABLE_COLUMN_LIST;                                            
+DROP TABLE ITEM;                                                                
+DROP SEQUENCE ITEM_S1;                                                          
+DROP TABLE MEMBER;                                                              
+DROP INDEX MEMBER_N1;                                                           
+DROP SEQUENCE MEMBER_S1;                                                        
+DROP TABLE MOCK_CALENDAR;                                                       
+DROP INDEX PK_ADDRESS_1;                                                        
+DROP INDEX PK_CLOOKUP_1;                                                        
+DROP INDEX PK_CONTACT_1;                                                        
+DROP INDEX PK_ITEM_1;                                                           
+DROP INDEX PK_MEMBER_1;                                                         
+DROP INDEX PK_PRICE_1;                                                          
+DROP INDEX PK_RENTAL_1;                                                         
+DROP INDEX PK_RENTAL_ITEM_1;                                                    
+DROP INDEX PK_SYSTEM_USER_1;                                                    
+DROP INDEX PK_S_ADDRESS_1;                                                      
+DROP INDEX PK_TELEPHONE_1;                                                      
+DROP TABLE PRICE;                                                               
+DROP SEQUENCE PRICE_S;                                                          
+DROP SEQUENCE PRICE_S1;                                                         
+DROP TABLE RENTAL;                                                              
+DROP TABLE RENTAL_ITEM;                                                         
+DROP SEQUENCE RENTAL_ITEM_S1;                                                   
+DROP SEQUENCE RENTAL_S1;                                                        
+DROP TABLE SALARY;                                                              
+DROP INDEX SALARY_PK;                                                           
+DROP SEQUENCE SALARY_S;                                                         
+DROP FUNCTION SAMPLE_FUNCTION;                                                  
+DROP PACKAGE SAMPLE_PACKAGE;                                                    
+DROP PROCEDURE SAMPLE_PROCEDURE;                                                
+DROP PROCEDURE SEED_ACCOUNT_LIST;                                               
+DROP TABLE STREET_ADDRESS;                                                      
+DROP SEQUENCE STREET_ADDRESS_S1;                                                
+DROP TABLE SYSTEM_USER;                                                         
+DROP SEQUENCE SYSTEM_USER_S1;                                                   
+DROP TABLE TELEPHONE;                                                           
+DROP INDEX TELEPHONE_N1;                                                        
+DROP INDEX TELEPHONE_N2;                                                        
+DROP INDEX TELEPHONE_N3;                                                        
+DROP SEQUENCE TELEPHONE_S1;                                                     
+DROP SEQUENCE TRANSACTION_S1;                                                   
+DROP FUNCTION TYPE_DEPENDENTS;                                                  
+DROP PROCEDURE UPDATE_MEMBER_ACCOUNT;                                           
+DROP INDEX UQ_SYSTEM_USER_1;                                                    
+
+PL/SQL procedure successfully completed.
+
+SQL> 
+SQL> -- Close the log file.
+SQL> SPOOL OFF

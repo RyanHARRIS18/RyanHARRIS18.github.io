@@ -1,0 +1,46 @@
+<!DocTYPE HTML>
+<html lang = "en-us">
+<head> 
+    <meta charset = "utf-8">
+    <title> Title </title>
+
+    <script>
+        "use strict";
+    /*defining Table
+    //Input : width, ratio, and diameter
+    *prcesing: compute the vol from the given formula
+    *Output: volume
+     */
+
+    function volume() {
+        //Get start, end odometer, and gallons used from the user.
+        var tireWidth = parseFloat(document.getElementById("tw").value);
+        var aspectRatio = parseFloat(document.getElementById("ar").value);
+        var diameter = parseFloat(document.getElementById("wd").value);
+
+         //compute the tire volume.
+            var num = Math.PI * tireWidth * tireWidth * aspectRatio * 
+            (tireWidth * aspectRatio + 2540 * diameter);
+            var calculatedv = num / 10000000;
+
+            var rounded = Math.round(calculatedv * 100) / 100;
+
+        //Display the tire volume
+            document.getElementById("output").innerHTML = rounded;
+
+  
+    }
+      </script>
+      
+ </head>
+
+ <body>
+    Tire Width (mm) <input type="text" id="tw"><br>
+   Aspect Ratio <input type = "text" id="ar"> <br>
+    wheel diameter (in) <input type = "text" id="wd"> <br>
+    <button type="button" onclick="volume()">Volume of Tire</button><br>
+    <div id="output"></div>
+    
+ </body>
+
+</html>

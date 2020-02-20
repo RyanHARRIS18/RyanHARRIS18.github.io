@@ -1,0 +1,381 @@
+SQL> 
+SQL> -- --------------------------------------------------------
+SQL> --  Step #1
+SQL> --  -------
+SQL> --  Using the query from Lab 7, Step 4, insert the 135
+SQL> --  rows in the PRICE table created in Lab 6.
+SQL> -- --------------------------------------------------------
+SQL> --add the necessary columns to insert the values directly into the price table. You will need to add values for the price_id, created_by, creation_date, last_updated_by, and last_update_date columns.
+SQL> 
+SQL> /* Instructions
+SQL> If you did not create a price_s sequence in Lab #6, you should create the price_id sequence with a starting value of 1001. You modify the query from the last lab by adding the following:
+SQL> A price_s.nextval call to populate the price_id column of the price table.
+SQL> 
+SQL> A a subquery like the following to populate the created_by and last_updated_by columns.
+SQL> SELECT su.system_user_id
+SQL> FROM   system_user su
+SQL> WHERE  su.system_user_name = 'Some valid string for a system_name value'
+SQL> A TRUNC(SYSDATE) call for the creation_date and last_update_date columns. */
+SQL> INSERT INTO price
+  2  ( price_id
+  3  , item_id
+  4  , price_type
+  5  , active_flag
+  6  , start_date
+  7  , end_date
+  8  , amount
+  9  , created_by
+ 10  , creation_date
+ 11  , last_updated_by
+ 12  , last_update_date )
+ 13  ( SELECT price_s1.NEXTVAL
+ 14    ,	item_id
+ 15    ,	price_type
+ 16    ,	active_flag
+ 17    ,	start_date
+ 18    ,	end_date
+ 19    ,	amount
+ 20    ,	created_by
+ 21    ,	creation_date
+ 22    ,	last_updated_by
+ 23    ,	last_update_date
+ 24    FROM
+ 25  	 (SELECT   i.item_id
+ 26  	  ,	   af.active_flag
+ 27  	  ,	   cl.common_lookup_id AS price_type
+ 28  	  ,	   cl.common_lookup_type AS price_desc
+ 29  	  ,	   CASE
+ 30  		      WHEN  (TRUNC(SYSDATE) - i.release_date) <= 30 OR
+ 31  		(TRUNC(SYSDATE) - i.release_date > 30) AND af.active_flag = 'N' THEN i.release_date
+ 32  		ELSE  i.release_date + 31
+ 33  		   END AS start_date
+ 34  	  ,	   CASE
+ 35  		     WHEN (TRUNC(SYSDATE) - i.release_date > 30)  AND af.active_flag = 'N' THEN i.release_date + 30
+ 36  		   END AS end_date
+ 37  	  ,	   CASE
+ 38  		     WHEN (TRUNC(SYSDATE) - i.release_date <= 30)  THEN
+ 39  		CASE
+ 40  		     WHEN dr.rental_days = 1 THEN 3
+ 41  		     WHEN  dr.rental_days = 3 THEN 10
+ 42  		     WHEN  dr.rental_days = 5 THEN 15
+ 43  		 END
+ 44  	     WHEN (TRUNC(SYSDATE) - i.release_date > 30)  AND af.active_flag = 'N' THEN
+ 45  	     CASE
+ 46  		WHEN  dr.rental_days = 1 THEN 3
+ 47  		WHEN  dr.rental_days = 3 THEN 10
+ 48  		WHEN  dr.rental_days = 5 THEN 15
+ 49  		END
+ 50  	     ELSE
+ 51  		CASE
+ 52  		 WHEN dr.rental_days = 1 THEN 1
+ 53  		 WHEN dr.rental_days = 3 THEN 3
+ 54  		 WHEN dr.rental_days = 5 THEN 5
+ 55  	       END
+ 56  		 END AS amount
+ 57  	  , (SELECT su.system_user_id
+ 58  	  FROM	 system_user su
+ 59  	  WHERE  su.system_user_name = 'DBA1') AS created_by
+ 60  	  ,(TRUNC(SYSDATE)) creation_date
+ 61  	  ,(SELECT su.system_user_id
+ 62  	  FROM	 system_user su
+ 63  	  WHERE  su.system_user_name = 'DBA1') AS last_updated_by
+ 64  	  ,(TRUNC(SYSDATE)) AS last_update_date
+ 65  	  FROM	   item i CROSS JOIN
+ 66  		  (SELECT 'Y' AS active_flag FROM dual
+ 67  		   UNION ALL
+ 68  		   SELECT 'N' AS active_flag FROM dual) af CROSS JOIN
+ 69  		  (SELECT '1' AS rental_days FROM dual
+ 70  		   UNION ALL
+ 71  		   SELECT '3' AS rental_days FROM dual
+ 72  		   UNION ALL
+ 73  		   SELECT '5' AS rental_days FROM dual) dr INNER JOIN
+ 74  		   common_lookup cl ON dr.rental_days = SUBSTR(cl.common_lookup_type,1,1)
+ 75  	  WHERE    cl.common_lookup_table = 'PRICE'
+ 76  	  AND	   cl.common_lookup_column = 'PRICE_TYPE'
+ 77  	  AND NOT (af.active_flag = 'N' AND (TRUNC(SYSDATE) - 30) < i.release_date)));
+
+135 rows created.
+
+SQL> 
+SQL> 
+SQL> 
+SQL> --Use this Query to verify step 1 --
+SQL> SELECT  'OLD Y' AS "Type"
+  2  ,	      COUNT(CASE WHEN amount = 1 THEN 1 END) AS "1-Day"
+  3  ,	      COUNT(CASE WHEN amount = 3 THEN 1 END) AS "3-Day"
+  4  ,	      COUNT(CASE WHEN amount = 5 THEN 1 END) AS "5-Day"
+  5  ,	      COUNT(*) AS "TOTAL"
+  6  FROM     price p , item i
+  7  WHERE    active_flag = 'Y' AND i.item_id = p.item_id
+  8  AND     (TRUNC(SYSDATE) - TRUNC(i.release_date)) > 30
+  9  AND      end_date IS NULL
+ 10  UNION ALL
+ 11  SELECT  'OLD N' AS "Type"
+ 12  ,	      COUNT(CASE WHEN amount =	3 THEN 1 END) AS "1-Day"
+ 13  ,	      COUNT(CASE WHEN amount = 10 THEN 1 END) AS "3-Day"
+ 14  ,	      COUNT(CASE WHEN amount = 15 THEN 1 END) AS "5-Day"
+ 15  ,	      COUNT(*) AS "TOTAL"
+ 16  FROM     price p , item i
+ 17  WHERE    active_flag = 'N' AND i.item_id = p.item_id
+ 18  AND     (TRUNC(SYSDATE) - TRUNC(i.release_date)) > 30
+ 19  AND NOT end_date IS NULL
+ 20  UNION ALL
+ 21  SELECT  'NEW Y' AS "Type"
+ 22  ,	      COUNT(CASE WHEN amount =	3 THEN 1 END) AS "1-Day"
+ 23  ,	      COUNT(CASE WHEN amount = 10 THEN 1 END) AS "3-Day"
+ 24  ,	      COUNT(CASE WHEN amount = 15 THEN 1 END) AS "5-Day"
+ 25  ,	      COUNT(*) AS "TOTAL"
+ 26  FROM     price p , item i
+ 27  WHERE    active_flag = 'Y' AND i.item_id = p.item_id
+ 28  AND     (TRUNC(SYSDATE) - TRUNC(i.release_date)) < 31
+ 29  AND      end_date IS NULL
+ 30  UNION ALL
+ 31  SELECT  'NEW N' AS "Type"
+ 32  ,	      COUNT(CASE WHEN amount = 1 THEN 1 END) AS "1-Day"
+ 33  ,	      COUNT(CASE WHEN amount = 3 THEN 1 END) AS "3-Day"
+ 34  ,	      COUNT(CASE WHEN amount = 5 THEN 1 END) AS "5-Day"
+ 35  ,	      COUNT(*) AS "TOTAL"
+ 36  FROM     price p , item i
+ 37  WHERE    active_flag = 'N' AND i.item_id = p.item_id
+ 38  AND     (TRUNC(SYSDATE) - TRUNC(i.release_date)) < 31
+ 39  AND      NOT (end_date IS NULL);
+
+Type       1-Day      3-Day      5-Day      TOTAL                               
+----- ---------- ---------- ---------- ----------                               
+OLD Y         21         21         21         63                               
+OLD N         21         21         21         63                               
+NEW Y          3          3          3          9                               
+NEW N          0          0          0          0                               
+
+4 rows selected.
+
+SQL> 
+SQL> 
+SQL> /* --it should display--
+> Type	     1-Day	3-Day	   5-Day      TOTAL
+SQL> ----- ---------- ---------- ---------- ----------
+SQL> OLD Y	   21	      21	 21	    63
+SQL> OLD N	   21	      21	 21	    63
+SQL> NEW Y	    3	       3	  3	     9
+SQL> NEW N	    0	       0	  0	     0
+SQL> 
+SQL> 4 rows selected. */
+SQL> 
+SQL> -- --------------------------------------------------------
+SQL> --  Step #2
+SQL> --  -------
+SQL> --  Add a NOT NULL constraint on the PRICE_TYPE column
+SQL> --  of the PRICE table.
+SQL> -- --------------------------------------------------------
+SQL> 
+SQL> -- Insert step #2 statements here.
+SQL> --You should add the NOT NULL constraint to the PRICE_TYPE column of the PRICE table.--
+SQL> 
+SQL> ALTER TABLE PRICE
+  2  MODIFY (PRICE_TYPE NUMBER CONSTRAINT NN_price_9 NOT NULL);
+
+Table altered.
+
+SQL> 
+SQL> COLUMN CONSTRAINT FORMAT A10
+SQL> SELECT   TABLE_NAME
+  2  ,	      column_name
+  3  ,	      CASE
+  4  		WHEN NULLABLE = 'N' THEN 'NOT NULL'
+  5  		ELSE 'NULLABLE'
+  6  	      END AS CONSTRAINT
+  7  FROM     user_tab_columns
+  8  WHERE    TABLE_NAME = 'PRICE'
+  9  AND      column_name = 'PRICE_TYPE';
+
+TABLE NAME   COLUMN NAME        CONSTRAINT                                      
+------------ ------------------ ----------                                      
+PRICE        PRICE_TYPE         NOT NULL                                        
+
+1 row selected.
+
+SQL> 
+SQL> /* It should display the following results for a not null constrained column:
+SQL> 
+SQL> TABLE_NAME     COLUMN_NAME 	   CONSTRAINT
+SQL> -------------- ---------------------- ----------
+SQL> PRICE	    PRICE_TYPE		   NOT NULL
+SQL> 
+SQL> 1 row selected.*/
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> 
+SQL> -- --------------------------------------------------------
+SQL> --  Step #3
+SQL> --  -------
+SQL> --  Update the RENTAL_ITEM_PRICE column with valid price
+SQL> --  values in the RENTAL_ITEM table.
+SQL> -- --------------------------------------------------------
+SQL> 
+SQL> 
+SQL> -- Insert step #3 statements here.
+SQL> 
+SQL> UPDATE   rental_item ri
+  2  SET      rental_item_price =
+  3  	       (SELECT	 p.amount
+  4  		FROM	 price p INNER JOIN common_lookup cl1
+  5  		ON	 p.price_type = cl1.common_lookup_id CROSS JOIN rental r
+  6  			 CROSS JOIN common_lookup cl2
+  7  		WHERE	 p.item_id = ri.item_id
+  8  		AND	 ri.rental_id = r.rental_id
+  9  		AND	 ri.rental_item_type = cl2.common_lookup_id
+ 10  		AND	 cl1.common_lookup_code = cl2.common_lookup_code
+ 11  		AND	 r.check_out_date
+ 12  			  BETWEEN  p.start_date AND NVL(p.end_date,TRUNC(SYSDATE) + 1));
+
+13 rows updated.
+
+SQL> 
+SQL> --You can confirm you’ve updated the correct rows with the following query, which implements the complete logic required of a successful UPDATE statement:--
+SQL> 
+SQL> --query--
+SQL> -- Widen the display console.
+SQL> SET LINESIZE 110
+SQL> 
+SQL> -- Set the column display values.
+SQL> COL customer_name		FORMAT A20  HEADING "Contact|--------|Customer Name"
+SQL> COL contact_id		FORMAT 9999 HEADING "Contact|--------|Contact|ID #"
+SQL> COL customer_id		FORMAT 9999 HEADING "Rental|--------|Customer|ID #"
+SQL> COL r_rental_id		FORMAT 9999 HEADING "Rental|------|Rental|ID #"
+SQL> COL ri_rental_id		FORMAT 9999 HEADING "Rental|Item|------|Rental|ID #"
+SQL> COL rental_item_id 	FORMAT 9999 HEADING "Rental|Item|------||ID #"
+SQL> COL price_item_id		FORMAT 9999 HEADING "Price|------|Item|ID #"
+SQL> COL rental_item_item_id	FORMAT 9999 HEADING "Rental|Item|------|Item|ID #"
+SQL> COL rental_item_price	FORMAT 9999 HEADING "Rental|Item|------||Price"
+SQL> COL amount 		FORMAT 9999 HEADING "Price|------||Amount"
+SQL> COL price_type_code	FORMAT 9999 HEADING "Price|------|Type|Code"
+SQL> COL rental_item_type_code	FORMAT 9999 HEADING "Rental|Item|------|Type|Code"
+SQL> SELECT   c.last_name||', '||c.first_name
+  2  ||       CASE
+  3  		WHEN c.middle_name IS NOT NULL THEN ' '||c.middle_name
+  4  	      END AS customer_name
+  5  ,	      c.contact_id
+  6  ,	      r.customer_id
+  7  ,	      r.rental_id AS r_rental_id
+  8  ,	      ri.rental_id AS ri_rental_id
+  9  ,	      ri.rental_item_id
+ 10  ,	      p.item_id AS price_item_id
+ 11  ,	      ri.item_id AS rental_item_item_id
+ 12  ,	      ri.rental_item_price
+ 13  ,	      p.amount
+ 14  ,	      TO_NUMBER(cl2.common_lookup_code) AS price_type_code
+ 15  ,	      TO_NUMBER(cl2.common_lookup_code) AS rental_item_type_code
+ 16  FROM     price p INNER JOIN common_lookup cl1
+ 17  ON       p.price_type = cl1.common_lookup_id
+ 18  AND      cl1.common_lookup_table = 'PRICE'
+ 19  AND      cl1.common_lookup_column = 'PRICE_TYPE' FULL JOIN rental_item ri
+ 20  ON       p.item_id = ri.item_id INNER JOIN common_lookup cl2
+ 21  ON       ri.rental_item_type = cl2.common_lookup_id
+ 22  AND      cl2.common_lookup_table = 'RENTAL_ITEM'
+ 23  AND      cl2.common_lookup_column = 'RENTAL_ITEM_TYPE' RIGHT JOIN rental r
+ 24  ON       ri.rental_id = r.rental_id FULL JOIN contact c
+ 25  ON       r.customer_id = c.contact_id
+ 26  WHERE    cl1.common_lookup_code = cl2.common_lookup_code
+ 27  AND      r.check_out_date
+ 28  BETWEEN  p.start_date AND NVL(p.end_date,TRUNC(SYSDATE) + 1)
+ 29  ORDER BY 2, 3;
+
+                                              Rental Rental        Rental Rental               Rental         
+                      Contact   Rental Rental   Item   Item  Price   Item   Item  Price  Price   Item         
+Contact              -------- -------- ------ ------ ------ ------ ------ ------ ------ ------ ------         
+--------              Contact Customer Rental Rental          Item   Item                 Type   Type         
+Customer Name            ID #     ID #   ID #   ID #   ID #   ID #   ID #  Price Amount   Code   Code         
+-------------------- -------- -------- ------ ------ ------ ------ ------ ------ ------ ------ ------         
+Winn, Brian              1002     1002   1005   1005   1008   1007   1007      5      5      5      5         
+Winn, Brian              1002     1002   1005   1005   1009   1001   1001      5      5      5      5         
+Vizquel, Oscar           1003     1003   1001   1001   1003   1005   1005      5      5      5      5         
+Vizquel, Oscar           1003     1003   1001   1001   1002   1004   1004      5      5      5      5         
+Vizquel, Oscar           1003     1003   1001   1001   1001   1002   1002      5      5      5      5         
+Vizquel, Doreen          1004     1004   1002   1002   1005   1021   1021      5      5      5      5         
+Vizquel, Doreen          1004     1004   1002   1002   1004   1016   1016      5      5      5      5         
+Sweeney, Meaghan         1005     1005   1003   1003   1006   1019   1019      5      5      5      5         
+Sweeney, Ian M           1007     1007   1004   1004   1007   1014   1014      5      5      5      5         
+
+                                              Rental Rental        Rental Rental               Rental         
+                      Contact   Rental Rental   Item   Item  Price   Item   Item  Price  Price   Item         
+Contact              -------- -------- ------ ------ ------ ------ ------ ------ ------ ------ ------         
+--------              Contact Customer Rental Rental          Item   Item                 Type   Type         
+Customer Name            ID #     ID #   ID #   ID #   ID #   ID #   ID #  Price Amount   Code   Code         
+-------------------- -------- -------- ------ ------ ------ ------ ------ ------ ------ ------ ------         
+Potter, Harry            1013     1013   1006   1006   1011   1005   1005      1      1      1      1         
+Potter, Harry            1013     1013   1006   1006   1010   1022   1022      3      3      1      1         
+Potter, Ginny            1014     1014   1007   1007   1012   1023   1023     10     10      3      3         
+Potter, Lily Luna        1015     1015   1008   1008   1013   1024   1024     15     15      5      5         
+
+13 rows selected.
+
+SQL> 
+SQL> -- Reset the column display values to their default value.
+SQL> SET LINESIZE 80
+SQL> 
+SQL> /* Step 3 should now DISPLAY
+SQL> Rental Rental	Rental Rental		    Rental
+SQL> 			   Contact   Rental Rental   Item   Item  Price   Item	 Item  Price  Price   Item
+SQL> Contact		  -------- -------- ------ ------ ------ ------ ------ ------ ------ ------ ------
+SQL> --------		   Contact Customer Rental Rental	   Item   Item		       Type   Type
+SQL> Customer Name	      ID #     ID #   ID #   ID #   ID #   ID #   ID #	Price Amount   Code   Code
+SQL> -------------------- -------- -------- ------ ------ ------ ------ ------ ------ ------ ------ ------
+SQL> Winn, Brian	      1002     1002   1005   1005   1008   1007   1007	    5	   5	  5	 5
+SQL> Winn, Brian	      1002     1002   1005   1005   1009   1001   1001	    5	   5	  5	 5
+SQL> Vizquel, Oscar	      1003     1003   1001   1001   1003   1005   1005	    5	   5	  5	 5
+SQL> Vizquel, Oscar	      1003     1003   1001   1001   1002   1004   1004	    5	   5	  5	 5
+SQL> Vizquel, Oscar	      1003     1003   1001   1001   1001   1002   1002	    5	   5	  5	 5
+SQL> Vizquel, Doreen	      1004     1004   1002   1002   1005   1021   1021	    5	   5	  5	 5
+SQL> Vizquel, Doreen	      1004     1004   1002   1002   1004   1016   1016	    5	   5	  5	 5
+SQL> Sweeney, Meaghan	      1005     1005   1003   1003   1006   1019   1019	    5	   5	  5	 5
+SQL> Sweeney, Ian M	      1007     1007   1004   1004   1007   1014   1014	    5	   5	  5	 5
+SQL> Potter, Harry	      1013     1013   1006   1006   1011   1022   1022	    1	   1	  1	 1
+SQL> Potter, Harry	      1013     1013   1006   1006   1010   1022   1022	    3	   3	  1	 1
+SQL> Potter, Ginny	      1014     1014   1007   1007   1012   1023   1023	   10	  10	  3	 3
+SQL> Potter, Lily Luna	      1015     1015   1008   1008   1013   1024   1024	   15	  15	  5	 5 */
+SQL> 
+SQL> -- --------------------------------------------------------
+SQL> --  Step #4
+SQL> --  -------
+SQL> --  Add a NOT NULL constraint on the RENTAL_ITEM_PRICE
+SQL> --  column of the RENTAL_ITEM table.
+SQL> -- --------------------------------------------------------
+SQL> 
+SQL> -- Insert step #4 statements here.
+SQL> --[4 points] Add a not null constraint to the RENTAL_ITEM_PRICE column of the RENTAL_ITEM table.--
+SQL> 
+SQL> ALTER TABLE RENTAL_ITEM
+  2  MODIFY (RENTAL_ITEM_PRICE NUMBER CONSTRAINT NN_rental_item_8 NOT NULL);
+
+Table altered.
+
+SQL> 
+SQL> COLUMN CONSTRAINT FORMAT A10
+SQL> SELECT   TABLE_NAME
+  2  ,	      column_name
+  3  ,	      CASE
+  4  		WHEN NULLABLE = 'N' THEN 'NOT NULL'
+  5  		ELSE 'NULLABLE'
+  6  	      END AS CONSTRAINT
+  7  FROM     user_tab_columns
+  8  WHERE    TABLE_NAME = 'RENTAL_ITEM'
+  9  AND      column_name = 'RENTAL_ITEM_PRICE';
+
+TABLE NAME   COLUMN NAME        CONSTRAINT                                      
+------------ ------------------ ----------                                      
+RENTAL_ITEM  RENTAL_ITEM_PRICE  NOT NULL                                        
+
+1 row selected.
+
+SQL> 
+SQL> /* it should display --
+> TABLE_NAME	 COLUMN_NAME		CONSTRAINT
+SQL> -------------- ---------------------- ----------
+SQL> RENTAL_ITEM    RENTAL_ITEM_PRICE	   NOT NULL
+SQL> 
+SQL> 1 row selected.*/
+SQL> 
+SQL> -- Close log file.
+SQL> SPOOL OFF

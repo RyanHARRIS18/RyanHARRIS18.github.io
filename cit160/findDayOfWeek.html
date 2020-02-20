@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>Chapter  assingments question 3</title>
+
+         <script>
+             "use strict";
+
+             /*last code 4
+                for (var i = 0; i <array.lenggth; i++){
+                array[i] = parseFloat(array[i])
+                } */
+
+             //defining table
+             //input: dat in yyy/mm/dd
+             //processing: create a date object, call getDay(), lookup the day name 
+             //output: name of cooresponding day of the week
+
+             
+            function findDay() {
+                // get day from the user
+                var input = document.getElementById("date").value;
+
+                //creat a date object
+                var date = new Date(input);
+
+                //get the day of the week as a number
+                var dayNumber = date.getDay();
+
+                var dayNames = [
+                    "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+                ];
+                var name = dayNames[dayNumber];
+
+                //Display dayiname for the user to see
+                document.getElementById("output").innerHTML = name;
+            }
+          
+ </script>
+</head>
+
+ <body>
+    enter date (YYYY/MM/DD) <input type="text" id="date">
+    <button type="button" onclick= "findDay()"> Day Of the Week </button><br>
+    <div id="output"></div>
+   
+    
+ </body>
+
+</html>
+
+
+
+

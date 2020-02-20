@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>Chapter  assignment question 3</title>
+
+         <script>
+             "use strict";
+
+             /*last code 4
+                for (var i = 0; i <array.lenggth; i++){
+                array[i] = parseFloat(array[i])
+                } */
+
+             //defining table
+             //input:hand - an array of cards
+             //processing:add all card value
+             //output: return total/sum of car value
+             //
+             function test() {
+
+                var dv = depreciation(28000, 26200, 12);
+                 // display for the user tooo see.
+             document.getElementById("output").innerHTML = dv;
+             }
+           
+
+           function depreciation(startValue, endValue, months) {
+             var d = ( startValue - endValue) / months;
+             d = Math.round(d * 100) /100 ;
+             return d;
+           }
+
+             
+ </script>
+</head>
+
+ <body>
+  
+    <button type="button" onclick= "test()"> test </button><br>
+    <div id="output"></div>
+   
+    
+ </body>
+
+</html>
+
+
+
+

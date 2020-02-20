@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>Multipy</title>
+
+            <script>
+               /*Defining table 
+               *input:Cost of the House
+               *processing: a SET OF IF STATEMENTS TO SELECT CORRECT CALCULATION 
+               
+               *output:Downpayement Amount
+               */
+              
+
+                function computeDownPayment() {
+                    // Get cost from the user
+                    var cost = parseFloat(document.getElementById("cost").value);
+                
+                if(isNaN(cost)) {
+                    document.getElementById("output").innerHTML = "Please enter a number";
+                }
+                   else { 
+                         //compute downpayement
+                            var downPayment;
+                             if (cost < 50000.00) {
+                             downPayement = cost*0.05;   
+                           }
+                             else if (cost < 100000.00){
+                                downPayment= 2000 + (0.10 * (cost - 500000));
+                             }
+
+                             else if (cost < 200000.00){
+                               downPayment = 7500 + (0.20 * (cost -100000));
+                             }
+
+                             else {
+                              downPayment = 27500 + (0.25 * (cost - 200000));
+                             }
+
+                         }
+
+                     //display product for the user to see
+                      document.getElementById("output").innerHTML = downPayment;
+            
+                }
+
+                
+            </script>
+
+         </head>
+
+         <body>
+
+             
+             House Cost <input type="text" id="cost"> <br>
+             <button type="button" onclick= "computeDownPayment()">Down Payment</button>
+            <div id="output"></div>
+            
+
+         </body>
+
+</html>

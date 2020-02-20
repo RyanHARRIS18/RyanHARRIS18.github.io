@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Heart Rate</title>
+<script>
+/* Defining Table
+ * Input: Users Age
+ * Processing: (220-age)= x       
+  min slowest = x*0.65       
+  max fastest = x*0.85
+ * Output: 2 numbers; slowest: 65% of max and fatest: 85% of max benifical heart rates
+ */
+function beneficalHeartRates() {
+    // Get the Users age.
+    var age = parseInt(document.getElementById("age").value);
+
+    // compute the slowest and fastest benificial heart rates
+    var max = 220 - age;
+    var slowest = max * 0.65;
+    var fastest = max * 0.85;
+
+    //display the benifical rate for the user to see.
+    document.getElementById("output1").innerHTML = slowest; + " beats per minute";
+    document.getElementById("output2").innerHTML = fastest; + " beats per minute";
+
+    // just one div
+   var message = "slowest "+ Math.round(slowest)+ "beast per minute <br>" +
+    "fastest" + Math.round(fastest) + "beats per minute"
+
+
+  
+}
+</script>
+</head>
+
+<body>      
+    <p> Please enter your age:<input type="text" id="age" size="3"></p>                                
+    <button type="button" onclick="beneficalHeartRates()">Your best Heart Rate</button>
+    <div id ="output1"></div>
+    <div id ="output2"></div>
+</body>
+</html>

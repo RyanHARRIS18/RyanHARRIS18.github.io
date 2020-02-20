@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+        <head>
+            
+         <meta charset="utf-8">
+         
+         <title>Chapter 9 assingments question 1</title>
+
+         <script>
+
+             //input: rate, principle. periods, and years from user
+             //processing: use intrest formula
+             //output Future Value of an Investment
+
+function doFV() {
+        var i = parseFloat(document.getElementById("i").value);
+        var r = parseFloat(document.getElementById("r").value);
+        var n = parseFloat(document.getElementById("n").value);
+        var p = parseFloat(document.getElementById("p").value);
+
+       var answer = computeFutureValue(i, r, n, p) 
+       var answer = (Math.round( answer * 100)) / 100 ;
+
+       document.getElementById("output").innerHTML = "$" + answer;
+}
+ 
+
+    function computeFutureValue(principal, growthRate, years, periodsPerYear) { 
+        //f = a (1 + r)n
+//where f is the future value, a is the investment amount sometimes called the principal, 
+// r is the growth rate per period, and 
+//n is the total number of periods throughout the life of the investment
+
+       var numofPeriods = years * periodsPerYear
+       var rate = ( 1 + growthRate / periodsPerYear)
+       var total = Math.pow(rate, numofPeriods)
+       var f = principal * total
+
+            return f
+            }
+
+ 
+
+ </script>
+</head>
+
+     
+
+ <body>
+    Amount invested (principal)<input type="text" id="i" size="5"><br>
+    Annual rate (example: .08)<input type="text" id="r" size="5"> <br>
+   Number of Years<input type="text" id="n" size="5"><br>
+   Periods per Year<input type="text" id="p" size="5"> <br>    
+    <button type="button" onclick= "doFV()">Compute future value</button><br>
+    <div id="output"></div>
+    
+ </body>
+
+</html>

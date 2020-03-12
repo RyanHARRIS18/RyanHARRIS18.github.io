@@ -18,14 +18,27 @@
 <body class="webFrontEnd-bod">
     
     <section class="opening">
-    <h1> PowerShell </h1>
-    <p>HTML / JavaScript / CSS</p>
+    <h1> PowerShell / Bash </h1>
+
+   
+    <ul class="navigation-bar-ul">
+        <li class="navigation-bar-li"><a href="./resumev2.html">Home</a></li>
+        <li class="navigation-bar-li"><a href="./webFrontEnd.html">Web</a></li>
+        <li class="navigation-bar-li"><a href="./Java.html">Java</a></li>
+        <li class="navigation-bar-li"><a href="./databases.html">Databases</a></li>
+        <li class="navigation-bar-li"><a class="active" href="./powershell.html">Powershell</a></li>
+        <li class="navigation-bar-li"><a href="./dotNet.html">.NET / C#</a></li>
+        <li class="navigation-bar-li"><a href="./adobe.html">Adobe</a></li>
+        <li class="navigation-bar-li"><a href="./threeD.html">3d Designs</a></li>
+        <li class="navigation-bar-li"><a href="trello.html">Project Management</a></li>
+      </ul>
+
 
     <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Resume</span>
     </section>
           <!-- Intro -->
     <div class="intro">
-    <h2>PowerShell Code</h2>
+    <h2>Scripting</h2>
     <p>Here are just a few of the programs I have written in PowerShell</p>
     </div>
           <!-- Useful scripts to showcase -->
@@ -53,7 +66,7 @@
         <button class="tablinks" onclick="openCity(event, 'netID')">Network Utilities: Determine Network ID</button>
         <button class="tablinks" onclick="openCity(event, 'sameNet')">Network Utilities: Are 2 IP's on same network?</button>
         <button class="tablinks" onclick="openCity(event, 'hopCount')">Network Utilities: Hop Count</button>
-        <button class="tablinks" onclick="openCity(event, 'findIt')">Find a File</button>
+        <button class="tablinks" onclick="openCity(event, 'users')">Bash: User Management Script</button>
 
     </div>
     <br>
@@ -427,17 +440,173 @@
     
 
     <!-- # 9-->
-        <div id="findIt" class="tabcontent">   
-            <p><a href="https://stackoverflow.com/questions/3428044/powershell-script-to-locate-specific-file-file-name/3428113">I use this script often, I found it on this post   </a></p> 
+        <div id="users" class="tabcontent">   
+            <p><a href="https://stackoverflow.com/questions/3428044/powershell-script-to-locate-specific-file-file-name/3428113">Linux Bash Script for User Management  </a></p> 
              <textarea class="codeBox" rows="20" cols="60">
-                 function findit
-                 {
-                 $filename = $args[0];
-                 gci -recurse -filter "*${filename}*" -file -ErrorAction SilentlyContinue | foreach-object {
-                     $file_location = $_.directory
-                     echo "${file_location}\${_}"
-                     }
-                 }
+                #! /bin/bash
+                #
+                #
+                
+                # Author: Ryan
+                # a|A #
+                    function add_user () {
+                    #!/bin/bash
+                    # Script to add a user to Linux system        
+                   
+                #     read -p "Enter username : " username
+                #     read -s -p "Enter password : " password
+                      echo "--------------------------"
+                    ls /home
+                    echo "---------------------------"
+                   
+                        egrep -i "^useraccount:" /etc/passwd;
+                        if [ $? -eq 0 ]; then
+                        echo "User $1 Already Exists"
+                       
+                        else
+                        echo "Adding User $1..."
+                         useradd -m -p $2 $1
+                            [ $? -eq 0 ] && echo "User $1 has been added to system!" || echo "Failed to add $1 user!"
+                        fi
+                       
+                      echo "--------------------------"
+                      ls /home
+                      echo "---------------------------"
+                    }
+                
+                
+                
+                # Author: Ryan
+                #d|D#
+                    function delete_user() {
+                 
+                    echo "--------------------------"
+                    ls /home
+                    echo "---------------------------"
+                   
+                   
+                        egrep -i "^useraccount:" /etc/passwd;
+                        if [ $? -eq 0 ]; then
+                        echo "User $1 does not Exists"
+                        else
+                        echo "Deleting user $1 from system..."
+                        fi
+                        userdel -r $1
+                        [ $? -eq 0 ] && echo "User $1 been deleted from system!" || echo "Failed to delete a user!"
+                    echo "List of Users"
+                    echo "--------------------------"
+                    ls /home
+                    echo "---------------------------"
+                    }  
+                   
+                # Author: Ryan
+                # h|H #
+                    function print_usage() {
+                    echo -e "Usage: myuser.sh -a <login> <passwd> <shell> - add a user account
+                    myuser.sh -d <login> - remove a user account
+                    myuser.sh -f <file> - add user accounts from file <file>
+                    myuser.sh -F <file> - remove user accounts from file <file>
+                    myuser.sh -h - display this usage message
+                    myuser.sh -s <login> <shell> - change the shell to <shell> for
+                    <login>-->\c"
+                    }
+                
+                
+                # Author:
+                #s|S#
+                    function change_shell() {
+                    egrep -i "^useraccount:" /etc/passwd;
+                    if [ $? -eq 0 ]; then
+                     echo "User does not Exist"
+                    
+                    elses
+                    echo "User $1 Exists"
+                    echo "Switching $1 and shell to $2"
+                    usermod --shell $2 $1
+                    fi
+                    }
+                    
+                s
+                # Author:
+                # f
+                function add_user_from_file () {
+                echo "add user from file"
+                }
+                
+                # Author:
+                # F
+                function delete_user_from_file () {
+                echo "--------deleting user from file------"
+                }
+                
+                # Author:
+                # function validate_file () {
+                # echo "validate file"
+                # }
+                
+                # Author: Ryan
+                function parse_command_options () {
+                
+                case $1 in
+                ##########################################################
+                -a|-A )
+                echo "-------Adding User Account (a)--------"
+                
+                add_user "$2" "$3"
+                ;;
+                
+                ##########################################################
+                -d|-D )
+                echo "-------Remove a User Account(d)-------"
+                delete_user "$2"
+                ;;
+                
+                ##########################################################
+                # f )
+                #         echo "Add a User From a File (f)"
+                # add_user_from_file
+                # ;;
+                
+                ####################################################
+                # F )
+                #         echo "Remove user accounts from a File (F)"
+                # delete_user_from_file
+                # ;;
+                
+                ##########################################################
+                -h|-H )
+                        echo "Display usage message (h)"
+                print_usage
+                ;;
+                
+                ##########################################################
+                -q|-Q )
+                        echo "Exiting, goodbye"
+                        exit
+                        ;;
+                ##########################################################
+                -s|-S )
+                echo "Change to another Shell"
+                change_shell "$2" "$3"
+                ;;
+                        #Quit (q)
+                ##########################################################
+                *) echo "ERROR: Invalid option: "
+                echo "Usage: myuser.sh -a <login> <passwd> <shell> - add a user account
+                    myuser.sh -d <login> - remove a user account
+                    myuser.sh -f <file> - add user accounts from file <file>
+                    myuser.sh -F <file> - remove user accounts from file <file>
+                    myuser.sh -h - display this usage message
+                    myuser.sh -s <login> <shell> - change the shell to <shell> for
+                    <login>-->\c"
+                sleep 4
+                ;;
+                esac
+                }
+                
+                
+                parse_command_options "$1" "$2" "$3" "$4"
+                
              </textarea> 
         </div>
      

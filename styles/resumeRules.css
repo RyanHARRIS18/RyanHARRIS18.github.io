@@ -278,3 +278,47 @@ h3 {
   text-align: right;
   margin-top: -2.25em;
 }
+
+.tech-xp{
+  text-align: left;
+  margin-left: 4em;
+}
+
+.navigation-bar-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #333; */
+  margin-bottom: 2em;
+  border-bottom-style: outset;
+  border-bottom-color: rgb(155, 155, 155);
+  border-bottom-width: 7px;
+}
+
+.navigation-bar-li {
+  float: left;
+  font-family: 'Abel', sans-serif;
+  font-size: 20px;
+}
+
+
+.navigation-bar-li  a {
+  display: block;
+  color: gray;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navigation-bar-li  a:hover:not(.active) {
+  color: red;
+}
+.active {
+  border-style: outset;
+  border-color: gray;
+  border-width: 1px;
+  border-style: outset;
+  border-color: gray;
+  border-width: 1px;
+}

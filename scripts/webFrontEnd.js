@@ -13,6 +13,20 @@ function openCity(evt, cityName) {
     evt.currentTarget.className += " active";
   }
 
+  // function codeBlock(evt, cityName) {
+  //   var i, blockContent, blockLinks;
+  //   blockContent = document.getElementsByClassName("blockContent");
+  //   for (i = 0; i < tabcontent.length; i++) {
+  //     blockContent[i].style.display = "none";
+  //   }
+  //   blockLinks = document.getElementsByClassName("blockLinks");
+  //   for (i = 0; i < blockLinks.length; i++) {
+  //     blockLinks[i].className = blockLinks[i].className.replace(" active", "");
+  //   }
+  //   document.getElementById(cityName).style.display = "block";
+  //   evt.currentTarget.className += " active";
+  // }
+
 
   // For the Resume Navigation
   function openNav() {

@@ -45,10 +45,10 @@
           </div> -->
     
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'theColorGame')">The Color Game</button>
-        <button class="tablinks" onclick="openCity(event, 'ipValidate')">Network Utilities: IP Validator</button>
+        <button class="tablinks" onclick="openCity(event, '12Days')">Twelve Days of Christmas: All Verses</button>
+        <button class="tablinks" onclick="openCity(event, 'movingColumns')">Migrating Data from Columns</button>
         <button class="tablinks" onclick="openCity(event, 'subNetValidate')">Network Utilities: Subnet Validator</button>
-        <button class="tablinks" onclick="openCity(event, 'dottedDecimal')">Network Utilities: Convert to Dotted Decimal Format</button>
+        <button class="tablinks" onclick="openCity(event, 'HarryLab')">Network Utilities: Convert to Dotted Decimal Format</button>
         <button class="tablinks" onclick="openCity(event, 'hostTest')">Network Utilities: ping Host/Client</button>
         <button class="tablinks" onclick="openCity(event, 'netID')">Network Utilities: Determine Network ID</button>
         <button class="tablinks" onclick="openCity(event, 'sameNet')">Network Utilities: Are 2 IP's on same network?</button>
@@ -58,208 +58,289 @@
     </div>
     <br>
     <!-- #1 -->
-        <div id="theColorGame" class="tabcontent">
+        <div id="12Days" class="tabcontent">
             <textarea class="codeBox" rows="20" cols="60">
-                #===================================================
-                # Program Name : Color
-                # Author: Ryan Harris
-                # I Ryan Harris wrote this script as original work completed by me.
-                # Special Feature: I ask for the users Name, I play audio to introduce the user and have background music. 
-                #===================================================
-                function IwantToPlayAGame(){
-                #1) Begin by playing Saw Audio of I wanna play a game
-                    $IE=new-object -com internetexplorer.application
-                    $IE.navigate2("https://www.youtube.com/watch?v=SH8wDkqA_50")
-                    $IE.visible=$false
-                    Start-Sleep -s 8
-                    $IE.quit()
-                # initialize counters# the count of times failed# count of rounds 
-                    $usersName = Read-Host "What is your name?"   
-                    $letTheGameBegin = Read-Host "Hello"  $usersName", I want to play a Game: Do you want to play? Y/N"
-                    $gameTotalTime = [system.diagnostics.stopwatch]::StartNew()
-                    $gameTable = @{
-                        "User Name" = $usersName;
-                        "Total Time (Minutes)" = $gameTotalTime.Elapsed.TotalMinutes;
-                        "Total Rounds" = 0; # of rounds played
-                        "Total Guesses" = 0;
-                        "Total Wins" = 0;
-                        "Average Round Time" = 0;
-                    }
-                    $roundWin = $false # initalize round win to false
-                    $roundsArray = @() # create rounds array to hold the round times
-                    $colorsTried = @() # creates colors array to hold the guessed colors of round
-                    $yesAnswers = 'yes','yeah', 'ok', 'sure', 'why not','y', 'yup','true', 'yep', 'ye' # ask for the user input Y: enter Game N: close Poweshell
-                   
-                #background Music opens in a window so user can close when they do want to hear it
-                        $IE=new-object -com internetexplorer.application
-                        $IE.navigate2("https://www.youtube.com/watch?v=EPzpqsdX26s")
-                        $IE.visible=$true
-                #this is the entire game while loop
-                while ($yesAnswers -contains $letTheGameBegin) {
-                    $RoundTotalTime = [system.diagnostics.stopwatch]::StartNew()
-                    $SystemColors = [System.Enum]::getvalues([System.ConsoleColor])  # intialize the random color
-                    $randomColorInt = Get-Random -Minimum 0 -Maximum 16
-                    $MyTrueColor = [string]($SystemColors[$randomColorInt])
-                    $showMyTrueColors = [String] $SystemColors
-                    $showMyTrueColors
-                    $stupidGuesses = $null
-                    $guess = Read-Host "What is my favorite Color?"  # ask to have user enter input
-                #this is the round while lop
-                    while ($roundWin -eq $false) {        
-                #wrong guess
-                        while($guess -notmatch $MyTrueColor){
-                            if ($SystemColors -notcontains $guess)
-                                    {Write-Host "Incorrect, that is not a listed  color."
-                                $stupidGuesses += ,$guess} # not a color
-                                else {
-                                write-Host ("Incorrect, " + $guess+ " is not my favorite color.") -ForegroundColor $guess
-                                $colorsTried+= , $guess}  # not correct color
-                                $gameTable."Total Guesses"++ # add to count of guesses
+                -- Call seeding libraries.
+                SET SERVEROUTPUT ON SIZE UNLIMITED
+                -- Enter your solution here.
+                 DECLARE 
                 
-                                "Your guesses so Far: " 
-                                for($i=0;$i -lt $colorsTried.count; $i++){
-                                   write-host $colorsTried[$i] -ForegroundColor $colorsTried[$i]
-                                }
-                                if($stupidGuesses -ne $null){
-                                    write-host  $stupidGuesses
-                                }
+                  TYPE Long IS TABLE OF varchar2(24);
+                  TYPE short is TABLE OF varchar2(8);
                 
-                                $continue = Read-Host $usersName", will you guess again? Y/N" 
-                                    #user was asked to continue and they said no
-                                    if($yesAnswers -notcontains $continue){
-                                        $roundWin = $null
-                                        $roundsArray += , $RoundTotalTime.Elapsed.TotalMinutes
-                                        $gameTable."Average Round Time" = [Math]::Round((($roundsArray | Measure-Object -Average).average), 4)
-                                        $gameTable."Total Rounds"++
-                                        $colorsTried = $null
-                                        $stupidGuesses = $null
-                                        break
-                                    } 
-                                $hint = Read-Host "Do you need a hint? Y/N"
-                                #user was asked if they needed a hint and they said yes
-                                    if(($MyTrueColor.substring(0,1) -like "D") -and ($yesAnswers -contains $hint)){
-                                        Write-Host $MyTrueColor.substring(0,5)
-                                    }
-                                    elseif ($yesAnswers -contains $hint) {
-                                        Write-Host $MyTrueColor.substring(0,1)
-                                    }  
-                                $guess = Read-Host "What is my favorite Color?"  # ask to have user enter input
-                        }       
-                        #that is my color
-                        if ($guess -eq $MyTrueColor) {
-                                $RoundTotalTime.Stop()
-                                $roundWin = $true
-                                $roundsArray += , $RoundTotalTime.Elapsed.TotalMinutes
-                                $gameTable."Total Guesses"++ # add to count of guesses
-                                $gameTable."Average Round Time" = [Math]::Round((($roundsArray | Measure-Object -Average).average), 4)
-                                $gameTable."Total Rounds"++
-                                $gameTable."Total Wins"++
-                                write-Host ("Correct, " + $MyTrueColor+ " is my favorite color.") -ForegroundColor $MyTrueColor
-                                $colorsTried = $null
-                                $stupidGuesses = $null
-                                break
-                        }
-                    }
-                        $gameTable
-                        $letTheGameBegin = Read-Host "Hello"  $usersName", I want to play a Game: Do you want to play? Y/N"
-                        $roundWin = $false # initalize round win to false
-                }
-                #this is what happens when the user no longer wants to play
-                       [int]($gameTable. "Total Time (Minutes)")
-                        $gameTable
-                        # The user may have closed the window if so dont throw an error
-                       try{ $IE.quit() }
-                       catch {}
-                        Exit-PSSession
-                    }    
-                IwantToPlayAGame
+                  lv_day_gift Long := Long('Partridge in a pear tree'
+                                            ,'Two Turtle doves'
+                                            , 'Three French hens'
+                                            , 'Four Calling birds'
+                                            ,'Five Golden rings'
+                                            ,'Six Geese a laying'
+                                            ,'Seven Swans a swimming'
+                                            ,'Eight Maids a milking'
+                                            ,'Nine Ladies dancing'
+                                            ,'Ten Lords a leaping'
+                                            ,'Eleven Pipers piping'
+                                            ,'Twelve Drummers drumming');
+                                              
+                     lv_days short := short( 'First'
+                                            ,'Second'
+                                            ,'Third'
+                                            ,'Fourth'
+                                            ,'Fifth'
+                                            ,'Sixth'
+                                            ,'Seventh'
+                                            ,'Eighth'
+                                            ,'nineth'
+                                            ,'tenth'
+                                            ,'eleventh'
+                                            ,'twelth');
+                    pre VARCHAR2(8) :='';
+
+                BEGIN
+                     FOR i IN 1..lv_days.LAST LOOP
+                    dbms_output.put_line('On the ' ||lv_days(i)|| ' day of Christmas');
+                    dbms_output.put_line(' my true love sent to me:');
+                    FOR j IN REVERSE 1..i LOOP
+                        IF j= 1 THEN
+                        IF i = 1 THEN
+                        pre := 'A ';
+                        ELSE 
+                        pre := ' and a ';
+                        END IF;
+                        ELSE
+                        pre := '';
+                        END IF;
+                        dbms_output.put_line('-'||pre||lv_day_gift(j));
+                        END LOOP;
+                        dbms_output.put_line(CHR(13));
+                  END LOOP;
+                END;
+                /
             </textarea> 
           </div>
     <!-- #2 -->
-        <div id="ipValidate" class="tabcontent">
+        <div id="movingColumns" class="tabcontent">
                 <textarea class="codeBox" rows="20" cols="60">
-                     #  .SYNOPSIS 
-                     #   Validate Ip address
-                     # .Description
-                     #   This Validates the IP address using the built in net.ipaddress commandlet
-                     # .Example
-                     # Validate '192.168.125.2' as a ip by returning true
-                     # validates that '256.256.256.256' is not a valid ip and returns false
-                       
-                       Function IsValidIP {
-                           param([string] $IPAddress="")
-                           try{
-                               $IP=[net.ipaddress]$IPAddress
-                           }
-                           catch{
-                               return $false
-                           }
-                               return $true
-                           }
+                    --You can create the new RATING_AGENCY table by using the data from the ITEM table,--
+                    CREATE TABLE rating_agency AS
+                    SELECT rating_agency_s.NEXTVAL AS rating_agency_id
+                    ,      il.item_rating AS rating
+                    ,      il.item_rating_agency AS rating_agency
+                    FROM  (SELECT DISTINCT
+                                  i.item_rating
+                           ,      i.item_rating_agency
+                           FROM   item i) il;
+                    
+                    SELECT rating_agency_id
+                    ,rating
+                    ,rating_agency
+                    FROM rating_agency; 
+            
+                    --Add a new RATING_AGENCY_ID column to the ITEM table.
+                    ALTER TABLE ITEM ADD (RATING_AGENCY_ID  NUMBER);
+                    
+                    --A SQL structure or composite object type, as qualified above--
+                    CREATE OR REPLACE TYPE rating_agency_obj is OBJECT
+                    ( rating_agency_id NUMBER
+                    , rating          VARCHAR2(8)
+                    , rating_agency   VARCHAR2(4));
+                    /
+                    
+                    --A SQL collection, as a table of the composite object type.
+                    CREATE OR REPLACE TYPE pl_rating_agency IS TABLE OF rating_agency_obj;
+                    /
+                    
+                    SET NULL ''
+                    COLUMN table_name   FORMAT A18
+                    COLUMN column_id    FORMAT 9999
+                    COLUMN column_name  FORMAT A22
+                    COLUMN data_type    FORMAT A12
+                    SELECT   table_name
+                    ,        column_id
+                    ,        column_name
+                    ,        CASE
+                               WHEN nullable = 'N' THEN 'NOT NULL'
+                               ELSE ''
+                             END AS nullable
+                    ,        CASE
+                               WHEN data_type IN ('CHAR','VARCHAR2','NUMBER') THEN
+                                 data_type||'('||data_length||')'
+                               ELSE
+                                 data_type
+                             END AS data_type
+                    FROM     user_tab_columns
+                    WHERE    table_name = 'ITEM'
+                    ORDER BY 2;
+                    
+                    --Implement your anonymous PL/SQL block to read the RATING_AGENCY reference cursor into a collection--
+                    DECLARE
+                    CURSOR c IS 
+                    SELECT rating_agency_id
+                    ,rating
+                    ,rating_agency
+                    FROM rating_agency; 
+                    
+                      lv_rating_agency PL_RATING_AGENCY := pl_rating_agency();
+                     
+                    BEGIN
+                      /* Implement assignment of variables inside a loop, which mimics
+                         how you would handle them if they were read from a cursor loop. */
+                         /*reads the cursor contents and assigns them to a local variable of the SQL collection data type.*/
+                         FOR i IN c LOOP
+                        lv_rating_agency.EXTEND;
+                        lv_rating_agency(lv_rating_agency.COUNT) := rating_agency_obj(i.rating_agency_id, i.rating, i.rating_agency);
+                      END LOOP;
+                      
+                    --updates the RATING_AGENCY_ID column in the item table by checking the ITEM_RATING and ITEM_RATING_AGENCY column values with the members of the collection’s composite object type.--
+                      FOR i IN 1..lv_rating_agency.COUNT LOOP
+                        UPDATE item SET rating_agency_id = lv_rating_agency(i).rating_agency_id
+                        WHERE item_rating = lv_rating_agency(i).rating
+                        AND item_rating_agency = lv_rating_agency(i).rating_agency;
+                      END LOOP;
+                         
+                    END;
+                    /
+                    
+                    SELECT   rating_agency_id
+                    ,        COUNT(*)
+                    FROM     item
+                    WHERE    rating_agency_id IS NOT NULL
+                    GROUP BY rating_agency_id
+                    ORDER BY 1;
+                    
+                    SPOOL OFF
+                    /
+                    
                 </textarea>  
             </div>
 
     <!-- #3 -->
     <div id="subNetValidate" class="tabcontent">
         <textarea class="codeBox" rows="20" cols="60">
-        #  .SYNOPSIS 
-        #    Validate Subnetmask address
-        #  .Description
-        #    This Validates the Subnet address using the built in net.ipaddress commandlet
-        #  .Example
-        #  Validate '255.255.0.0' as a subnet by returning true
-        #  validates that '256.256.256.256' is not a valid ip and returns false
-
-            Function IsValidSubnet {
-                param( [string]$SubnetMask="")
-                try {
-                $SubM =  [net.ipaddress] $SubnetMask
-                } catch {
-                return $false
-                }
-                return $true
-                }
+            /*
+            ||  Name:          Ryan Harris
+                            apply_plsql_lab7.sql ?
+    
         </textarea>  
     </div>
 
     <!-- #4 -->
-    <div id="dottedDecimal" class="tabcontent">   
+    <div id="HarryLab" class="tabcontent">   
     <textarea class="codeBox" rows="20" cols="60">
-                #   .SYNOPSIS 
-                #     Converts to Dotted Decimal Notation
-                #   .Description
-                #    This changes the input from the user that is a cidr to dotted decimal. It first removes the '/' if it has one then creates a 
-                #    local array acts as a comparision 
-                #
-                #   .Example
-                #   Validate '192.168.125.2' as a ip by returning true
-                #   validates that '256.256.256.256' is not a valid ip and returns false
-                #
-                    Function convertToDD($SubnetMask) {
-                        #take away the / if there was one
-                        $SubnetMask = $SubnetMask -replace '/', ''
-                        #  $SubnetMask = $SubnetMask -replace '\', ''
-                        if(([int]$SubnetMask) -le 32) {
-                            [Int[]]$totalBits = (1..32)
-                            # Creat binary number
-                                for($i=0;$i -lt $totalBits.length;$i++){
-                                    if($totalBits[$i] -gt $SubnetMask){$totalBits[$i]="0"}else{$totalBits[$i]="1"}
-                                }
-                            $SubnetMask = $totalBits -join ""
-                            # creat 4 octets
-                            $octetArray = @($SubnetMask.Substring(0,8), $SubnetMask.Substring(8,8), $SubnetMask.Substring(16,8), $SubnetMask.Substring(24,8))
-                                
-                            #! Counts octets so it can add a "." after each octet except the last.
-                            $octetArray | foreach { 
-                                $counter++
-                                [string]$newSub += [convert]::ToInt32($_,2)
-                                if($counter -lt 4) {[string]$newSub += "."}
-                            }
-                            return $newSub  
-                        }
-                    }
+              
+-- Call seeding libraries from within the following file.
+@$CIT/lab/tutorial/file_list.sql
+-- Open log file.
+SPOOL apply_plsql_lab9.txt
+-- ... insert your solution here ...
+
+-- Fix titles
+UPDATE item
+SET    item_title = 'Harry Potter and the Sorcerer''s Stone'
+WHERE  item_title = 'Harry Potter and the Sorcer''s Stone';
+
+-- 1.ADD COLUMN text_file_name TO ITEM TABLE
+ALTER TABLE item
+ADD (text_file_name  varchar2(45));
+
+COL text_file_name  FORMAT A16
+COL item_title      FORMAT A42
+SELECT   DISTINCT
+         text_file_name
+,        item_title
+FROM     item i INNER JOIN common_lookup cl
+ON       i.item_type = cl.common_lookup_id
+WHERE    REGEXP_LIKE(i.item_title,'^.*'||'Harry'||'.*$')
+AND      cl.common_lookup_table = 'ITEM'
+AND      cl.common_lookup_column = 'ITEM_TYPE'
+AND      REGEXP_LIKE(cl.common_lookup_type,'^(dvd|vhs).*$','i')
+ORDER BY i.item_title;
+
+--2.update the physicsal names of the files to the right rows
+
+UPDATE item i
+SET    i.text_file_name = 'HarryPotter1.txt'
+WHERE  i.item_title LIKE '%Sorcerer''s Stone%';
+
+UPDATE item i
+SET    i.text_file_name = 'HarryPotter2.txt'
+WHERE  i.item_title LIKE '%Chamber of Secrets%';
+
+UPDATE item i
+SET    i.text_file_name = 'HarryPotter3.txt'
+WHERE  i.item_title LIKE '%Prisoner of Azkaban%';
+
+UPDATE item i
+SET    i.text_file_name = 'HarryPotter4.txt'
+WHERE  i.item_title LIKE '%Goblet of Fire%';
+
+UPDATE item i
+SET    i.text_file_name = 'HarryPotter5.txt'
+WHERE  i.item_title LIKE '%Order of the Phoenix%';
+
+
+COL text_file_name  FORMAT A16
+COL item_title      FORMAT A42
+SELECT   DISTINCT
+         text_file_name
+,        item_title
+FROM     item i INNER JOIN common_lookup cl
+ON       i.item_type = cl.common_lookup_id
+WHERE    REGEXP_LIKE(i.item_title,'^.*'||'Harry'||'.*$')
+AND      cl.common_lookup_table = 'ITEM'
+AND      cl.common_lookup_column = 'ITEM_TYPE'
+AND      REGEXP_LIKE(cl.common_lookup_type,'^(dvd|vhs).*$','i')
+ORDER BY i.text_file_name;
+
+
+--3. modify the anonymous block to return item id and text file name
+-- Create upload_item_description procedure
+CREATE OR REPLACE PROCEDURE upload_item_description
+( pv_item_title     IN VARCHAR2 ) IS
+ 
+ -- Declare a cursor to find a all titles from the item table. 
+ CURSOR c IS
+   SELECT item_id
+   ,      text_file_name
+   FROM   item
+   WHERE  UPPER(item_title) LIKE '%'||UPPER(pv_item_title)||'%';
+
+BEGIN
+  -- Read the cursor and load one large text file to each row.
+  FOR i IN c LOOP
+    load_clob_from_file( src_file_name     => i.text_file_name
+                       , table_name        => 'ITEM'
+                       , column_name       => 'ITEM_DESC'
+                       , primary_key_name  => 'ITEM_ID'
+                       , primary_key_value => TO_CHAR(i.item_id) );
+  END LOOP;
+
+END upload_item_description;
+/
+-- Run procedure
+--test cases
+EXECUTE upload_item_description('Harry Potter');
+COL item_id     FORMAT 9999
+COL item_title  FORMAT A44
+COL text_size   FORMAT 999,999
+SET PAGESIZE 99
+SELECT   item_id
+,        item_title
+,        LENGTH(item_desc) AS text_size
+FROM     item
+WHERE    REGEXP_LIKE(item_title,'^Harry Potter.*$')
+AND      item_type IN
+          (SELECT common_lookup_id 
+           FROM   common_lookup 
+           WHERE  common_lookup_table = 'ITEM' 
+           AND    common_lookup_column = 'ITEM_TYPE'
+           AND    REGEXP_LIKE(common_lookup_type,'^(dvd|vhs).*$','i'))
+ORDER BY item_id;
+-- Close log file.
+SPOOL OFF
+EXECUTE upload_item_description('Harry Potter');
     </textarea>  
     </div>
+    
      <!-- #5 -->
      <div id="hostTest" class="tabcontent">   
         <textarea class="codeBox" rows="20" cols="60">
